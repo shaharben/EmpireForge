@@ -141,6 +141,28 @@ class UnitTurnManager(val unit: MapUnit) {
         unit.attacksThisTurn = 0
         unit.due = true
 
+        // Fix for units ending up on the same hex due to edge cases in combat resolution
+        // or triggered uniques spawning units. Detect and resolve stacking violations early
+        // to prevent crashes during turn processing.
+        if (unit.isMilitary() && !unit.baseUnit.movesLikeAirUnits
+            && unit.currentTile.militaryUnit != null && unit.currentTile.militaryUnit != unit) {
+            // Another military unit already occupies this tile's militaryUnit slot, meaning
+            // this unit is orphaned on the tile. Find a nearby tile for this unit.
+            val nearbyTile = unit.currentTile.neighbors
+                .firstOrNull { unit.movement.canMoveTo(it) && it.getOwner()?.isAtWarWith(unit.civ) != true }
+            if (nearbyTile != null) {
+                // We can't use standard removeFromTile/putInTile since the tile doesn't
+                // reference us as its militaryUnit. Directly place in the new tile.
+                nearbyTile.militaryUnit = unit
+                unit.currentTile = nearbyTile
+                unit.moveThroughTile(nearbyTile)
+                unit.cache.updateUniques()
+            } else {
+                unit.destroy()
+            }
+            if (unit.isDestroyed) return
+        }
+
         for (unique in unit.getTriggeredUniques(UniqueType.TriggerUponTurnStart))
             UniqueTriggerActivation.triggerUnique(unique, unit)
 

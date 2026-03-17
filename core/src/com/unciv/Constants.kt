@@ -126,9 +126,8 @@ object Constants {
     const val headingFontSize = 24
     const val smallerHeadingFontSize = 21
 
-    /** URL to the root of the Unciv repository, including trailing slash */
-    // Note: Should the project move, this covers external links, but not comments e.g. mentioning issues
-    const val uncivRepoURL = "https://github.com/yairm210/Unciv/"
+    /** URL to the root of the EmpireForge repository, including trailing slash */
+    const val uncivRepoURL = "https://github.com/shaharbenhayun/EmpireForge/"
     /** URL to the wiki, including trailing slash */
-    const val wikiURL = "https://yairm210.github.io/Unciv/"
+    const val wikiURL = "https://github.com/shaharbenhayun/EmpireForge/wiki/"
 }

@@ -531,7 +531,11 @@ object Battle {
         if (attacker !is MapUnitCombatant) return
         if (attacker.unit.cache.cannotMove) return
         // Example: If the unit we attacked made us lose movement points
-        if (!attacker.unit.movement.canReachInCurrentTurn(attackedTile)) return
+        // Use considerZoneOfControl=false to match the actual moveToTile call below,
+        // since post-battle movement into the defeated unit's tile is exempt from ZoC.
+        // This fixes melee units not moving into the tile after killing an enemy when
+        // A* pathfinding is enabled and nearby enemies create a zone of control.
+        if (!attacker.unit.movement.getDistanceToTiles(considerZoneOfControl = false).containsKey(attackedTile)) return
         // This is so that if we attack e.g. a barbarian in enemy territory that we can't enter, we won't enter it
         if (!attacker.unit.movement.canMoveTo(attackedTile)) return
 

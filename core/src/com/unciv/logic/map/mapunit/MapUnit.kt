@@ -515,8 +515,8 @@ class MapUnit : IsPartOfGameInfoSerialization {
             }
         }
 
-        val maxAdjacentHealingBonus = currentTile.neighbors
-                .flatMap { it.getUnits() }.filter { it.civ == civ }
+        val maxAdjacentHealingBonus = (currentTile.neighbors.asSequence() + sequenceOf(currentTile))
+                .flatMap { it.getUnits() }.filter { it.civ == civ && it != this }
                 .map { it.adjacentHealingBonus() }.maxOrNull()
         if (maxAdjacentHealingBonus != null)
             healing += maxAdjacentHealingBonus
@@ -975,9 +975,37 @@ class MapUnit : IsPartOfGameInfoSerialization {
 
     fun putInTile(tile: Tile) {
         when {
-            !movement.canMoveTo(tile) ->
-                throw IllegalStateException("Unit $name of ${civ.civID} at $currentTile can't be put in tile $tile," +
-                        " reason: ${movement.getCannotMoveToReason(tile)}")
+            !movement.canMoveTo(tile) -> {
+                // Instead of crashing, attempt to resolve the stacking violation.
+                // If the tile already has a same-type unit, displace the existing one
+                // to prevent two military (or two civilian) units on the same hex.
+                val reason = movement.getCannotMoveToReason(tile)
+                if (reason == com.unciv.logic.map.mapunit.movement.UnitMovement.CannotMoveToReason.TileIsNotEmpty) {
+                    val displacedUnit = if (!baseUnit.movesLikeAirUnits && !isCivilian() && tile.militaryUnit != null)
+                        tile.militaryUnit!!
+                    else if (isCivilian() && tile.civilianUnit != null)
+                        tile.civilianUnit!!
+                    else
+                        throw IllegalStateException("Unit $name of ${civ.civID} at $currentTile can't be put in tile $tile," +
+                                " reason: $reason")
+                    // Find a nearby tile for the displaced unit before removing it
+                    val nearbyTile = tile.neighbors
+                        .firstOrNull { displacedUnit.movement.canMoveTo(it) && it.getOwner()?.isAtWarWith(displacedUnit.civ) != true }
+                    if (nearbyTile != null) {
+                        displacedUnit.removeFromTile()
+                        displacedUnit.putInTile(nearbyTile)
+                        displacedUnit.mostRecentMoveType = UnitMovementMemoryType.UnitTeleported
+                    } else {
+                        // No adjacent tile available - destroy the displaced unit as last resort
+                        displacedUnit.destroy()
+                    }
+                    if (isCivilian()) tile.civilianUnit = this
+                    else tile.militaryUnit = this
+                } else {
+                    throw IllegalStateException("Unit $name of ${civ.civID} at $currentTile can't be put in tile $tile," +
+                            " reason: $reason")
+                }
+            }
 
             baseUnit.movesLikeAirUnits -> tile.airUnits.add(this)
             isCivilian() -> tile.civilianUnit = this

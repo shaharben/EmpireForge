@@ -50,15 +50,17 @@ object StrategicBonusResourcePlacementLogic {
         // Determines number tiles per resource
         val bonusMultiplier = tileMap.mapParameters.getMapResources().bonusFrequencyMultiplier
         val landList = ArrayList<Tile>() // For minor deposits
+        val waterList = ArrayList<Tile>() // For minor deposits on water
 
-        /** Maps resource uniques for determining frequency/weighting/size to relevant tiles  */ 
+        /** Maps resource uniques for determining frequency/weighting/size to relevant tiles  */
         val ruleLists = buildRuleLists(ruleset, tileMap, regions, fallbackStrategic, strategicResources) // For rule-based generation
-        
+
         // Now go through the entire map to build lists
         for (tile in tileMap.values.asSequence().shuffled()) {
             val terrainCondition = GameContext(attackedTile = tile, region = regions.firstOrNull { tile in it.tiles })
             if (tile.getBaseTerrain().hasUnique(UniqueType.BlocksResources, terrainCondition)) continue // Don't count snow hills
             if (tile.isLand) landList.add(tile)
+            else waterList.add(tile)
             for ((rule, list) in ruleLists) {
                 if (rule.conditionalsApply(terrainCondition)) list.add(tile)
             }
@@ -72,6 +74,7 @@ object StrategicBonusResourcePlacementLogic {
         placeSmallDepositsOfModernStrategicResourcesOnCityStates(ruleset, strategicResources, tileMap, totalPlaced, tileData)
         placeMinorDepositsOnLand(bonusMultiplier, landList, tileData, strategicResources, fallbackStrategic, totalPlaced)
         placeMajorDepositsOnWater(ruleset, ruleLists, totalPlaced, tileData, fallbackStrategic)
+        placeMinorDepositsOnWater(bonusMultiplier, waterList, tileData, strategicResources, fallbackStrategic, totalPlaced, ruleset)
         ensureMinimumResourcesPerCiv(strategicResources, regions, totalPlaced, ruleset, landList, tileMap, tileData)
         placeBonusResources(ruleset, ruleLists, tileData, bonusMultiplier, tileMap)
         placeBonusInThirdRingOfStart(regions, ruleset, tileMap, tileData)
@@ -176,8 +179,14 @@ object StrategicBonusResourcePlacementLogic {
         for (resource in strategicResources) {
             val extraNeeded = min(2, regions.size - totalPlaced[resource]!!)
             if (extraNeeded > 0) {
-                val tilesToAddTo = if (!isWaterOnlyResource(resource, ruleset)) landList.asSequence()
-                else tileMap.values.asSequence().filter { it.isWater }.shuffled()
+                val canBeOnWater = resource.terrainsCanBeFoundOn.any { terrainName ->
+                    ruleset.terrains[terrainName]?.type == TerrainType.Water
+                }
+                val tilesToAddTo = when {
+                    isWaterOnlyResource(resource, ruleset) -> tileMap.values.asSequence().filter { it.isWater }.shuffled()
+                    canBeOnWater -> (landList.asSequence() + tileMap.values.asSequence().filter { it.isWater }).shuffled()
+                    else -> landList.asSequence()
+                }
 
                 MapRegionResources.tryAddingResourceToTiles(
                     tileData,
@@ -244,6 +253,62 @@ object StrategicBonusResourcePlacementLogic {
             if (weightings.sum() <= 0) continue
 
             val resourceToPlace = strategicResources.randomWeighted(weightings)
+            tile.setTileResource(resourceToPlace, majorDeposit = false)
+            tileData.placeImpact(ImpactType.Strategic, tile, Random.nextInt(2) + Random.nextInt(2))
+            totalPlaced[resourceToPlace] = totalPlaced[resourceToPlace]!! + 1
+            minorDepositsAdded++
+            if (minorDepositsAdded >= minorDepositsToAdd)
+                break
+        }
+    }
+
+    /** Place minor deposits of strategic resources on water tiles (e.g., Oil on Coast) */
+    private fun placeMinorDepositsOnWater(
+        bonusMultiplier: Float,
+        waterList: ArrayList<Tile>,
+        tileData: TileDataMap,
+        strategicResources: List<TileResource>,
+        fallbackStrategic: Boolean,
+        totalPlaced: HashMap<TileResource, Int>,
+        ruleset: Ruleset
+    ) {
+        // Only place minor deposits for resources that can appear on water
+        val waterStrategicResources = strategicResources.filter { resource ->
+            resource.terrainsCanBeFoundOn.any { terrainName ->
+                ruleset.terrains[terrainName]?.type == TerrainType.Water
+            }
+        }
+        if (waterStrategicResources.isEmpty()) return
+
+        val frequency = (baseMinorDepositFrequency * bonusMultiplier * 2).toInt() // Less frequent on water
+        if (frequency == 0) return
+        val minorDepositsToAdd = (waterList.size / frequency) + 1
+        var minorDepositsAdded = 0
+        for (tile in waterList) {
+            if (tile.resource != null || tileData[tile.position]!!.impacts.containsKey(ImpactType.Strategic))
+                continue
+            val conditionalTerrain = GameContext(attackedTile = tile)
+            if (tile.getBaseTerrain().hasUnique(UniqueType.BlocksResources, conditionalTerrain))
+                continue
+            val weightings = waterStrategicResources.map {
+                if (fallbackStrategic) {
+                    if (it.generatesNaturallyOn(tile)) 1f else 0f
+                } else {
+                    // Use ResourceWeighting uniques for water since MinorDepositWeighting may not exist for water terrains
+                    val minorUniques = it.getMatchingUniques(UniqueType.MinorDepositWeighting, conditionalTerrain).toList()
+                    if (minorUniques.isNotEmpty()) {
+                        minorUniques.sumOf { unique -> unique.params[0].toInt() }.toFloat()
+                    } else {
+                        // Fallback: use ResourceWeighting if no minor deposit weighting defined for water
+                        val majorUniques = it.getMatchingUniques(UniqueType.ResourceWeighting, conditionalTerrain).toList()
+                        if (majorUniques.isNotEmpty()) majorUniques.sumOf { unique -> unique.params[0].toInt() }.toFloat()
+                        else if (it.generatesNaturallyOn(tile)) 1f else 0f
+                    }
+                }
+            }
+            if (weightings.sum() <= 0) continue
+
+            val resourceToPlace = waterStrategicResources.randomWeighted(weightings)
             tile.setTileResource(resourceToPlace, majorDeposit = false)
             tileData.placeImpact(ImpactType.Strategic, tile, Random.nextInt(2) + Random.nextInt(2))
             totalPlaced[resourceToPlace] = totalPlaced[resourceToPlace]!! + 1

@@ -35,7 +35,7 @@ android {
         versionCode = BuildConfig.appCodeNumber
         versionName = BuildConfig.appVersion
 
-        base.archivesName.set("Unciv")
+        base.archivesName.set("EmpireForge")
     }
 
     // necessary for Android Work lib
@@ -143,7 +143,7 @@ tasks.register<Exec>("run") {
     val path = getSdkPath()
     val adb = "$path/platform-tools/adb"
 
-    commandLine(adb, "shell", "am", "start", "-n", "com.unciv.app/AndroidLauncher")
+    commandLine(adb, "shell", "am", "start", "-n", "com.mobileups.empireforge/AndroidLauncher")
 }
 
 dependencies {

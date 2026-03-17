@@ -48,11 +48,17 @@ object ImageGetter {
     private val textureRegionDrawables = HashMap<String, TextureRegionDrawable>()
     private val ninePatchDrawables = HashMap<String, NinePatchDrawable>()
 
+    // Cache for external images (not packed in atlases) to prevent repeated Texture allocations
+    // which leak GPU memory and cause OOM on Android after extended play sessions
+    private val externalTextureCache = HashMap<String, Texture>()
+
     fun getSpecificAtlas(name: String): TextureAtlas? = atlases[name]
 
     fun resetAtlases() {
         atlases.values.forEach { it.dispose() }
         atlases.clear()
+        externalTextureCache.values.forEach { it.dispose() }
+        externalTextureCache.clear()
     }
 
     fun reloadImages() = setNewRuleset(ruleset)
@@ -64,6 +70,7 @@ object ImageGetter {
             
         ImageGetter.ruleset = ruleset
         textureRegionDrawables.clear()
+        ninePatchDrawables.clear()
 
         // Load base
         loadModAtlases("", Gdx.files.internal(""))
@@ -194,13 +201,17 @@ object ImageGetter {
         }.firstOrNull { it.exists() }
     }
 
-    /** Loads an image on the fly - uncached Texture, not too fast. */
+    /** Loads an image on the fly - cached by file path to prevent GPU memory leaks. */
     fun getExternalImage(file: FileHandle): Image {
         // Since these are not packed in an atlas, they have no scaling filter metadata and
         // default to Nearest filter, anisotropic level 1. Use Linear instead, helps
         // loading screen and Tutorial.WorldScreen quite a bit. More anisotropy barely helps.
-        val texture = Texture(file)
-        texture.setFilter(TextureFilter.Linear, TextureFilter.Linear)
+        val cacheKey = file.path()
+        val texture = externalTextureCache.getOrPut(cacheKey) {
+            Texture(file).apply {
+                setFilter(TextureFilter.Linear, TextureFilter.Linear)
+            }
+        }
         return ImageWithCustomSize(TextureRegion(texture))
     }
     /** Loads an image from (assets)/ExtraImages, from the jar if Unciv runs packaged.

@@ -2,8 +2,8 @@
 package com.unciv.build
 
 object BuildConfig {
-    const val appName = "Unciv"
-    const val appCodeNumber = 1208
-    const val appVersion = "4.19.17-patch2"
-    const val identifier = "com.unciv.app"
+    const val appName = "EmpireForge"
+    const val appCodeNumber = 1
+    const val appVersion = "1.0.0"
+    const val identifier = "com.mobileups.empireforge"
 }

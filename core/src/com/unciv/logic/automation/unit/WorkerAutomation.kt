@@ -115,11 +115,15 @@ class WorkerAutomation(
         currentTile: Tile
     ): Boolean {
         // Note, however, that the closest city to a tile isn't necessarily the owning city
+        val maxSearchDistance = 20 // Limit search radius to avoid expensive pathfinding on large maps
         val closestUndevelopedCity = unit.civ.cities
-            .filter { it != unit.currentTile.owningCity && it.getTiles().any { tile -> tile.isLand
+            .filter { it != unit.currentTile.owningCity
+                    && it.getCenterTile().aerialDistanceTo(currentTile) <= maxSearchDistance
+                    && it.getTiles().any { tile -> tile.isLand
                     && tile.getUnits().none { unit -> unit.cache.hasUniqueToBuildImprovements }
                     && (tile.isPillaged() || tileHasWorkToDo(tile, unit, localUniqueCache)) } }
             .sortedBy { it.getCenterTile().aerialDistanceTo(currentTile) }
+            .take(5) // Only check reachability for a limited number of candidates
             .firstOrNull { unit.movement.canReach(it.getCenterTile()) } //goto closest undeveloped city
 
         if (closestUndevelopedCity != null) {

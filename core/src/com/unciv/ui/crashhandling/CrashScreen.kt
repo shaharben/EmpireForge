@@ -143,7 +143,7 @@ class CrashScreen(val exception: Throwable) : BaseScreen() {
 
     /** @return Label for title at top of screen. */
     private fun makeTitleLabel() =
-        "An unrecoverable error has occurred in Unciv:".toLabel(fontSize = Constants.headingFontSize)
+        "An unrecoverable error has occurred in EmpireForge:".toLabel(fontSize = Constants.headingFontSize)
             .apply {
                 wrap = true
                 setAlignment(Align.center)
@@ -201,7 +201,7 @@ class CrashScreen(val exception: Throwable) : BaseScreen() {
                     )
                 }
             }
-        val closeButton = IconTextButton("Close Unciv", fontSize = Constants.headingFontSize)
+        val closeButton = IconTextButton("Close EmpireForge", fontSize = Constants.headingFontSize)
             .onClick { Gdx.app.exit() }
 
         val buttonsTable = Table()
