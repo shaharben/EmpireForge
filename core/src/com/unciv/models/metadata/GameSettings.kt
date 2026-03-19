@@ -129,6 +129,9 @@ class GameSettings {
 
     var enableEasterEggs: Boolean = true
 
+    /** Tracks achievements unlocked across all games */
+    var unlockedAchievements = HashSet<String>()
+
     /** Maximum zoom-out of the map - performance heavy */
     var maxWorldZoomOut = 2f
 

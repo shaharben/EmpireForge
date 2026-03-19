@@ -1,7 +1,7 @@
 [
 	{
 		"columnNumber": 0,
-		"era": "Ancient era",
+		"era": "Ruins Era",
 		"techCost": 20,
 		"buildingCost": 40,
 		"wonderCost": 185,
@@ -9,14 +9,14 @@
 			{
 				"name": "Agriculture",
 				"row": 6,
-				"quote": "'Where tillage begins, other arts follow. The farmers therefore are the founders of human civilization.' - Daniel Webster",
+				"quote": "'The first seeds we planted after the Fall grew in irradiated soil. They grew anyway. Life always finds a way.' - Old Marcus",
 				"uniques": ["Starting tech"]
 			}
 		]
 	},
 	{
 		"columnNumber": 1,
-		"era": "Ancient era",
+		"era": "Ruins Era",
 		"techCost": 35,
 		"buildingCost": 60,
 		"wonderCost": 185,
@@ -25,32 +25,32 @@
 				"name": "Pottery",
 				"row": 2,
 				"prerequisites": ["Agriculture"],
-				"quote": "'Shall the clay say to him that fashioneth it, what makest thou?' - Bible Isaiah 45:9"
+				"quote": "'We dug up old jars from the ruins. Cracked and dirty, but they held water. Sometimes the simplest things keep you alive.' - Old Marcus"
 			},
 			{
 				"name": "Animal Husbandry",
 				"row": 5,
 				"prerequisites": ["Agriculture"],
-				"quote": "'Thou shalt not muzzle the ox when he treadeth out the corn.' - Bible Deuteronomy 25:4"
+				"quote": "'The mutated cattle were dangerous at first, but we learned to calm them. Now they pull our plows through the ash fields.' - Scout Riley"
 			},
 			{
 				"name": "Archery",
 				"row": 7,
 				"prerequisites": ["Agriculture"],
-				"quote": "'The haft of the arrow has been feathered with one of the eagle's own plumes, we often give our enemies the means of our own destruction' - Aesop"
+				"quote": "'Bullets ran out in the first year. But there were plenty of sticks and string. The old ways came back fast when raiders showed up.' - Commander Vale"
 			},
 			{
 				"name": "Mining",
 				"row": 9,
 				"prerequisites": ["Agriculture"],
-				"quote": "'The meek shall inherit the Earth, but not its mineral rights.' - J. Paul Getty"
+				"quote": "'The old mines collapsed in the quakes, but the ore is still down there. We just have to dig deeper and pray the tunnels hold.' - The Engineer"
 			}
 
 		]
 	},
 	{
 		"columnNumber": 2,
-		"era": "Ancient era",
+		"era": "Ruins Era",
 		"techCost": 55,
 		"buildingCost": 75,
 		"wonderCost": 185,
@@ -59,50 +59,50 @@
 				"name": "Sailing",
 				"row": 1,
 				"prerequisites": ["Pottery"],
-				"quote": "'He who commands the sea has command of everything.' - Themistocles"
+				"quote": "'The coastlines changed after the floods, but the sea still carries us. Whoever masters the water controls what is left of this world.' - Captain Torres"
 			},
 			{
 				"name": "Calendar",
 				"row": 2,
 				"prerequisites": ["Pottery"],
-				"quote": "'So teach us to number our days, so that we may apply our hearts unto wisdom.' - Bible Psalms 90:12"
+				"quote": "'Someone scratched tally marks on a wall for three hundred days before the marks stopped. Knowing the date matters. It means you still believe in a future.' - The Librarian"
 			},
 			{
 				"name": "Writing",
 				"row": 3,
 				"prerequisites": ["Pottery"],
 				"uniques": ["Enables Open Borders agreements"],
-				"quote": "'He who destroys a good book kills reason itself.' - John Milton"
+				"quote": "'We found a library buried under rubble. Half the books were ash. The other half? They are rebuilding civilization.' - The Librarian"
 			},
 			{
 				"name": "Trapping",
 				"row": 4,
 				"prerequisites": ["Animal Husbandry"],
-				"quote": "'Even brute beasts and wandering birds do not fall into the same traps or nets twice.' - Saint Jerome"
+				"quote": "'The mutant wolves are clever, but hunger makes them predictable. Set the snare at the water hole and wait. Patience feeds the settlement.' - Scout Riley"
 			},
 			{
 				"name": "The Wheel",
 				"row": 6,
 				"prerequisites": ["Animal Husbandry"],
-				"quote": "'Wisdom and virtue are like the two wheels of a cart.' - Japanese proverb"
+				"quote": "'We pulled wheels off the rusted cars. Bolted them to wooden frames. Suddenly we could move supplies ten times faster. The old world left us gifts if you know where to look.' - The Engineer"
 			},
 			{
 				"name": "Masonry",
 				"row": 9,
 				"prerequisites": ["Mining"],
-				"quote": "'How happy are those whose walls already rise!' - Virgil"
+				"quote": "'Stone does not burn. Stone does not rot. When everything else failed us, we stacked stones and called it home.' - The Engineer"
 			},
 			{
 				"name": "Bronze Working",
 				"row": 10,
 				"prerequisites": ["Mining"],
-				"quote": "'Here Hector entered, with a spear eleven cubits long in his hand; the bronze point gleamed in front of him, and was fastened to the shaft of the spear by a ring of gold.' - Homer"
+				"quote": "'The scavengers brought back green-stained metal from the old statues. We melted it down and forged blades. Bronze is not steel, but it kills raiders just the same.' - Commander Vale"
 			}
 		]
 	},
 	{
 		"columnNumber": 3,
-		"era": "Classical era",
+		"era": "Organization Era",
 		"techCost": 105,
 		"buildingCost": 100,
 		"wonderCost": 250,
@@ -113,44 +113,44 @@
 				"row": 1,
 				"prerequisites": ["Sailing"],
 				"uniques": ["Enables embarkation for land units"],
-				"quote": "'He made an instrument to know if the moon shine at full or no.' - Samuel Butler"
+				"quote": "'A child found a pair of binoculars in the wreckage. For the first time, we could see the raiders coming from miles away. That glass saved more lives than any weapon.' - Scout Riley"
 			},
 			{
 				"name": "Philosophy",
 				"row": 3,
 				"prerequisites": ["Writing"],
 				"uniques": ["Enables Research agreements"],
-				"quote": "'There is only one good, knowledge, and one evil, ignorance.' - Socrates"
+				"quote": "'Why did the old world fall? That is the first question worth asking. Until we answer it, we are doomed to build the same funeral pyre.' - Professor Hale"
 			},
 			{
 				"name": "Horseback Riding",
 				"row": 5,
 				"prerequisites": ["The Wheel"],
-				"quote": "'A Horse! A Horse! My kingdom for a horse!' - Shakespeare (Richard III)"
+				"quote": "'The wild horses survived the fallout better than we did. Taming them again took months, but a mounted scout covers ground no walker can match.' - Scout Riley"
 			},
 			{
 				"name": "Mathematics",
 				"row": 7,
 				"prerequisites": ["The Wheel", "Archery"],
-				"quote": "'Mathematics is the gate and key to the sciences.' - Roger Bacon"
+				"quote": "'A faded math textbook from the ruins. The children groaned, but I told them: numbers built the old world, and numbers will build the next one.' - Professor Hale"
 			},
 			{
 				"name": "Construction",
 				"row": 9,
 				"prerequisites": ["Masonry"],
-				"quote": "'Three things are to be looked to in a building: that it stands on the right spot; that it be securely founded; that it be successfully executed.' - Johann Wolfgang von Goethe"
+				"quote": "'The old buildings stood for centuries. Ours need to stand for just one winter. But getting the beams right, the joints tight - that is the difference between shelter and a grave.' - The Engineer"
 			},
 			{
 				"name": "Iron Working",
 				"row": 10,
 				"prerequisites": ["Bronze Working"],
-				"quote": "'Do not wait to strike til the iron is hot, but make it hot by striking.' - William Butler Yeats"
+				"quote": "'We found iron rebar in the rubble. Heated it in a makeshift forge until it glowed. The first real blade we hammered out was ugly, but it held an edge. That was the day we stopped being scavengers.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 4,
-		"era": "Medieval era",
+		"era": "Fortress Era",
 		"techCost": 275,
 		"buildingCost": 120,
 		"wonderCost": 300,
@@ -159,39 +159,39 @@
 				"name": "Theology",
 				"row": 2,
 				"prerequisites": ["Calendar", "Philosophy"],
-				"quote": "'Three things are necessary for the salvation of man: to know what he ought to believe; to know what he ought to desire; and to know what he ought to do' - St. Thomas Aquinas"
+				"quote": "'People needed something to hold onto after the Fall. Not just survival - purpose. Hope is the one resource that never runs out.' - Old Marcus"
 			},
 			{
 				"name": "Civil Service",
 				"row": 4,
 				"prerequisites": ["Philosophy","Trapping"],
-				"quote": "'The only thing that saves us from the bureaucracy is its inefficiency' - Eugene McCarthy"
+				"quote": "'Anarchy nearly killed us faster than the bombs did. The day we appointed a council and wrote down laws, that was the day we became a civilization again.' - Commander Vale"
 			},
 			{
 				"name": "Currency",
 				"row": 7,
 				"prerequisites": ["Mathematics"],
 				"uniques": ["Enables conversion of city production to [Gold]"],
-				"quote": "'Better is bread with a happy heart than wealth with vexation.' - Amenemope"
+				"quote": "'Bottle caps, bullets, salt - we tried everything as money. Turns out trade needs trust more than currency, and trust is the hardest thing to forge after the end.' - Old Marcus"
 			},
 			{
 				"name": "Engineering",
 				"row": 8,
 				"prerequisites": ["Mathematics","Construction"],
 				"uniques": ["Roads connect tiles across rivers"],
-				"quote": "'Instrumental or mechanical science is the noblest and, above all others, the most useful.' - Leonardo da Vinci"
+				"quote": "'The old engineers left behind blueprints etched in steel. We could not read them at first, but once we did, we built things that would have taken years in months.' - The Engineer"
 			},
 			{
 				"name": "Metal Casting",
 				"row": 10,
 				"prerequisites": ["Construction","Iron Working"],
-				"quote": "'When pieces of bronze or gold or iron break, the metal-smith welds them together again in the fire, and the bond is established.' - Sri Guru Granth Sahib"
+				"quote": "'Melting down the ruins - car parts, girders, old pipes. Pouring liquid metal into sand molds. It felt like magic, but it was just chemistry we had forgotten.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 5,
-		"era": "Medieval era",
+		"era": "Fortress Era",
 		"techCost": 485,
 		"buildingCost": 160,
 		"wonderCost": 400,
@@ -201,46 +201,46 @@
 				"cost": 375,
 				"row": 1,
 				"prerequisites": ["Optics"],
-				"quote": "'I find the great thing in this world is not so much where we stand, as in what direction we are moving.' - Oliver Wendell Holmes"
+				"quote": "'A magnetized needle floating in a cup of water. That simple trick let our scouts navigate the dead zones where every landmark had been flattened.' - Captain Torres"
 			},
 			{
 				"name": "Education",
 				"row": 3,
 				"prerequisites": ["Theology","Civil Service"],
 				"uniques": ["Enables conversion of city production to [Science]"],
-				"quote": "'Education is the best provision for old age.' - Aristotle"
+				"quote": "'The children born after the Fall have never seen the old world. If we do not teach them what was lost, they will never know what can be rebuilt.' - Professor Hale"
 			},
 			{
 				"name": "Chivalry",
 				"row": 5,
 				"prerequisites": ["Civil Service","Currency","Horseback Riding"],
                 "uniques": ["Enables Defensive Pacts"],
-				"quote": "'Whoso pulleth out this sword of this stone and anvil, is rightwise king born of all England.' - Malory"
+				"quote": "'Honor among fighters. A code that says we protect the weak, spare the surrendered. Without it, we are just another gang of raiders.' - Commander Vale"
 			},
 			{
 				"name": "Machinery",
 				"row": 8,
 				"prerequisites": ["Engineering"],
 				"uniques": ["Improves movement speed on roads"],
-				"quote": "'The press is the best instrument for enlightening the mind of man, and improving him as a rational, moral and social being.' - Thomas Jefferson"
+				"quote": "'We salvaged gears and levers from a collapsed factory. Machines that amplify human strength - that is how a hundred survivors do the work of a thousand.' - The Engineer"
 			},
 			{
 				"name": "Physics",
 				"row": 9,
 				"prerequisites": ["Engineering","Metal Casting"],
-				"quote": "'Measure what is measurable, and make measurable what is not so.' - Galileo Galilei"
+				"quote": "'Gravity, force, motion - the old laws still work. The universe did not break when we did. Understanding that gave me hope.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Steel",
 				"row": 10,
 				"prerequisites": ["Metal Casting"],
-				"quote": "'John Henry said to his Captain, / 'A man ain't nothin' but a man, / And before I'll let your steam drill beat me down, / I'll die with the hammer in my hand.'' - Anonymous: The Ballad of John Henry, the Steel-Drivin' Man"
+				"quote": "'Steel beams from the skyscrapers. We cut them with salvaged torches and reforged them into something new. The old world's skeleton became our armor.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 6,
-		"era": "Renaissance era",
+		"era": "Rediscovery Era",
 		"techCost": 780,
 		"buildingCost": 200,
 		"wonderCost": 500,
@@ -250,37 +250,37 @@
 				"row": 2,
 				"uniques": ["[+1] Movement <for [Embarked] units>","Enables [Embarked] units to enter ocean tiles"],
 				"prerequisites": ["Compass","Education"],
-				"quote": "'Joyfully to the breeze royal Odysseus spread his sail, and with his rudder skillfully he steered.' - Homer"
+				"quote": "'The night sky is cleaner now than it has been in centuries. No light pollution, no smog. We can read the stars again, the way the ancients did.' - Captain Torres"
 			},
 			{
 				"name": "Acoustics",
 				"row": 4,
 				"prerequisites": ["Education","Chivalry"],
-				"quote": "'Their rising all at once was as the sound of thunder heard remote' - Milton"
+				"quote": "'Someone found a violin in the rubble and played it that night. People wept. We had forgotten that sound could carry beauty, not just warnings.' - Old Marcus"
 			},
 			{
 				"name": "Banking",
 				"row": 6,
 				"prerequisites": ["Chivalry", "Education"],
-				"quote": "'Happiness: a good bank account, a good cook and a good digestion' - Jean Jacques Rousseau"
+				"quote": "'We started lending seed grain on promise of future harvest. Credit, trust, debt - the bones of an economy, rising from the ashes.' - Old Marcus"
 			},
 			{
 				"name": "Printing Press",
 				"row": 8,
 				"prerequisites": ["Machinery","Physics"],
-				"quote": "'It is a newspaper's duty to print the news and raise hell.' - The Chicago Times"
+				"quote": "'We carved wooden type and built a press from scrap. The first pamphlet we printed was a survival guide. The second was a constitution.' - The Librarian"
 			},
 			{
 				"name": "Gunpowder",
 				"row": 10,
 				"prerequisites": ["Physics","Steel"],
-				"quote": "'The day when two army corps can annihilate each other in one second, all civilized nations, it is to be hoped, will recoil from war and discharge their troops.' - Alfred Nobel"
+				"quote": "'The old recipe was in a chemistry book - sulfur, charcoal, saltpeter. Simple ingredients. Terrible power. We swore an oath to use it only for defense.' - Commander Vale"
 			}
 		]
 	},
 	{
 		"columnNumber": 7,
-		"era": "Renaissance era",
+		"era": "Rediscovery Era",
 		"techCost": 1150,
 		"buildingCost": 250,
 		"wonderCost": 625,
@@ -289,31 +289,31 @@
 				"name": "Navigation",
 				"row": 2,
 				"prerequisites": ["Astronomy"],
-				"quote": "'The winds and the waves are always on the side of the ablest navigators.' - Edward Gibbon"
+				"quote": "'Charts of the old coastlines are useless now. We sail by dead reckoning and hard-won experience. Every new island we map is a gift to those who follow.' - Captain Torres"
 			},
 			{
 				"name": "Economics",
 				"row": 6,
 				"prerequisites": ["Banking","Printing Press"],
-				"quote": "'Compound interest is the most powerful force in the universe.' - Albert Einstein"
+				"quote": "'Scarcity and surplus, supply and demand - the old economic laws reasserted themselves before the dust had even settled. Human nature endures.' - Professor Hale"
 			},
 			{
 				"name": "Chemistry",
 				"row": 9,
 				"prerequisites": ["Gunpowder"],
-				"quote": "'Wherever we look, the work of the chemist has raised the level of our civilization and has increased the productive capacity of the nation.' - Calvin Coolidge"
+				"quote": "'Mixing compounds from scavenged chemicals. Medicines, explosives, fertilizers - chemistry is the art of transformation, and transformation is what we need most.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Metallurgy",
 				"row": 10,
 				"prerequisites": ["Gunpowder"],
-				"quote": "'There never was a good knife made of bad steel.' - Benjamin Franklin"
+				"quote": "'The old foundries are tombs of rust, but the knowledge of alloys survived in textbooks. Stronger metals mean stronger tools, stronger walls, a stronger future.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 8,
-		"era": "Renaissance era",
+		"era": "Rediscovery Era",
 		"techCost": 1600,
 		"buildingCost": 300,
 		"wonderCost": 750,
@@ -322,37 +322,37 @@
 				"name": "Archaeology",
 				"row": 2,
 				"prerequisites": ["Navigation"],
-				"quote": "'Those who cannot remember the past are condemned to repeat it.' - George Santayana"
+				"quote": "'We dig through the ruins not for treasure, but for truth. Every artifact tells us who we were - and warns us what not to become again.' - The Librarian"
 			},
 			{
 				"name": "Scientific Theory",
 				"row": 4,
 				"prerequisites": ["Navigation","Acoustics","Economics"],
-				"quote": "'Every great advance in science has issued from a new audacity of imagination.' - John Dewey"
+				"quote": "'Hypothesis, experiment, observation. The method survived the catastrophe. Science is not a building that can burn - it is a way of thinking.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Military Science",
 				"row": 6,
 				"prerequisites": ["Economics","Chemistry"],
-				"quote": "'Wars may be fought with weapons, but they are won by men. It is the spirit of the men who follow and of the man who leads that gains the victory.' - George S. Patton"
+				"quote": "'Courage alone will not hold a wall. Tactics, discipline, supply lines - we study the old war manuals not to glorify battle, but to survive it.' - Commander Vale"
 			},
 			{
 				"name": "Fertilizer",
 				"row": 9,
 				"prerequisites": ["Chemistry"],
-				"quote": "'The nation that destroys its soil destroys itself.' - Franklin Delano Roosevelt"
+				"quote": "'The soil was poison after the Fall. But we learned to filter it, enrich it, coax life from dead ground. Feed the earth, and it feeds you back.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Rifling",
 				"row": 10,
 				"prerequisites": ["Metallurgy"],
-				"quote": "'It is well that war is so terrible, or we should grow too fond of it.' - Robert E. Lee"
+				"quote": "'Spiral grooves inside a barrel. Such a small thing, but suddenly our defenders could hit a target at three hundred yards. The raiders learned to keep their distance.' - Commander Vale"
 			}
 		]
 	},
 	{
 		"columnNumber": 9,
-		"era": "Industrial era",
+		"era": "Reconstruction Era",
 		"techCost": 2350,
 		"buildingCost": 360,
 		"wonderCost": 900, // Note that this column doesn't actually have any wonders. This just continues the wonderCost = 2.5 * buildingCost pattern from the last few columns.
@@ -361,26 +361,26 @@
 				"name": "Biology",
 				"row": 4,
 				"prerequisites": ["Archaeology","Scientific Theory"],
-				"quote": "'If the brain were so simple we could understand it, we would be so simple we couldn't.' - Lyall Watson"
+				"quote": "'Life adapted to the new world faster than we expected. Studying how organisms survive radiation taught us more about resilience than any engineering manual.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Steam Power",
 				"row": 6,
 				"uniques": ["[+1] Movement <for [Embarked] units>"],
 				"prerequisites": ["Military Science","Scientific Theory"],
-				"quote": "'The nations of the West hope that by means of steam communication all the world will become as one family.' - Townsend Harris"
+				"quote": "'We sealed a boiler from old pipes and heated it over a coal fire. When the pressure built and the piston moved, the whole settlement cheered. Power, real power, was ours again.' - The Engineer"
 			},
 			{
 				"name": "Dynamite",
 				"row": 9,
 				"prerequisites": ["Fertilizer","Military Science","Rifling"],
-				"quote": "'As soon as men decide that all means are permitted to fight an evil, then their good becomes indistinguishable from the evil that they set out to destroy.' - Christopher Dawson"
+				"quote": "'We found crates of old mining explosives in a collapsed tunnel. Handle with care, they said. Understatement of the century. But those charges cleared more rubble in a day than picks could in a month.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 10,
-		"era": "Industrial era",
+		"era": "Reconstruction Era",
 		"techCost": 3100,
 		"buildingCost": 500,
 		"wonderCost": 1060,
@@ -389,25 +389,25 @@
 				"name": "Electricity",
 				"row": 4,
 				"prerequisites": ["Biology","Steam Power"],
-				"quote": "'Is it a fact - or have I dreamt it - that, by means of electricity, the world of matter has become a great nerve, vibrating thousands of miles in a breathless point of time?' - Nathaniel Hawthorne"
+				"quote": "'The generator coughed to life at midnight. A single bulb flickered on - the first electric light in our settlement. Children who had never seen one stared like it was a star brought down to earth.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Replaceable Parts",
 				"row": 6,
 				"prerequisites": ["Steam Power"],
-				"quote": "'Nothing is particularly hard if you divide it into small jobs.' - Henry Ford"
+				"quote": "'Identical parts, interchangeable pieces. When a crossbow breaks, you swap the arm and keep fighting. Standardization is the mother of endurance.' - The Engineer"
 			},
 			{
 				"name": "Railroads",
 				"row": 8,
 				"prerequisites": ["Steam Power","Dynamite"],
-				"quote": "'The introduction of so powerful an agent as steam to a carriage on wheels will make a great change in the situation of man.' - Thomas Jefferson"
+				"quote": "'We cleared the old rail lines of wreckage and debris. A steam engine pulling cargo across the wasteland - settlements that once took weeks to reach are now days away.' - Captain Torres"
 			}
 		]
 	},
 	{
 		"columnNumber": 11,
-		"era": "Industrial era",
+		"era": "Reconstruction Era",
 		"techCost": 4100,
 		"buildingCost": 500,
 		"wonderCost": 1250,
@@ -416,37 +416,37 @@
 				"name": "Refrigeration",
 				"row": 2,
 				"prerequisites": ["Electricity"], //todo: offshore platform should need this
-				"quote": "'And homeless near a thousand homes I stood, and near a thousand tables pined and wanted food.' - William Wordsworth"
+				"quote": "'We found a working refrigeration unit in an old truck. Keeping food cold meant it lasted weeks instead of days. Hunger stopped being a constant companion.' - Old Marcus"
 			},
 			{
 				"name": "Telegraph",
 				"row": 4,
 				"prerequisites": ["Electricity"],
-				"quote": "'I once sent a dozen of my friends a telegram saying 'flee at once-all is discovered!' They all left town immediately.' - Mark Twain"
+				"quote": "'Copper wire strung between settlements. Tap-tap-tap, a code of long and short pulses. Suddenly, a warning could travel faster than any raider on horseback.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Radio",
 				"row": 5,
 				"prerequisites": ["Electricity"],
-				"quote": "'The whole country was tied together by radio. We all experienced the same heroes and comedians and singers. They were giants.' - Woody Allen"
+				"quote": "'The first broadcast crackled across the wasteland: You are not alone. Other settlements are out there. We are rebuilding. That signal changed everything.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Flight",
 				"row": 6,
 				"prerequisites": ["Replaceable Parts"],
-				"quote": "'Aeronautics was neither an industry nor a science. It was a miracle.' - Igor Sikorsky"
+				"quote": "'A biplane cobbled from aluminum scraps and old engines. It barely flew, shaking like it would fall apart. But for ten minutes, we saw the world from above - and the world looked worth saving.' - Scout Riley"
 			},
 			{
 				"name": "Combustion",
 				"row": 8,
 				"prerequisites": ["Railroads","Replaceable Parts"],
-				"quote": "'Any man who can drive safely while kissing a pretty girl is simply not giving the kiss the attention it deserves.' - Albert Einstein"
+				"quote": "'An engine that runs on liquid fuel. We siphoned gasoline from underground tanks the old world left behind. The first truck we got running could haul more than twenty pack horses.' - The Engineer"
 			}
 		]
 	},
 	{
 		"columnNumber": 12,
-		"era": "Modern era",
+		"era": "Connection Era",
 		"techCost": 5100,
 		"buildingCost": 500,
 		"wonderCost": 1250,
@@ -455,43 +455,43 @@
 				"name": "Pharmaceuticals",
 				"row": 1,
 				"prerequisites": ["Refrigeration"],
-				"quote": "'In nothing do men more nearly approach the gods than in giving health to men.' - Cicero"
+				"quote": "'We found sealed vials in a hospital basement - antibiotics, antivirals, painkillers. Then we learned to synthesize more. Medicine turned death sentences back into illnesses.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Plastics",
 				"row": 2,
 				"prerequisites": ["Refrigeration"],
-				"quote": "'Ben, I want to say one word to you, just one word: plastics.' - Buck Henry and Calder Willingham, The Graduate"
+				"quote": "'The old world drowned in plastic. Now we melt it down and reshape it - pipes, containers, insulation. Their waste became our resource.' - The Engineer"
 			},
 			{
 				"name": "Electronics",
 				"row": 4,
 				"prerequisites": ["Telegraph"],
-				"quote": "'There's a basic principle about consumer electronics: it gets more powerful all the time and it gets cheaper all the time.' - Trip Hawkins"
+				"quote": "'Circuit boards, transistors, capacitors - tiny components that once ran the world. We are learning to read them like a lost language, one solder joint at a time.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Mass Media",
 				"row": 5,
 				"prerequisites": ["Radio"],
-				"quote": "'The speed of communications is wondrous to behold, it is also true that speed does multiply the distribution of information that we know to be untrue.' – Edward R. Murrow"
+				"quote": "'Stories spread faster than truth in the wasteland. But when we harnessed that power - printing, broadcasting, sharing news - scattered survivors became a nation again.' - The Librarian"
 			},
 			{
 				"name": "Radar",
 				"row": 6,
 				"prerequisites": ["Radio","Flight","Combustion"],
-				"quote": "'Vision is the art of seeing things invisible.' - Jonathan Swift"
+				"quote": "'Bouncing radio waves off objects and reading the echoes. We can see through fog, through darkness, through dust storms. Nothing sneaks up on us anymore.' - Commander Vale"
 			},
 			{
 				"name": "Atomic Theory",
 				"row": 10,
 				"prerequisites": ["Combustion"],
-				"quote": "'The unleashed power of the atom has changed everything save our modes of thinking, and we thus drift toward unparalleled catastrophes.' - Albert Einstein"
+				"quote": "'The old textbooks explained what atoms are, how they split, what happens when they do. We read those pages with trembling hands, knowing this knowledge ended the world once before.' - Dr. Elena Cross"
 			}
 		]
 	},
 	{
 		"columnNumber": 13,
-		"era": "Modern era",
+		"era": "Connection Era",
 		"techCost": 6400,
 		"buildingCost": 360,
 		"wonderCost": 1250,
@@ -500,37 +500,37 @@
 				"name": "Ecology",
 				"row": 2,
 				"prerequisites": ["Plastics","Pharmaceuticals"],
-				"quote": "'Only within the moment of time represented by the present century has one species, man, acquired significant power to alter the nature of his world.' - Rachel Carson"
+				"quote": "'The old world poisoned itself to death. This time, we study the land before we use it. We measure the water before we drink it. Ecology is not a luxury - it is survival.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Computers",
 				"row": 4,
 				"prerequisites": ["Electronics","Mass Media","Radar"],
-				"quote": "'Computers are like Old Testament gods: lots of rules and no mercy.' - Joseph Campbell"
+				"quote": "'We booted an old server from a data center. It took three days to find a compatible power supply. But when the screen lit up, we had access to millions of files - an entire civilization in a box.' - Professor Hale"
 			},
 			{
 				"name": "Rocketry",
 				"row": 6,
 				"prerequisites": ["Radar"],
-				"quote": "'A good rule for rocket experimenters to follow is this: always assume that it will explode.' - Astronautics Magazine, 1937"
+				"quote": "'The fuel is volatile, the math unforgiving, and every test could be the last. But if we can put something into the sky under our own power, it means the Fall did not clip our wings forever.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Lasers",
 				"row": 8,
 				"prerequisites": ["Radar"],
-				"quote": "'The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armor of light.' - The Holy Bible: Romans, 13:12"
+				"quote": "'Concentrated light, focused to a point sharper than any blade. The old world used it to cut steel and read tiny discs of data. We are learning both.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Nuclear Fission",
 				"row": 10,
 				"prerequisites": ["Atomic Theory"],
-				"quote": "'I am become Death, the destroyer of worlds.' - J. Robert Oppenheimer"
+				"quote": "'We found the old warheads. The same fire that ended the world could light it again - if we are careful. This time, we choose power over destruction.' - Dr. Elena Cross"
 			}
 		]
 	},
 	{
 		"columnNumber": 14,
-		"era": "Modern era",
+		"era": "Connection Era",
 		"techCost": 7700,
 		"buildingCost": 360,
 		"wonderCost": 1500,
@@ -540,39 +540,39 @@
 				"cost": 9500,
 				"row": 2,
 				"prerequisites": ["Ecology","Computers"],
-				"quote": "'The new electronic interdependence recreates the world in the image of a global village.' - Marshall McLuhan"
+				"quote": "'Radio links, trade routes, shared laws across settlements. We are weaving the scattered threads of humanity back into a single tapestry. This time, we do it right.' - Professor Hale"
 			},
 			{
 				"name": "Robotics",
 				"row": 4,
 				"prerequisites": ["Computers"],
-				"quote": "'1. A robot may not injure a human being or, through inaction, allow a human being to come to harm. 2. A robot must obey any orders given to it by human beings, except when such orders would conflict with the First Law. 3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.' - Isaac Asimov"
+				"quote": "'Automated arms from the old factories, rewired and reprogrammed. They never tire, never complain, never need food. But we wrote strict rules for them this time - machines serve us, never the other way around.' - The Engineer"
 			},
 			{
 				"name": "Satellites",
 				"row": 6,
 				"prerequisites": ["Rocketry"],
 				"uniques": ["Reveals the entire map"],
-				"quote": "'Now, somehow, in some new way, the sky seemed almost alien.' - Lyndon B. Johnson"
+				"quote": "'We put an eye in the sky. A camera orbiting overhead, looking down at the world we broke. From up there, you can see green returning to the gray. Hope has coordinates now.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Stealth",
 				"row": 8,
 				"prerequisites": ["Lasers"],
-				"quote": "'Be extremely subtle, even to the point of formlessness, be extremely mysterious, even to the point of soundlessness. Thereby you can be the director of the opponent's fate.' - Sun Tzu"
+				"quote": "'In the wasteland, being seen means being targeted. We developed coatings, shapes, and tactics that make our scouts invisible to radar and eye alike. The unseen survive.' - Commander Vale"
 			},
 			{
 				"name": "Advanced Ballistics",
 				"row": 10,
 				"prerequisites": ["Nuclear Fission","Lasers"],
-				"quote": "'Our scientific power has outrun our spiritual power, we have guided missiles and misguided men.' – Martin Luther King Jr."
+				"quote": "'Precision-guided projectiles, calculated trajectories, explosive payloads delivered across vast distances. We wield the old world's most terrible math. May we aim more wisely than they did.' - Commander Vale"
 			}
 		]
 	},
 
 	{
 		"columnNumber": 15,
-		"era": "Future era",
+		"era": "New World Era",
 		"techCost": 8800,
 		"buildingCost": 750,
 		"wonderCost": 1250,
@@ -581,19 +581,19 @@
 				"name": "Particle Physics",
 				"row": 5,
 				"prerequisites": ["Robotics","Satellites"],
-				"quote": "'Every particle of matter is attracted by or gravitates to every other particle of matter with a force inversely proportional to the squares of their distances.' - Isaac Newton"
+				"quote": "'Smashing atoms to understand what holds reality together. The old world did this in enormous underground rings. We are rebuilding one, piece by painstaking piece.' - Dr. Elena Cross"
 			},
 			{
 				"name": "Nuclear Fusion",
 				"row": 8,
 				"prerequisites": ["Advanced Ballistics", "Satellites", "Stealth"],
-				"quote": "'The release of atomic energy has not created a new problem. It has readily made more urgent the necessity of solving an existing one.' - Albert Einstein"
+				"quote": "'Fission splits atoms apart. Fusion joins them together. One destroyed us. The other could power us forever - clean, limitless energy from the heart of matter itself.' - Dr. Elena Cross"
 			},
 		]
 	},
 	{
 		"columnNumber": 16,
-		"era": "Future era",
+		"era": "New World Era",
 		"techCost": 9500,
 		"buildingCost": 750,
 		"wonderCost": 1250,
@@ -602,13 +602,13 @@
 				"name": "Nanotechnology",
 				"row": 5,
 				"prerequisites": ["Particle Physics"],
-				"quote": "'The impact of nanotechnology is expected to exceed the impact that the electronics revolution has had on our lives.' - Richard Schwartz"
+				"quote": "'Machines smaller than a cell, repairing tissue, filtering radiation from blood. The old world dreamed of this. We are building it from their unfinished notes.' - Dr. Elena Cross"
 			}
 		]
 	},
 	{
 		"columnNumber": 17,
-		"era": "Future era",
+		"era": "New World Era",
 		"techCost": 9500,
 		"buildingCost": 750,
 		"wonderCost": 1250,
@@ -618,7 +618,7 @@
 				"row": 7,
 				"prerequisites": ["Globalization","Nuclear Fusion","Nanotechnology"],
                 "uniques": ["Can be continually researched"],
-                "quote": "'I think we agree, the past is over.' - George W. Bush",
+                "quote": "'We have surpassed the old world. Not in power, but in wisdom. What comes next has no blueprint - we write it ourselves, on clean pages.' - Professor Hale",
                 "civilopediaText": [{"text": "Who knows what the future holds?"}]
 			}
 		]

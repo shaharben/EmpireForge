@@ -67,8 +67,9 @@ class TechPolicyDiplomacyButtons(val worldScreen: WorldScreen) : Table(BaseScree
             worldScreen.shouldUpdate = true
         }
 
-        pickTechButton.background = BaseScreen.skinStrings.getUiBackground("WorldScreen/PickTechButton", BaseScreen.skinStrings.roundedEdgeRectangleShape, colorFromRGB(7, 46, 43))
-        pickTechButton.defaults().pad(20f)
+        // EmpireForge: Brighter teal with bordered shape for better contrast
+        pickTechButton.background = BaseScreen.skinStrings.getUiBackground("WorldScreen/PickTechButton", BaseScreen.skinStrings.roundedEdgeRectangleMidBorderShape, Color(0.05f, 0.22f, 0.20f, 0.95f))
+        pickTechButton.defaults().pad(24f)
         pickTechButton.add(pickTechLabel)
         techButtonHolder.onActivation(UncivSound.Paper, KeyboardBinding.TechnologyTree) {
             game.pushScreen(TechPickerScreen(viewingCiv))

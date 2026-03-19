@@ -302,9 +302,7 @@ class GameInfo : IsPartOfGameInfoSerialization, HasGameInfoSerializationVersion 
 
     @Readonly
     fun isReligionEnabled(): Boolean {
-        if (ruleset.eras[gameParameters.startingEra]!!.hasUnique(UniqueType.DisablesReligion)) return false
-        if (ruleset.modOptions.hasUnique(UniqueType.DisableReligion)) return false
-        return true
+        return false // EmpireForge: Religion system completely disabled
     }
 
     @Readonly fun isEspionageEnabled(): Boolean = gameParameters.espionageEnabled

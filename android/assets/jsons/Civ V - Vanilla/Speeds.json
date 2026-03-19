@@ -1,6 +1,6 @@
 [
     {
-        "name": "Quick",
+        "name": "Blitz",
         "modifier": 0.67,
         "productionCostModifier": 0.67,
         "goldCostModifier": 0.67,
@@ -28,7 +28,7 @@
         ]
     },
     {
-        "name": "Standard",
+        "name": "Normal",
         "modifier": 1.0,
         "productionCostModifier": 1.0,
         "goldCostModifier": 1.0,
@@ -56,7 +56,7 @@
         ]
     },
     {
-        "name": "Epic",
+        "name": "Extended",
         "modifier": 1.5,
         "productionCostModifier": 1.5,
         "goldCostModifier": 1.5,
@@ -83,7 +83,7 @@
         ]
     },
     {
-        "name": "Marathon",
+        "name": "Endurance",
         "modifier": 3.0,
         "productionCostModifier": 3.0,
         "goldCostModifier": 3.0,

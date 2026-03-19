@@ -1,7 +1,7 @@
 [
     {
         "name": "Tradition",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 10,
@@ -71,7 +71,7 @@
     },
     {
         "name": "Liberty",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 10,
             "Cultural": 10,
@@ -141,7 +141,7 @@
     },
     {
         "name": "Honor",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 0,
@@ -159,7 +159,7 @@
                 "name": "Warrior Code",
                 "uniques": [
                     "[+15]% Production when constructing [Melee] units [in all cities]",
-                    "Free [Great General] appears"
+                    "Free [Elite General] appears"
                 ],
                 "row": 1,
                 "column": 2
@@ -214,7 +214,7 @@
     },
     {
         "name": "Piety",
-        "era": "Classical era",
+        "era": "Organization Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 10,
@@ -283,7 +283,7 @@
     },
     {
         "name": "Patronage",
-        "era": "Medieval era",
+        "era": "Fortress Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 0,
@@ -352,7 +352,7 @@
     },
     {
         "name": "Commerce",
-        "era": "Medieval era",
+        "era": "Fortress Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 10,
@@ -415,7 +415,7 @@
     },
     {
         "name": "Rationalism",
-        "era": "Renaissance era",
+        "era": "Rediscovery Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 10,
@@ -481,7 +481,7 @@
     },
     {
         "name": "Freedom",
-        "era": "Renaissance era",
+        "era": "Rediscovery Era",
         "priorities": {
             "Neutral": 30,
             "Cultural": 30,
@@ -543,7 +543,7 @@
     },
     {
         "name": "Autocracy",
-        "era": "Industrial era",
+        "era": "Reconstruction Era",
         "priorities": {
             "Neutral": 30,
             "Cultural": 0,
@@ -609,7 +609,7 @@
     },
     {
         "name": "Order",
-        "era": "Industrial era",
+        "era": "Reconstruction Era",
         "priorities": {
             "Neutral": 30,
             "Cultural": 0,

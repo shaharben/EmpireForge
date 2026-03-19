@@ -438,63 +438,63 @@ TileSets/FantasyHex/Tiles/City center
   orig: 32, 35
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Ancient era
+TileSets/FantasyHex/Tiles/City center-Ruins Era
   rotate: false
   xy: 620, 80
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Atomic era
+TileSets/FantasyHex/Tiles/City center-Danger Era
   rotate: false
   xy: 620, 38
   size: 32, 34
   orig: 32, 34
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Classical era
+TileSets/FantasyHex/Tiles/City center-Organization Era
   rotate: false
   xy: 292, 11
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Future era
+TileSets/FantasyHex/Tiles/City center-New World Era
   rotate: false
   xy: 332, 9
   size: 32, 34
   orig: 32, 34
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Industrial era
+TileSets/FantasyHex/Tiles/City center-Reconstruction Era
   rotate: false
   xy: 372, 21
   size: 32, 33
   orig: 32, 33
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Information era
+TileSets/FantasyHex/Tiles/City center-Network Era
   rotate: false
   xy: 620, 1236
   size: 32, 36
   orig: 32, 36
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Medieval era
+TileSets/FantasyHex/Tiles/City center-Fortress Era
   rotate: false
   xy: 660, 1240
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Modern era
+TileSets/FantasyHex/Tiles/City center-Connection Era
   rotate: false
   xy: 620, 1194
   size: 32, 34
   orig: 32, 34
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Tiles/City center-Renaissance era
+TileSets/FantasyHex/Tiles/City center-Rediscovery Era
   rotate: false
   xy: 660, 1200
   size: 32, 32
@@ -1677,7 +1677,7 @@ TileSets/FantasyHex/Units/EmbarkedUnit-Civilian
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/EmbarkedUnit-Civilian-Modern era
+TileSets/FantasyHex/Units/EmbarkedUnit-Civilian-Connection Era
   rotate: false
   xy: 700, 984
   size: 32, 28
@@ -1691,7 +1691,7 @@ TileSets/FantasyHex/Units/EmbarkedUnit-Military
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/EmbarkedUnit-Military-Modern era
+TileSets/FantasyHex/Units/EmbarkedUnit-Military-Connection Era
   rotate: false
   xy: 620, 905
   size: 32, 28
@@ -1705,7 +1705,7 @@ TileSets/FantasyHex/Units/EmbarkedUnit-Settler
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/EmbarkedUnit-Settler-Modern era
+TileSets/FantasyHex/Units/EmbarkedUnit-Settler-Connection Era
   rotate: false
   xy: 700, 948
   size: 32, 28
@@ -2286,14 +2286,14 @@ TileSets/FantasyHex/Units/Settler-Barbarians
   orig: 32, 29
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/Settler-Modern era
+TileSets/FantasyHex/Units/Settler-Connection Era
   rotate: false
   xy: 980, 594
   size: 32, 28
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/Settler-Modern era-Barbarians
+TileSets/FantasyHex/Units/Settler-Connection Era-Barbarians
   rotate: false
   xy: 1020, 669
   size: 32, 28
@@ -2433,7 +2433,7 @@ TileSets/FantasyHex/Units/Work Boats
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/Work Boats-Modern era
+TileSets/FantasyHex/Units/Work Boats-Connection Era
   rotate: false
   xy: 1180, 661
   size: 32, 28
@@ -2454,14 +2454,14 @@ TileSets/FantasyHex/Units/Worker-Barbarians
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/Worker-Barbarians-Modern era
+TileSets/FantasyHex/Units/Worker-Barbarians-Connection Era
   rotate: false
   xy: 1220, 976
   size: 32, 28
   orig: 32, 28
   offset: 0, 0
   index: -1
-TileSets/FantasyHex/Units/Worker-Modern era
+TileSets/FantasyHex/Units/Worker-Connection Era
   rotate: false
   xy: 1220, 940
   size: 32, 28
@@ -3525,21 +3525,21 @@ TileSets/HexaRealm/Tiles/Academy
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Academy-Atomic era
+TileSets/HexaRealm/Tiles/Academy-Danger Era
   rotate: false
   xy: 112, 546
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Academy-Future era
+TileSets/HexaRealm/Tiles/Academy-New World Era
   rotate: false
   xy: 112, 546
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Academy-Information era
+TileSets/HexaRealm/Tiles/Academy-Network Era
   rotate: false
   xy: 112, 546
   size: 64, 64
@@ -3609,21 +3609,21 @@ TileSets/HexaRealm/Tiles/AcademyT
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/AcademyT-Atomic era
+TileSets/HexaRealm/Tiles/AcademyT-Danger Era
   rotate: false
   xy: 4, 116
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/AcademyT-Future era
+TileSets/HexaRealm/Tiles/AcademyT-New World Era
   rotate: false
   xy: 4, 116
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/AcademyT-Information era
+TileSets/HexaRealm/Tiles/AcademyT-Network Era
   rotate: false
   xy: 4, 116
   size: 64, 64
@@ -3763,7 +3763,7 @@ TileSets/HexaRealm/Tiles/Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Camp-Industrial era
+TileSets/HexaRealm/Tiles/Camp-Reconstruction Era
   rotate: false
   xy: 1678, 1924
   size: 64, 56
@@ -3840,7 +3840,7 @@ TileSets/HexaRealm/Tiles/Cattle+Pasture
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Cattle+Pasture-Industrial era
+TileSets/HexaRealm/Tiles/Cattle+Pasture-Reconstruction Era
   rotate: false
   xy: 1318, 1860
   size: 64, 56
@@ -3896,7 +3896,7 @@ TileSets/HexaRealm/Tiles/Citadel
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Citadel-Atomic era
+TileSets/HexaRealm/Tiles/Citadel-Danger Era
   rotate: false
   xy: 1894, 1852
   size: 64, 64
@@ -3917,7 +3917,7 @@ TileSets/HexaRealm/Tiles/CitadelT
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/CitadelT-Atomic era
+TileSets/HexaRealm/Tiles/CitadelT-Danger Era
   rotate: false
   xy: 1102, 1780
   size: 64, 64
@@ -3952,63 +3952,63 @@ TileSets/HexaRealm/Tiles/City center
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Classical era
+TileSets/HexaRealm/Tiles/City center-Organization Era
   rotate: false
   xy: 1390, 1780
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Ancient era
+TileSets/HexaRealm/Tiles/City center-Ruins Era
   rotate: false
   xy: 1462, 1788
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Atomic era
+TileSets/HexaRealm/Tiles/City center-Danger Era
   rotate: false
   xy: 1534, 1756
   size: 64, 73
   orig: 64, 73
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Future era
+TileSets/HexaRealm/Tiles/City center-New World Era
   rotate: false
   xy: 1606, 1775
   size: 64, 77
   orig: 64, 77
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Industrial era
+TileSets/HexaRealm/Tiles/City center-Reconstruction Era
   rotate: false
   xy: 1678, 1782
   size: 64, 70
   orig: 64, 70
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Information era
+TileSets/HexaRealm/Tiles/City center-Network Era
   rotate: false
   xy: 1750, 1775
   size: 64, 73
   orig: 64, 73
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Medieval era
+TileSets/HexaRealm/Tiles/City center-Fortress Era
   rotate: false
   xy: 1822, 1778
   size: 64, 66
   orig: 64, 66
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Modern era
+TileSets/HexaRealm/Tiles/City center-Connection Era
   rotate: false
   xy: 1894, 1774
   size: 64, 70
   orig: 64, 70
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/City center-Renaissance era
+TileSets/HexaRealm/Tiles/City center-Rediscovery Era
   rotate: false
   xy: 1966, 1778
   size: 64, 66
@@ -4071,7 +4071,7 @@ TileSets/HexaRealm/Tiles/Customs house
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Customs house-Atomic era
+TileSets/HexaRealm/Tiles/Customs house-Danger Era
   rotate: false
   xy: 1822, 1631
   size: 64, 64
@@ -4085,7 +4085,7 @@ TileSets/HexaRealm/Tiles/Customs houseT
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Customs houseT-Atomic era
+TileSets/HexaRealm/Tiles/Customs houseT-Danger Era
   rotate: false
   xy: 1966, 1631
   size: 64, 64
@@ -4106,7 +4106,7 @@ TileSets/HexaRealm/Tiles/Deer+Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Deer+Camp-Industrial era
+TileSets/HexaRealm/Tiles/Deer+Camp-Reconstruction Era
   rotate: false
   xy: 1750, 1566
   size: 64, 56
@@ -4120,7 +4120,7 @@ TileSets/HexaRealm/Tiles/Deer+CampT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Deer+CampT-Industrial era
+TileSets/HexaRealm/Tiles/Deer+CampT-Reconstruction Era
   rotate: false
   xy: 1894, 1574
   size: 64, 56
@@ -4386,7 +4386,7 @@ TileSets/HexaRealm/Tiles/Fishing Boats
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Fishing Boats-Industrial era
+TileSets/HexaRealm/Tiles/Fishing Boats-Reconstruction Era
   rotate: false
   xy: 1462, 1588
   size: 64, 56
@@ -4519,14 +4519,14 @@ TileSets/HexaRealm/Tiles/Fort
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Fort-Atomic era
+TileSets/HexaRealm/Tiles/Fort-Danger Era
   rotate: false
   xy: 836, 1814
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Fort-Industrial era
+TileSets/HexaRealm/Tiles/Fort-Reconstruction Era
   rotate: false
   xy: 836, 1750
   size: 64, 56
@@ -4547,14 +4547,14 @@ TileSets/HexaRealm/Tiles/FortT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/FortT-Atomic era
+TileSets/HexaRealm/Tiles/FortT-Danger Era
   rotate: false
   xy: 980, 1724
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/FortT-Industrial era
+TileSets/HexaRealm/Tiles/FortT-Reconstruction Era
   rotate: false
   xy: 980, 1660
   size: 64, 56
@@ -4589,7 +4589,7 @@ TileSets/HexaRealm/Tiles/Furs+Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Furs+Camp-Industrial era
+TileSets/HexaRealm/Tiles/Furs+Camp-Reconstruction Era
   rotate: false
   xy: 1628, 1334
   size: 64, 56
@@ -4610,7 +4610,7 @@ TileSets/HexaRealm/Tiles/FursT+Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/FursT+Camp-Industrial era
+TileSets/HexaRealm/Tiles/FursT+Camp-Reconstruction Era
   rotate: false
   xy: 1772, 1311
   size: 64, 56
@@ -4729,7 +4729,7 @@ TileSets/HexaRealm/Tiles/Horses+Pasture
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Horses+Pasture-Industrial era
+TileSets/HexaRealm/Tiles/Horses+Pasture-Reconstruction Era
   rotate: false
   xy: 328, 446
   size: 64, 56
@@ -4743,28 +4743,28 @@ TileSets/HexaRealm/Tiles/HutFarm
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Atomic era
+TileSets/HexaRealm/Tiles/HutFarm-Danger Era
   rotate: false
   xy: 721, 1728
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Atomic era2
+TileSets/HexaRealm/Tiles/HutFarm-Danger Era2
   rotate: false
   xy: 649, 1664
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Industrial era
+TileSets/HexaRealm/Tiles/HutFarm-Reconstruction Era
   rotate: false
   xy: 649, 1600
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Industrial era2
+TileSets/HexaRealm/Tiles/HutFarm-Reconstruction Era2
   rotate: false
   xy: 721, 1664
   size: 64, 56
@@ -4785,14 +4785,14 @@ TileSets/HexaRealm/Tiles/HutFarm3
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Atomic era3
+TileSets/HexaRealm/Tiles/HutFarm-Danger Era3
   rotate: false
   xy: 649, 1728
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarm-Industrial era3
+TileSets/HexaRealm/Tiles/HutFarm-Reconstruction Era3
   rotate: false
   xy: 649, 1728
   size: 64, 56
@@ -4813,28 +4813,28 @@ TileSets/HexaRealm/Tiles/HutFarmT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarmT-Atomic era
+TileSets/HexaRealm/Tiles/HutFarmT-Danger Era
   rotate: false
   xy: 721, 1536
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarmT-Atomic era2
+TileSets/HexaRealm/Tiles/HutFarmT-Danger Era2
   rotate: false
   xy: 577, 1504
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarmT-Industrial era
+TileSets/HexaRealm/Tiles/HutFarmT-Reconstruction Era
   rotate: false
   xy: 573, 1440
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/HutFarmT-Industrial era2
+TileSets/HexaRealm/Tiles/HutFarmT-Reconstruction Era2
   rotate: false
   xy: 573, 1376
   size: 64, 56
@@ -4890,7 +4890,7 @@ TileSets/HexaRealm/Tiles/Ivory+Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Ivory+Camp-Industrial era
+TileSets/HexaRealm/Tiles/Ivory+Camp-Reconstruction Era
   rotate: false
   xy: 793, 1558
   size: 64, 56
@@ -4995,7 +4995,7 @@ TileSets/HexaRealm/Tiles/Lumber mill
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Lumber mill-Industrial era
+TileSets/HexaRealm/Tiles/Lumber mill-Reconstruction Era
   rotate: false
   xy: 1225, 1412
   size: 64, 56
@@ -5023,7 +5023,7 @@ TileSets/HexaRealm/Tiles/Lumber millT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Lumber millT-Industrial era
+TileSets/HexaRealm/Tiles/Lumber millT-Reconstruction Era
   rotate: false
   xy: 1225, 1348
   size: 64, 56
@@ -5037,14 +5037,14 @@ TileSets/HexaRealm/Tiles/Manufactory
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Manufactory-Atomic era
+TileSets/HexaRealm/Tiles/Manufactory-Danger Era
   rotate: false
   xy: 1225, 1276
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Manufactory-Industrial era
+TileSets/HexaRealm/Tiles/Manufactory-Reconstruction Era
   rotate: false
   xy: 1153, 1267
   size: 64, 64
@@ -5058,14 +5058,14 @@ TileSets/HexaRealm/Tiles/ManufactoryT
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/ManufactoryT-Atomic era
+TileSets/HexaRealm/Tiles/ManufactoryT-Danger Era
   rotate: false
   xy: 1225, 1204
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/ManufactoryT-Industrial era
+TileSets/HexaRealm/Tiles/ManufactoryT-Reconstruction Era
   rotate: false
   xy: 1297, 1167
   size: 64, 64
@@ -5086,7 +5086,7 @@ TileSets/HexaRealm/Tiles/Marble+Quarry
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Marble+Quarry-Industrial era
+TileSets/HexaRealm/Tiles/Marble+Quarry-Reconstruction Era
   rotate: false
   xy: 1369, 1140
   size: 64, 56
@@ -5114,7 +5114,7 @@ TileSets/HexaRealm/Tiles/Marble+QuarryT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Marble+QuarryT-Industrial era
+TileSets/HexaRealm/Tiles/Marble+QuarryT-Reconstruction Era
   rotate: false
   xy: 1441, 1236
   size: 64, 56
@@ -5135,7 +5135,7 @@ TileSets/HexaRealm/Tiles/Mine
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Mine-Industrial era
+TileSets/HexaRealm/Tiles/Mine-Reconstruction Era
   rotate: false
   xy: 1513, 1127
   size: 64, 56
@@ -5156,7 +5156,7 @@ TileSets/HexaRealm/Tiles/MineT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/MineT-Industrial era
+TileSets/HexaRealm/Tiles/MineT-Reconstruction Era
   rotate: false
   xy: 1585, 1134
   size: 64, 56
@@ -5310,7 +5310,7 @@ TileSets/HexaRealm/Tiles/Pasture
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Pasture-Industrial era
+TileSets/HexaRealm/Tiles/Pasture-Reconstruction Era
   rotate: false
   xy: 1945, 911
   size: 64, 56
@@ -5387,7 +5387,7 @@ TileSets/HexaRealm/Tiles/Polder
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Polder-Industrial era
+TileSets/HexaRealm/Tiles/Polder-Reconstruction Era
   rotate: false
   xy: 1005, 1175
   size: 64, 56
@@ -5408,7 +5408,7 @@ TileSets/HexaRealm/Tiles/Quarry
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Quarry-Industrial era
+TileSets/HexaRealm/Tiles/Quarry-Reconstruction Era
   rotate: false
   xy: 1221, 1076
   size: 64, 56
@@ -5436,7 +5436,7 @@ TileSets/HexaRealm/Tiles/QuarryT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/QuarryT-Industrial era
+TileSets/HexaRealm/Tiles/QuarryT-Reconstruction Era
   rotate: false
   xy: 1293, 1039
   size: 64, 56
@@ -5527,7 +5527,7 @@ TileSets/HexaRealm/Tiles/Sheep+Pasture
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Sheep+Pasture-Industrial era
+TileSets/HexaRealm/Tiles/Sheep+Pasture-Reconstruction Era
   rotate: false
   xy: 1869, 738
   size: 64, 56
@@ -5639,7 +5639,7 @@ TileSets/HexaRealm/Tiles/Stone+Quarry
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Stone+Quarry-Industrial era
+TileSets/HexaRealm/Tiles/Stone+Quarry-Reconstruction Era
   rotate: false
   xy: 364, 924
   size: 64, 56
@@ -5667,7 +5667,7 @@ TileSets/HexaRealm/Tiles/Stone+QuarryT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Stone+QuarryT-Industrial era
+TileSets/HexaRealm/Tiles/Stone+QuarryT-Reconstruction Era
   rotate: false
   xy: 364, 724
   size: 64, 56
@@ -5688,7 +5688,7 @@ TileSets/HexaRealm/Tiles/StoneD+Quarry
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/StoneD+Quarry-Industrial era
+TileSets/HexaRealm/Tiles/StoneD+Quarry-Reconstruction Era
   rotate: false
   xy: 400, 532
   size: 64, 56
@@ -5730,7 +5730,7 @@ TileSets/HexaRealm/Tiles/Trading post
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Trading post-Industrial era
+TileSets/HexaRealm/Tiles/Trading post-Reconstruction Era
   rotate: false
   xy: 436, 1239
   size: 64, 56
@@ -5758,7 +5758,7 @@ TileSets/HexaRealm/Tiles/Trading postT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Trading postT-Industrial era
+TileSets/HexaRealm/Tiles/Trading postT-Reconstruction Era
   rotate: false
   xy: 436, 1039
   size: 64, 56
@@ -5779,7 +5779,7 @@ TileSets/HexaRealm/Tiles/Truffles+Camp
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Truffles+Camp-Industrial era
+TileSets/HexaRealm/Tiles/Truffles+Camp-Reconstruction Era
   rotate: false
   xy: 436, 719
   size: 64, 56
@@ -5793,7 +5793,7 @@ TileSets/HexaRealm/Tiles/Truffles+CampT
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Truffles+CampT-Industrial era
+TileSets/HexaRealm/Tiles/Truffles+CampT-Reconstruction Era
   rotate: false
   xy: 508, 1184
   size: 64, 56
@@ -5877,7 +5877,7 @@ TileSets/HexaRealm/Tiles/Whales+Fishing Boats
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Tiles/Whales+Fishing Boats-Industrial era
+TileSets/HexaRealm/Tiles/Whales+Fishing Boats-Reconstruction Era
   rotate: false
   xy: 544, 416
   size: 64, 56
@@ -5940,7 +5940,7 @@ TileSets/HexaRealm/Units/Artillery
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Artillery-Atomic era
+TileSets/HexaRealm/Units/Artillery-Danger Era
   rotate: false
   xy: 220, 892
   size: 64, 56
@@ -6045,7 +6045,7 @@ TileSets/HexaRealm/Units/Carrier
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Carrier-Information era
+TileSets/HexaRealm/Units/Carrier-Network Era
   rotate: false
   xy: 1030, 1860
   size: 64, 56
@@ -6171,14 +6171,14 @@ TileSets/HexaRealm/Units/EmbarkedUnit-Civilian
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Civilian-Modern era
+TileSets/HexaRealm/Units/EmbarkedUnit-Civilian-Connection Era
   rotate: false
   xy: 1894, 1382
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Civilian-Renaissance era
+TileSets/HexaRealm/Units/EmbarkedUnit-Civilian-Rediscovery Era
   rotate: false
   xy: 1966, 1375
   size: 64, 56
@@ -6192,14 +6192,14 @@ TileSets/HexaRealm/Units/EmbarkedUnit-Military
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Military-Modern era
+TileSets/HexaRealm/Units/EmbarkedUnit-Military-Connection Era
   rotate: false
   xy: 76, 276
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Military-Renaissance era
+TileSets/HexaRealm/Units/EmbarkedUnit-Military-Rediscovery Era
   rotate: false
   xy: 76, 212
   size: 64, 56
@@ -6213,14 +6213,14 @@ TileSets/HexaRealm/Units/EmbarkedUnit-Settler
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Settler-Modern era
+TileSets/HexaRealm/Units/EmbarkedUnit-Settler-Connection Era
   rotate: false
   xy: 76, 76
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/EmbarkedUnit-Settler-Renaissance era
+TileSets/HexaRealm/Units/EmbarkedUnit-Settler-Rediscovery Era
   rotate: false
   xy: 76, 12
   size: 64, 56
@@ -6283,7 +6283,7 @@ TileSets/HexaRealm/Units/Great Admiral
   orig: 64, 65
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great Admiral-Modern era
+TileSets/HexaRealm/Units/Great Admiral-Connection Era
   rotate: false
   xy: 361, 1577
   size: 64, 56
@@ -6297,7 +6297,7 @@ TileSets/HexaRealm/Units/Great Artist
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great Artist-Modern era
+TileSets/HexaRealm/Units/Great Artist-Connection Era
   rotate: false
   xy: 357, 1513
   size: 64, 56
@@ -6311,7 +6311,7 @@ TileSets/HexaRealm/Units/Great Engineer
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great Engineer-Modern era
+TileSets/HexaRealm/Units/Great Engineer-Connection Era
   rotate: false
   xy: 357, 1385
   size: 64, 56
@@ -6332,7 +6332,7 @@ TileSets/HexaRealm/Units/Great General
   orig: 64, 65
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great General-Modern era
+TileSets/HexaRealm/Units/Great General-Connection Era
   rotate: false
   xy: 505, 1559
   size: 64, 65
@@ -6346,7 +6346,7 @@ TileSets/HexaRealm/Units/Great Merchant
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great Merchant-Modern era
+TileSets/HexaRealm/Units/Great Merchant-Connection Era
   rotate: false
   xy: 501, 1431
   size: 64, 56
@@ -6367,7 +6367,7 @@ TileSets/HexaRealm/Units/Great Scientist
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Great Scientist-Modern era
+TileSets/HexaRealm/Units/Great Scientist-Connection Era
   rotate: false
   xy: 292, 1252
   size: 64, 56
@@ -6486,7 +6486,7 @@ TileSets/HexaRealm/Units/Khan
   orig: 64, 66
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Khan-Modern era
+TileSets/HexaRealm/Units/Khan-Connection Era
   rotate: false
   xy: 937, 1513
   size: 64, 65
@@ -6822,7 +6822,7 @@ TileSets/HexaRealm/Units/Settler
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Settler-Modern era
+TileSets/HexaRealm/Units/Settler-Connection Era
   rotate: false
   xy: 1797, 795
   size: 64, 56
@@ -6955,14 +6955,14 @@ TileSets/HexaRealm/Units/Work Boats
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Work Boats-Modern era
+TileSets/HexaRealm/Units/Work Boats-Connection Era
   rotate: false
   xy: 508, 10
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/HexaRealm/Units/Worker-Modern era
+TileSets/HexaRealm/Units/Worker-Connection Era
   rotate: false
   xy: 580, 352
   size: 64, 56

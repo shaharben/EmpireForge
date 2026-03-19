@@ -1,26 +1,26 @@
 [
 	{
-		"name":"Scientist",
+		"name":"Researcher",
 		"science":3,
-		"greatPersonPoints": {"Great Scientist":3},
+		"greatPersonPoints": {"Elite Scientist":3},
 		"color": [0,0,255]
 	},
 	{
-		"name":"Merchant",
+		"name":"Trader",
 		"gold":3,
-		"greatPersonPoints": {"Great Merchant":3},
+		"greatPersonPoints": {"Elite Trader":3},
 		"color": [255,215,0]
 	},
 	{
-		"name":"Artist",
+		"name":"Artisan",
 		"culture":2,
-		"greatPersonPoints": {"Great Artist":3},
+		"greatPersonPoints": {"Elite Artisan":3},
 		"color": [160,32,240]
 	},
 	{
-		"name":"Engineer",
+		"name":"Mechanic",
 		"production":2,
-		"greatPersonPoints": {"Great Engineer":3},
+		"greatPersonPoints": {"Elite Engineer":3},
 		"color": [139,69,19]
 	}
 ]

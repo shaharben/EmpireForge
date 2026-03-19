@@ -28,27 +28,27 @@ class EraTests {
     fun testMatchesFilter() {
         setupModdedGame()
         val eraTests = hashMapOf(
-            "Ancient era" to listOf(
+            "Ruins Era" to listOf(
                 "any era" to true,
-                "Ancient era" to true,
-                "Industrial era" to false,
+                "Ruins Era" to true,
+                "Reconstruction Era" to false,
                 "Starting Era" to true,
-                "pre-[Industrial era]" to true,
-                "pre-[Ancient era]" to false,
-                "post-[Ancient era]" to false,
+                "pre-[Reconstruction Era]" to true,
+                "pre-[Ruins Era]" to false,
+                "post-[Ruins Era]" to false,
                 "Invalid Filter" to false
             ),
-            "Industrial era" to listOf(
+            "Reconstruction Era" to listOf(
                 "any era" to true,
-                "Ancient era" to false,
-                "Industrial era" to true,
+                "Ruins Era" to false,
+                "Reconstruction Era" to true,
                 "Starting Era" to false,
-                "post-[Ancient era]" to true,
-                "post-[Classical era]" to true,
-                "post-[Industrial era]" to false,
-                "pre-[Industrial era]" to false,
-                "pre-[Modern era]" to true,
-                "pre-[Classical era]" to false,
+                "post-[Ruins Era]" to true,
+                "post-[Organization Era]" to true,
+                "post-[Reconstruction Era]" to false,
+                "pre-[Reconstruction Era]" to false,
+                "pre-[Connection Era]" to true,
+                "pre-[Organization Era]" to false,
                 "pre-[Invalid era]" to false,
                 "post-[Invalid era]" to false
             )

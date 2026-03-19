@@ -484,8 +484,8 @@ open class UncivGame(val isConsoleMode: Boolean = false) : Game(), PlatformSpeci
 
         @Readonly
         fun getUserAgent(fallbackStr: String = "Unknown"): String = if (isCurrentInitialized()) {
-            "Unciv/${VERSION.toNiceString()}-GNU-Terry-Pratchett"
-        } else "Unciv/$fallbackStr-GNU-Terry-Pratchett"
+            "EmpireForge/${VERSION.toNiceString()}"
+        } else "EmpireForge/$fallbackStr"
 
         /** Handles an uncaught exception or error. First attempts a platform-specific handler, and if that didn't handle the exception or error, brings the game to a [CrashScreen]. */
         fun handleUncaughtThrowable(ex: Throwable) {

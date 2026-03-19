@@ -18,7 +18,7 @@ import com.unciv.ui.images.ImageGetter
 /**
  * Resolver translating more abstract tile data to paint on a map into actual texture names.
  *
- * Deals with variants, e.g. there could be a "City center-asian-Ancient era.png" that would be chosen
+ * Deals with variants, e.g. there could be a "City center-asian-Ruins Era.png" that would be chosen
  * for a "City center"-containing Tile when it is to be drawn for a Nation defining it's style as "asian"
  * and whose techs say it's still in the first vanilla Era.
  *
@@ -148,7 +148,7 @@ class TileSetStrings(
 
     /** For caching image locations based on given parameters (era, style, etc)
      * Based on what the final image would look like if all parameters existed,
-     * like "pikeman-France-Medieval era": "pikeman" */
+     * like "pikeman-France-Fortress Era": "pikeman" */
     val imageParamsToImageLocation = HashMap<String,String>()
 
 
@@ -164,7 +164,7 @@ class TileSetStrings(
      * - If there's an era+style image of any era, take that
      * - Else, if there's an era-no-style image of any era, take that
      * - Only then check style-only
-     * This means that if there's a "pikeman-France" and a "pikeman-Medieval era",
+     * This means that if there's a "pikeman-France" and a "pikeman-Fortress Era",
      * The era-based image wins out, even though it's not the current era.
      */
     private fun tryGetUnitImageLocation(unit: MapUnit): String? {
@@ -186,10 +186,10 @@ class TileSetStrings(
         val style = civInfo.nation.getStyleOrCivName()
 
         var imageAttempter = ImageAttempter(baseUnitIconLocation)
-            // Era+style image: looks like  "pikeman-France-Medieval era"
+            // Era+style image: looks like  "pikeman-France-Fortress Era"
             // More advanced eras default to older eras
             .tryEraImage(civInfo, baseUnitIconLocation, style, this)
-            // Era-only image: looks like "pikeman-Medieval era"
+            // Era-only image: looks like "pikeman-Fortress Era"
             .tryEraImage(civInfo, baseUnitIconLocation, null, this)
             // Style era: looks like "pikeman-France" or "pikeman-European"
             .tryImage { getString(baseUnitIconLocation, tag, style) }

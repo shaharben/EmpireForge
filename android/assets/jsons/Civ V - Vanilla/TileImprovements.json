@@ -220,7 +220,7 @@
             "Will not be replaced by automated units", "Pillaging this improvement yields approximately [+20 Gold]"]
 	},
 	{
-		"name": "Holy site",
+		"name": "Data Vault",
 		"terrainsCanBeBuiltOn": ["Land"],
 		"faith": 6,
 		"uniques": ["Great Improvement", "Removes removable features when built",
@@ -293,6 +293,6 @@
 		"name": "Barbarian encampment",
 		"terrainsCanBeBuiltOn": ["Land"],
 		"uniques": ["Unpillagable", "Unbuildable", "Excluded from map editor"],
-        "civilopediaText": [{"text":"Home to uncivilized barbarians, will spawn a hostile unit from time to time"}]
+        "civilopediaText": [{"text":"Home to hostile raiders, will spawn a hostile unit from time to time"}]
 	}
 ]

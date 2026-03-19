@@ -17,15 +17,15 @@
         "type": "string",
         "description": "Unlocking era as defined in Eras.json",
         "examples": [
-          "Ancient era",
-          "Classical era",
-          "Medieval era",
-          "Renaissance era",
-          "Industrial era",
-          "Modern era",
-          "Atomic era",
-          "Information era",
-          "Future era"
+          "Ruins Era",
+          "Organization Era",
+          "Fortress Era",
+          "Rediscovery Era",
+          "Reconstruction Era",
+          "Connection Era",
+          "Danger Era",
+          "Network Era",
+          "New World Era"
         ]
       },
       "priorities": {

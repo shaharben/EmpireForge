@@ -83,7 +83,7 @@ class WorldScreenTopBar(internal val worldScreen: WorldScreen) : Table() {
         defaults().center()
         setRound(false) // Prevent Table from doing internal rounding which would provoke gaps
 
-        val backColor = BaseScreen.skinStrings.skinConfig.baseColor.darken(0.5f)
+        val backColor = BaseScreen.skinStrings.skinConfig.baseColor.darken(0.5f).apply { a = 0.85f }
         statsTable.background = BaseScreen.skinStrings.getUiBackground("WorldScreen/TopBar/StatsTable", tintColor = backColor)
         resourceTable.background = BaseScreen.skinStrings.getUiBackground("WorldScreen/TopBar/ResourceTable", tintColor = backColor)
 

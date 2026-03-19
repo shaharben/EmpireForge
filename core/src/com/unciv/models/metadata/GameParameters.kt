@@ -5,7 +5,7 @@ import com.unciv.logic.civilization.PlayerType
 import com.unciv.models.ruleset.Speed
 
 class GameParameters : IsPartOfGameInfoSerialization { // Default values are the default new game
-    var difficulty = "Prince"
+    var difficulty = "Commander"
     var speed: String = Speed.DEFAULT // Not an instance of class Speed
 
     var randomNumberOfPlayers = false
@@ -34,7 +34,7 @@ class GameParameters : IsPartOfGameInfoSerialization { // Default values are the
     var shufflePlayerOrder = false
 
     var victoryTypes: ArrayList<String> = arrayListOf()
-    var startingEra = "Ancient era"
+    var startingEra = "Ruins Era"
 
     var showVictoryStats = true
 

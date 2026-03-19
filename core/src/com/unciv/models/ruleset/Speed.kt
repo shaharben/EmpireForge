@@ -84,8 +84,8 @@ class Speed : RulesetObject() {
     }
 
     companion object {
-        const val DEFAULT: String = "Quick"
-        const val DEFAULTFORSIMULATION: String = "Standard"
+        const val DEFAULT: String = "Blitz"
+        const val DEFAULTFORSIMULATION: String = "Normal"
     }
 
     // Note: Speed uniques will be treated as part of GlobalUniques

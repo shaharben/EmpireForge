@@ -12,45 +12,45 @@
             "a": 1
         },
         "color": {
-            "r": 0.12,
-            "g": 0.14,
-            "b": 0.18,
+            "r": 0.06,
+            "g": 0.08,
+            "b": 0.10,
             "a": 1
         },
         "gray": {
-            "r": 0.55,
-            "g": 0.55,
-            "b": 0.58,
+            "r": 0.50,
+            "g": 0.52,
+            "b": 0.45,
             "a": 1
         },
         "dark-gray": {
-            "r": 0.22,
-            "g": 0.22,
-            "b": 0.25,
+            "r": 0.12,
+            "g": 0.13,
+            "b": 0.10,
             "a": 1
         },
         "disabled": {
-            "r": 0.3,
-            "g": 0.3,
-            "b": 0.35,
+            "r": 0.25,
+            "g": 0.25,
+            "b": 0.20,
             "a": 1
         },
         "highlight": {
-            "r": 0.0,
-            "g": 0.78,
-            "b": 0.65,
+            "r": 0.90,
+            "g": 0.75,
+            "b": 0.15,
             "a": 1
         },
         "pressed": {
-            "r": 0.0,
-            "g": 0.62,
-            "b": 0.52,
+            "r": 0.72,
+            "g": 0.58,
+            "b": 0.08,
             "a": 1
         },
         "selection": {
-            "r": 0.24,
-            "g": 0.56,
-            "b": 0.94,
+            "r": 0.18,
+            "g": 0.42,
+            "b": 0.22,
             "a": 1
         },
         "white": {
@@ -60,115 +60,115 @@
             "a": 1
         },
         "positive": {
-            "r": 0.18,
-            "g": 0.72,
-            "b": 0.45,
+            "r": 0.20,
+            "g": 0.70,
+            "b": 0.30,
             "a": 1
         },
         "negative": {
-            "r": 0.91,
-            "g": 0.3,
-            "b": 0.24,
+            "r": 0.85,
+            "g": 0.25,
+            "b": 0.20,
             "a": 1
         },
         "negative-highlight": {
-            "r": 1.0,
-            "g": 0.4,
-            "b": 0.34,
+            "r": 0.95,
+            "g": 0.35,
+            "b": 0.28,
             "a": 1
         },
         "negative-selected": {
-            "r": 0.82,
-            "g": 0.25,
-            "b": 0.2,
+            "r": 0.75,
+            "g": 0.20,
+            "b": 0.16,
             "a": 1
         },
         "promotion-default": {
-            "r": 0.08,
-            "g": 0.09,
-            "b": 0.12,
+            "r": 0.06,
+            "g": 0.07,
+            "b": 0.05,
             "a": 1
         },
         "promotion-selected": {
-            "r": 0.0,
-            "g": 0.65,
-            "b": 0.78,
+            "r": 0.80,
+            "g": 0.68,
+            "b": 0.12,
             "a": 1
         },
         "promotion-path": {
-            "r": 0.0,
+            "r": 0.55,
             "g": 0.45,
-            "b": 0.55,
+            "b": 0.08,
             "a": 1
         },
         "promotion-promoted": {
             "r": 0.95,
-            "g": 0.75,
-            "b": 0.1,
+            "g": 0.80,
+            "b": 0.15,
             "a": 1
         },
         "promotion-promoted-text": {
-            "r": 0.15,
-            "g": 0.12,
+            "r": 0.10,
+            "g": 0.08,
             "b": 0.0,
             "a": 1
         },
         "promotion-pickable": {
-            "r": 0.0,
+            "r": 0.15,
             "g": 0.55,
-            "b": 0.35,
+            "b": 0.22,
             "a": 1
         },
         "promotion-prerequisite": {
-            "r": 0.35,
-            "g": 0.5,
-            "b": 0.85,
+            "r": 0.65,
+            "g": 0.55,
+            "b": 0.18,
             "a": 1
         },
         "promotion-grouplines": {
-            "r": 0.85,
-            "g": 0.85,
-            "b": 0.9,
+            "r": 0.80,
+            "g": 0.75,
+            "b": 0.55,
             "a": 1
         },
         "promotion-otherlines": {
-            "r": 1,
-            "g": 0.7,
-            "b": 0,
+            "r": 0.90,
+            "g": 0.75,
+            "b": 0.12,
             "a": 0
         }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable": {
         "button-c": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "color"
         },
         "button-p": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "pressed"
         },
         "button-h": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "highlight"
         },
         "button-disabled": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "disabled"
         },
         "button-positive": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "positive"
         },
         "button-negative": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "negative"
         },
         "button-negative-pressed": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "negative-selected"
         },
         "button-negative-hover": {
-            "name": "RoundedEdgeRectangle",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "negative-highlight"
         },
         "checkbox-c": {
@@ -196,19 +196,19 @@
             "color": "color"
         },
         "select-box-c": {
-            "name": "Select-box",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "color"
         },
         "select-box-disabled": {
-            "name": "Select-box",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "disabled"
         },
         "select-box-pressed-c": {
-            "name": "Select-box-pressed",
-            "color": "color"
+            "name": "RoundedEdgeRectangle-mid-border",
+            "color": "pressed"
         },
         "select-box-h": {
-            "name": "Select-box",
+            "name": "RoundedEdgeRectangle-mid-border",
             "color": "highlight"
         },
         "select-box-scroll-bg-c": {
@@ -283,7 +283,7 @@
     "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
         "default": {
             "font": "font",
-            "fontColor": "color"
+            "fontColor": {"r": 0.95, "g": 0.92, "b": 0.85, "a": 1}
         }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle": {
@@ -345,36 +345,36 @@
     "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
         "default": {
             "font": "button",
-            "fontColor": "white",
-            "downFontColor": "white",
-            "overFontColor": "dark-gray",
+            "fontColor": {"r": 0.95, "g": 0.92, "b": 0.85, "a": 1},
+            "downFontColor": {"r": 0.70, "g": 0.55, "b": 0.10, "a": 1},
+            "overFontColor": {"r": 0.90, "g": 0.75, "b": 0.15, "a": 1},
             "up": "button-c",
             "down": "button-p",
             "over": "button-h"
         },
         "positive": {
             "font": "button",
-            "fontColor": "white",
-            "downFontColor": "white",
-            "overFontColor": "dark-gray",
+            "fontColor": {"r": 0.75, "g": 0.90, "b": 0.40, "a": 1},
+            "downFontColor": {"r": 0.70, "g": 0.55, "b": 0.10, "a": 1},
+            "overFontColor": {"r": 0.90, "g": 0.75, "b": 0.15, "a": 1},
             "up": "button-positive",
             "down": "button-p",
             "over": "button-h"
         },
         "negative": {
             "font": "button",
-            "fontColor": "white",
-            "downFontColor": "white",
-            "overFontColor": "white",
+            "fontColor": {"r": 0.95, "g": 0.92, "b": 0.85, "a": 1},
+            "downFontColor": {"r": 0.70, "g": 0.55, "b": 0.10, "a": 1},
+            "overFontColor": {"r": 0.90, "g": 0.75, "b": 0.15, "a": 1},
             "up": "button-negative",
             "down": "button-negative-pressed",
             "over": "button-negative-hover"
         },
         "disabled": {
             "font": "button",
-            "fontColor": "white",
-            "downFontColor": "white",
-            "overFontColor": "white",
+            "fontColor": {"r": 0.95, "g": 0.92, "b": 0.85, "a": 1},
+            "downFontColor": {"r": 0.70, "g": 0.55, "b": 0.10, "a": 1},
+            "overFontColor": {"r": 0.95, "g": 0.92, "b": 0.85, "a": 1},
             "up": "button-disabled",
             "down": "button-disabled",
             "over": "button-disabled"

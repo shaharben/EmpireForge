@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.unciv.models.UncivSound
 import com.unciv.models.ruleset.Building
 import com.unciv.models.ruleset.IConstruction
+import com.unciv.models.ruleset.INonPerpetualConstruction
 import com.unciv.models.ruleset.IRulesetObject
 import com.unciv.models.ruleset.PerpetualConstruction
 import com.unciv.models.ruleset.PerpetualStatConversion
@@ -30,14 +31,15 @@ class ConstructionInfoTable(val cityScreen: CityScreen) : Table() {
     private val buyButtonFactory = BuyButtonFactory(cityScreen)
 
     init {
+        // EmpireForge: Dark themed construction info panel
         selectedConstructionTable.background = BaseScreen.skinStrings.getUiBackground(
             "CityScreen/ConstructionInfoTable/SelectedConstructionTable",
-            tintColor = BaseScreen.skinStrings.skinConfig.baseColor.darken(0.5f)
+            tintColor = Color(0.10f, 0.12f, 0.18f, 0.92f)
         )
         add(selectedConstructionTable).pad(2f).fill()
         background = BaseScreen.skinStrings.getUiBackground(
             "CityScreen/ConstructionInfoTable/Background",
-            tintColor = Color.WHITE
+            tintColor = Color(0.16f, 0.18f, 0.24f, 0.95f)
         )
     }
 
@@ -75,10 +77,19 @@ class ConstructionInfoTable(val cityScreen: CityScreen) : Table() {
             var buildingText = construction.name.tr(hideIcons = true)
             val specialConstruction = PerpetualConstruction.perpetualConstructionsMap[construction.name]
 
-            buildingText += specialConstruction?.getProductionTooltip(city)
+            val turnsString = specialConstruction?.getProductionTooltip(city)
                     ?: cityConstructions.getTurnsToConstructionString(construction)
+            buildingText += turnsString
 
-            add(Label(buildingText, BaseScreen.skin)).expandX().row()  // already translated
+            // EmpireForge: Gold-colored construction name with green tint when near completion
+            val constructionLabel = Label(buildingText, BaseScreen.skin)
+            val isNearCompletion = construction is INonPerpetualConstruction &&
+                cityConstructions.getWorkDone(construction.name) > 0 &&
+                cityConstructions.getRemainingWork(construction.name) > 0 &&
+                (cityConstructions.getWorkDone(construction.name).toFloat() /
+                    (cityConstructions.getWorkDone(construction.name) + cityConstructions.getRemainingWork(construction.name)).toFloat()) > 0.8f
+            constructionLabel.color = if (isNearCompletion) Color(0.3f, 0.9f, 0.4f, 1f) else Color(1f, 0.84f, 0f, 1f)
+            add(constructionLabel).expandX().row()  // already translated
 
             val description = when (construction) {
                 is BaseUnit -> construction.getDescription(city)

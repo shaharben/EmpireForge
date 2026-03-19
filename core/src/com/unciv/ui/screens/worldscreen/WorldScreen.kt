@@ -9,6 +9,7 @@ import com.unciv.Constants
 import com.unciv.UncivGame
 import com.unciv.logic.GameInfo
 import com.unciv.logic.UncivShowableException
+import com.unciv.logic.civilization.AchievementManager
 import com.unciv.logic.civilization.Civilization
 import com.unciv.logic.civilization.PlayerType
 import com.unciv.logic.civilization.diplomacy.DiplomaticStatus
@@ -131,6 +132,12 @@ class WorldScreen(
         background = skinStrings.getUiBackground("WorldScreen/TutorialTaskTable", tintColor = skinStrings.skinConfig.baseColor.darken(0.5f))
     }
     private var tutorialTaskTableHash = 0
+    private val empireQuickStats = EmpireQuickStats(this)
+    private val cityProductionPanel = CityProductionPanel(this)
+    private val victoryProgressPanel = VictoryProgressPanel(this)
+    private val diplomacyQuickPanel = DiplomacyQuickPanel(this)
+    val achievementManager = AchievementManager()
+    private var panelUpdateCounter = 0
 
     private var nextTurnUpdateJob: Job? = null
 
@@ -159,6 +166,7 @@ class WorldScreen(
         stage.addActor(notificationsScroll)  // very low in z-order, so we're free to let it extend _below_ tile info and minimap if we want
         stage.addActor(tutorialTaskTable)    // behind topBar!
         stage.addActor(topBar)
+        statusButtons.createTurnSummaryButton(this)
         stage.addActor(statusButtons)
         stage.addActor(techPolicyAndDiplomacy)
         stage.addActor(chatButton)
@@ -173,6 +181,19 @@ class WorldScreen(
         battleTable.width = stage.width / 3
         battleTable.x = stage.width / 3
         stage.addActor(battleTable)
+
+        stage.addActor(empireQuickStats)
+        empireQuickStats.setPosition(0f, stage.height / 2, Align.left)
+
+        stage.addActor(cityProductionPanel)
+        cityProductionPanel.setPosition(0f, bottomUnitTable.height + unitActionsTable.height + 5f)
+
+        stage.addActor(victoryProgressPanel)
+        victoryProgressPanel.setPosition(stage.width - victoryProgressPanel.width - 10f, stage.height / 2 - victoryProgressPanel.height / 2)
+
+        stage.addActor(diplomacyQuickPanel)
+        diplomacyQuickPanel.setPosition(stage.width - diplomacyQuickPanel.width - 10f,
+            victoryProgressPanel.y - diplomacyQuickPanel.height - 10f)
 
         val tileToCenterOn: HexCoord =
                 when {
@@ -314,6 +335,8 @@ class WorldScreen(
         notificationsScroll.isVisible = uiEnabled
         minimapWrapper.isVisible = uiEnabled
         bottomUnitTable.isVisible = uiEnabled
+        empireQuickStats.isVisible = uiEnabled
+        victoryProgressPanel.isVisible = uiEnabled
         if (uiEnabled) battleTable.update() else battleTable.isVisible = false
     }
 
@@ -385,6 +408,21 @@ class WorldScreen(
             bottomTileInfoTable.y = if (game.settings.showMinimap) minimapWrapper.height + 5f else 0f
 
             battleTable.update()
+
+            panelUpdateCounter++
+            if (panelUpdateCounter % 30 == 0) {
+                empireQuickStats.update(selectedCiv)
+                cityProductionPanel.update(selectedCiv)
+                victoryProgressPanel.update(selectedCiv)
+                diplomacyQuickPanel.update(selectedCiv)
+                achievementManager.checkAchievements(viewingCiv)
+            }
+            // Always reposition panels
+            empireQuickStats.setPosition(0f, stage.height / 2, Align.left)
+            cityProductionPanel.setPosition(0f, bottomUnitTable.height + unitActionsTable.height + 5f)
+            victoryProgressPanel.setPosition(stage.width - victoryProgressPanel.width - 10f, stage.height / 2 - victoryProgressPanel.height / 2)
+            diplomacyQuickPanel.setPosition(stage.width - diplomacyQuickPanel.width - 10f,
+                victoryProgressPanel.y - diplomacyQuickPanel.height - 10f)
 
             displayTutorialTaskOnUpdate()
         }
@@ -842,6 +880,15 @@ private fun startNewScreenJob(gameInfo: GameInfo, autoPlay: AutoPlay, autosaveDi
                 ToastPopup("Not enough memory on phone to load game!", mainMenu)
             }
             return@run
+        }
+
+        // Show turn summary toast with recent notifications
+        val currentNotifications = newWorldScreen.viewingCiv.notifications
+        if (currentNotifications.isNotEmpty()) {
+            val summaryText = "Turn ${gameInfo.turns}: " + currentNotifications.take(3).joinToString(" | ") { it.text }
+            withGLContext {
+                ToastPopup(summaryText, newWorldScreen, 3000)
+            }
         }
 
         val shouldAutoSave = !autosaveDisabled

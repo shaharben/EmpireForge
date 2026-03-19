@@ -1273,9 +1273,9 @@ enum class UniqueType(
     ConditionalFollowerCount("in cities where this religion has at least [amount] followers", UniqueTarget.Conditional),
     @Deprecated("as of 3.19.8", ReplaceWith("[+amount]% Strength <when attacking> <for [mapUnitFilter] units> <for [amount2] turns>"), DeprecationLevel.ERROR)
     TimedAttackStrength("+[amount]% attack strength to all [mapUnitFilter] units for [amount2] turns", UniqueTarget.Global),  // used in Policy
-    @Deprecated("as of 3.19.13", ReplaceWith("Enables [Embarked] units to enter ocean tiles <starting from the [Ancient era]>"), DeprecationLevel.ERROR)
+    @Deprecated("as of 3.19.13", ReplaceWith("Enables [Embarked] units to enter ocean tiles <starting from the [Ruins Era]>"), DeprecationLevel.ERROR)
     EmbarkedUnitsMayEnterOcean("Enables embarked units to enter ocean tiles", UniqueTarget.Global),
-    @Deprecated("as of 3.19.9", ReplaceWith("Enables embarkation for land units <starting from the [Ancient era]>\", \"Enables [All] units to enter ocean tiles <starting from the [Ancient era]>"), DeprecationLevel.ERROR)
+    @Deprecated("as of 3.19.9", ReplaceWith("Enables embarkation for land units <starting from the [Ruins Era]>\", \"Enables [All] units to enter ocean tiles <starting from the [Ruins Era]>"), DeprecationLevel.ERROR)
     EmbarkAndEnterOcean("Can embark and move over Coasts and Oceans immediately", UniqueTarget.Global),
     @Deprecated("as of 3.19.19", ReplaceWith("[relativeAmount]% Unhappiness from [Population] [cityFilter]"), DeprecationLevel.ERROR)
     UnhappinessFromPopulationPercentageChange("[relativeAmount]% unhappiness from population [cityFilter]", UniqueTarget.Global, UniqueTarget.FollowerBelief),

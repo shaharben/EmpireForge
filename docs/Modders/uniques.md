@@ -103,7 +103,7 @@ Simple unique parameters are explained by mouseover. Complex parameters are expl
 	Applicable to: Triggerable
 
 ??? example  "[positiveAmount] free random researchable Tech(s) from the [eraFilter]"
-	Example: "[3] free random researchable Tech(s) from the [Ancient era]"
+	Example: "[3] free random researchable Tech(s) from the [Ruins Era]"
 
 	Applicable to: Triggerable
 
@@ -3465,22 +3465,22 @@ Simple unique parameters are explained by mouseover. Complex parameters are expl
 	Applicable to: Conditional
 
 ??? example  "&lt;during the [era]&gt;"
-	Example: "&lt;during the [Ancient era]&gt;"
+	Example: "&lt;during the [Ruins Era]&gt;"
 
 	Applicable to: Conditional
 
 ??? example  "&lt;before the [era]&gt;"
-	Example: "&lt;before the [Ancient era]&gt;"
+	Example: "&lt;before the [Ruins Era]&gt;"
 
 	Applicable to: Conditional
 
 ??? example  "&lt;starting from the [era]&gt;"
-	Example: "&lt;starting from the [Ancient era]&gt;"
+	Example: "&lt;starting from the [Ruins Era]&gt;"
 
 	Applicable to: Conditional
 
 ??? example  "&lt;if starting in the [era]&gt;"
-	Example: "&lt;if starting in the [Ancient era]&gt;"
+	Example: "&lt;if starting in the [Ruins Era]&gt;"
 
 	Applicable to: Conditional
 
@@ -3853,7 +3853,7 @@ Simple unique parameters are explained by mouseover. Complex parameters are expl
 	Applicable to: TriggerCondition
 
 ??? example  "&lt;upon entering the [era]&gt;"
-	Example: "&lt;upon entering the [Ancient era]&gt;"
+	Example: "&lt;upon entering the [Ruins Era]&gt;"
 
 	Applicable to: TriggerCondition
 

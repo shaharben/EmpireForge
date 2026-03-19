@@ -62,7 +62,7 @@ class ImageAttempter<out T: Any>(val scope: T) {
     /** Try to load era-specific image variants
      *
      *  Tries eras from the civ's current one down to the first era defined, by json order of eras.
-     *  Result looks like "Plains-Rome-Ancient era": [style] goes before era if supplied.
+     *  Result looks like "Plains-Rome-Ruins Era": [style] goes before era if supplied.
      *
      * @param civInfo the civ who owns the tile or unit, used for getEraNumber and ruleset (but not for nation.getStyleOrCivName)
      * @param locationToCheck the beginning of the filename to check

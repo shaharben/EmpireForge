@@ -1,7 +1,9 @@
 package com.unciv.ui.popups
 
 import com.badlogic.gdx.scenes.scene2d.Stage
+import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.utils.Align
+import com.unciv.Constants
 import com.unciv.ui.components.extensions.addRoundCloseButton
 import com.unciv.ui.components.input.ActivationTypes
 import com.unciv.ui.components.input.clearActivationActions
@@ -32,7 +34,8 @@ class ToastPopup (message: String, stageToShowOn: Stage, val time: Long = 2000) 
         setFillParent(false)
         onClick(::stayVisible) // or `touchable = Touchable.disabled` so you can operate what's behind
 
-        add(ColorMarkupLabel(message).apply {
+        // EmpireForge: Slightly larger toast text with gold tint
+        add(ColorMarkupLabel(message, fontSize = Constants.defaultFontSize + 2).apply {
             wrap = true
             setAlignment(Align.center)
         }).width(stageToShowOn.width / 2)
@@ -42,6 +45,12 @@ class ToastPopup (message: String, stageToShowOn: Stage, val time: Long = 2000) 
         // move it to the top so its not in the middle of the screen
         // has to be done after open() because open() centers the popup
         y = stageToShowOn.height - (height + 20f)
+
+        // EmpireForge: Slide-in animation from above
+        addAction(Actions.sequence(
+            Actions.moveBy(0f, 50f),
+            Actions.moveBy(0f, -50f, 0.3f)
+        ))
     }
 
     private fun startTimer() {

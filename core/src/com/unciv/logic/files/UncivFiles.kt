@@ -26,6 +26,7 @@ import com.unciv.logic.GameInfoSerializationVersion
 import com.unciv.logic.HasGameInfoSerializationVersion
 import com.unciv.utils.Log
 import com.unciv.utils.debug
+import com.unciv.utils.launchOnGLThread
 import kotlinx.coroutines.Job
 import java.io.Writer
 
@@ -508,6 +509,16 @@ class Autosaves(val files: UncivFiles) {
         } catch (oom: OutOfMemoryError) {
             Log.error("Ran out of memory during autosave", oom)
             return  // not much we can do here
+        }
+
+        // Show a brief toast indicating the game was saved
+        com.badlogic.gdx.Gdx.app.postRunnable {
+            try {
+                val screen = com.unciv.UncivGame.Current.screen
+                if (screen is com.unciv.ui.screens.worldscreen.WorldScreen) {
+                    com.unciv.ui.popups.ToastPopup("Game saved", screen, 1000)
+                }
+            } catch (_: Exception) {}
         }
 
         if (!nextTurn) return

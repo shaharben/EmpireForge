@@ -27,7 +27,8 @@ class NextTurnButton(
     private val unitsDueLabel = Label("", BaseScreen.skin)
     private val unitsDueCell: Cell<Label>
     init {
-        pad(15f)
+        // EmpireForge: More prominent Next Turn button with extra padding
+        pad(20f)
         onActivation { nextTurnAction.action(worldScreen) }
         onRightClick { NextTurnMenu(stage, this, this, worldScreen) }
         keyShortcuts.add(KeyboardBinding.NextTurn)

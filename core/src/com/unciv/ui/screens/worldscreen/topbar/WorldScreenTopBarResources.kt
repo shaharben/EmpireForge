@@ -1,5 +1,6 @@
 package com.unciv.ui.screens.worldscreen.topbar
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.scenes.scene2d.ui.Label
@@ -11,6 +12,8 @@ import com.unciv.models.ruleset.unique.UniqueType
 import com.unciv.models.translations.tr
 import com.unciv.ui.components.MayaCalendar
 import com.unciv.ui.components.YearTextUtil
+import com.unciv.ui.components.extensions.setFontColor
+import com.unciv.ui.components.extensions.setFontSize
 import com.unciv.ui.components.extensions.toLabel
 import com.unciv.ui.components.extensions.toStringSigned
 import com.unciv.ui.components.fonts.Fonts
@@ -21,7 +24,9 @@ import com.unciv.ui.screens.overviewscreen.EmpireOverviewCategories
 import com.unciv.ui.screens.victoryscreen.VictoryScreen
 
 internal class WorldScreenTopBarResources(topbar: WorldScreenTopBar) : ScalingTableWrapper() {
-    private val turnsLabel = "Turns: 0/400".toLabel()
+    /** Gold color for the turn counter to make it stand out */
+    private val turnCounterGoldColor = Color(0.9f, 0.75f, 0.15f, 1f)
+    private val turnsLabel = "Turns: 0/400".toLabel(turnCounterGoldColor)
     private data class ResourceActors(val resource: TileResource, val label: Label, val icon: Group)
     private val resourceActors = ArrayList<ResourceActors>(12)
     private val resourcesWrapper = Table()
@@ -40,6 +45,19 @@ internal class WorldScreenTopBarResources(topbar: WorldScreenTopBar) : ScalingTa
         const val outerHorizontalPad = 2f
         const val iconSize = 20f
         const val resourceAmountDescentTweak = 3f
+
+        /** Color tint for strategic resource labels (orange/brown) */
+        val strategicResourceColor = Color(0.95f, 0.7f, 0.3f, 1f)
+        /** Color tint for luxury resource labels (purple) */
+        val luxuryResourceColor = Color(0.8f, 0.5f, 0.95f, 1f)
+        /** Color tint for bonus resource labels (green) */
+        val bonusResourceColor = Color(0.5f, 0.9f, 0.5f, 1f)
+
+        fun getResourceTypeColor(resourceType: ResourceType): Color = when (resourceType) {
+            ResourceType.Strategic -> strategicResourceColor
+            ResourceType.Luxury -> luxuryResourceColor
+            ResourceType.Bonus -> bonusResourceColor
+        }
     }
 
     init {
@@ -49,6 +67,8 @@ internal class WorldScreenTopBarResources(topbar: WorldScreenTopBar) : ScalingTa
         resourcesWrapper.defaults().space(defaultPad)
         resourcesWrapper.touchable = Touchable.enabled
 
+        turnsLabel.setFontSize(18)
+        turnsLabel.setFontColor(turnCounterGoldColor)
         turnsLabel.onClick {
             if (worldScreen.selectedCiv.isLongCountDisplay()) {
                 val gameInfo = worldScreen.selectedCiv.gameInfo
@@ -108,6 +128,7 @@ internal class WorldScreenTopBarResources(topbar: WorldScreenTopBar) : ScalingTa
                 if (perTurn == 0) label.setText(amount.tr())
                 else label.setText("${amount.tr()} (${perTurn.toStringSigned()})")
             }
+            label.setFontColor(getResourceTypeColor(resource.resourceType))
             resourcesWrapper.add(label).padTop(resourceAmountDescentTweak)  // digits don't have descenders, so push them down a little
         }
 

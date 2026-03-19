@@ -28,6 +28,19 @@ import kotlin.math.ceil
 import kotlin.math.round
 
 class CityStatsTable(private val cityScreen: CityScreen) : Table() {
+    companion object {
+        /** EmpireForge: Color coding for stat values to improve readability */
+        val statColors = mapOf(
+            Stat.Food to Color(0.4f, 0.85f, 0.3f, 1f),
+            Stat.Production to Color(0.9f, 0.6f, 0.2f, 1f),
+            Stat.Gold to Color(1f, 0.84f, 0f, 1f),
+            Stat.Science to Color(0.3f, 0.7f, 1f, 1f),
+            Stat.Culture to Color(0.7f, 0.3f, 0.9f, 1f),
+            Stat.Faith to Color(1f, 1f, 0.6f, 1f),
+            Stat.Happiness to Color(0.3f, 0.9f, 0.4f, 1f)
+        )
+    }
+
     private val city = cityScreen.city
     private val expander: ExpanderTab
     // table within this Table. Slightly smaller creates border
@@ -45,9 +58,10 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
 
     init {
         pad(2f)
+        // EmpireForge: Darker background for the stats panel
         background = BaseScreen.skinStrings.getUiBackground(
             "CityScreen/CityStatsTable/Background",
-            tintColor = colorFromRGB(194, 180, 131)
+            tintColor = Color(0.12f, 0.14f, 0.20f, 0.92f)
         )
 
         expander = ExpanderTab("",
@@ -436,7 +450,9 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
                 }
                 add(icon).size(27f).padRight(3f)
                 val valueToDisplay = if (stat == Stat.Happiness) city.cityStats.happinessList.values.sum() else amount
-                add(round(valueToDisplay).toInt().toLabel()).padRight(5f)
+                // EmpireForge: Color-coded stat values
+                val statColor = statColors[stat] ?: Color.WHITE
+                add(round(valueToDisplay).toInt().toLabel().apply { color = statColor }).padRight(5f)
                 if (cityScreen.isCrampedPortrait() && (expanderIsOpen == null || !expanderIsOpen) && stat == Stat.Gold) {
                     row()
                 }

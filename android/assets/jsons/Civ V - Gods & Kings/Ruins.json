@@ -52,7 +52,7 @@
     {
         "name": "discover a lost technology",
         "notification": "We have discovered the lost technology of [techName] in the ruins!",
-        "uniques": ["[1] free random researchable Tech(s) from the [Ancient era]"],
+        "uniques": ["[1] free random researchable Tech(s) from the [Ruins Era]"],
 		"color": "#7f7fff"
     },
     {
@@ -83,7 +83,7 @@
         "name": "an ancient prophecy",
         "notification": "We have found an ancient prophecy in the ruins, greatly increasing our spiritual connection! (+[faithAmount] Faith)",
         "uniques": [
-            "Only available <when religion is enabled>", "Gain enough Faith for [33]% of a Great Prophet", "Unavailable <after generating a Great Prophet>",
+            "Only available <when religion is enabled>", "Gain enough Faith for [33]% of a Elite Leader", "Unavailable <after generating a Elite Leader>",
             "Only available <after founding a Pantheon>", "Only available <after turn number [20]>",
             "Play [choir] sound"
         ],

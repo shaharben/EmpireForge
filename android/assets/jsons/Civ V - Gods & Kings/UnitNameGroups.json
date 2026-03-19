@@ -29,6 +29,6 @@
     },
     {
         "name": "Prophet",
-        "unitNames": [] // The original has no Great Prophet names, but we leave it here to enable mod support
+        "unitNames": [] // The original has no Elite Leader names, but we leave it here to enable mod support
     }
 ]

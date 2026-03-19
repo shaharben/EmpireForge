@@ -155,7 +155,7 @@ class MinimapHolder(val mapHolder: WorldMapHolder) : Table() {
 
         internalMinimapWrapper.background = BaseScreen.skinStrings.getUiBackground(
             "WorldScreen/Minimap/Background",
-            tintColor = Color.GRAY
+            tintColor = Color(0.15f, 0.15f, 0.20f, 1f)
         )
         internalMinimapWrapper.pack()
 
@@ -163,7 +163,7 @@ class MinimapHolder(val mapHolder: WorldMapHolder) : Table() {
         externalMinimapWrapper.add(internalMinimapWrapper).pad(5f)
         externalMinimapWrapper.background = BaseScreen.skinStrings.getUiBackground(
             "WorldScreen/Minimap/Border",
-            tintColor = Color.WHITE
+            tintColor = Color(0.85f, 0.65f, 0.13f, 1f)
         )
         externalMinimapWrapper.pack()
 

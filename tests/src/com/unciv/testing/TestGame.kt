@@ -165,7 +165,7 @@ class TestGame(vararg addGlobalUniques: String, forUITesting: Boolean = false) {
         // Add 1 tech to the player so the era is computed correctly
         civInfo.tech.addTechnology(ruleset.technologies.values.minBy { it.era() }.name)
         if (cityStateType != null) {
-            civInfo.cityStateFunctions.initCityState(ruleset, "Ancient era", emptySequence())
+            civInfo.cityStateFunctions.initCityState(ruleset, "Ruins Era", emptySequence())
         }
         return civInfo
     }

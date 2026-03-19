@@ -305,7 +305,7 @@
 		"requiredTech": "Horseback Riding",
 		"upgradesTo": "Knight",
 		"obsoleteTech": "Chivalry",
-		"promotions": ["Great Generals I"],
+		"promotions": ["Elite Generals I"],
 		"requiredResource": "Horses",
 		"uniques": ["Can move after attacking", "No defensive terrain bonus", "[-33]% Strength <vs cities> <when attacking>"],
 		"hurryCostModifier": 20,
@@ -506,7 +506,7 @@
 		"upgradesTo": "Cavalry",
 		"obsoleteTech": "Military Science",
 		"uniques": ["Can move after attacking","No defensive terrain bonus"],
-		"promotions": ["Great Generals I", "Quick Study"],
+		"promotions": ["Elite Generals I", "Quick Study"],
 		"attackSound": "arrow"
 	},
 	{
@@ -607,7 +607,7 @@
 		"upgradesTo": "Rifleman",
 		"obsoleteTech": "Rifling",
 		"requiredResource": "Iron",
-		"promotions": ["Shock I", "Great Generals II"],
+		"promotions": ["Shock I", "Elite Generals II"],
 		"uniques": ["Can instantly construct a [Fishing Boats] improvement"],
 		"attackSound": "metalhit"
 	},
@@ -889,7 +889,7 @@
 		"attackSound": "artillery"
 	},
 
-	// Modern era
+	// Connection Era
 
 	{
 		"name": "Submarine",
@@ -1273,7 +1273,7 @@
 	/* Great people */
 
 	{
-		"name": "Great Artist",
+		"name": "Elite Artisan",
 		"unitType": "Civilian",
 		"uniques": [
             "Empire enters a [8]-turn Golden Age <by consuming this unit>",
@@ -1283,7 +1283,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Scientist",
+		"name": "Elite Scientist",
 		"unitType": "Civilian",
 		"uniques": ["Can hurry technology research",
             "Can instantly construct a [Academy] improvement <by consuming this unit>",
@@ -1292,7 +1292,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Merchant",
+		"name": "Elite Trader",
 		"unitType": "Civilian",
 		"uniques": ["Can undertake a trade mission with City-State, giving a large sum of gold and [30] Influence",
             "Can instantly construct a [Customs house] improvement <by consuming this unit>",
@@ -1301,7 +1301,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Engineer",
+		"name": "Elite Engineer",
 		"unitType": "Civilian",
 		"uniques": ["Can speed up construction of a building",
             "Can instantly construct a [Manufactory] improvement <by consuming this unit>",
@@ -1310,7 +1310,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great General",
+		"name": "Elite General",
 		"unitType": "Civilian",
 		"uniques": [
             "Empire enters a [8]-turn Golden Age <by consuming this unit>",
@@ -1325,7 +1325,7 @@
 		"name": "Khan",
 		"unitType": "Civilian",
 		"uniqueTo": "Mongolia",
-		"replaces": "Great General",
+		"replaces": "Elite General",
 		"uniques": [
             "Empire enters a [8]-turn Golden Age <by consuming this unit>",
             "[+15]% Strength bonus for [Military] units within [2] tiles",

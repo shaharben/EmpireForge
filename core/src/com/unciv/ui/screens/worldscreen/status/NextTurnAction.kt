@@ -134,6 +134,10 @@ enum class NextTurnAction(protected val text: String, val color: Color) {
     NextTurn("Next turn", Color.WHITE) {
         override fun isChoice(worldScreen: WorldScreen) =
             true  // When none of the others is active..
+        override fun getText(worldScreen: WorldScreen): String {
+            val turnNumber = worldScreen.gameInfo.turns
+            return "Next turn (Turn $turnNumber)"
+        }
         override fun action(worldScreen: WorldScreen) =
             worldScreen.confirmedNextTurn()
         override fun getSubText(worldScreen: WorldScreen): String? =

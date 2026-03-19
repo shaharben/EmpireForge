@@ -24,23 +24,23 @@ import kotlin.math.roundToInt
 
 internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableWrapper() {
 
-    private val goldLabel = "0".toLabel(colorFromRGB(225, 217, 71)) // #ed1947
+    private val goldLabel = "0".toLabel(colorFromRGB(255, 215, 0)) // Bright Gold
     private val goldPerTurnLabel = "+0"
-        .toLabel(colorFromRGB(225, 217, 71), 14)
+        .toLabel(colorFromRGB(255, 215, 0), 14)
 
-    private val scienceLabel = "0".toLabel(colorFromRGB(78, 140, 151)) // #4e8c97
+    private val scienceLabel = "0".toLabel(colorFromRGB(77, 179, 255)) // Blue
     private val happinessLabel = "0".toLabel()
-    private val cultureLabel = "0".toLabel(colorFromRGB(210, 94, 210)) // #d25ed2
+    private val cultureLabel = "0".toLabel(colorFromRGB(179, 77, 230)) // Purple
 
-    private val faithLabel = "0".toLabel(colorFromRGB(168, 196, 241)) // #a8c4f1
+    private val faithLabel = "0".toLabel(colorFromRGB(255, 255, 153)) // Light Yellow
     private val faithPerTurnLabel = "+0"
-        .toLabel(colorFromRGB(168, 196, 241), 14)
+        .toLabel(colorFromRGB(255, 255, 153), 14)
 
     private val happinessContainer = Group()
 
     // These are all to improve performance IE reduce update time (was 150 ms on my phone, which is a lot!)
-    private val malcontentColor = colorFromRGB(239,83,80) // Color.valueOf("ef5350")
-    private val happinessColor = colorFromRGB(92, 194, 77) // Color.valueOf("8cc24d")
+    private val malcontentColor = colorFromRGB(255, 75, 65) // Bright Red
+    private val happinessColor = colorFromRGB(50, 220, 80) // Vivid Green
     private val malcontentImage = ImageGetter.getStatIcon("Malcontent")
     private val happinessImage = ImageGetter.getStatIcon("Happiness")
 
@@ -111,10 +111,7 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
             else PolicyPickerScreen(worldScreen.selectedCiv, worldScreen.canChangeState)
         }
 
-        if (worldScreen.gameInfo.isReligionEnabled()) {
-            addStat("Faith", faithLabel, EmpireOverviewCategories.Religion, true)
-            addPerTurnLabel(faithPerTurnLabel)
-        } else add("Religion: Off".toLabel())
+        // EmpireForge: Religion system completely disabled - hide Faith from top bar
 
 
     }

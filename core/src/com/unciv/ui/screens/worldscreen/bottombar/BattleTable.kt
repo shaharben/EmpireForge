@@ -254,6 +254,20 @@ class BattleTable(val worldScreen: WorldScreen) : Table() {
 
             if (minRemainingLifeDefender == maxRemainingLifeDefender) add("$defenderHealth → $maxRemainingLifeDefender ($avgDamageToDefender)".toLabel())
             else add("$defenderHealth → $minRemainingLifeDefender-$maxRemainingLifeDefender (~$avgDamageToDefender)".toLabel())
+
+            row()
+
+            // Win probability display
+            val attackerDamage = (maxDamageToDefender + minDamageToDefender) / 2f
+            val defenderDamage = (maxDamageToAttacker + minDamageToAttacker) / 2f
+            val totalDamage = attackerDamage + defenderDamage
+            val winChance = if (totalDamage > 0) (attackerDamage / totalDamage * 100).toInt() else 50
+            val winColor = when {
+                winChance >= 70 -> Color(0.2f, 0.8f, 0.2f, 1f)
+                winChance >= 40 -> Color(0.9f, 0.75f, 0.15f, 1f)
+                else -> Color(0.9f, 0.2f, 0.2f, 1f)
+            }
+            add("Win: $winChance%".toLabel(winColor, fontSize = 18)).colspan(2).center()
         }
 
         row().pad(5f)

@@ -601,9 +601,9 @@ class CountableTests {
             Countables.getCountableAmount("Researched [$filter] Technologies", context)
         },
             "All", 5,
-            "Ancient era", 4,
-            "Classical era", 1, // Optics
-            "Modern era", 0,
+            "Ruins Era", 4,
+            "Organization Era", 1, // Optics
+            "Connection Era", 0,
             "Pottery", 1,
             "Archery", 0,
         )

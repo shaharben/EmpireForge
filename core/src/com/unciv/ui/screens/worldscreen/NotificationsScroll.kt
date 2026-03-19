@@ -54,9 +54,9 @@ class NotificationsScroll(
         /** Limit width by wrapping labels to this percentage of the stage */
         const val maxWidthOfStage = 0.333f
         /** Logical size of the notification icons */
-        const val iconSize = 30f
+        const val iconSize = 36f
         /** Logical font size used in notification and category labels */
-        const val fontSize = 30
+        const val fontSize = 32
         /** This is the spacing between categories and also the spacing between the next turn button and the first header */
         const val categoryTopPad = 15f
         /** Spacing between rightmost Label edge and right Screen limit */
@@ -84,6 +84,15 @@ class NotificationsScroll(
         /** Background tint for [oneTimeNotification] */
         private val oneTimeNotificationColor get() =
             skinStrings.getUIColor("NotificationScroll/OneTimeNotificationColor", Color.valueOf("#fceea8"))
+
+        /** Returns a distinct background tint based on the notification's category */
+        fun getCategoryColor(category: NotificationCategory): Color = when (category) {
+            NotificationCategory.Trade -> Color(0.15f, 0.25f, 0.15f, 0.9f)
+            NotificationCategory.War, NotificationCategory.Units -> Color(0.25f, 0.12f, 0.12f, 0.9f)
+            NotificationCategory.Cities -> Color(0.12f, 0.15f, 0.25f, 0.9f)
+            NotificationCategory.Production -> Color(0.25f, 0.18f, 0.10f, 0.9f)
+            else -> Color(0.12f, 0.12f, 0.15f, 0.9f)
+        }
     }
 
     //region private fields
@@ -286,7 +295,7 @@ class NotificationsScroll(
 
             fun fillNotificationCategoryTable() {
                 for (notification in categoryNotifications) {
-                    val item = ListItem(notification, backgroundDrawable)
+                    val item = ListItem(notification, backgroundDrawable, category)
                     itemWidths.add(item.itemWidth)
                     val itemCell = notificationCategoryTable.add(item)
                     if (notification == highlightNotification) selectedCell = itemCell
@@ -365,7 +374,8 @@ class NotificationsScroll(
 
     private inner class ListItem(
         notification: Notification,
-        backgroundDrawable: NinePatchDrawable
+        backgroundDrawable: NinePatchDrawable,
+        category: NotificationCategory = NotificationCategory.General
     ) : Table() {
         /** Returns width of the visible Notification including background padding but not
          *  including outer touchable area padding */
@@ -379,8 +389,10 @@ class NotificationsScroll(
             val topBottomPad = if (isEnlarged) selectedListItemPad else listItemPad
 
             val listItem = Table()
-            listItem.background = if (!isSelected || !coloredHighlight) backgroundDrawable else {
+            listItem.background = if (isSelected && coloredHighlight) {
                 BaseScreen.skinStrings.getUiBackground("WorldScreen/Notification", BaseScreen.skinStrings.roundedEdgeRectangleShape, oneTimeNotificationColor)
+            } else {
+                BaseScreen.skinStrings.getUiBackground("WorldScreen/Notification", BaseScreen.skinStrings.roundedEdgeRectangleShape, getCategoryColor(category))
             }
 
             val maxLabelWidth = maxEntryWidth - (itemIconSize + 5f) * notification.icons.size - 10f

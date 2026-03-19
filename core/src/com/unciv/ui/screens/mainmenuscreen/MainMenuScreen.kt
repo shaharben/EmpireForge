@@ -26,6 +26,8 @@ import com.unciv.models.ruleset.RulesetCache
 import com.unciv.models.tilesets.TileSetCache
 import com.unciv.ui.audio.SoundPlayer
 import com.unciv.ui.components.UncivTooltip.Companion.addTooltip
+import com.unciv.ui.components.extensions.addBorder
+import com.unciv.ui.components.extensions.addSeparator
 import com.unciv.ui.components.extensions.center
 import com.unciv.ui.components.extensions.surroundWithCircle
 import com.unciv.ui.components.extensions.surroundWithThinCircle
@@ -58,6 +60,8 @@ import com.unciv.ui.screens.newgamescreen.NewGameScreen
 import com.unciv.ui.screens.savescreens.LoadGameScreen
 import com.unciv.ui.screens.savescreens.QuickSave
 import com.unciv.ui.screens.worldscreen.BackgroundActor
+import com.unciv.ui.screens.worldscreen.LeaderboardPopup
+import com.unciv.ui.screens.worldscreen.LeaderboardService
 import com.unciv.ui.screens.worldscreen.WorldScreen
 import com.unciv.ui.screens.worldscreen.mainmenu.WorldScreenMenuPopup
 import com.unciv.utils.Concurrency
@@ -82,41 +86,54 @@ class MainMenuScreen: BaseScreen(), RecreateOnResize {
         const val mapFirstFadeTime = 0.3f
         const val mapReplaceDelay = 20f
         /** Inner size of the Civilopedia+Discord+Github buttons (effective size adds 2f for the thin circle) */
-        const val buttonsSize = 60f
+        const val buttonsSize = 70f
         /** Distance of the Civilopedia and Discord+Github buttons from the stage edges */
         const val buttonsPosFromEdge = 30f
+        /** Gold accent color used throughout the EmpireForge menu */
+        val goldColor = Color(0.85f, 0.65f, 0.13f, 1f)
     }
 
     /** Create one **Main Menu Button** including onClick/key binding
      *  @param text      The text to display on the button
      *  @param icon      The path of the icon to display on the button
      *  @param binding   keyboard binding
+     *  @param isLeaderboard Whether this is the leaderboard button (gets special gold styling)
      *  @param function  Action to invoke when the button is activated
      */
     private fun getMenuButton(
         text: String,
         icon: String,
         binding: KeyboardBinding,
+        isLeaderboard: Boolean = false,
         function: () -> Unit
     ): Table {
-        val table = Table().pad(15f, 30f, 15f, 30f)
-        table.background = skinStrings.getUiBackground(
+        val tintedBaseColor = if (isLeaderboard)
+            goldColor.cpy().lerp(skinStrings.skinConfig.baseColor, 0.3f)
+        else
+            skinStrings.skinConfig.baseColor.cpy().lerp(goldColor, 0.15f)
+
+        val innerTable = Table().pad(20f, 40f, 20f, 40f)
+        innerTable.background = skinStrings.getUiBackground(
             "MainMenuScreen/MenuButton",
             skinStrings.roundedEdgeRectangleShape,
-            skinStrings.skinConfig.baseColor
+            tintedBaseColor
         )
-        table.add(ImageGetter.getImage(icon)).size(50f).padRight(20f)
-        table.add(text.toLabel(fontSize = 30, alignment = Align.left)).expand().left().minWidth(200f)
+        innerTable.add(ImageGetter.getImage(icon)).size(50f).padRight(20f)
+        innerTable.add(text.toLabel(fontSize = 30, alignment = Align.left)).expand().left().minWidth(200f)
             .padTopDescent()
 
-        table.touchable = Touchable.enabled
-        table.onActivation(binding = binding) {
+        // Wrap with a gold border
+        val borderColor = if (isLeaderboard) goldColor else goldColor.cpy().apply { a = 0.6f }
+        val bordered = innerTable.addBorder(2f, borderColor, expandCell = true)
+
+        bordered.touchable = Touchable.enabled
+        bordered.onActivation(binding = binding) {
             stopBackgroundMapGeneration()
             function()
         }
 
-        table.pack()
-        return table
+        bordered.pack()
+        return bordered
     }
 
     init {
@@ -148,54 +165,91 @@ class MainMenuScreen: BaseScreen(), RecreateOnResize {
         if (game.settings.tileSet in TileSetCache)
             startBackgroundMapGeneration()
 
-        val column1 = Table().apply { defaults().pad(10f).fillX() }
-        val column2 = if (singleColumn) column1 else Table().apply { defaults().pad(10f).fillX() }
+        // --- 2-column grid of menu buttons ---
+        val allButtons = mutableListOf<Table>()
 
         if (game.files.autosaves.autosaveExists()) {
-            val resumeTable = getMenuButton("Resume","OtherIcons/Resume", KeyboardBinding.Resume)
+            allButtons += getMenuButton("Resume","OtherIcons/Resume", KeyboardBinding.Resume)
                 { resumeGame() }
-            column1.add(resumeTable).row()
         }
 
-        val quickstartTable = getMenuButton("Quickstart", "OtherIcons/Quickstart", KeyboardBinding.Quickstart)
+        allButtons += getMenuButton("Quickstart", "OtherIcons/Quickstart", KeyboardBinding.Quickstart)
             { quickstartNewGame() }
-        column1.add(quickstartTable).row()
 
-        val newGameButton = getMenuButton("Start new game", "OtherIcons/New", KeyboardBinding.StartNewGame)
+        allButtons += getMenuButton("Start new game", "OtherIcons/New", KeyboardBinding.StartNewGame)
             { game.pushScreen(NewGameScreen()) }
-        column1.add(newGameButton).row()
 
-        val loadGameTable = getMenuButton("Load game", "OtherIcons/Load", KeyboardBinding.MainMenuLoad)
+        allButtons += getMenuButton("Load game", "OtherIcons/Load", KeyboardBinding.MainMenuLoad)
             { game.pushScreen(LoadGameScreen()) }
-        column1.add(loadGameTable).row()
 
-        val multiplayerTable = getMenuButton("Multiplayer", "OtherIcons/Multiplayer", KeyboardBinding.Multiplayer)
+        allButtons += getMenuButton("Multiplayer", "OtherIcons/Multiplayer", KeyboardBinding.Multiplayer)
             { game.pushScreen(MultiplayerScreen()) }
-        column2.add(multiplayerTable).row()
 
-        val mapEditorScreenTable = getMenuButton("Map editor", "OtherIcons/MapEditor", KeyboardBinding.MapEditor)
+        allButtons += getMenuButton("Map editor", "OtherIcons/MapEditor", KeyboardBinding.MapEditor)
             { game.pushScreen(MapEditorScreen()) }
-        column2.add(mapEditorScreenTable).row()
 
-        val modsTable = getMenuButton("Mods", "OtherIcons/Mods", KeyboardBinding.ModManager)
+        allButtons += getMenuButton("Mods", "OtherIcons/Mods", KeyboardBinding.ModManager)
             { game.pushScreen(ModManagementScreen()) }
-        column2.add(modsTable).row()
 
-        val optionsTable = getMenuButton("Options", "OtherIcons/Options", KeyboardBinding.MainMenuOptions)
+        val leaderboardButton = getMenuButton("Leaderboard", "OtherIcons/Multiplayer", KeyboardBinding.None, isLeaderboard = true)
+            { LeaderboardPopup(this, LeaderboardService()).open() }
+        allButtons += leaderboardButton
+
+        val optionsButton = getMenuButton("Options", "OtherIcons/Options", KeyboardBinding.MainMenuOptions)
             { openOptionsPopup() }
-        optionsTable.onLongPress { openOptionsPopup(withDebug = true) }
-        column2.add(optionsTable).row()
+        optionsButton.onLongPress { openOptionsPopup(withDebug = true) }
+        allButtons += optionsButton
 
+        // Lay out in a 2-column grid (single column on cramped portrait)
+        val gridTable = Table().apply { defaults().pad(10f).fillX(); padTop(140f) }
+        for ((index, btn) in allButtons.withIndex()) {
+            // Staggered fade-in animation for each button
+            btn.addAction(Actions.sequence(
+                Actions.alpha(0f),
+                Actions.delay(index * 0.1f),
+                Actions.fadeIn(0.4f)
+            ))
+            gridTable.add(btn).uniform()
+            if (singleColumn || (index % 2 == 1)) gridTable.row()
+        }
+        gridTable.pack()
 
-        val table = Table().apply { defaults().pad(10f) }
-        table.add(column1)
-        if (!singleColumn) table.add(column2)
-        table.pack()
-
-        val scrollPane = AutoScrollPane(table)
+        val scrollPane = AutoScrollPane(gridTable)
         scrollPane.setFillParent(true)
         stage.addActor(scrollPane)
-        table.center(scrollPane)
+        gridTable.center(scrollPane)
+
+        // --- EmpireForge branding - title at top with shadow effect ---
+        val titleTable = Table()
+
+        // Shadow label (drawn first, offset by 2px)
+        val titleShadow = "EmpireForge".toLabel(Color(0.1f, 0.08f, 0.03f, 0.7f), 52)
+        titleShadow.setAlignment(Align.center)
+        // Foreground gold label
+        val titleLabel = "EmpireForge".toLabel(goldColor, 52)
+        titleLabel.setAlignment(Align.center)
+
+        // Stack the shadow and foreground title
+        val titleStack = Stack()
+        val shadowContainer = Table()
+        shadowContainer.add(titleShadow).padLeft(2f).padTop(2f)
+        titleStack.add(shadowContainer)
+        val foregroundContainer = Table()
+        foregroundContainer.add(titleLabel)
+        titleStack.add(foregroundContainer)
+        titleTable.add(titleStack).row()
+
+        val subtitleLabel = "Rebuild. Survive. Dominate.".toLabel(Color(0.8f, 0.8f, 0.85f, 0.9f), 18)
+        subtitleLabel.setAlignment(Align.center)
+        titleTable.add(subtitleLabel).padTop(5f).row()
+
+        // Decorative gold separator line under subtitle
+        titleTable.addSeparator(goldColor.cpy().apply { a = 0.6f }, height = 2f).width(300f).padTop(8f)
+
+        titleTable.touchable = Touchable.disabled
+        titleTable.pack()
+        titleTable.setPosition(stage.width / 2, stage.height - titleTable.height - 15f, Align.center)
+        stage.addActor(titleTable)
 
         globalShortcuts.add(KeyboardBinding.QuitMainMenu) {
             if (hasOpenPopups()) {
@@ -205,42 +259,41 @@ class MainMenuScreen: BaseScreen(), RecreateOnResize {
             game.popScreen()
         }
 
+        // --- Corner icon buttons (larger, 70f) ---
         val civilopediaButton = "?".toLabel(fontSize = 48)
             .apply { setAlignment(Align.center) }
             .surroundWithCircle(buttonsSize, color = skinStrings.skinConfig.baseColor)
             .apply { actor.y -= Fonts.getDescenderHeight(48) / 2 } // compensate font baseline
             .surroundWithThinCircle(Color.WHITE)
         civilopediaButton.touchable = Touchable.enabled
-        // Passing the binding directly to onActivation gives you a size 26 tooltip...
         civilopediaButton.onActivation { openCivilopedia() }
         civilopediaButton.keyShortcuts.add(KeyboardBinding.Civilopedia)
         civilopediaButton.addTooltip(KeyboardBinding.Civilopedia, 30f)
         civilopediaButton.setPosition(buttonsPosFromEdge, buttonsPosFromEdge)
+        // Subtle pulsing animation on the Civilopedia button
+        civilopediaButton.addAction(Actions.forever(Actions.sequence(
+            Actions.scaleTo(1.05f, 1.05f, 1f),
+            Actions.scaleTo(1f, 1f, 1f)
+        )))
         stage.addActor(civilopediaButton)
 
         val rightSideButtons = Table().apply { defaults().space(10f) }
-        val discordButton = ImageGetter.getImage("OtherIcons/Discord")
-            .surroundWithCircle(buttonsSize, color = skinStrings.skinConfig.baseColor)
-            .surroundWithThinCircle(Color.WHITE)
-            .onActivation { Gdx.net.openURI("https://discord.gg/bjrB4Xw") }
-        rightSideButtons.add(discordButton)
-
-        val githubButton = ImageGetter.getImage("OtherIcons/Github")
-            .surroundWithCircle(buttonsSize, color = skinStrings.skinConfig.baseColor)
-            .surroundWithThinCircle(Color.WHITE)
-            .onActivation { Gdx.net.openURI(Constants.uncivRepoURL) }
-        rightSideButtons.add(githubButton)
 
         rightSideButtons.pack()
         rightSideButtons.setPosition(stage.width - buttonsPosFromEdge, buttonsPosFromEdge, Align.bottomRight)
         stage.addActor(rightSideButtons)
 
+        // --- Footer: version label centered at bottom with "Powered by Open Source" ---
         val versionLabel = "{Version} ${UncivGame.VERSION.text}".toLabel()
         versionLabel.setAlignment(Align.center)
+        val poweredByLabel = "Powered by Open Source".toLabel(Color.GRAY, 12)
+        poweredByLabel.setAlignment(Align.center)
+
         val versionTable = Table()
         versionTable.background = skinStrings.getUiBackground("MainMenuScreen/Version",
             skinStrings.roundedEdgeRectangleShape, Color.DARK_GRAY.cpy().apply { a = 0.7f })
-        versionTable.add(versionLabel)
+        versionTable.add(versionLabel).row()
+        versionTable.add(poweredByLabel).padTop(2f)
         versionTable.pack()
         versionTable.setPosition(stage.width / 2, 10f, Align.bottom)
         versionTable.touchable = Touchable.enabled

@@ -22,7 +22,7 @@ import com.unciv.GUI
 import com.unciv.logic.event.EventBus
 import com.unciv.ui.components.extensions.addSeparator
 import com.unciv.ui.components.extensions.center
-import com.unciv.ui.components.extensions.darken
+import com.unciv.ui.components.extensions.setFontColor
 import com.unciv.ui.components.extensions.toLabel
 import com.unciv.ui.components.extensions.toTextButton
 import com.unciv.ui.components.input.KeyCharAndCode
@@ -131,15 +131,21 @@ open class Popup(
         // Set actor name for debugging
         name = javaClass.simpleName
 
+        // EmpireForge: Cinematic dark overlay with subtle gold border tint
         background = BaseScreen.skinStrings.getUiBackground(
             "General/Popup/Background",
-            tintColor = Color.GRAY.cpy().apply { a = 0.5f })
+            tintColor = Color(0.0f, 0.0f, 0.05f, 0.7f))
 
-        //todo topTable and bottomTable _could_ be separately skinnable - but would need care so rounded edges work
+        // EmpireForge: Gold border container behind innerTable
+        // The innerTable pad + darker bg against this creates a visible gold-tinted border
+
+        // EmpireForge: Deep navy inner background with gold border effect
         innerTable.background = BaseScreen.skinStrings.getUiBackground(
             "General/Popup/InnerTable",
-            tintColor = BaseScreen.skinStrings.skinConfig.baseColor.darken(0.5f)
+            BaseScreen.skinStrings.roundedEdgeRectangleMidBorderShape,
+            tintColor = Color(0.08f, 0.10f, 0.15f, 0.97f)
         )
+        innerTable.pad(4f)
         innerTable.touchable = Touchable.enabled
 
         fun wrapInScrollPane(table: Table) = AutoScrollPane(table, BaseScreen.skin)
@@ -335,6 +341,8 @@ open class Popup(
             close()
             action?.invoke()
         }
+        // EmpireForge: Gold-tinted close button text
+        cell.actor.label.setFontColor(Color.GOLD)
         cell.actor.keyShortcuts.add(KeyCharAndCode.BACK)
         return cell
     }

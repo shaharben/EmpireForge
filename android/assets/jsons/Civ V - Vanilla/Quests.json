@@ -1,7 +1,7 @@
 [
     {
         "name": "Route",
-        "description": "Build a road to connect your capital to our city.",
+        "description": "Build a supply road connecting your base to our outpost. We need reliable logistics.",
         "influence": 50,
         "weightForCityStateType": {
             "Friendly": 2,
@@ -12,7 +12,7 @@
     },
     {
         "name": "Clear Barbarian Camp",
-        "description": "We feel threatened by a Barbarian Camp near our city. Please take care of it.",
+        "description": "A raider camp threatens our settlement. Eliminate them before they attack.",
         "type": "Global",
         "influence": 50,
         "minimumCivs": 1,
@@ -26,7 +26,7 @@
     },
     {
         "name": "Connect Resource",
-        "description": "In order to make our civilizations stronger, connect [tileResource] to your trade network.",
+        "description": "We need [tileResource] for our survival. Connect it to your supply network.",
         "weightForCityStateType": {
             "Maritime": 2,
             "Mercantile": 3
@@ -34,21 +34,21 @@
     },
     {
         "name": "Construct Wonder",
-        "description": "We recommend you to start building [wonder] to show the whole world your civilization strength.",
+        "description": "Build [wonder] to prove your faction can restore the old world's glory.",
         "weightForCityStateType": {
             "Cultured": 3
         }
     },
     {
         "name": "Acquire Great Person",
-        "description": "Great People can change the course of a Civilization! You will be rewarded for acquiring a new [greatPerson].",
+        "description": "Great minds are rare in the wasteland. Recruit a [greatPerson] and you'll be rewarded.",
         "weightForCityStateType": {
             "Cultured": 3
         }
     },
     {
         "name": "Conquer City State",
-        "description": "It's time to erase the City-State of [cityState] from the map. You will be greatly rewarded for conquering them!",
+        "description": "The settlement of [cityState] has become hostile. Remove them.",
         "influence": 80,
         "weightForCityStateType": {
             "Hostile": 2,
@@ -58,7 +58,7 @@
     },
     {
         "name": "Find Player",
-        "description": "You have yet to discover where [civName] set up their cities. You will be rewarded for finding their territories.",
+        "description": "Our scouts report another faction called [civName] somewhere out there. Find them.",
         "influence": 35,
         "weightForCityStateType": {
             "Maritime": 3,
@@ -67,7 +67,7 @@
     },
     {
         "name": "Find Natural Wonder",
-        "description": "Send your best explorers on a quest to discover Natural Wonders. Nobody knows the location of [naturalWonder] yet.",
+        "description": "Legends speak of [naturalWonder] surviving the catastrophe. Find it.",
         "weightForCityStateType": {
             "Hostile": 0.3,
             "Militaristic": 0.5
@@ -76,7 +76,7 @@
     /* G&K */
     {
         "name": "Give Gold",
-        "description": "We are suffering great poverty after being robbed by [civName], and unless we receive a sum of Gold, it's only a matter of time before we collapse.",
+        "description": "Raiders stole our supplies. We need [amount] gold to recover.",
         "influence": 20,
         "duration": 30,
         "weightForCityStateType": {
@@ -89,7 +89,7 @@
     },
     {
         "name": "Pledge to Protect",
-        "description": "We need your protection to stop the aggressions of [civName]. By signing a Pledge of Protection, you'll confirm the bond that ties us.",
+        "description": "We need a strong ally against [civName]. Pledge to defend us.",
         "influence": 20,
         "duration": 30,
         "weightForCityStateType": {
@@ -102,7 +102,7 @@
     },
     {
         "name": "Contest Culture",
-        "description": "The civilization with the largest Culture growth will gain a reward.",
+        "description": "The faction with the most Culture growth proves they deserve leadership.",
         "type": "Global",
         "duration": 30,
         "minimumCivs": 3,
@@ -116,7 +116,7 @@
     },
     {
         "name": "Contest Faith",
-        "description": "The civilization with the largest Faith growth will gain a reward.",
+        "description": "The faction with the most Faith growth proves they deserve leadership.",
         "type": "Global",
         "duration": 30,
         "minimumCivs": 3,
@@ -130,7 +130,7 @@
     },
     {
         "name": "Contest Technologies",
-        "description": "The civilization with the largest number of new Technologies researched will gain a reward.",
+        "description": "The faction with the most Tech growth proves they deserve leadership.",
         "type": "Global",
         "duration": 30,
         "minimumCivs": 3,
@@ -140,7 +140,7 @@
     },
     {
         "name": "Invest",
-        "description": "Our people are rejoicing thanks to a tourism boom. For a certain amount of time, any Gold donation will yield [50]% extra Influence.",
+        "description": "Our settlement is growing. Your investment will speed our recovery.",
         "type": "Global",
         "influence": 0,
         "duration": 30,
@@ -151,7 +151,7 @@
     },
     {
         "name": "Bully City State",
-        "description": "We are tired of the pretensions of [cityState]. If someone were to put them in their place by Demanding Tribute from them, they would be rewarded.",
+        "description": "The outpost of [cityState] has been hoarding supplies. Time to take what's ours.",
         "duration": 30,
         "weightForCityStateType": {
             "Hostile": 2,
@@ -161,7 +161,7 @@
     },
     {
         "name": "Denounce Civilization",
-        "description": "We have been forced to pay tribute to [civName]! We need you to tell the world of their ill deeds.",
+        "description": "We've been paying tribute to [civName]. Help us break free by denouncing them.",
         "duration": 30,
         "weightForCityStateType": {
             "Cultured": 1.5,
@@ -173,7 +173,7 @@
     },
     {
         "name": "Spread Religion",
-        "description": "We have heard the tenets of [religionName] and are most curious. Will you send missionaries to teach us about your religion?",
+        "description": "We've heard about [religionName] ideology. Send someone to teach us.",
         "weightForCityStateType": {
             "Religious": 3
         }

@@ -8,35 +8,35 @@
         "requiredSpaceshipParts": [
             "SS Engine", "SS Stasis Chamber", "SS Cockpit", "SS Booster", "SS Booster", "SS Booster"
         ],
-        "victoryString": "You have achieved victory through mastery of Science! You have conquered the mysteries of nature and led your people on a voyage to a brave new world! Your triumph will be remembered as long as the stars burn in the night sky!",
-        "defeatString": "You have been defeated. Your civilization has been overwhelmed by its many foes. But your people do not despair, for they know that one day you shall return - and lead them forward to victory!"
+        "victoryString": "Against all odds, your faction has restored the knowledge of the ancients. From the ashes of the old world, your scientists have unlocked the secrets of space travel. A new chapter begins among the stars. The wasteland remembers your name.",
+        "defeatString": "Your faction has fallen. Your settlements are empty, your people scattered to the winds. But in the wasteland, nothing truly dies. Perhaps someday, someone will find your story in the ruins and remember."
     },
     {
         "name": "Cultural",
         "victoryScreenHeader": "Complete 5 policy branches and build the Utopia Project to win!",
         "milestones": ["Complete [5] Policy branches", "Build [Utopia Project]"],
-        "victoryString": "You have achieved victory through the awesome power of your Culture. Your civilization's greatness - the magnificence of its monuments and the power of its artists - have astounded the world! Poets will honor you as long as beauty brings gladness to a weary heart.",
-        "defeatString": "You have been defeated. Your civilization has been overwhelmed by its many foes. But your people do not despair, for they know that one day you shall return - and lead them forward to victory!"
+        "victoryString": "Your settlements became beacons of hope in the wasteland. Art, music, and stories spread from your camps to every corner of the ruined world. You didn't just survive - you gave survivors a reason to live.",
+        "defeatString": "Your faction has fallen. Your settlements are empty, your people scattered to the winds. But in the wasteland, nothing truly dies. Perhaps someday, someone will find your story in the ruins and remember."
     },
     {
         "name": "Domination",
         "victoryScreenHeader": "Capture all enemy Capitals to win!",
         "milestones": ["Capture all capitals"],
-        "victoryString": "The world has been convulsed by war. Many great and powerful civilizations have fallen, but you have survived - and emerged victorious! The world will long remember your glorious triumph!",
-        "defeatString": "You have been defeated. Your civilization has been overwhelmed by its many foes. But your people do not despair, for they know that one day you shall return - and lead them forward to victory!"
+        "victoryString": "The wasteland is yours. Every rival faction has fallen, every settlement flies your banner. From the ruins, a new empire rises - forged in fire and blood. Whether the world thanks you or fears you, none can deny your power.",
+        "defeatString": "Your faction has fallen. Your settlements are empty, your people scattered to the winds. But in the wasteland, nothing truly dies. Perhaps someday, someone will find your story in the ruins and remember."
     },
     {
         "name": "Diplomatic",
         "victoryScreenHeader": "Build the UN and be voted world leader to win!",
         "milestones": ["Anyone should build [United Nations]", "Win diplomatic vote"],
-        "victoryString": "You have triumphed over your foes through the art of diplomacy! Your cunning and wisdom have earned you great friends - and divided and sown confusion among your enemies! Forever will you be remembered as the leader who brought peace to this weary world!",
-        "defeatString": "You have been defeated. Your civilization has been overwhelmed by its many foes. But your people do not despair, for they know that one day you shall return - and lead them forward to victory!"
+        "victoryString": "In a world of raiders and warlords, you chose a different path. Through alliances, trade, and cunning diplomacy, you united the factions under one council. The wasteland finally has a government again.",
+        "defeatString": "Your faction has fallen. Your settlements are empty, your people scattered to the winds. But in the wasteland, nothing truly dies. Perhaps someday, someone will find your story in the ruins and remember."
     },
     {
         "name": "Time",
         "hiddenInVictoryScreen": true,
         "milestones": ["Have highest score after max turns"],
-        "victoryString": "The world has been convulsed by war. Many great and powerful civilizations have fallen, but you have survived - and emerged victorious! The world will long remember your glorious triumph!",
-        "defeatString": "You have been defeated. Your civilization has been overwhelmed by its many foes. But your people do not despair, for they know that one day you shall return - and lead them forward to victory!"
+        "victoryString": "The dust has settled. After generations of struggle, your faction stands tallest among the survivors. You didn't conquer the world - you outlasted it.",
+        "defeatString": "Your faction has fallen. Your settlements are empty, your people scattered to the winds. But in the wasteland, nothing truly dies. Perhaps someday, someone will find your story in the ruins and remember."
     }
 ]

@@ -1,5 +1,6 @@
 {
     "useColorAsBaseTerrain": "false",
+    "fogOfWarColor": {"r": 0.06, "g": 0.08, "b": 0.15, "a": 1},
     "fallbackTileSet": null,
     "ruleVariants": {
 		// River pseudo-tile used in Civilopedia display only

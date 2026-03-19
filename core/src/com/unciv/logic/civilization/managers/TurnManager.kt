@@ -8,6 +8,7 @@ import com.unciv.logic.civilization.*
 import com.unciv.logic.civilization.diplomacy.DiplomacyTurnManager.nextTurn
 import com.unciv.logic.map.mapunit.UnitTurnManager
 import com.unciv.logic.map.tile.Tile
+import com.unciv.logic.civilization.AchievementManager
 import com.unciv.logic.trade.TradeEvaluation
 import com.unciv.models.ruleset.unique.UniqueTriggerActivation
 import com.unciv.models.ruleset.unique.UniqueType
@@ -322,6 +323,18 @@ class TurnManager(val civInfo: Civilization) {
         civInfo.cache.updateHasActiveEnemyMovementPenalty()
 
         civInfo.resetMilitaryMightCache()
+
+        // Check achievements for human players at the end of each turn
+        if (civInfo.isHuman()) {
+            val newAchievements = AchievementManager().checkAchievements(civInfo)
+            for (achievement in newAchievements) {
+                civInfo.addNotification(
+                    "Achievement Unlocked: [${achievement.displayName}] - ${achievement.description}",
+                    NotificationCategory.General,
+                    achievement.iconPath
+                )
+            }
+        }
 
         updateWinningCiv() // Maybe we did something this turn to win
     }

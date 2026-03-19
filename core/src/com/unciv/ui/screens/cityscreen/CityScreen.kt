@@ -55,12 +55,16 @@ class CityScreen(
      *  will instantiate a new CityAmbiencePlayer and start playing. */
     ambiencePlayer: CityAmbiencePlayer? = null
 ): BaseScreen(), RecreateOnResize {
+
     companion object {
         /** Distance from stage edges to floating widgets */
         const val posFromEdge = 5f
 
         /** Size of the decoration icons shown besides the raze button */
         const val wltkIconSize = 40f
+
+        /** EmpireForge: Darker, more atmospheric background tint for the city screen */
+        val empireForgeBackgroundColor = Color(0.06f, 0.08f, 0.12f, 0.95f)
     }
 
     private val selectedCiv: Civilization = GUI.getWorldScreen().selectedCiv
@@ -146,6 +150,7 @@ class CityScreen(
     private val isWLTKday = city.isWeLoveTheKingDayActive()
     private val fireworks: ParticleEffectMapFireworks?
     internal var pauseFireworks = false
+
 
     init {
         if (isWLTKday && UncivGame.Current.settings.citySoundsVolume > 0) {
@@ -580,6 +585,8 @@ class CityScreen(
     }
 
     override fun render(delta: Float) {
+        // EmpireForge: Apply darker atmospheric background tint each frame
+        clearColor = empireForgeBackgroundColor
         super.render(delta)
         if (pauseFireworks) return
         fireworks?.render(stage, delta)

@@ -418,12 +418,12 @@ enum class UniqueParameterType(
     },
 
     /** [UniqueType.ConditionalDuringEra] and similar */
-    Era("era", "Ancient era", "The name of any era") {
+    Era("era", "Ruins Era", "The name of any era") {
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = ruleset.eras.keys
     },
 
     /** [UniqueType.OneTimeFreeTechRuins] and similar */
-    EraFilter("eraFilter", "Ancient era", "The name of an era, `any era`, `Starting Era`, `pre-[era]`, `post-[era]`") {
+    EraFilter("eraFilter", "Ruins Era", "The name of an era, `any era`, `Starting Era`, `pre-[era]`, `post-[era]`") {
         override val staticKnownValues = setOf("any era", "Starting Era")
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset): Set<String> =
             staticKnownValues +

@@ -393,7 +393,7 @@
 		"requiredTech": "Horseback Riding",
 		"upgradesTo": "Knight",
 		"obsoleteTech": "Chivalry",
-		"promotions": ["Great Generals I"],
+		"promotions": ["Elite Generals I"],
 		"requiredResource": "Horses",
 		"uniques": ["Can move after attacking", "No defensive terrain bonus", "[-33]% Strength <vs cities> <when attacking>"],
 		"hurryCostModifier": 20,
@@ -410,7 +410,7 @@
 		"requiredTech": "Horseback Riding",
 		"upgradesTo": "Knight",
 		"obsoleteTech": "Chivalry",
-		"promotions": ["Great Generals II"],
+		"promotions": ["Elite Generals II"],
 		"uniques": ["Can move after attacking", "No defensive terrain bonus", "[-33]% Strength <vs cities> <when attacking>",
 			"[-10]% Strength for enemy [Military] units in adjacent [All] tiles"],
 		"hurryCostModifier": 20,
@@ -654,7 +654,7 @@
 		"upgradesTo": "Cavalry",
 		"obsoleteTech": "Military Science",
 		"uniques": ["Can move after attacking","No defensive terrain bonus"],
-		"promotions": ["Great Generals I", "Quick Study"],
+		"promotions": ["Elite Generals I", "Quick Study"],
 		"attackSound": "arrow"
 		// Keshik should have no penalty attacking cities
 	},
@@ -753,7 +753,7 @@
 		"upgradesTo": "Musketman",
 		"obsoleteTech": "Gunpowder",
 		"requiredResource": "Iron",
-		"promotions": ["Shock I", "Great Generals II"],
+		"promotions": ["Shock I", "Elite Generals II"],
 		"uniques": ["Can instantly construct a [Fishing Boats] improvement"],
 		"attackSound": "metalhit"
 	},
@@ -1131,7 +1131,7 @@
 		"attackSound": "artillery"
 	},
 
-	// Modern era
+	// Connection Era
 
 	{
 		"name": "Submarine",
@@ -1586,7 +1586,7 @@
 	/* Great people */
 
 	{
-		"name": "Great Artist",
+		"name": "Elite Artisan",
 		"unitType": "Civilian",
 		"uniques": [
             "Empire enters a [8]-turn Golden Age <by consuming this unit>",
@@ -1597,7 +1597,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Scientist",
+		"name": "Elite Scientist",
 		"unitType": "Civilian",
 		"uniques": [
             "Can hurry technology research",
@@ -1608,7 +1608,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Merchant",
+		"name": "Elite Trader",
 		"unitType": "Civilian",
 		"uniques": ["Can undertake a trade mission with City-State, giving a large sum of gold and [30] Influence",
             "Can instantly construct a [Customs house] improvement <by consuming this unit>",
@@ -1618,7 +1618,7 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Engineer",
+		"name": "Elite Engineer",
 		"unitType": "Civilian",
 		"uniques": ["Can speed up construction of a building",
             "Can instantly construct a [Manufactory] improvement <by consuming this unit>",
@@ -1628,10 +1628,10 @@
 		"movement": 2
 	},
 	{
-		"name": "Great Prophet",
+		"name": "Elite Leader",
 		"unitType": "Civilian",
 		"uniques": [
-            "Can instantly construct a [Holy site] improvement <by consuming this unit> <if it hasn't used other actions yet>",
+            "Can instantly construct a [Data Vault] improvement <by consuming this unit> <if it hasn't used other actions yet>",
             "Can Spread Religion <for [2] movement> <[4] times> <after which this unit is consumed>",
 			"Removes other religions when spreading religion",
             "May found a religion <by consuming this unit> <if it hasn't used other actions yet>",
@@ -1645,7 +1645,7 @@
 		"religiousStrength": 1000
 	},
 	{
-		"name": "Great General",
+		"name": "Elite General",
 		"unitType": "Civilian",
 		"uniques": [
             "[+15]% Strength bonus for [Military] units within [2] tiles",
@@ -1660,7 +1660,7 @@
 		"name": "Khan",
 		"unitType": "Civilian",
 		"uniqueTo": "Mongolia",
-		"replaces": "Great General",
+		"replaces": "Elite General",
 		"uniques": [
             "[+15]% Strength bonus for [Military] units within [2] tiles",
 			"All adjacent units heal [+15] HP when healing", "[+15] HP when healing",
@@ -1672,7 +1672,7 @@
 		"movement": 5
 	},
 	{
-		"name": "Great Admiral",
+		"name": "Elite Admiral",
 		"unitType": "Civilian Water",
 		"uniques": [
             // TODO: "[Every adjacent [{Friendly} {Water}] unit] heals [100] HP <by consuming this unit>",

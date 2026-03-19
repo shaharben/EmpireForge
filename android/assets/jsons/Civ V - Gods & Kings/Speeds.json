@@ -1,6 +1,6 @@
 [
     {
-        "name": "Quick",
+        "name": "Blitz",
         "modifier": 0.67,
         /*
         Why are all of these raw values and not uniques? This is like EXACTLY what uniques are for,
@@ -46,7 +46,7 @@
         ]
     },
     {
-        "name": "Standard",
+        "name": "Normal",
         "modifier": 1.0,
         "productionCostModifier": 1.0,
         "goldCostModifier": 1.0,
@@ -74,7 +74,7 @@
         ]
     },
     {
-        "name": "Epic",
+        "name": "Extended",
         "modifier": 1.5,
         "productionCostModifier": 1.5,
         "goldCostModifier": 1.5,
@@ -101,7 +101,7 @@
         ]
     },
     {
-        "name": "Marathon",
+        "name": "Endurance",
         "modifier": 3.0,
         "productionCostModifier": 3.0,
         "goldCostModifier": 3.0,

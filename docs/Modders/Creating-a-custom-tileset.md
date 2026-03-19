@@ -11,7 +11,7 @@ Let's look at the example "Grassland+Jungle+Dyes+Trading post" to learn how the 
 3. Otherwise, we will check if there is an image called "Grassland+Jungle" (BaseTerrain+Terrainfeatures) and "Dyes+Trading post" (Resource+Improvement) and use the remainings of it. Let's say you made an image called "Grassland+Jungle" but none called "Dyes+Trading post". In the end, we will then use the images "Grassland+Jungle", "Dyes" and "Trading post".
 
 All these images can also use era-dependant variants if you want to change the appearance of, let's say, "Trading post" throughout the game. Just create images and add the suffix "-[era name]".
-E.g. "Trading post-Classical era", "Trading post-Industrial era", etc.
+E.g. "Trading post-Organization Era", "Trading post-Reconstruction Era", etc.
 
 It is advised to use the layered approach (1 and 3) often because it comes with a few advantages. Mainly:
 
@@ -117,12 +117,12 @@ You can set the CrosshatchHexagon to be functionally invisible by replacing it w
 
 Unit images can be changed according to civ-specific styles (if a mod specifies a "style" variable for each civilization) and according to the owning civ's current era. Unciv attempts to load the unit images in the following order (where unitName is the unit name given in Units.json, styleName is optionally specified in Nations.json, and eraName is the era name given in Eras.json (including " era")).
 
-1. unitName-styleName-eraName (example: "Archer-customStyle1-Classical era.png")
-2. unitName-eraName (example: "Archer-Classical era.png")
+1. unitName-styleName-eraName (example: "Archer-customStyle1-Organization Era.png")
+2. unitName-eraName (example: "Archer-Organization Era.png")
 3. unitName-styleName (example: "Archer-customStyle1.png")
 4. unitName (example: "Archer.png")
 
-Era-specific sprites do not need to be specified for each era, only on eras where the sprites change. If a modder wants a Great General unit to change sprites starting in the Modern era, they only need to create a "Great General-Modern era.png" image. The Great General unit would use the default "Great General.png" sprite for all eras up to the Modern era then the Modern era sprite for the Modern era and all eras after unless there is a later era sprite for this unit.
+Era-specific sprites do not need to be specified for each era, only on eras where the sprites change. If a modder wants a Great General unit to change sprites starting in the Connection Era, they only need to create a "Great General-Connection Era.png" image. The Great General unit would use the default "Great General.png" sprite for all eras up to the Connection Era then the Connection Era sprite for the Connection Era and all eras after unless there is a later era sprite for this unit.
 
 ### Nation-coloured units
 

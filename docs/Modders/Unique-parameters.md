@@ -81,7 +81,7 @@ Allowed values:
 - Matching [technologyfilter](#technologyfilter) for the tech this unit requires - e.g. `Modern Era`
 - Any exact unique the unit has
 - Any exact unique the unit type has
-- Any combination of the above (will match only if all match). The format is `{filter1} {filter2}` and can match any number of filters. For example: `[{Modern era} {Land}]` units
+- Any combination of the above (will match only if all match). The format is `{filter1} {filter2}` and can match any number of filters. For example: `[{Connection Era} {Land}]` units
 
 ## mapUnitFilter
 
@@ -122,7 +122,7 @@ Allowed values:
     - Provides a percentage bonus for that stat (e.g. +10% Production)
     - Provides that stat as a bonus for resources (e.g. +1 Food from every Wheat)
     - Provides that stat per some amount of population (e.g. +1 Science for every 2 population [cityFilter])
-- Any combination of the above (will match only if all match). The format is `{filter1} {filter2}` up to any number of filters. For example `[{Ancient era} {Food}]` buildings.
+- Any combination of the above (will match only if all match). The format is `{filter1} {filter2}` up to any number of filters. For example `[{Ruins Era} {Food}]` buildings.
 
 ## cityFilter
 
@@ -160,11 +160,11 @@ For filtering a specific era.
 
 Allowed values:
 
-- Era name (e.g.: `Modern era`)
+- Era name (e.g.: `Connection Era`)
 - `any era`
 - `Starting Era` - The era in which the game began
-- `pre-[era]` - Any era that appears prior to the given era (e.g.: `pre-[Modern era]`)
-- `post-[era]` - Any era that appears after the given era (e.g.: `post-[Ancient era]`)
+- `pre-[era]` - Any era that appears prior to the given era (e.g.: `pre-[Connection Era]`)
+- `post-[era]` - Any era that appears after the given era (e.g.: `post-[Ruins Era]`)
 
 ## improvementFilter
 

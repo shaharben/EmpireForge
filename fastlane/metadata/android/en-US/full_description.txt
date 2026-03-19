@@ -1,13 +1,17 @@
-An open-source reimplementation of the most famous civilization-building game ever - fast, small, no ads, free forever!
+EmpireForge - Rebuild. Survive. Dominate.
 
-Build your civilization, research technologies, expand your cities and defeat your foes!
+The world has fallen. From the ashes of civilization, factions of survivors compete to rebuild. Lead your faction through the wasteland, rediscover lost technologies, build settlements, forge alliances, and dominate the ruins of the old world.
 
-Requests? Bugs? Want to help development? Todo list for the application is https://github.com/yairm210/Unciv/issues
+Features:
+• Build and manage settlements across the wasteland
+• Rediscover 80+ lost technologies from the old world
+• Lead your faction against 25+ rival survivor groups
+• Multiple victory paths: Military, Scientific, Cultural, Diplomatic
+• Leaderboard system - compete with players worldwide
+• Achievement system with 10 milestones to unlock
+• Victory Progress Dashboard - track your path to victory
+• City Production Panel - monitor all settlements at a glance
+• Diplomacy Quick Panel - see all faction relations instantly
+• Turn Summary Preview - plan your next move
 
-Questions? Comments? Join us on discord at https://discord.gg/bjrB4Xw ;)
-
-Want to help translating the game into your language? See https://yairm210.github.io/Unciv/Translating/Translating/
-
-The world awaits! Will you build your civilization into an empire that will stand the test of time?
-
-The 'have full network access' permission is required for user-initiated downloads and the multiplayer feature. All other listed permissions are included automatically by the API used to implement multiplayer turn notifications. Network permissions are used to list mods, download mods, download music and to upload/download multiplayer games. No other internet communication is initiated by Unciv.
+Contact us through the Play Store for feedback and suggestions!

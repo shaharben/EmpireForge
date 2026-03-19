@@ -100,9 +100,10 @@ class CityConstructionsTable(private val cityScreen: CityScreen) {
     init {
         constructionsQueueScrollPane = ScrollPane(constructionsQueueTable.addBorder(2f, Color.WHITE))
         constructionsQueueScrollPane.setOverscroll(false, false)
+        // EmpireForge: Slightly blueish dark background for construction queue to differentiate from stats area
         constructionsQueueTable.background = BaseScreen.skinStrings.getUiBackground(
             "CityScreen/CityConstructionTable/ConstructionsQueueTable",
-            tintColor = ImageGetter.CHARCOAL
+            tintColor = Color(0.14f, 0.16f, 0.22f, 0.9f)
         )
         queueExpander = ExpanderTab(
             "Construction queue", 
@@ -129,9 +130,10 @@ class CityConstructionsTable(private val cityScreen: CityScreen) {
         
         availableConstructionsScrollPane = ScrollPane(availableConstructionsTable.addBorder(2f, Color.WHITE))
         availableConstructionsScrollPane.setOverscroll(false, false)
+        // EmpireForge: Darker shade for available constructions to separate from queue
         availableConstructionsTable.background = BaseScreen.skinStrings.getUiBackground(
             "CityScreen/CityConstructionTable/AvailableConstructionsTable",
-            tintColor = ImageGetter.CHARCOAL
+            tintColor = Color(0.10f, 0.12f, 0.18f, 0.9f)
         )
         lowerTableScrollCell = lowerTable.add(availableConstructionsScrollPane).bottom()
         lowerTable.row()

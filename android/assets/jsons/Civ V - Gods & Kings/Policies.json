@@ -1,7 +1,7 @@
 [
     {
         "name": "Tradition",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 5,
@@ -72,7 +72,7 @@
     },
     {
         "name": "Liberty",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 10,
             "Cultural": 10,
@@ -143,7 +143,7 @@
     },
     {
         "name": "Honor",
-        "era": "Ancient era",
+        "era": "Ruins Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 5,
@@ -161,7 +161,7 @@
                 "name": "Warrior Code",
                 "uniques": [
                     "[+15]% Production when constructing [Melee] units [in all cities]",
-                    "Free [Great General] appears"
+                    "Free [Elite General] appears"
                 ],
                 "row": 1,
                 "column": 2
@@ -216,7 +216,7 @@
     },
     {
         "name": "Piety",
-        "era": "Classical era",
+        "era": "Organization Era",
         "priorities": {
             "Neutral": 0,
             "Cultural": 0,
@@ -274,7 +274,7 @@
                 "name": "Piety Complete",
                 "uniques": [
                     "[Faith] cost of purchasing items in cities [-20]%",
-                    "[+3 Gold, +3 Culture] from every [Holy site]",
+                    "[+3 Gold, +3 Culture] from every [Data Vault]",
                     "Get the leader title of [[leaderName] the Pious]"
                 ]
             }
@@ -282,7 +282,7 @@
     },
     {
         "name": "Patronage",
-        "era": "Medieval era",
+        "era": "Fortress Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 5,
@@ -351,7 +351,7 @@
     },
     {
         "name": "Commerce",
-        "era": "Medieval era",
+        "era": "Fortress Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 5,
@@ -366,8 +366,8 @@
                 "uniques": [
                     "[+1] Movement <for [{Military} {Water}] units>",
                     "[+1] Sight <for [{Military} {Water}] units>",
-                    "Free [Great Admiral] appears",
-                    "[+2] Movement <for [Great Admiral] units>",
+                    "Free [Elite Admiral] appears",
+                    "[+2] Movement <for [Elite Admiral] units>",
                 ],
                 "row": 1,
                 "column": 2
@@ -413,8 +413,8 @@
                 "name": "Commerce Complete",
                 "uniques": [
                     "[+1 Gold] from every [Trading post]",
-                    "[+100]% Gold from Great Merchant trade missions",
-                    "May buy [Great Merchant] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Industrial era]>",
+                    "[+100]% Gold from Elite Trader trade missions",
+                    "May buy [Elite Trader] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Reconstruction Era]>",
                     "Get the leader title of [Doge [leaderName]]"
                 ]
             }
@@ -422,7 +422,7 @@
     },
     {
         "name": "Rationalism",
-        "era": "Renaissance era",
+        "era": "Rediscovery Era",
         "priorities": {
             "Neutral": 10,
             "Cultural": 10,
@@ -482,7 +482,7 @@
                 "name": "Rationalism Complete",
                 "uniques": [
                     "[2] Free Technologies",
-                    "May buy [Great Scientist] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Industrial era]>",
+                    "May buy [Elite Scientist] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Reconstruction Era]>",
                     "Get the leader title of [[leaderName] the Wise]"
                 ]
             }
@@ -490,7 +490,7 @@
     },
     {
         "name": "Freedom",
-        "era": "Industrial era",
+        "era": "Reconstruction Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 10,
@@ -545,7 +545,7 @@
                 "uniques": [
                     "[+100]% Yield from every [Great Improvement]",
                     "[+50]% Golden Age length",
-                    "May buy [Great Artist] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Industrial era]>",
+                    "May buy [Elite Artisan] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Reconstruction Era]>",
                     "Get the leader title of [President [leaderName]]"
                 ]
             }
@@ -553,7 +553,7 @@
     },
     {
         "name": "Autocracy",
-        "era": "Industrial era",
+        "era": "Reconstruction Era",
         "priorities": {
             "Neutral": 5,
             "Cultural": 5,
@@ -584,7 +584,7 @@
                 "name": "Fascism",
                 "uniques": [
                     "[+100]% [Strategic] resource production",
-                    "[+2] Movement <for [Great General] units>"
+                    "[+2] Movement <for [Elite General] units>"
                 ],
                 "requires": ["Populism", "Militarism"],
                 "row": 2,
@@ -615,7 +615,7 @@
                 "name": "Autocracy Complete",
                 "uniques": [
                     "[+25]% Strength <when attacking> <for [Military] units> <for [50] turns>",
-                    "May buy [Great General] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Industrial era]>",
+                    "May buy [Elite General] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Reconstruction Era]>",
                     "Get the leader title of [[leaderName] the Terrible]"
                 ]
             }
@@ -623,7 +623,7 @@
     },
     {
         "name": "Order",
-        "era": "Industrial era",
+        "era": "Reconstruction Era",
         "priorities": {
             "Neutral": 10,
             "Cultural": 5,
@@ -686,7 +686,7 @@
                 "name": "Order Complete",
                 "uniques": [
                     "[+2 Food, +2 Production, +2 Science, +2 Gold, +2 Culture] [in all cities]",
-                    "May buy [Great Engineer] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Industrial era]>",
+                    "May buy [Elite Engineer] units for [1000] [Faith] [in all cities in which the majority religion is a major religion] at an increasing price ([500]) <starting from the [Reconstruction Era]>",
                     "Get the leader title of [Chairman [leaderName]]"
                 ]
             }
