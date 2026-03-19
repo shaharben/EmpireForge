@@ -115,20 +115,30 @@ class WorkerAutomation(
         currentTile: Tile
     ): Boolean {
         // Note, however, that the closest city to a tile isn't necessarily the owning city
-        val maxSearchDistance = 20 // Limit search radius to avoid expensive pathfinding on large maps
-        val closestUndevelopedCity = unit.civ.cities
+        // Search all cities, not just nearby ones - workers should be able to reach other continents
+        val canEmbark = unit.civ.tech.unitsCanEmbark
+
+        val undevelopedCities = unit.civ.cities
             .filter { it != unit.currentTile.owningCity
-                    && it.getCenterTile().aerialDistanceTo(currentTile) <= maxSearchDistance
                     && it.getTiles().any { tile -> tile.isLand
                     && tile.getUnits().none { unit -> unit.cache.hasUniqueToBuildImprovements }
                     && (tile.isPillaged() || tileHasWorkToDo(tile, unit, localUniqueCache)) } }
             .sortedBy { it.getCenterTile().aerialDistanceTo(currentTile) }
-            .take(5) // Only check reachability for a limited number of candidates
-            .firstOrNull { unit.movement.canReach(it.getCenterTile()) } //goto closest undeveloped city
 
-        if (closestUndevelopedCity != null) {
-            debug("WorkerAutomation: %s -> head towards undeveloped city %s", unit, closestUndevelopedCity.name)
-            val reachedTile = unit.movement.headTowards(closestUndevelopedCity.getCenterTile())
+        // First try nearby cities with full pathfinding (cheap)
+        val nearbyCity = undevelopedCities
+            .filter { it.getCenterTile().aerialDistanceTo(currentTile) <= 20 }
+            .take(5)
+            .firstOrNull { unit.movement.canReach(it.getCenterTile()) }
+
+        // If no nearby city found and worker can embark, try distant cities on other continents
+        // Skip expensive canReach check - just head towards the closest one and let pathfinding handle it
+        val targetCity = nearbyCity
+            ?: if (canEmbark) undevelopedCities.firstOrNull() else null
+
+        if (targetCity != null) {
+            debug("WorkerAutomation: %s -> head towards undeveloped city %s", unit, targetCity.name)
+            val reachedTile = unit.movement.headTowards(targetCity.getCenterTile())
             if (reachedTile != currentTile) unit.doAction() // since we've moved, maybe we can do something here - automate
             return true
         }
@@ -205,32 +215,35 @@ class WorkerAutomation(
             && (currentTile.isPillaged() || currentTile.hasFalloutEquivalent() || tileHasWorkToDo(currentTile, unit, localUniqueCache)))
             return currentTile
         
-        val workableTilesCenterFirst = currentTile.getTilesInDistance(3)
-            .filter {
-                (it.getOwner() == null || it.getOwner() == unit.civ || it.getOwner()!!.isCityState)
-                    && isAutomationWorkableTile(it, tilesToAvoid, currentTile, unit) 
-                    && getBasePriority(it, unit) >= 0
-            }
-
-        val workableTilesPrioritized = workableTilesCenterFirst.groupBy { getBasePriority(it, unit) }
-            .asSequence().sortedByDescending { it.key }
-
-        // Search through each group by priority
-        // If we can find an eligible best tile in the group lets return that
-        // under the assumption that best tile is better than tiles in all lower groups
-        for (tilePriorityGroup in workableTilesPrioritized) {
-            var bestTile: Tile? = null
-            for (tileInGroup in tilePriorityGroup.value.sortedBy { unit.getTile().aerialDistanceTo(it) }) {
-                // These are the expensive calculations (tileCanBeImproved, canReach), so we only apply these filters after everything else it done.
-                if (!tileHasWorkToDo(tileInGroup, unit, localUniqueCache)) continue
-                if (unit.getTile() == tileInGroup) return unit.getTile()
-                if (!unit.movement.canReach(tileInGroup)) continue
-                if (bestTile == null || getFullPriority(tileInGroup, unit, localUniqueCache) > getFullPriority(bestTile, unit, localUniqueCache)) {
-                    bestTile = tileInGroup
+        // Search nearby tiles first (distance 3), then expand to distance 6 if nothing found
+        for (searchDistance in listOf(3, 6)) {
+            val workableTilesCenterFirst = currentTile.getTilesInDistance(searchDistance)
+                .filter {
+                    (it.getOwner() == null || it.getOwner() == unit.civ || it.getOwner()!!.isCityState)
+                        && isAutomationWorkableTile(it, tilesToAvoid, currentTile, unit)
+                        && getBasePriority(it, unit) >= 0
                 }
-            }
-            if (bestTile != null) {
-                return bestTile
+
+            val workableTilesPrioritized = workableTilesCenterFirst.groupBy { getBasePriority(it, unit) }
+                .asSequence().sortedByDescending { it.key }
+
+            // Search through each group by priority
+            // If we can find an eligible best tile in the group lets return that
+            // under the assumption that best tile is better than tiles in all lower groups
+            for (tilePriorityGroup in workableTilesPrioritized) {
+                var bestTile: Tile? = null
+                for (tileInGroup in tilePriorityGroup.value.sortedBy { unit.getTile().aerialDistanceTo(it) }) {
+                    // These are the expensive calculations (tileCanBeImproved, canReach), so we only apply these filters after everything else it done.
+                    if (!tileHasWorkToDo(tileInGroup, unit, localUniqueCache)) continue
+                    if (unit.getTile() == tileInGroup) return unit.getTile()
+                    if (!unit.movement.canReach(tileInGroup)) continue
+                    if (bestTile == null || getFullPriority(tileInGroup, unit, localUniqueCache) > getFullPriority(bestTile, unit, localUniqueCache)) {
+                        bestTile = tileInGroup
+                    }
+                }
+                if (bestTile != null) {
+                    return bestTile
+                }
             }
         }
         return null
