@@ -7,8 +7,8 @@ import com.unciv.ui.images.ImageGetter
 class TileSetConfig {
     var useColorAsBaseTerrain = false
     var useSummaryImages = false
-    var unexploredTileColor: Color = Color.DARK_GRAY
-    var fogOfWarColor: Color = ImageGetter.CHARCOAL
+    var unexploredTileColor: Color = Color(0.08f, 0.06f, 0.05f, 1f)
+    var fogOfWarColor: Color = Color(0.15f, 0.10f, 0.08f, 1f)
     /** Name of the tileset to use when this one is missing images. Null to disable. */
     var fallbackTileSet: String? = Constants.defaultFallbackTileset
     /** Scale factor for hex images, with hex center as origin. */

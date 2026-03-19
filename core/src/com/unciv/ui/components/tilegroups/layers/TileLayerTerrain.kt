@@ -203,6 +203,11 @@ class TileLayerTerrain(tileGroup: TileGroup, size: Float) : TileLayer(tileGroup,
         val tile = tileGroup.tile
         val colorPillagedTile = isViewable && tile.isPillaged() && !usePillagedImprovementImage(tile, viewingCiv)
 
+        // Post-apocalyptic sepia filter: reduce blue, boost warm tones
+        // Color multiplication: finalPixel = texturePixel * imageColor
+        // R=0.90 keeps reds, G=0.70 reduces greens, B=0.40 kills blues → warm/brown sepia
+        val postApocFilter = Color(0.90f, 0.70f, 0.40f, 1f)
+
         val baseTerrainColor = when {
             colorPillagedTile && strings.tileSetConfig.useColorAsBaseTerrain -> tile.getBaseTerrain()
                 .getColor().lerp(Color.BROWN, 0.6f)
@@ -212,14 +217,14 @@ class TileLayerTerrain(tileGroup: TileGroup, size: Float) : TileLayer(tileGroup,
             strings.tileSetConfig.useColorAsBaseTerrain -> tile.getBaseTerrain()
                 .getColor()
             !isViewable -> Color.WHITE.cpy().lerp(strings.tileSetConfig.fogOfWarColor, 0.6f)
-            else -> Color.WHITE.cpy()
+            else -> postApocFilter.cpy()
         }
 
         val color = when {
             colorPillagedTile -> Color.WHITE.cpy().lerp(Color.RED.cpy(), 0.5f)
             !isViewable -> Color.WHITE.cpy()
                 .lerp(strings.tileSetConfig.fogOfWarColor, 0.6f)
-            else -> Color.WHITE.cpy()
+            else -> postApocFilter.cpy()
         }
 
         for ((index, image) in tileBaseImages.withIndex())
