@@ -87,6 +87,15 @@ class TileLayerUnitSprite(tileGroup: TileGroup, size: Float) : TileLayer(tileGro
 
         civilianSlot = updateSlot(civilianSlot, tileGroup.tile.civilianUnit, isShown = isCivilianSlotShown)
         militarySlot = updateSlot(militarySlot, tileGroup.tile.militaryUnit, isShown = isMilitarySlotShown)
+
+        // Offset units so they don't overlap when both are on the same tile
+        if (civilianSlot != null && militarySlot != null) {
+            civilianSlot!!.spriteGroup.setPosition(16f, 12f)
+            militarySlot!!.spriteGroup.setPosition(-16f, -12f)
+        } else {
+            civilianSlot?.spriteGroup?.setPosition(0f, 0f)
+            militarySlot?.spriteGroup?.setPosition(0f, 0f)
+        }
     }
 
     override fun determineVisibility() {
