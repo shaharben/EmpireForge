@@ -5,7 +5,6 @@ import com.unciv.logic.city.City
 import com.unciv.logic.civilization.Civilization
 import com.unciv.logic.civilization.Proximity
 import com.unciv.logic.civilization.diplomacy.DiplomacyFlags
-import com.unciv.logic.civilization.managers.ReligionState
 import com.unciv.logic.map.HexCoord
 import com.unciv.logic.map.mapunit.MapUnit
 import com.unciv.models.ruleset.nation.Nation
@@ -61,13 +60,6 @@ class CityFounder {
         city.workedTiles = hashSetOf() //reassign 1st working tile
 
         city.population.setPopulation(ruleset.eras[startingEra]!!.settlerPopulation)
-
-        if (civInfo.religionManager.religionState == ReligionState.Pantheon) {
-            city.religion.addPressure(
-                civInfo.religionManager.religion!!.name,
-                200 * city.population.population
-            )
-        }
 
         city.population.autoAssignPopulation()
 

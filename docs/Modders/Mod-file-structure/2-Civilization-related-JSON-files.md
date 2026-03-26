@@ -1,18 +1,18 @@
 # Civilization-related JSON files
 
-## Beliefs.json
+## Directives.json
 
-[link to original](https://github.com/yairm210/Unciv/blob/master/android/assets/jsons/Civ%20V%20-%20Gods%20%26%20Kings/Beliefs.json)
+[link to original](https://github.com/yairm210/Unciv/blob/master/android/assets/jsons/Civ%20V%20-%20Empires%20%26%20Alliances/Directives.json)
 
-This file contains the beliefs that can be chosen for religions in your mod.
+This file contains the directives that can be chosen for doctrines in your mod.
 
-Each belief has the following structure:
+Each directive has the following structure:
 
-| Attribute       | Type            | Default  | Notes                                                                             |
-|-----------------|-----------------|----------|-----------------------------------------------------------------------------------|
-| name            | String          | Required |                                                                                   |
-| type            | Enum            | Required | Type of belief. Value must be Pantheon, Founder, Follower or Enhancer             |
-| uniques         | List of Strings | empty    | List of [unique abilities](../uniques.md) this belief adds to cities following it |
+| Attribute       | Type            | Default  | Notes                                                                                 |
+|-----------------|-----------------|----------|---------------------------------------------------------------------------------------|
+| name            | String          | Required |                                                                                       |
+| type            | Enum            | Required | Type of directive. Value must be Principle, Founder, Follower or Enhancer             |
+| uniques         | List of Strings | empty    | List of [unique abilities](../uniques.md) this directive adds to cities following it  |
 | civilopediaText | List            | empty    | See [civilopediaText chapter](5-Miscellaneous-JSON-files.md#civilopedia-text)     |
 
 ## Buildings.json
@@ -39,7 +39,7 @@ Each building has the following structure:
 | uniqueTo                                              | String          | none     | If supplied, only the nation with this name can build this building. Must be in [Nations.json](#nationsjson)                                                                                                                 |
 | cityStrength                                          | Integer         | 0        | Strength bonus the city in which this building is built receives                                                                                                                                                             |
 | cityHealth                                            | Integer         | 0        | Health bonus the city in which this building is built receives                                                                                                                                                               |
-| hurryCostModifier                                     | Integer         | 0        | When this building is bought using gold or faith, the price is increased by this much percent                                                                                                                                |
+| hurryCostModifier                                     | Integer         | 0        | When this building is bought using gold or authority, the price is increased by this much percent                                                                                                                             |
 | quote                                                 | String          | none     | If this building is a (national) wonder, this string will be shown on the completion popup                                                                                                                                   |
 | uniques                                               | List of Strings | empty    | List of [unique abilities](../uniques.md) this building has                                                                                                                                                                  |
 | replacementTextForUniques                             | String          | none     | If provided, this string will be shown instead of all of the uniques                                                                                                                                                         |
@@ -65,7 +65,7 @@ Each nation has the following structure:
 | startBias            | List of strings                                                     | empty    | Zero or more of: [terrainFilter](../Unique-parameters.md#terrainfilter) or "Avoid [terrainFilter]". [^S]                                        |
 | preferredVictoryType | String                                                              | Neutral  | The victory type major civilizations will pursue (need not be specified in [VictoryTypes.json](5-Miscellaneous-JSON-files.md#victorytypesjson)) |
 | personality          | String                                                              | none     | The name of the personality specified in [Personalities.json](#personalitiesjson)                                                               |
-| favoredReligion      | String                                                              | none     | The religion major civilization will choose if available when founding a religion. Must be in [Religions.json](#religionsjson)                  |
+| favoredDoctrine      | String                                                              | none     | The doctrine major civilization will choose if available when founding a doctrine. Must be in [Doctrines.json](#doctrinesjson)                  |
 | startIntroPart1      | String                                                              | none     | Introductory blurb shown to Player on game start... [^V]                                                                                        |
 | startIntroPart2      | String                                                              | none     | ... second paragraph. ___NO___ "TBD"!!! Leave empty to skip that alert.                                                                         |
 | declaringWar         | String                                                              | none     | Another greeting, voice hook supported [^V]                                                                                                     |
@@ -159,7 +159,7 @@ There are 7 defining behaviours that influence an AI Civilization's behaviour. A
 
 This optional file is used for defining the types of city states. These types determine the benefits major civilizations get when they befriend or ally the city state with influence.
 For base ruleset Mods, if the file is ommitted or contains an empty list, [all types from the Vanilla ruleset](https://github.com/yairm210/Unciv/blob/master/android/assets/jsons/Civ%20V%20-%20Vanilla/CityStateTypes.json) are automatically added:
-Cultured, Maritime, Mercantile, Militaristic, Religious.
+Cultured, Maritime, Mercantile, Militaristic, Strategic.
 
 Each city state type has the following structure:
 
@@ -275,12 +275,12 @@ are as follows:
 | Give Gold             | Donate gold to the city state (amount does not matter)                              | `civName` "bully" for city state                                                                 |
 | Pledge to Protect     | Pledge to protect city state                                                        | `civName` "bully" for city state                                                                 |
 | Contest Culture       | Be the major civilization with the highest increase to culture during the duration  | major civilization's `cultureGrowth`                                                             |
-| Contest Faith         | Be the major civilization with the highest increase to faith during the duration    | major civilization's `faithGrowth`                                                               |
+| Contest Authority     | Be the major civilization with the highest increase to authority during the duration | major civilization's `authorityGrowth`                                                           |
 | Contest Technology    | Be the major civilization with the most technologies researched during the duration | major civilization's `techsResearched`                                                           |
 | Invest                | Donating gold yield extra Influence based on value provided                         | __IMPORTANT__: value in square brackets is the extra influence in percent. i.e. \[50\] means 50% |
 | Bully City State      | Demand tribute from the target city state                                           | target `city state`                                                                              |
 | Denounce Civilization | Denounce the major civilization which "bullied" the city state                      | `civName` "bully" for city state                                                                 |
-| Spread Religion       | Spread major civilization's religion to the city state                              | major civilization's `religionName`                                                              |
+| Spread Doctrine       | Spread major civilization's doctrine to the city state                              | major civilization's `doctrineName`                                                              |
 
 ### Quest weight
 
@@ -304,12 +304,12 @@ quest with weight 1.
 }
 ```
 
-## Religions.json
+## Doctrines.json
 
-[Link to original](https://github.com/yairm210/Unciv/tree/master/android/assets/jsons/Civ%20V%20-%20Gods%20&%20Kings/Religions.json)
+[Link to original](https://github.com/yairm210/Unciv/tree/master/android/assets/jsons/Civ%20V%20-%20Empires%20%26%20Alliances/Doctrines.json)
 
-This is just a list of Strings specifying all predefined religion names. Corresponding icons must
-exist, that's all to it. After all, they're just containers for [beliefs](#beliefsjson).
+This is just a list of Strings specifying all predefined doctrine names. Corresponding icons must
+exist, that's all to it. After all, they're just containers for [directives](#directivesjson).
 
 ## Specialists.json
 

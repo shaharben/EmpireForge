@@ -1,7 +1,6 @@
 package com.unciv.logic.automation.unit
 
 import com.unciv.logic.civilization.Civilization
-import com.unciv.logic.civilization.managers.ReligionState
 import com.unciv.logic.map.mapunit.MapUnit
 import com.unciv.logic.map.tile.Tile
 import com.unciv.models.UnitActionType
@@ -58,25 +57,6 @@ object CivilianUnitAutomation {
             return
         }
 
-        if (unit.hasUnique(UniqueType.MayFoundReligion)
-            && unit.civ.religionManager.religionState < ReligionState.Religion
-            && unit.civ.religionManager.mayFoundReligionAtAll()
-        )
-            return ReligiousUnitAutomation.foundReligion(unit)
-        
-        if (unit.hasUnique(UniqueType.MayFoundReligion) && unit.civ.isCityState){
-            // We have literally nothing to do with this unit, at least stop costing money
-            unit.disband()
-            return 
-        }
-            
-
-        if (unit.hasUnique(UniqueType.MayEnhanceReligion)
-            && unit.civ.religionManager.religionState < ReligionState.EnhancedReligion
-            && unit.civ.religionManager.mayEnhanceReligionAtAll()
-        )
-            return ReligiousUnitAutomation.enhanceReligion(unit)
-
         // We try to add any unit in the capital we can, though that might not always be desirable
         // For now its a simple option to allow AI to win a science victory again
         if (unit.hasUnique(UniqueType.AddInCapital))
@@ -89,12 +69,6 @@ object CivilianUnitAutomation {
             return
         if (unit.cache.hasCitadelPlacementUnique && SpecificUnitAutomation.automateCitadelPlacer(unit))
             return
-
-        if (unit.civ.religionManager.maySpreadReligionAtAll(unit))
-            return ReligiousUnitAutomation.automateMissionary(unit)
-
-        if (unit.hasUnique(UniqueType.PreventSpreadingReligion) || unit.hasUnique(UniqueType.CanRemoveHeresy))
-            return ReligiousUnitAutomation.automateInquisitor(unit)
 
         val isLateGame = isLateGame(unit.civ)
         // Great scientist -> Hurry research if late game

@@ -21,7 +21,7 @@
             "Maritime": 3,
             "Mercantile": 3,
             "Militaristic": 9,
-            "Religious": 3
+            "Strategic": 3
         }
     },
     {
@@ -84,7 +84,7 @@
             "Maritime": 3,
             "Mercantile": 3.5,
             "Militaristic": 2,
-            "Religious": 3
+            "Strategic": 3
         }
     },
     {
@@ -97,7 +97,7 @@
             "Maritime": 3,
             "Mercantile": 3,
             "Militaristic": 2,
-            "Religious": 3
+            "Strategic": 3
         }
     },
     {
@@ -111,12 +111,12 @@
             "Maritime": 0.5,
             "Mercantile": 0.5,
             "Militaristic": 0.5,
-            "Religious": 0.5
+            "Strategic": 0.5
         }
     },
     {
-        "name": "Contest Faith",
-        "description": "The faction with the most Faith growth proves they deserve leadership.",
+        "name": "Contest Authority",
+        "description": "The faction with the most Authority growth proves they deserve leadership.",
         "type": "Global",
         "duration": 30,
         "minimumCivs": 3,
@@ -125,7 +125,7 @@
             "Maritime": 0.5,
             "Mercantile": 0.5,
             "Militaristic": 0.5,
-            "Religious": 2
+            "Strategic": 2
         }
     },
     {
@@ -135,7 +135,7 @@
         "duration": 30,
         "minimumCivs": 3,
         "weightForCityStateType": {
-            "Religious": 0.5
+            "Strategic": 0.5
         }
     },
     {
@@ -168,14 +168,7 @@
             "Maritime": 2,
             "Mercantile": 1.5,
             "Militaristic": 1.5,
-            "Religious": 2.5
-        }
-    },
-    {
-        "name": "Spread Religion",
-        "description": "We've heard about [religionName] ideology. Send someone to teach us.",
-        "weightForCityStateType": {
-            "Religious": 3
+            "Strategic": 2.5
         }
     }
     /* BNW */

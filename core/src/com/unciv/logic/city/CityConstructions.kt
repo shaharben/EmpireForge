@@ -749,7 +749,7 @@ class CityConstructions : IsPartOfGameInfoSerialization {
                 ?: return false  // nothing built - no pay
         }
 
-        if (!city.civ.gameInfo.gameParameters.godMode) {
+        if (!city.civ.gameInfo.gameParameters.devMode) {
             val constructionCost = construction.getStatBuyCost(city, stat)
                 ?: return false // We should never end up here anyway, so things have already gone _way_ wrong
             city.addStat(stat, -1 * constructionCost)
@@ -798,7 +798,7 @@ class CityConstructions : IsPartOfGameInfoSerialization {
             !construction.isPurchasable(city.cityConstructions) -> false    // checks via 'rejection reason'
             construction is BaseUnit && !city.canPlaceNewUnit(construction) -> false
             !construction.canBePurchasedWithStat(city, stat) -> false
-            city.civ.gameInfo.gameParameters.godMode -> true
+            city.civ.gameInfo.gameParameters.devMode -> true
             constructionBuyCost == 0 -> true
             else -> city.getStatReserve(stat) >= constructionBuyCost
         }

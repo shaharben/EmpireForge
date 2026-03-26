@@ -82,9 +82,9 @@ class MapGenTileData(val tile: Tile, val region: Region?, ruleset: Ruleset) {
 
             val maxFood = terrainToCheck.food + (improvements.maxOfOrNull { it.food } ?: 0f)
             val maxProd = terrainToCheck.production + (improvements.maxOfOrNull { it.production } ?: 0f)
-            val bestImprovementValue = improvements.maxOfOrNull { it.food + it.production + it.gold + it.culture + it.science + it.faith } ?: 0f
+            val bestImprovementValue = improvements.maxOfOrNull { it.food + it.production + it.gold + it.culture + it.science } ?: 0f
             val maxOverall = terrainToCheck.food + terrainToCheck.production + terrainToCheck.gold +
-                terrainToCheck.culture + terrainToCheck.science + terrainToCheck.faith + bestImprovementValue
+                terrainToCheck.culture + terrainToCheck.science + bestImprovementValue
 
             if (maxFood >= 2) isFood = true
             if (maxProd >= 2) isProd = true

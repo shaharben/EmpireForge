@@ -119,7 +119,7 @@ interface IHasUniques : INamed {
      *  Is this ruleset object unavailable as determined by settings chosen at game start?
      *
      *  - **Not** checked: HiddenFromCivilopedia - That is a Mod choice and less a user choice and these objects should otherwise work.
-     *  - Default implementation checks disabling by Religion, Espionage or Victory types.
+     *  - Default implementation checks disabling by Espionage or Victory types.
      *  - Overrides need to deal with e.g. Era-specific wonder disabling, no-nukes, ruin rewards by difficulty, and so on!
      */
     @Readonly
@@ -131,8 +131,6 @@ interface IHasUniques : INamed {
             UniqueType.ConditionalDifficulty,
             UniqueType.ConditionalDifficultyOrHigher,
             UniqueType.ConditionalDifficultyOrLower,
-            UniqueType.ConditionalReligionEnabled,
-            UniqueType.ConditionalReligionDisabled,
             UniqueType.ConditionalEspionageEnabled,
             UniqueType.ConditionalEspionageDisabled,
         )
@@ -159,7 +157,7 @@ interface IHasUniques : INamed {
      *  Is this ruleset object hidden from Civilopedia?
      *
      *  - Obviously, the [UniqueType.HiddenFromCivilopedia] test is done here (and nowhere else - exception TranslationFileWriter for Tutorials).
-     *  - Includes the [isUnavailableBySettings] test if [gameInfo] is known, otherwise existence of Religion/Espionage is guessed from [ruleset],
+     *  - Includes the [isUnavailableBySettings] test if [gameInfo] is known, otherwise existence of Espionage is guessed from [ruleset],
      *    and all victory types are assumed enabled.
      *  - Note: RulesetObject-type specific overrides should not be necessary.
      *  @param gameInfo Defaults to [UncivGame.getGameInfoOrNull]. Civilopedia must also be able to run from MainMenu without a game loaded.
@@ -175,16 +173,11 @@ interface IHasUniques : INamed {
         if (gameInfo != null && isUnavailableBySettings(gameInfo)) return true
         if (gameInfo == null && ruleset != null) {
             /* No game is loaded, but we know the Ruleset. This happens when opening Civilopedia from MainMenuScreen right after launch.
-             * We can assume: If the Ruleset has Religion/Espionage, the user would enable it for a hypothetical game, so we shouldn't hide anything.
+             * We can assume: If the Ruleset has Espionage, the user would enable it for a hypothetical game, so we shouldn't hide anything.
              * But we can't assume how mods may use the possible combinations of positive/negative modifiers
              *     e.g. a mod switches between two versions of the same object depending on user choice
              *     better do a check based on the best guess for the availability of these features.
              */
-            if (shouldBeHiddenIfNoGameLoaded(
-                    ruleset.beliefs.isNotEmpty(),
-                    UniqueType.ConditionalReligionEnabled,
-                    UniqueType.ConditionalReligionDisabled
-                )) return true
             if (shouldBeHiddenIfNoGameLoaded(
                     ruleset.nations.values.any { it.spyNames.isNotEmpty() },
                     UniqueType.ConditionalEspionageEnabled,
@@ -196,10 +189,10 @@ interface IHasUniques : INamed {
     /** Overload of [isHiddenFromCivilopedia] for use in actually game-agnostic parts of Civilopedia */
     @Readonly fun isHiddenFromCivilopedia(ruleset: Ruleset) = isHiddenFromCivilopedia(UncivGame.getGameInfoOrNull(), ruleset)
 
-    /** Common for Religion/Espionage: Hidden check when no game is loaded
+    /** Common for Espionage: Hidden check when no game is loaded
      *  @param hasFeature Best guess from the Ruleset whether the feature is available
-     *  @param enabler The modifier testing feature is on: `ConditionalReligionEnabled` or `ConditionalEspionageEnabled`
-     *  @param disabler The modifier testing feature is off: `ConditionalReligionDisabled` or `ConditionalEspionageDisabled`
+     *  @param enabler The modifier testing feature is on: `ConditionalEspionageEnabled`
+     *  @param disabler The modifier testing feature is off: `ConditionalEspionageDisabled`
      */
     @Readonly
     private fun shouldBeHiddenIfNoGameLoaded(hasFeature: Boolean, enabler: UniqueType, disabler: UniqueType): Boolean {

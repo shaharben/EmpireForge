@@ -28,10 +28,8 @@ class StatsOverviewTab(
     private val goldTable = Table()
     private val scienceTable = Table()
     private val cultureTable = Table()
-    private val faithTable = Table()
     private val greatPeopleTable = Table()
     private val scoreTable = Table()
-    private val isReligionEnabled = gameInfo.isReligionEnabled()
 
     override fun activated(index: Int, caption: String, pager: TabbedPager) {
         overviewScreen.game.settings.addCompletedTutorialTask("See your stats breakdown")
@@ -46,7 +44,6 @@ class StatsOverviewTab(
         goldTable.defaults().pad(5f)
         scienceTable.defaults().pad(5f)
         cultureTable.defaults().pad(5f)
-        faithTable.defaults().pad(5f)
         greatPeopleTable.defaults().pad(5f)
         scoreTable.defaults().pad(5f)
         unhappinessTable.update()
@@ -63,7 +60,6 @@ class StatsOverviewTab(
             yield(goldAndSliderTable)
             yield(scienceTable)
             yield(cultureTable)
-            if (isReligionEnabled) yield(faithTable)
             yield(greatPeopleTable)
             yield(scoreTable)
         }
@@ -97,7 +93,6 @@ class StatsOverviewTab(
         goldTable.updateStatTable(Stat.Gold, statMap)
         scienceTable.updateStatTable(Stat.Science, statMap)
         cultureTable.updateStatTable(Stat.Culture, statMap)
-        if (isReligionEnabled) faithTable.updateStatTable(Stat.Faith, statMap)
         updateGreatPeopleTable()
         updateScoreTable()
     }

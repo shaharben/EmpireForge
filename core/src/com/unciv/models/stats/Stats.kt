@@ -4,7 +4,7 @@ import com.unciv.models.translations.tr
 import yairm210.purity.annotations.*
 
 /**
- * A container for the seven basic ["currencies"][Stat] in Unciv,
+ * A container for the six basic ["currencies"][Stat] in Unciv,
  * **Mutable**, allowing for easy merging of sources and applying bonuses.
  *
  * Supports e.g. `for ((key,value) in <Stats>)` - the [iterator] will skip zero values automatically.
@@ -18,8 +18,7 @@ open class Stats(
     var gold: Float = 0f,
     var science: Float = 0f,
     var culture: Float = 0f,
-    var happiness: Float = 0f,
-    var faith: Float = 0f
+    var happiness: Float = 0f
 ): Iterable<Stats.StatValuePair> {
 
     /** Indexed read of a value for a given [Stat], e.g. `this.gold == this[Stat.Gold]` */
@@ -32,7 +31,6 @@ open class Stats(
             Stat.Science -> science
             Stat.Culture -> culture
             Stat.Happiness -> happiness
-            Stat.Faith -> faith
         }
     }
     /** Indexed write of a value for a given [Stat], e.g. `this.gold += 1f` is equivalent to `this[Stat.Gold] += 1f` */
@@ -44,7 +42,6 @@ open class Stats(
             Stat.Science -> science = value
             Stat.Culture -> culture = value
             Stat.Happiness -> happiness = value
-            Stat.Faith -> faith = value
         }
     }
 
@@ -60,12 +57,11 @@ open class Stats(
                 && science == otherStats.science
                 && culture == otherStats.culture
                 && happiness == otherStats.happiness
-                && faith == otherStats.faith
     }
 
     /** **Non-Mutating function**
      * @return a new instance containing the same values as `this` */
-    @Readonly fun clone() = Stats(production, food, gold, science, culture, happiness, faith)
+    @Readonly fun clone() = Stats(production, food, gold, science, culture, happiness)
 
     /** @return `true` if all values are zero */
     @Readonly
@@ -75,8 +71,7 @@ open class Stats(
             && gold == 0f
             && science == 0f
             && culture == 0f
-            && happiness == 0f
-            && faith == 0f )
+            && happiness == 0f )
 
     /** Reset all values to zero (in place) */
     fun clear() {
@@ -86,7 +81,6 @@ open class Stats(
         science = 0f
         culture = 0f
         happiness = 0f
-        faith = 0f
     }
 
     /** **Mutating function** (but does **not** mutate [other])
@@ -99,7 +93,6 @@ open class Stats(
         science += other.science
         culture += other.culture
         happiness += other.happiness
-        faith += other.faith
         return this
     }
 
@@ -132,8 +125,7 @@ open class Stats(
         gold * number,
         science * number,
         culture * number,
-        happiness * number,
-        faith * number
+        happiness * number
     )
 
     /** **Mutating function**
@@ -145,7 +137,6 @@ open class Stats(
         science *= number
         culture *= number
         happiness *= number
-        faith *= number
     }
 
     /** **Non-Mutating function**
@@ -161,7 +152,6 @@ open class Stats(
         science *= 9.01f // 4 Science better than 3 Production
         culture *= 8
         happiness *= 10 // base
-        faith *= 7
     }
 
     /** ***Not*** only a debug helper. It returns a string representing the content, already _translated_.
@@ -218,7 +208,6 @@ open class Stats(
         if (science != 0f) yield(StatValuePair(Stat.Science, science))
         if (culture != 0f) yield(StatValuePair(Stat.Culture, culture))
         if (happiness != 0f) yield(StatValuePair(Stat.Happiness, happiness))
-        if (faith != 0f) yield(StatValuePair(Stat.Faith, faith))
     }
 
     /** Enables aggregates over the values, never empty */
@@ -232,7 +221,6 @@ open class Stats(
             yield(science)
             yield(culture)
             yield(happiness)
-            yield(faith)
         }
 
     /** Returns an iterator over the elements of this object, wrapped as [StatValuePair]s */

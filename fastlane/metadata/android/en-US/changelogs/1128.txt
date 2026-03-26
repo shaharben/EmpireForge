@@ -7,7 +7,7 @@ New countable for adopted policies supports policyFilter - By SomeTroglodyte
 Added UponLosingCity unique - By PLynx01
 
 By RobLoach:
-- Vanilla, Gods & Kings: Fix Hagia Sophia effects
+- Vanilla, Gods & Kings: Fix Grand Citadel effects
 - Add Great Person group names 
 
 AI: updated wonder evaluation - By EmperorPinguin

@@ -56,15 +56,6 @@ enum class EmpireOverviewCategories(
         override fun showDisabled(viewingPlayer: Civilization) = viewingPlayer.detailedCivResources.none { it.resource.resourceType != ResourceType.Bonus }
         override fun getPersistDataClass() = ResourcesOverviewTab.ResourcesTabPersistableData::class.java
     },
-    Religion("StatIcons/Faith", 'F', Align.top) {
-        override fun createTab(viewingPlayer: Civilization, overviewScreen: EmpireOverviewScreen, persistedData: EmpireOverviewTabPersistableData?) =
-                ReligionOverviewTab(viewingPlayer, overviewScreen, persistedData)
-        override fun testState(viewingPlayer: Civilization) = when {
-            !viewingPlayer.gameInfo.isReligionEnabled() -> EmpireOverviewTabState.Hidden
-            viewingPlayer.gameInfo.religions.isEmpty() -> EmpireOverviewTabState.Disabled
-            else -> EmpireOverviewTabState.Normal
-        }
-    },
     Wonders("OtherIcons/Wonders", 'W', Align.top) {
         override fun createTab(viewingPlayer: Civilization, overviewScreen: EmpireOverviewScreen, persistedData: EmpireOverviewTabPersistableData?) =
                 WonderOverviewTab(viewingPlayer, overviewScreen)

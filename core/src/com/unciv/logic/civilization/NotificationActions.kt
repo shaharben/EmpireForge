@@ -228,18 +228,6 @@ class LinkAction(private val url: String = "") : NotificationAction {
     }
 }
 
-/** Open [EmpireOverviewScreen] on the [Religion][EmpireOverviewCategories.Religion] tab */
-class ReligionAction(private val religionName: String? = null) : NotificationAction {
-    override fun execute(worldScreen: WorldScreen) {
-        worldScreen.openEmpireOverview(EmpireOverviewCategories.Religion, religionName.orEmpty())
-    }
-    companion object {
-        fun withLocation(location: HexCoord?, religionName: String?): Sequence<NotificationAction> =
-            LocationAction(location) + ReligionAction(religionName)
-    }
-}
-
-
 @Suppress("PrivatePropertyName")  // These names *must* match their class name, see below
 /** This exists as trick to leverage readFields for Json deserialization.
  *
@@ -263,14 +251,13 @@ internal class NotificationActionsDeserializer {
     private val PolicyAction: PolicyAction? = null
     private val EspionageAction: EspionageAction? = null
     private val LinkAction: LinkAction? = null
-    private val ReligionAction: ReligionAction? = null
 
     fun read(json: Json, jsonData: JsonValue): List<NotificationAction> {
         json.readFields(this, jsonData)
         return listOfNotNull(
             LocationAction, TechAction, CityAction, DiplomacyAction, MayaLongCountAction,
             MapUnitAction, CivilopediaAction, PromoteUnitAction, OverviewAction, PolicyAction,
-            EspionageAction, LinkAction, ReligionAction
+            EspionageAction, LinkAction
         )
     }
 }

@@ -80,7 +80,7 @@ class SerializationTests {
     fun `test Notification serialization roundtrip`() {
         val data = arrayListOf(
             Notification("hello", emptyArray(), emptyList(), Notification.NotificationCategory.Espionage),
-            Notification("Oh my goddesses", arrayOf("ReligionIcons/Pray"), listOf(CivilopediaAction("Tutorial/Religion")), Notification.NotificationCategory.Religion),
+            Notification("Strategic update", arrayOf("DoctrineIcons/Strategy"), listOf(CivilopediaAction("Tutorial/Doctrine")), Notification.NotificationCategory.Doctrine),
             Notification("There's Horses", arrayOf("ResourceIcons/Horses"), LocationAction(HexCoord.Zero, HexCoord(1,0)).asIterable(), Notification.NotificationCategory.General),
             Notification("An evil overlord has arisen", arrayOf("PersonalityIcons/Devil"), listOf(DiplomacyAction("Russia")), Notification.NotificationCategory.War),
             Notification("Here's a Wizzard", arrayOf("EmojiIcons/Great Scientist"), listOf(MapUnitAction(HexCoord(0,1), 42)), Notification.NotificationCategory.Units),

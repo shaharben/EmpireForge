@@ -1032,7 +1032,7 @@ class Tile : IsPartOfGameInfoSerialization {
 
     /** Adds an entry to the [improvementQueue], by looking up the time it takes using [civInfo] and [unit] */
     fun queueImprovement(improvement: TileImprovement, civInfo: Civilization, unit: MapUnit) {
-        val turns = if (civInfo.gameInfo.gameParameters.godMode) 1
+        val turns = if (civInfo.gameInfo.gameParameters.devMode) 1
             else improvement.getTurnsToBuild(civInfo, unit)
         queueImprovement(improvement.name, turns)
     }

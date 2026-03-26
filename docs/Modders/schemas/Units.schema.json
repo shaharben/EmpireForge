@@ -59,8 +59,8 @@
       },
       "religiousStrength": {
         "type": "number",
-        "title": "Religious Strength",
-        "description": "The religious attack and defensive strength of the unit."
+        "title": "Strategic Strength",
+        "description": "The strategic attack and defensive strength of the unit."
       },
       "range": {
         "type": "integer",

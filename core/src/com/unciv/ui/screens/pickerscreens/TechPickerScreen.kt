@@ -393,7 +393,7 @@ class TechPickerScreen(
             return
         }
 
-        if (civInfo.gameInfo.gameParameters.godMode && !civInfo.tech.isResearched(tech.name)
+        if (civInfo.gameInfo.gameParameters.devMode && !civInfo.tech.isResearched(tech.name)
                 && selectedTech == previousSelectedTech) {
             civInfo.tech.addTechnology(tech.name)
         }

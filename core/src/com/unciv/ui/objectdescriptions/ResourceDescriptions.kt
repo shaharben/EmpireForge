@@ -1,6 +1,5 @@
 package com.unciv.ui.objectdescriptions
 
-import com.unciv.models.ruleset.Belief
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.tile.TileResource
 import com.unciv.models.ruleset.unique.GameContext
@@ -118,8 +117,6 @@ object ResourceDescriptions {
                 textList += FormattedLine(it.name, link = it.makeLink(), indent = 1)
             }
         }
-
-        textList += Belief.getCivilopediaTextMatching(resource.name, ruleset)
 
         return textList
     }

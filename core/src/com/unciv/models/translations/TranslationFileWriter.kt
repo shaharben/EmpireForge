@@ -10,7 +10,6 @@ import com.unciv.logic.civilization.diplomacy.DiplomaticModifiers
 import com.unciv.models.SpyAction
 import com.unciv.models.metadata.BaseRuleset
 import com.unciv.models.metadata.LocaleCode
-import com.unciv.models.ruleset.Belief
 import com.unciv.models.ruleset.Building
 import com.unciv.models.ruleset.Event
 import com.unciv.models.ruleset.GlobalUniques
@@ -527,7 +526,7 @@ object TranslationFileWriter {
             )
 
             /** Specifies Enums where the name property _is_ translatable, by Class name */
-            private val translatableEnumsSet = setOf("BeliefType")
+            private val translatableEnumsSet = emptySet<String>()
 
             /** Only these Unique parameter types will be offered as translatables - for all others it is expected their content
              *  corresponds with a ruleset object name which will be made translatable by their actual json definition */
@@ -571,7 +570,6 @@ object TranslationFileWriter {
 
             private fun getJavaClassByName(name: String): Class<Any>? {
                 return when (name) {
-                    "Beliefs" -> emptyArray<Belief>().javaClass
                     "Buildings" -> emptyArray<Building>().javaClass
                     "CityStateTypes" -> emptyArray<CityStateType>().javaClass
                     "Difficulties" -> emptyArray<Difficulty>().javaClass
@@ -582,7 +580,7 @@ object TranslationFileWriter {
                     "Nations" -> emptyArray<Nation>().javaClass
                     "Policies" -> emptyArray<PolicyBranch>().javaClass
                     "Quests" -> emptyArray<Quest>().javaClass
-                    "Religions" -> emptyArray<String>().javaClass
+                    "Doctrines" -> emptyArray<String>().javaClass
                     "Ruins" -> emptyArray<RuinReward>().javaClass
                     "Specialists" -> emptyArray<Specialist>().javaClass
                     "Speeds" -> emptyArray<Speed>().javaClass

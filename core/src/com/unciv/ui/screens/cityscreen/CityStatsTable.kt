@@ -36,7 +36,6 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
             Stat.Gold to Color(1f, 0.84f, 0f, 1f),
             Stat.Science to Color(0.3f, 0.7f, 1f, 1f),
             Stat.Culture to Color(0.7f, 0.3f, 0.9f, 1f),
-            Stat.Faith to Color(1f, 1f, 0.6f, 1f),
             Stat.Happiness to Color(0.3f, 0.9f, 0.4f, 1f)
         )
     }
@@ -111,9 +110,6 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
         if (!city.population.getMaxSpecialists().isEmpty()) {
             addSpecialistInfo()
         }
-        if (city.religion.getNumberOfFollowers().isNotEmpty() && city.civ.gameInfo.isReligionEnabled())
-            addReligionInfo()
-
         addBuildingsInfo()
 
         lowerTable.pack()
@@ -237,11 +233,6 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
 
     private fun addSpecialistInfo() {
         val expanderTab = SpecialistAllocationTable(cityScreen).asExpander { onContentResize() }
-        lowerTable.add(expanderTab).growX().row()
-    }
-
-    private fun addReligionInfo() {
-        val expanderTab = CityReligionInfoTable(city.religion).asExpander { onContentResize() }
         lowerTable.add(expanderTab).growX().row()
     }
 
@@ -431,7 +422,6 @@ class CityStatsTable(private val cityScreen: CityScreen) : Table() {
             val selected = BaseScreen.skin.getColor("selection")
             for (stat in Stat.entries) {
                 val amount = city.cityStats.currentCityStats[stat]
-                if (stat == Stat.Faith && !city.civ.gameInfo.isReligionEnabled()) continue
                 val icon = Table()
                 val focus = CityFocus.safeValueOf(stat)
                 val toggledFocus = if (focus == city.getCityFocus()) {

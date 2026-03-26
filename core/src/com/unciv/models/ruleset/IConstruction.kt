@@ -299,13 +299,12 @@ open class PerpetualConstruction(override var name: String, val description: Str
         val science = PerpetualStatConversion(Stat.Science)
         val gold = PerpetualStatConversion(Stat.Gold)
         val culture = PerpetualStatConversion(Stat.Culture)
-        val faith = PerpetualStatConversion(Stat.Faith)
         val idle = object : PerpetualConstruction("Nothing", "The city will not produce anything.") {
             override fun isBuildable(cityConstructions: CityConstructions): Boolean = true
         }
 
         val perpetualConstructionsMap: Map<String, PerpetualConstruction>
-                = mapOf(science.name to science, gold.name to gold, culture.name to culture, faith.name to faith, idle.name to idle)
+                = mapOf(science.name to science, gold.name to gold, culture.name to culture, idle.name to idle)
 
         /** @return whether [name] represents a PerpetualConstruction - note "" is translated to Nothing in the queue so `isNamePerpetual("")==true` */
         fun isNamePerpetual(name: String) = name.isEmpty() || name in perpetualConstructionsMap
@@ -328,9 +327,6 @@ open class PerpetualStatConversion(val stat: Stat) :
 
     override fun isBuildable(cityConstructions: CityConstructions): Boolean {
         val city = cityConstructions.city
-        if (stat == Stat.Faith && !city.civ.gameInfo.isReligionEnabled())
-            return false
-
         val stateForConditionals = city.state
         return city.civ.getMatchingUniques(UniqueType.EnablesCivWideStatProduction, stateForConditionals)
             .any { it.params[0] == stat.name }

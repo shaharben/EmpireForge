@@ -16,7 +16,7 @@
         "type": "string",
         "title": "Link",
         "description": "Create link and icon, format: Category/Name or external link.",
-        "examples": ["Building/Mosque", "Terrain/River"]
+        "examples": ["Building/Military Academy", "Terrain/River"]
       },
       "icon": {
         "type": "string",

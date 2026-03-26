@@ -68,9 +68,6 @@ object Constants {
     const val fort = "Fort"
 
     const val futureTech = "Future Tech"
-    // Easter egg name. Is to avoid conflicts when players name their own religions.
-    // This religion name should never be displayed.
-    const val noReligionName = "The religion of TheLegend27"
     const val spyHideout = "Spy Hideout"
 
     const val neutralVictoryType = "Neutral"
@@ -120,7 +117,6 @@ object Constants {
      * _Most_ checks do compare to 0!
      */
     const val minimumMovementEpsilon = 0.05f  // 0.1f was used previously, too - here for global searches
-    const val aiPreferInquisitorOverMissionaryPressureDifference = 3000f
 
     const val defaultFontSize = 18
     const val headingFontSize = 24

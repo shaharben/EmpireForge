@@ -93,14 +93,6 @@ class ModConstants {
     var minRiverLength = 5
     var maxRiverLength = 666  // Do not set to less than the maximal map radius
 
-    // Factors in formula for Maximum Number of foundable Religions
-    var religionLimitBase = 1
-    var religionLimitMultiplier = 0.5f
-
-    // Factors in formula for pantheon cost
-    var pantheonBase = 10
-    var pantheonGrowth = 5
-
     // AI behaviour
     var workboatAutomationSearchMaxTiles = 37
     var minimumCityLocationTileValue = 53f

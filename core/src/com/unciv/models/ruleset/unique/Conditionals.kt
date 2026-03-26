@@ -5,7 +5,6 @@ import com.unciv.logic.GameInfo
 import com.unciv.logic.battle.CombatAction
 import com.unciv.logic.city.City
 import com.unciv.logic.civilization.Civilization
-import com.unciv.logic.civilization.managers.ReligionState
 import com.unciv.models.ruleset.validation.ModCompatibility
 import com.unciv.models.stats.Stat
 import yairm210.purity.annotations.Readonly
@@ -161,8 +160,6 @@ object Conditionals {
             }
             UniqueType.ConditionalVictoryEnabled -> checkOnGameInfo { gameParameters.victoryTypes.contains(conditional.params[0]) }
             UniqueType.ConditionalVictoryDisabled -> checkOnGameInfo { !gameParameters.victoryTypes.contains(conditional.params[0]) }
-            UniqueType.ConditionalReligionEnabled -> checkOnGameInfo { isReligionEnabled() }
-            UniqueType.ConditionalReligionDisabled -> checkOnGameInfo { !isReligionEnabled() }
             UniqueType.ConditionalEspionageEnabled -> checkOnGameInfo { isEspionageEnabled() }
             UniqueType.ConditionalEspionageDisabled -> checkOnGameInfo { !isEspionageEnabled() }
             UniqueType.ConditionalNuclearWeaponsEnabled -> checkOnGameInfo { gameParameters.nuclearWeaponsEnabled }
@@ -182,27 +179,13 @@ object Conditionals {
                 civilizations.none {
                     it.isMajorCiv() &&
                     it.isAlive() &&
-                    (it.policies.isAdopted(conditional.params[0]) || it.religionManager.religion?.hasBelief(conditional.params[0]) == true)
+                    it.policies.isAdopted(conditional.params[0])
                 }
             }
-            UniqueType.ConditionalAfterPolicyOrBelief ->
-                checkOnCiv { policies.isAdopted(conditional.params[0]) || religionManager.religion?.hasBelief(conditional.params[0]) == true }
-            UniqueType.ConditionalBeforePolicyOrBelief ->
-                checkOnCiv { !policies.isAdopted(conditional.params[0]) && religionManager.religion?.hasBelief(conditional.params[0]) != true }
-            UniqueType.ConditionalBeforePantheon ->
-                checkOnCiv { religionManager.religionState == ReligionState.None }
-            UniqueType.ConditionalAfterPantheon ->
-                checkOnCiv { religionManager.religionState != ReligionState.None }
-            UniqueType.ConditionalBeforeReligion ->
-                checkOnCiv { religionManager.religionState < ReligionState.Religion }
-            UniqueType.ConditionalAfterReligion ->
-                checkOnCiv { religionManager.religionState >= ReligionState.Religion }
-            UniqueType.ConditionalBeforeEnhancingReligion ->
-                checkOnCiv { religionManager.religionState < ReligionState.EnhancedReligion }
-            UniqueType.ConditionalAfterEnhancingReligion ->
-                checkOnCiv { religionManager.religionState >= ReligionState.EnhancedReligion }
-            UniqueType.ConditionalAfterGeneratingGreatProphet ->
-                checkOnCiv { religionManager.greatProphetsEarned() > 0 }
+            UniqueType.ConditionalAfterPolicyOrDoctrine ->
+                checkOnCiv { policies.isAdopted(conditional.params[0]) }
+            UniqueType.ConditionalBeforePolicyOrDoctrine ->
+                checkOnCiv { !policies.isAdopted(conditional.params[0]) }
 
             UniqueType.ConditionalBuildingBuilt ->
                 checkOnCiv { cities.any { it.cityConstructions.containsBuildingOrEquivalent(conditional.params[0]) } }
@@ -223,20 +206,6 @@ object Conditionals {
             UniqueType.ConditionalInThisCity -> state.relevantCity != null
             UniqueType.ConditionalCityFilter -> checkOnCity { matchesFilter(conditional.params[0], state.relevantCiv) }
             UniqueType.ConditionalCityConnected -> checkOnCity { isConnectedToCapital() }
-            UniqueType.ConditionalCityReligion -> checkOnCity {
-                religion.getMajorityReligion()
-                    ?.matchesFilter(conditional.params[0], state, state.relevantCiv) == true
-            }
-            UniqueType.ConditionalCityNotReligion -> checkOnCity {
-                religion.getMajorityReligion()
-                    ?.matchesFilter(conditional.params[0], state, state.relevantCiv) != true
-            }
-            UniqueType.ConditionalCityMajorReligion -> checkOnCity {
-                religion.getMajorityReligion()?.isMajorReligion() == true }
-            UniqueType.ConditionalCityEnhancedReligion -> checkOnCity {
-                religion.getMajorityReligion()?.isEnhancedReligion() == true }
-            UniqueType.ConditionalCityThisReligion -> checkOnCity {
-                religion.getMajorityReligion() == state.relevantCiv?.religionManager?.religion }
             UniqueType.ConditionalWLTKD -> checkOnCity { isWeLoveTheKingDayActive() }
             UniqueType.ConditionalCityWithBuilding ->
                 checkOnCity { cityConstructions.containsBuildingOrEquivalent(conditional.params[0]) }

@@ -51,7 +51,7 @@ internal class DebugTab(
 
         val curGameInfo = game.gameInfo
         if (curGameInfo != null) {
-            addCheckbox("God mode (current game)", curGameInfo.gameParameters::godMode)
+            addCheckbox("Dev mode (current game)", curGameInfo.gameParameters::devMode)
         }
 
         addCheckbox("Save games compressed", UncivFiles::saveZipped)

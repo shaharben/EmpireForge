@@ -28,7 +28,7 @@ enum class UniqueTarget(
 
     Global("Uniques that apply globally. " +
         "Civs gain the abilities of these uniques from nation uniques, reached eras, researched techs, adopted policies, " +
-        "built buildings, religion 'founder' uniques, owned resources, and ruleset-wide global uniques.", Triggerable),
+        "built buildings, owned resources, and ruleset-wide global uniques.", Triggerable),
 
     // Civilization-specific
     Nation(inheritsFrom = Global),
@@ -36,9 +36,6 @@ enum class UniqueTarget(
     Era(inheritsFrom = Global),
     Tech(inheritsFrom = Global),
     Policy(inheritsFrom = Global),
-    FounderBelief("Uniques for Founder and Enhancer type Beliefs, that will apply to the founder of this religion", inheritsFrom = Global),
-    FollowerBelief("Uniques for Pantheon and Follower type beliefs, that will apply to each city where the religion is the majority religion", inheritsFrom = Triggerable),
-
     // City-specific
     Building(inheritsFrom = Global),
     Wonder(inheritsFrom = Building),
@@ -124,7 +121,7 @@ enum class UniqueTarget(
         /** All targets that can display their Uniques */
         // As Array so it can used in a vararg parameter list.
         val Displayable = arrayOf(
-            Building, Unit, UnitType, Improvement, Tech, FollowerBelief, FounderBelief,
+            Building, Unit, UnitType, Improvement, Tech,
             Terrain, Resource, Policy, Promotion, Nation, Ruins, Speed, EventChoice,
             Difficulty
         )

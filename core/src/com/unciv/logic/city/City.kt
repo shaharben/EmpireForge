@@ -8,7 +8,6 @@ import com.unciv.logic.city.managers.CityConquestFunctions
 import com.unciv.logic.city.managers.CityEspionageManager
 import com.unciv.logic.city.managers.CityExpansionManager
 import com.unciv.logic.city.managers.CityPopulationManager
-import com.unciv.logic.city.managers.CityReligionManager
 import com.unciv.logic.city.managers.SpyFleeReason
 import com.unciv.logic.civilization.Civilization
 import com.unciv.logic.civilization.transients.CapitalConnectionsFinder.CapitalConnectionMedium
@@ -80,7 +79,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
     var population = CityPopulationManager()
     var cityConstructions = CityConstructions()
     var expansion = CityExpansionManager()
-    var religion = CityReligionManager()
     var espionage = CityEspionageManager()
 
     @Transient  // CityStats has no serializable fields
@@ -169,7 +167,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
         toReturn.population = population.clone()
         toReturn.cityConstructions = cityConstructions.clone()
         toReturn.expansion = expansion.clone()
-        toReturn.religion = religion.clone()
         toReturn.tiles = tiles
         toReturn.workedTiles = workedTiles
         toReturn.lockedTiles = lockedTiles
@@ -336,7 +333,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
 
     @Readonly
     fun hasStatToBuy(stat: Stat, price: Int): Boolean = when {
-        civ.gameInfo.gameParameters.godMode -> true
+        civ.gameInfo.gameParameters.devMode -> true
         price == 0 -> true
         else -> getStatReserve(stat) >= price
     }
@@ -353,18 +350,13 @@ class City : IsPartOfGameInfoSerialization, INamed {
 
     override fun toString() = name // for debug
 
-    @Readonly fun isHolyCity(): Boolean = religion.religionThisIsTheHolyCityOf != null && !religion.isBlockedHolyCity
-    @Readonly fun isHolyCityOf(religionName: String?) = isHolyCity() && religion.religionThisIsTheHolyCityOf == religionName
-
     @Readonly
     fun canBeDestroyed(justCaptured: Boolean = false): Boolean {
         if (civ.gameInfo.gameParameters.noCityRazing) return false
 
         val allowRazeCapital = civ.gameInfo.ruleset.modOptions.hasUnique(UniqueType.AllowRazeCapital)
-        val allowRazeHolyCity = civ.gameInfo.ruleset.modOptions.hasUnique(UniqueType.AllowRazeHolyCity)
 
         if (isOriginalCapital && !allowRazeCapital) return false
-        if (isHolyCity() && !allowRazeHolyCity) return false
         if (isCapital() && !justCaptured && !allowRazeCapital) return false
 
         return true
@@ -383,7 +375,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
         expansion.city = this
         expansion.setTransients()
         cityConstructions.city = this
-        religion.setTransients(this)
         cityConstructions.setTransients()
         espionage.setTransients(this)
     }
@@ -442,7 +433,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
     }
 
     fun destroyCity(overrideSafeties: Boolean = false) {
-        // Original capitals and holy cities cannot be destroyed,
+        // Original capitals cannot be destroyed,
         // unless, of course, they are captured by a one-city-challenger.
         if (!canBeDestroyed() && !overrideSafeties) return
 
@@ -556,12 +547,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
                 .any { it.isWonder }
             "in all cities connected to capital" -> isConnectedToCapital()
             "in all cities with a garrison", "Garrisoned" -> isGarrisoned()
-            "in all cities in which the majority religion is a major religion" ->
-                religion.getMajorityReligionName() != null
-                && religion.getMajorityReligion()!!.isMajorReligion()
-            "in all cities in which the majority religion is an enhanced religion" ->
-                religion.getMajorityReligionName() != null
-                && religion.getMajorityReligion()!!.isEnhancedReligion()
             "in non-enemy foreign cities" ->
                 viewingCiv != null && viewingCiv != civ
                 && !civ.isAtWarWith(viewingCiv)
@@ -571,13 +556,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
             "in puppeted cities", "Puppeted" -> isPuppet
             "in resisting cities", "Resisting" -> isInResistance()
             "in cities being razed", "Razing" -> isBeingRazed
-            "in holy cities", "Holy" -> isHolyCity()
             "in City-State cities" -> civ.isCityState
-            // This is only used in communication to the user indicating that only in cities with this
-            // religion a unique is active. However, since religion uniques only come from the city itself,
-            // this will always be true when checked.
-            "in cities following this religion" -> true
-            "in cities following our religion" -> viewingCiv?.religionManager?.religion == religion.getMajorityReligion()
             else -> civ.matchesFilter(filter, state, false)
         }
     }
@@ -585,8 +564,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
     // So everywhere in the codebase there were continuous calls to either
     // `cityConstructions.builtBuildingUniqueMap.getUniques()` or `cityConstructions.builtBuildingMap.getAllUniques()`,
     // which was fine as long as those were the only uniques that cities could provide.
-    // However, with the introduction of religion, cities might also get uniques from the religion the city follows.
-    // Adding both calls to `builtBuildingsUniqueMap` and `Religion` every time is not really modular and also ugly, so something had to be done.
     // Looking at all the use cases, the following functions were written to handle all findMatchingUniques() problems.
     // Sadly, due to the large disparity between use cases, there needed to be lots of functions.
 
@@ -602,7 +579,6 @@ class City : IsPartOfGameInfoSerialization, INamed {
                 getLocalMatchingUniques(uniqueType, gameContext)
         else (
             cityConstructions.builtBuildingUniqueMap.getUniques(uniqueType)
-                + religion.getUniques(uniqueType)
             ).filter {
                 !it.isTimedTriggerable && it.conditionalsApply(gameContext)
             }.flatMap { it.getMultiplied(gameContext) }
@@ -611,8 +587,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
     // Uniques special to this city
     @Readonly
     fun getLocalMatchingUniques(uniqueType: UniqueType, gameContext: GameContext = state): Sequence<Unique> {
-        val uniques = cityConstructions.builtBuildingUniqueMap.getUniques(uniqueType).filter { it.isLocalEffect } +
-            religion.getUniques(uniqueType)
+        val uniques = cityConstructions.builtBuildingUniqueMap.getUniques(uniqueType).filter { it.isLocalEffect }
         return uniques.filter { !it.isTimedTriggerable && it.conditionalsApply(gameContext) }
                 .flatMap { it.getMultiplied(gameContext) }
     }
@@ -646,7 +621,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
         }
         else {
             val uniques =
-                cityConstructions.builtBuildingUniqueMap.getAllUniques() + religion.getAllUniques()
+                cityConstructions.builtBuildingUniqueMap.getAllUniques()
             return uniques.filter {
                 it.getModifiers(trigger).any(triggerFilter) && it.conditionalsApply(gameContext)
             }.flatMap { it.getMultiplied(gameContext) }
@@ -657,7 +632,7 @@ class City : IsPartOfGameInfoSerialization, INamed {
     fun getLocalTriggeredUniques(trigger: UniqueType, gameContext: GameContext = state,
         triggerFilter: (Unique) -> Boolean = { true }): Sequence<Unique> {
         val uniques =
-            cityConstructions.builtBuildingUniqueMap.getAllUniques().filter { it.isLocalEffect } + religion.getAllUniques()
+            cityConstructions.builtBuildingUniqueMap.getAllUniques().filter { it.isLocalEffect }
         return uniques.filter {
             it.getModifiers(trigger).any(triggerFilter) && it.conditionalsApply(gameContext)
         }.flatMap { it.getMultiplied(gameContext) }

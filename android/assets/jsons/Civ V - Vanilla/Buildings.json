@@ -33,7 +33,7 @@
 		"requiredTech": "Pottery"
 	},
 	{
-		"name": "Temple of Artemis",
+		"name": "Hunters' Lodge",
 		"culture": 1,
 		"isWonder": true,
 		"greatPersonPoints": {"Elite Engineer": 1},
@@ -189,7 +189,7 @@
 		"isWonder": true,
 		"uniques": ["[+15]% Strength <for [All] units> <vs cities> <when attacking>"],
 		"requiredTech": "Bronze Working",
-		"quote": "'We forged a colossus from salvaged bronze and raised it at the gate. Not a god, but a warrior - a reminder that we fight for something worth fighting for.' - Commander Vale"
+		"quote": "'We forged a colossus from salvaged bronze and raised it at the gate. Not a legend, but a warrior - a reminder that we fight for something worth fighting for.' - Commander Vale"
 		// "Requires [Honor]" in BNW
 	},
 
@@ -261,7 +261,7 @@
 	},
 	// Column 4
 	{
-		"name": "Temple",
+		"name": "War College",
 		"culture": 3,
 		"requiredBuilding": "Monument",
 		"maintenance": 2,
@@ -272,7 +272,7 @@
 	},
 	{
 		"name": "Burial Tomb",
-		"replaces": "Temple",
+		"replaces": "War College",
 		"uniqueTo": "Egypt",
 		"maintenance": 0,
 		"uniques": ["[+100]% Gold given to enemy if city is captured <in this city>"],
@@ -283,8 +283,8 @@
 		"requiredTech": "Philosophy"
 	},
 	{
-		"name": "Mud Pyramid Mosque",
-		"replaces": "Temple",
+		"name": "Mud Pyramid Academy",
+		"replaces": "War College",
 		"uniqueTo": "Songhai",
 		"maintenance": 0,
 		"hurryCostModifier": 25,
@@ -385,35 +385,35 @@
 		"uniques": ["[+25]% Great Person generation [in this city]", "Must be next to [Fresh water]"],
 		"hurryCostModifier": 25,
 		"maintenance": 1,
-		"requiredTech": "Theology"
+		"requiredTech": "Strategy"
 	},
 	{
-		"name": "Monastery",
+		"name": "Training Ground",
 		"cost": 120,
 		"culture": 2,
 		"uniques": ["[+2 Culture] from [Wine] tiles [in this city]",
             "[+2 Culture] from [Incense] tiles [in this city]",
             "Destroyed when the city is captured"],
 		"requiredNearbyImprovedResources": ["Incense", "Wine"],
-		"requiredTech": "Theology"
+		"requiredTech": "Strategy"
 	},
 	{
-		"name": "Hagia Sophia",
+		"name": "Grand Citadel",
         "culture": 1,
 		"greatPersonPoints": {"Elite Artisan": 1},
 		"isWonder": true,
 		"uniques": ["[+25]% Great Person generation [in all cities]", "Free Great Person"],
-		"requiredTech": "Theology",
+		"requiredTech": "Strategy",
 		"quote": "'We raised a great dome over the central hall - a monument of salvaged glass and steel. Inside, it glows with candlelight. A place of peace in a world that forgot what peace looks like.' - Old Marcus"
 	},
 	{
-		"name": "Angkor Wat",
+		"name": "Ancient Stronghold",
 		"culture": 1,
 		"greatPersonPoints": {"Elite Engineer": 1},
 		"isWonder": true,
 		"uniques": ["[-25]% Culture cost of natural border growth [in all cities]","[-25]% Gold cost of acquiring tiles [in all cities]"],
-		"requiredTech": "Theology",
-		"quote": "'Deep in the jungle, we found the old temple half-swallowed by vines. We restored it stone by stone. A monument to patience - the virtue that will rebuild the world.' - Scout Riley"
+		"requiredTech": "Strategy",
+		"quote": "'Deep in the jungle, we found the old ruin half-swallowed by vines. We restored it stone by stone. A monument to patience - the virtue that will rebuild the world.' - Scout Riley"
 	},
 	{
 		"name": "Chichen Itza",
@@ -517,7 +517,7 @@
 		"requiredTech": "Education"
 	},
 	{
-		"name": "Notre Dame",
+		"name": "War Memorial",
 		"culture": 3,
 		"happiness": 10,
 		"greatPersonPoints": {"Elite Trader": 1},
@@ -592,13 +592,13 @@
 		"culture": 4,
 		"specialistSlots": {"Artist": 1},
 		"hurryCostModifier": 10,
-		"requiredBuilding": "Temple",
+		"requiredBuilding": "War College",
 		"maintenance": 2,
 		"requiredTech": "Acoustics",
 		"uniques": ["Destroyed when the city is captured"]
 	},
 	{
-		"name": "Sistine Chapel",
+		"name": "Hall of Commanders",
 		"culture": 1,
 		"isWonder": true,
 		"greatPersonPoints": {"Elite Artisan": 2},
@@ -842,7 +842,7 @@
 		"uniques": ["Destroyed when the city is captured"]
 	},
 	{
-		"name": "Cristo Redentor",
+		"name": "Monument of Unity",
 		"culture": 4,
 		"isWonder": true,
 		"greatPersonPoints": {"Elite Artisan": 2},

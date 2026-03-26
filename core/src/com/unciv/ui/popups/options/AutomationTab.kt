@@ -73,7 +73,6 @@ internal class AutomationTab(
 //         addCheckbox("AutoPlay Diplomacy", settings.autoPlay::autoPlayDiplomacy)
 //         addCheckbox("AutoPlay Technology", settings.autoPlay::autoPlayTechnology)
 //         addCheckbox("AutoPlay Policies", settings.autoPlay::autoPlayPolicies)
-//         addCheckbox("AutoPlay Religion", settings.autoPlay::autoPlayReligion)
 //     }
 
     private fun allCitiesChooseNextConstruction(shouldAutoAssignCityProduction: Boolean) {

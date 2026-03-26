@@ -139,7 +139,7 @@ class ConstructionInfoTable(val cityScreen: CityScreen) : Table() {
                 val enableSell = !isFree &&
                     !cityScreen.city.isPuppet &&
                     cityScreen.canChangeState &&
-                    (!cityScreen.city.hasSoldBuildingThisTurn || cityScreen.city.civ.gameInfo.gameParameters.godMode)
+                    (!cityScreen.city.hasSoldBuildingThisTurn || cityScreen.city.civ.gameInfo.gameParameters.devMode)
                 sellBuildingButton.isEnabled = enableSell
                 if (enableSell)
                     sellBuildingButton.onClick(UncivSound.Coin) {
@@ -147,7 +147,7 @@ class ConstructionInfoTable(val cityScreen: CityScreen) : Table() {
                         sellBuildingClicked(construction, sellText)
                     }
 
-                if (cityScreen.city.hasSoldBuildingThisTurn && !cityScreen.city.civ.gameInfo.gameParameters.godMode
+                if (cityScreen.city.hasSoldBuildingThisTurn && !cityScreen.city.civ.gameInfo.gameParameters.devMode
                         || cityScreen.city.isPuppet
                         || !cityScreen.canChangeState)
                     sellBuildingButton.disable()

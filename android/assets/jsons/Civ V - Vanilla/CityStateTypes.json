@@ -41,14 +41,14 @@
     {
         "name":"Technical",
         "friendBonusUniques":  [
-            "[+3 Faith] <before the [Fortress Era]>",
-            "[+6 Faith] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
-            "[+13 Faith] <starting from the [Reconstruction Era]>"
+            "[+3 Authority] <before the [Fortress Era]>",
+            "[+6 Authority] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+13 Authority] <starting from the [Reconstruction Era]>"
         ],
         "allyBonusUniques":  [
-            "[+6 Faith] <before the [Fortress Era]>",
-            "[+12 Faith] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
-            "[+26 Faith] <starting from the [Reconstruction Era]>"
+            "[+6 Authority] <before the [Fortress Era]>",
+            "[+12 Authority] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+26 Authority] <starting from the [Reconstruction Era]>"
         ],
         "color": [255, 255, 255]
     }

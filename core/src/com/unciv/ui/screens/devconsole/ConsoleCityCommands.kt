@@ -63,16 +63,6 @@ internal class ConsoleCityCommands : ConsoleCommandNode {
             DevConsoleResponse.OK
         },
 
-        "religion" to ConsoleAction("city religion <religionName> <±pressure>") { console, params ->
-            val city = console.getSelectedCity()
-            val religion = params[0].findOrNull(console.gameInfo.religions.keys)
-                ?: throw ConsoleErrorException("'${params[0]}' is not a known religion")
-            val pressure = params[1].toInt()
-            city.religion.addPressure(religion, pressure.coerceAtLeast(-city.religion.getPressures()[religion]))
-            city.religion.updatePressureOnPopulationChange(0)
-            DevConsoleResponse.OK
-        },
-
         "sethealth" to ConsoleAction("city sethealth [amount]") { console, params ->
             val city = console.getSelectedCity()
             val maxHealth = city.getMaxHealth()

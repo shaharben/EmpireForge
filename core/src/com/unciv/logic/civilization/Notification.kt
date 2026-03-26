@@ -49,7 +49,6 @@ class Notification() : IsPartOfGameInfoSerialization, Json.Serializable {
         Production,
         Units,
         War,
-        Religion,
         Espionage,
         Cities
         ;

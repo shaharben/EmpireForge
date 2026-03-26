@@ -242,7 +242,7 @@ class PolicyManager : IsPartOfGameInfoSerialization {
 
         if (!branchCompletion) {
             if (freePolicies > 0) freePolicies--
-            else if (!civInfo.gameInfo.gameParameters.godMode) {
+            else if (!civInfo.gameInfo.gameParameters.devMode) {
                 val cultureNeededForNextPolicy = getCultureNeededForNextPolicy()
                 if (cultureNeededForNextPolicy > storedCulture) throw Exception(
                     "Trying to adopt a policy without enough culture????"
@@ -272,7 +272,7 @@ class PolicyManager : IsPartOfGameInfoSerialization {
             }
         }
 
-        for (unique in civInfo.getTriggeredUniques(UniqueType.TriggerUponAdoptingPolicyOrBelief) { it.params[0] == policy.name })
+        for (unique in civInfo.getTriggeredUniques(UniqueType.TriggerUponAdoptingPolicy) { it.params[0] == policy.name })
             UniqueTriggerActivation.triggerUnique(unique, civInfo, triggerNotificationText = triggerNotificationText)
 
         civInfo.cache.updateCivResources()

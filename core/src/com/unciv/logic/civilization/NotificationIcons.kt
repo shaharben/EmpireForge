@@ -19,7 +19,6 @@ object NotificationIcon {
     const val Construction = "StatIcons/Production"
     const val Death = "OtherIcons/DisbandUnit"
     const val Diplomacy = "OtherIcons/Diplomacy"
-    const val Faith = "StatIcons/Faith"
     const val Food = "StatIcons/Food"
     const val Gold = "StatIcons/Gold"
     const val Growth = "StatIcons/Population"

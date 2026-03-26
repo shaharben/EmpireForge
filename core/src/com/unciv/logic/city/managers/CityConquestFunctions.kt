@@ -335,8 +335,6 @@ class CityConquestFunctions(val city: City) {
             }
         }
 
-        if (city.civ.gameInfo.isReligionEnabled()) city.religion.removeUnknownPantheons()
-
         if (newCiv.hasUnique(UniqueType.MayNotAnnexCities)) makePuppet()
 
         city.tryUpdateRoadStatus()

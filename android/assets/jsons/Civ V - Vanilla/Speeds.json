@@ -6,13 +6,13 @@
         "goldCostModifier": 0.67,
         "scienceCostModifier": 0.67,
         "cultureCostModifier": 0.67,
-        "faithCostModifier": 0.67,
+
         "improvementBuildLengthModifier": 0.67,
         "barbarianModifier": 0.67,
         "goldGiftModifier": 1.25,
         "cityStateTributeScalingInterval": 5.0,
         "goldenAgeLengthModifier": 0.80,
-        "religiousPressureAdjacentCity": 9,
+
         "peaceDealDuration": 10,
         "dealDuration": 25,
         "startYear": -4000,
@@ -34,13 +34,13 @@
         "goldCostModifier": 1.0,
         "scienceCostModifier": 1.0,
         "cultureCostModifier": 1.0,
-        "faithCostModifier": 1.0,
+
         "improvementBuildLengthModifier": 1.0,
         "barbarianModifier": 1.0,
         "goldGiftModifier": 1.0,
         "cityStateTributeScalingInterval": 6.5,
         "goldenAgeLengthModifier": 1.0,
-        "religiousPressureAdjacentCity": 6,
+
         "peaceDealDuration": 10,
         "dealDuration": 30,
         "startYear": -4000,
@@ -62,13 +62,13 @@
         "goldCostModifier": 1.5,
         "scienceCostModifier": 1.5,
         "cultureCostModifier": 1.5,
-        "faithCostModifier": 1.5,
+
         "improvementBuildLengthModifier": 1.5,
         "barbarianModifier": 1.5,
         "goldGiftModifier": 0.75,
         "cityStateTributeScalingInterval": 14.0,
         "goldenAgeLengthModifier": 1.25,
-        "religiousPressureAdjacentCity": 4,
+
         "peaceDealDuration": 15,
         "dealDuration": 45,
         "startYear": -4000,
@@ -89,13 +89,13 @@
         "goldCostModifier": 3.0,
         "scienceCostModifier": 3.0,
         "cultureCostModifier": 3.0,
-        "faithCostModifier": 3.0,
+
         "improvementBuildLengthModifier": 3.0,
         "barbarianModifier": 4.0,
         "goldGiftModifier": 0.67,
         "cityStateTributeScalingInterval": 32.0,
         "goldenAgeLengthModifier": 2.0,
-        "religiousPressureAdjacentCity": 2,
+
         "peaceDealDuration": 30,
         "dealDuration": 90,
         "startYear": -4000,

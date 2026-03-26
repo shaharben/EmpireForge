@@ -222,7 +222,7 @@
 	{
 		"name": "Data Vault",
 		"terrainsCanBeBuiltOn": ["Land"],
-		"faith": 6,
+		"culture": 6,
 		"uniques": ["Great Improvement", "Removes removable features when built",
             "Will not be replaced by automated units", "Pillaging this improvement yields approximately [+20 Gold]"]
 	},

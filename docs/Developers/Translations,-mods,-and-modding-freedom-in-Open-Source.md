@@ -43,18 +43,18 @@ Since there are UI texts that are not part of any specific object (like "Start n
 
 ### Translation placeholders
 
-This is all well and good for specific text-to-text translations, but what about translating "A Temple has been built in Rome"? The same template could potentially be any building name, or any city name!
+This is all well and good for specific text-to-text translations, but what about translating "A War College has been built in Rome"? The same template could potentially be any building name, or any city name!
 
 We do this with placeholders, which looks something like this: `[construction] has been built in [cityName] = [cityName] ha costruito [construction]`.
 As you can see, the *placement* of the parameters can change between languages, so we have to name all parameters.
 
 This also means that there can be explicitly *wrong* translations - if any parameter that appears in the source does not appear in the translated version, we won't be able to display this in-game! This is one of the translation tests that we mentioned earlier - when a translator opens a PR, the game undergoes build & test via the Github Actions, and will notify on failures. Finding the text that warns of the failure within the action output is currently mostly done by devs, but I hope to be able to automate this too someday.
 
-To translate a text like "[Temple] has been built in [Rome]", therefore, we need to:
+To translate a text like "[War College] has been built in [Rome]", therefore, we need to:
 
 -   Find the relevant translation (we do this by erasing all text between square brackets in input and finding the relevant translation text)
--   Map placeholder names to input text (construction = Temple, cityName = Rome)
--   Replace placeholders in translation with TRANSLATED input text (in `[cityName] ha costruito [construction]`, replace "[cityName]" with translation of "Rome", and "[construction]" with translation of "Temple")
+-   Map placeholder names to input text (construction = War College, cityName = Rome)
+-   Replace placeholders in translation with TRANSLATED input text (in `[cityName] ha costruito [construction]`, replace "[cityName]" with translation of "Rome", and "[construction]" with translation of "War College")
 
 ### Translating mod data
 

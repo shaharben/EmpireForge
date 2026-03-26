@@ -144,12 +144,12 @@ cityFilters allow us to choose the range of cities affected by this unique:
 - `in puppeted cities`, `Puppeted`
 - `in resisting cities`, `Resisting`
 - `in cities being razed`, `Razing`
-- `in holy cities`, `Holy`
+- `in doctrine capitals`, `Doctrine Capital`
 - `in City-State cities`
-- `in cities following this religion` - Should only be used in pantheon/follower uniques for religions
-- `in cities following our religion`
-- `in all cities in which the majority religion is a major religion`
-- `in all cities in which the majority religion is an enhanced religion`
+- `in cities following this doctrine` - Should only be used in principle/follower uniques for doctrines
+- `in cities following our doctrine`
+- `in all cities in which the majority doctrine is a major doctrine`
+- `in all cities in which the majority doctrine is an enhanced doctrine`
 - [civFilter]
 
 You can check this in-game using the console with the `city checkfilter <filter>` command
@@ -188,12 +188,12 @@ Allowed values:
 - `Population`
 - `Specialists`
 - `Unemployed`
-- `Followers of the Majority Religion` or `Followers of this Religion`, both of which only apply when this religion is the majority religion in that city
+- `Followers of the Majority Doctrine` or `Followers of this Doctrine`, both of which only apply when this doctrine is the majority doctrine in that city
 - Specialist names
 
-## religionFilter
+## doctrineFilter
 
-For filtering specific relgions
+For filtering specific doctrines
 
 - `any`
 - `major`
@@ -201,9 +201,9 @@ For filtering specific relgions
 - `your`
 - `foriegn`
 - `enemy`
-- The name of a relgion symbol
-- The name of a belief
-- A unique of a belief the religion has
+- The name of a doctrine symbol
+- The name of a directive
+- A unique of a directive the doctrine has
 
 ## policyFilter
 
@@ -248,7 +248,7 @@ This indicates a text comprised of specific stats and is slightly more complex.
 
 Each stats is comprised of several stat changes, each in the form of `+{amount} {stat}`,
 where 'stat' is one of the seven major stats
-(eg `Production`, `Food`, `Gold`, `Science`, `Culture`, `Happiness` and `Faith`).
+(eg `Production`, `Food`, `Gold`, `Science`, `Culture`, `Happiness` and `Authority`).
 For example: `+1 Science`.
 
 These can be strung together with ", " between them, for example: `+2 Production, +3 Food`.
@@ -267,7 +267,7 @@ Allowed values:
 
 This indicates a text that corresponds to a custom Stockpile Resource.
 
-These are global civilization resources that act similar to the main Civ-wide resources like `Gold` and `Faith`.
+These are global civilization resources that act similar to the main Civ-wide resources like `Gold` and `Authority`.
 You can generate them and consume them. And actions that would consume them are blocked if you
 don't have enough left in stock.
 
@@ -379,7 +379,7 @@ Allowed values:
     - Example: `Only available <when number of [Cities] is more than [0]>`
 -   `Units` - The number of units the relevant Civilization owns
     - Example: `Only available <when number of [Units] is more than [0]>`
--   Stat name (`Production`, `Food`, `Gold`, `Science`, `Culture`, `Happiness` or `Faith`)
+-   Stat name (`Production`, `Food`, `Gold`, `Science`, `Culture`, `Happiness` or `Authority`)
     - Example: `Only available <when number of [Science] is more than [0]>`
     - Gets the stat *reserve*, not the amount per turn (can be city stats or civilization stats, depending on where the unique is used)
 -   Stat/Resource Per Turn

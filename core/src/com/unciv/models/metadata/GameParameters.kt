@@ -27,7 +27,7 @@ class GameParameters : IsPartOfGameInfoSerialization { // Default values are the
     var noBarbarians = false
     var ragingBarbarians = false
     var oneCityChallenge = false
-    var godMode = false
+    var devMode = false
     var nuclearWeaponsEnabled = true
     var espionageEnabled = false
     var noStartBias = false
@@ -74,7 +74,7 @@ class GameParameters : IsPartOfGameInfoSerialization { // Default values are the
         parameters.noBarbarians = noBarbarians
         parameters.ragingBarbarians = ragingBarbarians
         parameters.oneCityChallenge = oneCityChallenge
-        // godMode intentionally reset on clone
+        // devMode intentionally reset on clone
         parameters.nuclearWeaponsEnabled = nuclearWeaponsEnabled
         parameters.espionageEnabled = espionageEnabled
         parameters.noStartBias = noStartBias
@@ -105,7 +105,7 @@ class GameParameters : IsPartOfGameInfoSerialization { // Default values are the
             if (ragingBarbarians) yield("Raging barbs")
             if (oneCityChallenge) yield("OCC")
             if (!nuclearWeaponsEnabled) yield("No nukes")
-            if (godMode) yield("God mode")
+            if (devMode) yield("Dev mode")
             yield("Enabled Victories: " + victoryTypes.joinToString())
             yield(baseRuleset)
             yield(if (mods.isEmpty()) "no mods" else mods.joinToString(",", "mods=(", ")", 6) )

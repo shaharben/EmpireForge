@@ -2,10 +2,6 @@ package com.unciv.ui.screens.worldscreen.status
 
 import com.badlogic.gdx.graphics.Color
 import com.unciv.Constants
-import com.unciv.logic.civilization.managers.ReligionManager
-import com.unciv.logic.civilization.managers.ReligionState
-import com.unciv.models.Counter
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.ui.components.extensions.disable
 import com.unciv.ui.components.extensions.enable
 import com.unciv.ui.images.ImageGetter
@@ -13,9 +9,7 @@ import com.unciv.ui.popups.ConfirmPopup
 import com.unciv.ui.screens.cityscreen.CityScreen
 import com.unciv.ui.screens.overviewscreen.EspionageOverviewScreen
 import com.unciv.ui.screens.pickerscreens.DiplomaticVotePickerScreen
-import com.unciv.ui.screens.pickerscreens.PantheonPickerScreen
 import com.unciv.ui.screens.pickerscreens.PolicyPickerScreen
-import com.unciv.ui.screens.pickerscreens.ReligiousBeliefsPickerScreen
 import com.unciv.ui.screens.pickerscreens.TechPickerScreen
 import com.unciv.ui.screens.worldscreen.WorldScreen
 import com.unciv.utils.Concurrency
@@ -77,40 +71,6 @@ enum class NextTurnAction(protected val text: String, val color: Color) {
             worldScreen.viewingCiv.espionageManager.dismissedShouldMoveSpies = true
         }
     },
-    FoundPantheon("Found Pantheon", Color.valueOf(BeliefType.Pantheon.color)) {
-        override fun isChoice(worldScreen: WorldScreen) =
-            worldScreen.viewingCiv.religionManager.run {
-                religionState != ReligionState.Pantheon && canFoundOrExpandPantheon()
-            }
-        override fun action(worldScreen: WorldScreen) =
-            worldScreen.game.pushScreen(PantheonPickerScreen(worldScreen.viewingCiv))
-    },
-    ExpandPantheon("Expand Pantheon", Color.valueOf(BeliefType.Pantheon.color)) {
-        override fun isChoice(worldScreen: WorldScreen) =
-            worldScreen.viewingCiv.religionManager.run {
-                religionState == ReligionState.Pantheon && canFoundOrExpandPantheon()
-            }
-        override fun action(worldScreen: WorldScreen) =
-            worldScreen.game.pushScreen(PantheonPickerScreen(worldScreen.viewingCiv))
-    },
-    FoundReligion("Found Religion", Color.valueOf(BeliefType.Founder.color)) {
-        override fun isChoice(worldScreen: WorldScreen) =
-            worldScreen.viewingCiv.religionManager.religionState == ReligionState.FoundingReligion
-        override fun action(worldScreen: WorldScreen) =
-            openReligionPicker(worldScreen, true) { getBeliefsToChooseAtFounding() }
-    },
-    EnhanceReligion("Enhance a Religion", Color.valueOf(BeliefType.Enhancer.color)) {
-        override fun isChoice(worldScreen: WorldScreen) =
-            worldScreen.viewingCiv.religionManager.religionState == ReligionState.EnhancingReligion
-        override fun action(worldScreen: WorldScreen) =
-            openReligionPicker(worldScreen, false) { getBeliefsToChooseAtEnhancing() }
-    },
-    ReformReligion("Reform Religion", Color.valueOf(BeliefType.Enhancer.color)) {
-        override fun isChoice(worldScreen: WorldScreen) =
-            worldScreen.viewingCiv.religionManager.hasFreeBeliefs()
-        override fun action(worldScreen: WorldScreen) =
-            openReligionPicker(worldScreen, false) { freeBeliefsAsEnums() }
-    },
     WorldCongressVote("Vote for World Leader", Color.MAROON) {
         override fun isChoice(worldScreen: WorldScreen) =
             worldScreen.viewingCiv.mayVoteForDiplomaticVictory()
@@ -159,19 +119,6 @@ enum class NextTurnAction(protected val text: String, val color: Color) {
             .firstOrNull {
                 !it.isPuppet && it.cityConstructions. currentConstructionName().isEmpty()
             }
-
-        private fun openReligionPicker(
-                worldScreen: WorldScreen,
-                pickIconAndName: Boolean,
-                getBeliefs: ReligionManager.() -> Counter<BeliefType>
-            ) =
-            worldScreen.game.pushScreen(
-                ReligiousBeliefsPickerScreen(
-                    worldScreen.viewingCiv,
-                    worldScreen.viewingCiv.religionManager.getBeliefs(),
-                    pickIconAndName = pickIconAndName
-                )
-            )
 
         @Readonly
         private fun WorldScreen.canMoveAutomatedUnits(): Boolean {

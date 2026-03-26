@@ -89,11 +89,7 @@ object UnitActions {
         UnitActionType.HurryWonder to UnitActionsGreatPerson::getHurryWonderActions,
         UnitActionType.HurryBuilding to UnitActionsGreatPerson::getHurryBuildingActions,
         UnitActionType.ConductTradeMission to UnitActionsGreatPerson::getConductTradeMissionActions,
-        UnitActionType.FoundReligion to UnitActionsReligion::getFoundReligionActions,
-        UnitActionType.EnhanceReligion to UnitActionsReligion::getEnhanceReligionActions,
         UnitActionType.CreateImprovement to UnitActionsFromUniques::getImprovementCreationActions,
-        UnitActionType.SpreadReligion to UnitActionsReligion::getSpreadReligionActions,
-        UnitActionType.RemoveHeresy to UnitActionsReligion::getRemoveHeresyActions,
         UnitActionType.TriggerUnique to UnitActionsFromUniques::getTriggerUniqueActions,
         UnitActionType.AddInCapital to UnitActionsFromUniques::getAddInCapitalActions,
         UnitActionType.GiftUnit to UnitActions::getGiftActions

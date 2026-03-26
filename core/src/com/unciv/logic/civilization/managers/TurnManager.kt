@@ -56,7 +56,6 @@ class TurnManager(val civInfo: Civilization) {
                     civInfo.units.addUnit(greatPerson)
                 greatPerson = civInfo.greatPeople.getNewGreatPerson()
             }
-            civInfo.religionManager.startTurn()
             if (civInfo.isLongCountActive())
                 MayaCalendar.startTurnForMaya(civInfo)
         }
@@ -299,9 +298,6 @@ class TurnManager(val civInfo: Civilization) {
 
         if (civInfo.cities.isNotEmpty() && civInfo.gameInfo.ruleset.technologies.isNotEmpty())
             civInfo.tech.endTurn(nextTurnStats.science.toInt())
-
-        civInfo.religionManager.endTurn(nextTurnStats.faith.toInt())
-        civInfo.totalFaithForContests += nextTurnStats.faith.toInt()
 
         civInfo.espionageManager.endTurn()
 

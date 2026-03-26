@@ -48,7 +48,7 @@ class UnitUpgradeManager(val unit: MapUnit) {
     @Readonly
     fun getCostOfUpgrade(unitToUpgradeTo: BaseUnit): Int {
         // Source rounds to int every step, we don't
-        //TODO From the source, this should apply _Production_ modifiers (Temple of Artemis? GameSpeed! StartEra!), at the moment it doesn't
+        //TODO From the source, this should apply _Production_ modifiers (Hunters' Lodge? GameSpeed! StartEra!), at the moment it doesn't
 
         var goldCostOfUpgrade = 0
 

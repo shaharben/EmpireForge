@@ -102,7 +102,7 @@ object Suppression {
         return false
     }
 
-    /** Whosoever maketh this here methyd available to evil Mod whytches shall forever be cursed and damned to all Hell's tortures */
+    /** Whosoever maketh this here methyd available to evil Mod whytches shall forever be cursed and doomed to eternal suffering */
     @Suppress("unused")  // Debug tool
     fun autoSuppressAllWarnings(ruleset: Ruleset, toModOptions: ModOptions) {
         if (ruleset.folderLocation == null)

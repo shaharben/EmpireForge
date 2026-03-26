@@ -9,7 +9,6 @@ import com.unciv.logic.civilization.PopupAlert
 import com.unciv.logic.map.mapunit.movement.UnitMovement
 import com.unciv.logic.map.tile.Tile
 import com.unciv.models.ruleset.unique.UniqueType
-import com.unciv.models.stats.Stat
 import com.unciv.models.stats.Stats
 import yairm210.purity.annotations.Readonly
 import kotlin.math.max
@@ -45,11 +44,7 @@ class DiplomacyFunctions(val civInfo: Civilization) {
             val cityStateLocation = if (civInfo.cities.isEmpty()) null else civInfo.getCapital()!!.location
 
             val giftAmount = Stats(gold = 15f)
-            val faithAmount = Stats(faith = 4f)
-            // Later, religious city-states will also gift gold, making this the better implementation
-            // For now, it might be overkill though.
             var meetString = "[${civInfo.civName}] has given us [${giftAmount.toStringForNotifications()}] as a token of goodwill for meeting us"
-            val religionMeetString = "[${civInfo.civName}] has also given us [${faithAmount.toStringForNotifications()}]"
             if (civInfo.diplomacy.count { it.value.otherCiv.isMajorCiv() } == 1) {
                 giftAmount.timesInPlace(2f)
                 meetString = "[${civInfo.civName}] has given us [${giftAmount.toStringForNotifications()}] as we are the first major civ to meet them"
@@ -59,12 +54,6 @@ class DiplomacyFunctions(val civInfo: Civilization) {
             else
                 otherCiv.addNotification(meetString, NotificationCategory.Diplomacy, NotificationIcon.Gold)
 
-            if (civInfo.cityStateFunctions.canProvideStat(Stat.Faith)) {
-                otherCiv.addNotification(religionMeetString, NotificationCategory.Diplomacy, NotificationIcon.Faith)
-
-                for ((key, value) in faithAmount)
-                    otherCiv.addStat(key, value.toInt())
-            }
             for ((key, value) in giftAmount)
                 otherCiv.addStat(key, value.toInt())
 

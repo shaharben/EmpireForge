@@ -134,7 +134,7 @@ class CivilopediaScreen(
             .sortedWith(
                 compareBy<CivilopediaEntry> { it.sortBy }
                 .thenBy (UncivGame.Current.settings.getCollatorFromLocale()) {
-                    // In order for the extra icons on Happiness and Faith to not affect sort order
+                    // In order for the extra icons on Happiness to not affect sort order
                     it.name.tr(hideIcons = true, hideStats = true)
                 }
             )
@@ -224,14 +224,11 @@ class CivilopediaScreen(
     init {
         val imageSize = 50f
 
-        val religionEnabled = showReligionInCivilopedia(ruleset) // To filter the Belief Category only
-
         // do not confuse with IConstruction.shouldBeDisplayed - that one tests all prerequisites for building
         fun shouldBeDisplayed(obj: ICivilopediaText) =
             obj !is IHasUniques || !obj.isHiddenFromCivilopedia(game.gameInfo, ruleset)
 
         for (loopCategory in CivilopediaCategories.entries) {
-            if (!religionEnabled && loopCategory == CivilopediaCategories.Belief) continue
             categoryToEntries[loopCategory] =
                 loopCategory.getCategoryIterator(ruleset, game.gameInfo)
                     .filter(::shouldBeDisplayed)
@@ -331,16 +328,5 @@ class CivilopediaScreen(
     override fun recreate(): BaseScreen = CivilopediaScreen(ruleset, currentCategory, currentEntry)
 
     companion object {
-        /** Test whether to show Religion-specific items, does not require a game to be running
-         *  - Do not make public - use IHasUniques.isHiddenFromCivilopedia if possible!
-         */
-        private fun showReligionInCivilopedia(ruleset: Ruleset? = null): Boolean {
-            val gameInfo = UncivGame.getGameInfoOrNull()
-            return when {
-                gameInfo != null -> gameInfo.isReligionEnabled()
-                ruleset != null -> ruleset.beliefs.isNotEmpty()
-                else -> true
-            }
-        }
     }
 }

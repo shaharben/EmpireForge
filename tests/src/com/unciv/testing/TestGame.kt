@@ -12,7 +12,6 @@ import com.unciv.logic.map.MapSize
 import com.unciv.logic.map.TileMap
 import com.unciv.logic.map.mapunit.MapUnit
 import com.unciv.logic.map.tile.Tile
-import com.unciv.models.Religion
 import com.unciv.models.metadata.BaseRuleset
 import com.unciv.models.metadata.GameSettings
 import com.unciv.models.ruleset.*
@@ -220,13 +219,6 @@ class TestGame(vararg addGlobalUniques: String, forUITesting: Boolean = false) {
         return name
     }
 
-    fun addReligion(foundingCiv: Civilization): Religion {
-        val religion = Religion("Religion-${objectsCreated++}", gameInfo, foundingCiv)
-        foundingCiv.religionManager.religion = religion
-        gameInfo.religions[religion.name] = religion
-        return religion
-    }
-
     private fun <T: IRulesetObject> createRulesetObject(
         rulesetCollection: LinkedHashMap<String, T>,
         vararg uniques: String,
@@ -263,8 +255,6 @@ class TestGame(vararg addGlobalUniques: String, forUITesting: Boolean = false) {
             baseUnit.setRuleset(gameInfo.ruleset)
             baseUnit
         }
-    fun createBelief(type: BeliefType = BeliefType.Any, vararg uniques: String) =
-        createRulesetObject(ruleset.beliefs, *uniques) { Belief(type) }
     fun createBuilding(vararg uniques: String) =
         createRulesetObject(ruleset.buildings, *uniques) { Building() }
     fun createResource(vararg uniques: String) =

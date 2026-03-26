@@ -101,9 +101,6 @@ internal object CivilopediaImageGetters {
         if (terrain == null) null
         else terrainImage(terrain, ImageGetter.ruleset, size)
     }
-    val belief = { name: String, size: Float ->
-        ImageGetter.getReligionPortrait(name, size)
-    }
     val victoryType = { name: String, size: Float ->
         ImageGetter.getVictoryTypeIcon(name, size)
     }

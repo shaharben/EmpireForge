@@ -68,11 +68,8 @@ class DetailedStatsPopup(
         totalTable.clear()
 
         val cityStats = cityScreen.city.cityStats
-        val showFaith = cityScreen.city.civ.gameInfo.isReligionEnabled()
-
         val stats = when {
             onlyWithStat != null -> listOfNotNull(onlyWithStat)
-            !showFaith -> Stat.entries.filter { it != Stat.Faith }
             else -> Stat.entries
         }
         val columnCount = stats.size + 1

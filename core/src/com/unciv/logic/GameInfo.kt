@@ -21,7 +21,6 @@ import com.unciv.logic.github.Github.repoNameToFolderName
 import com.unciv.logic.map.MapShape
 import com.unciv.logic.map.TileMap
 import com.unciv.logic.map.tile.Tile
-import com.unciv.models.Religion
 import com.unciv.models.metadata.GameParameters
 import com.unciv.models.ruleset.GlobalUniques
 import com.unciv.models.ruleset.Ruleset
@@ -101,7 +100,6 @@ class GameInfo : IsPartOfGameInfoSerialization, HasGameInfoSerializationVersion 
 
     var civilizations = ArrayList<Civilization>()
     var barbarians = BarbarianManager()
-    var religions: HashMap<String, Religion> = hashMapOf()
     var difficulty = "Chieftain" // difficulty is game-wide, think what would happen if 2 human players could play on different difficulties?
     var tileMap: TileMap = TileMap()
     var gameParameters = GameParameters()
@@ -186,7 +184,6 @@ class GameInfo : IsPartOfGameInfoSerialization, HasGameInfoSerializationVersion 
             .map { it.clone() }
             .toCollection(ArrayList(civilizations.size))
         toReturn.barbarians = barbarians.clone()
-        toReturn.religions.putAll(religions.asSequence().map { it.key to it.value.clone() })
         toReturn.currentPlayer = currentPlayer
         toReturn.currentTurnStartTime = currentTurnStartTime
         toReturn.turns = turns
@@ -298,11 +295,6 @@ class GameInfo : IsPartOfGameInfoSerialization, HasGameInfoSerializationVersion 
         it.cache.updateState()
         it.cache.updateViewableTiles()
         it.setTransients()
-    }
-
-    @Readonly
-    fun isReligionEnabled(): Boolean {
-        return false // EmpireForge: Religion system completely disabled
     }
 
     @Readonly fun isEspionageEnabled(): Boolean = gameParameters.espionageEnabled
@@ -737,9 +729,6 @@ class GameInfo : IsPartOfGameInfoSerialization, HasGameInfoSerializationVersion 
                 else civilizations.first { it.isHuman() } // for non-MP games, you can be a spectator of an AI-only match, and you *do* get a turn, sort of
             currentPlayer = currentPlayerCiv.civID
         } else currentPlayerCiv = getCivilization(currentPlayer)
-
-        for (religion in religions.values) religion.setTransients(this)
-
 
         for (civInfo in civilizations) civInfo.setTransients()
         tileMap.setNeutralTransients() // has to happen after civInfo.setTransients() sets owningCity

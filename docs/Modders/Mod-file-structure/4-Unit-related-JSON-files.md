@@ -16,7 +16,7 @@ Each unit has the following structure:
 | movement                  | Integer         | 0        | The amount of movement points the unit has by                                                                                                       |
 | strength                  | Integer         | 0        | The melee attack and defensive strength of the unit. If this and rangedStrength are omitted or 0, the unit will be a civilian                       |
 | rangedStrength            | Integer         | 0        | The ranged attack and defensive strength of the unit. If omitted, the unit cannot ranged attack. If used, strength must be set too.                 |
-| religiousStrength         | Integer         | 0        | The religious attack and defensive strength of the unit                                                                                             |
+| religiousStrength         | Integer         | 0        | The strategic attack and defensive strength of the unit                                                                                             |
 | range                     | Integer         | 2        | The range from which ranged attacks can be preformed                                                                                                |
 | interceptRange            | Integer         | 0        | Air units attacking within in this range will be intercepted                                                                                        |
 | requiredTech              | String          | none     | The tech required to build this unit. Must be in [Techs.json](2-Civilization-related-JSON-files.md#techsjson)                                       |

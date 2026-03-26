@@ -27,7 +27,6 @@ enum class MilestoneType(val text: String) {
     DestroyAllPlayers("Destroy all players"),
     CaptureAllCapitals("Capture all capitals"),
     CompletePolicyBranches("Complete [amount] Policy branches"),
-    WorldReligion("Become the world religion"),
     WinDiplomaticVote("Win diplomatic vote"),
     ScoreAfterTimeOut("Have highest score after max turns"),
     MoreCountableThanEachPlayer("Have more [countable] than each player's [countable]"),
@@ -46,7 +45,6 @@ class Victory : INamed, ICivilopediaText {
         Gold,
         Culture,
         Science,
-        Faith,
         Military,
         CityStates,
         Score,
@@ -163,15 +161,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
                 civInfo.gameInfo.turns >= civInfo.gameInfo.gameParameters.maxTurns
                 && civInfo == civInfo.gameInfo.civilizations.maxByOrNull { it.calculateTotalScore() }
             }
-            MilestoneType.WorldReligion -> {
-                civInfo.gameInfo.isReligionEnabled()
-                        && civInfo.religionManager.religion != null
-                        && civInfo.gameInfo.civilizations
-                    .filter { it.isMajorCiv() && it.isAlive() }
-                    .all {
-                        it.religionManager.isMajorityReligionForCiv(civInfo.religionManager.religion!!)
-                    }
-            }
         }
     }
 
@@ -233,20 +222,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
 
                 val amountDone = amountToDo - incompleteSpaceshipParts.sumValues()
 
-                "{$uniqueDescription} (${amountDone.tr()}/${amountToDo.tr()})"
-            }
-            MilestoneType.WorldReligion -> {
-                val amountToDo = civInfo.gameInfo.civilizations.count { it.isMajorCiv() && it.isAlive() } - 1  // Don't count yourself
-                val amountDone =
-                    when {
-                        completed -> amountToDo
-                        civInfo.religionManager.religion == null -> 0
-                        civInfo.religionManager.religion!!.isPantheon() -> 1
-                        else -> civInfo.gameInfo.civilizations.count {
-                            it.isMajorCiv() && it.isAlive() &&
-                            it.religionManager.isMajorityReligionForCiv(civInfo.religionManager.religion!!)
-                        }
-                    }
                 "{$uniqueDescription} (${amountDone.tr()}/${amountToDo.tr()})"
             }
         }
@@ -344,22 +319,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
                 if (hideCivCount) buttons.add(getMilestoneButton("[${Constants.unknownNationName}]", false))
             }
 
-            MilestoneType.WorldReligion -> {
-                val hideCivCount = civInfo.shouldHideCivCount()
-                val majorCivs = civInfo.gameInfo.civilizations.filter { it.isMajorCiv() && it.isAlive() }
-                val civReligion = civInfo.religionManager.religion
-                for (civ in majorCivs) {
-                    if (hideCivCount && !civInfo.knows(civ)) continue
-                    val milestoneText =
-                        if (civInfo.knows(civ)) "Majority religion of [${civ.civName}]"
-                        else "Majority religion of [${Constants.unknownNationName}]"
-                    val milestoneMet = civReligion != null
-                            && (!civReligion.isPantheon() || civInfo == civ)
-                            && civ.religionManager.isMajorityReligionForCiv(civReligion)
-                    buttons.add(getMilestoneButton(milestoneText, milestoneMet))
-                }
-                if (hideCivCount) buttons.add(getMilestoneButton("Majority religion of ? * [${Constants.unknownCityName}]", false))
-            }
         }
         return buttons
     }
@@ -402,7 +361,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
                         Stat.Science -> Victory.Focus.Science
                         Stat.Culture -> Victory.Focus.Culture
                         Stat.Happiness -> Victory.Focus.Gold
-                        Stat.Faith -> Victory.Focus.Faith
                         else -> Victory.Focus.Production
                     }
                     Countables.Cities, Countables.FilteredCities, Countables.FilteredBuildings, Countables.OwnedTiles -> Victory.Focus.Production
@@ -414,7 +372,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
             }
             MilestoneType.WinDiplomaticVote -> Victory.Focus.CityStates
             MilestoneType.ScoreAfterTimeOut -> Victory.Focus.Score
-            MilestoneType.WorldReligion -> Victory.Focus.Faith
         }
     }
 
@@ -422,7 +379,6 @@ class Milestone(val uniqueDescription: String, private val parentVictory: Victor
         // TODO: Links should be `Building/params[0]`, but then the Wonder links don't resolve correctly
         MilestoneType.BuiltBuilding -> FormattedLine(uniqueDescription, link = "Wonder/${params[0]}")
         MilestoneType.BuildingBuiltGlobally -> FormattedLine(uniqueDescription, link = "Wonder/${params[0]}")
-        MilestoneType.WorldReligion -> FormattedLine(uniqueDescription, link = "Tutorials/Religion")
         MilestoneType.CompletePolicyBranches -> FormattedLine(uniqueDescription, link = "Policies")
         else -> FormattedLine(uniqueDescription, starred = true)
     }

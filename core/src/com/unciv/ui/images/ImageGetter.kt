@@ -289,17 +289,6 @@ object ImageGetter {
 
     fun getUnitActionPortrait(actionName: String, size: Float = 20f): Portrait = PortraitUnitAction(actionName, size)
 
-    fun getReligionIcon(iconName: String): Image { return getImage("ReligionIcons/$iconName") }
-    fun getReligionPortrait(iconName: String, size: Float): Portrait {
-        if (religionIconExists(iconName))
-            return PortraitReligion(iconName, size)
-        val typeName = ruleset.beliefs[iconName]?.type?.name
-        if (typeName != null && religionIconExists(typeName))
-            return PortraitReligion(typeName, size)
-        return PortraitReligion(iconName, size)
-    }
-
-    fun religionIconExists(iconName: String) = imageExists("ReligionIcons/$iconName")
 
     /**
      * Gets the icon associated with the given Victory Type.

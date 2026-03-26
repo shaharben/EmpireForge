@@ -55,7 +55,7 @@ class MapOptionsTable(private val newGameScreen: NewGameScreen) : Table() {
                     newGameScreen.lockTables()
                 }
             }
-            newGameScreen.gameSetupInfo.gameParameters.godMode = false
+            newGameScreen.gameSetupInfo.gameParameters.devMode = false
             newGameScreen.updateTables()
         }
 

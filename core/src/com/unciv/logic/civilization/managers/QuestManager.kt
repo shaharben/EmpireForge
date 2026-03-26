@@ -348,14 +348,7 @@ class QuestManager : IsPartOfGameInfoSerialization {
                 QuestName.PledgeToProtect -> data1 = getMostRecentBully()!!
                 QuestName.GiveGold -> data1 = getMostRecentBully()!!
                 QuestName.DenounceCiv -> data1 = getMostRecentBully()!!
-                QuestName.SpreadReligion -> {
-                    val playerReligion = civ.gameInfo.religions.values
-                        .first { it.foundingCiv == assignee && it.isMajorReligion() }  // isQuestValid must have ensured this won't throw
-                    data1 = playerReligion.getReligionDisplayName() // For display
-                    data2 = playerReligion.name // To check completion
-                }
                 QuestName.ContestCulture -> data1 = assignee.totalCultureForContests.toString()
-                QuestName.ContestFaith -> data1 = assignee.totalFaithForContests.toString()
                 QuestName.ContestTech -> data1 = assignee.tech.getNumberOfTechsResearched().toString()
                 QuestName.Invest -> data1 = quest.description.getPlaceholderParameters().first()
                 else -> Unit
@@ -409,13 +402,8 @@ class QuestManager : IsPartOfGameInfoSerialization {
             QuestName.PledgeToProtect -> getMostRecentBully() != null && challenger !in civ.cityStateFunctions.getProtectorCivs()
             QuestName.GiveGold -> getMostRecentBully() != null
             QuestName.DenounceCiv -> isDenounceCivQuestValid(challenger, getMostRecentBully())
-            QuestName.SpreadReligion -> {
-                val playerReligion = civ.gameInfo.religions.values.firstOrNull { it.foundingCiv == challenger && it.isMajorReligion() }?.name
-                playerReligion != null && civ.getCapital()!!.religion.getMajorityReligion()?.name != playerReligion
-            }
             QuestName.ConquerCityState -> getCityStateTarget(challenger) != null && civ.cityStatePersonality != CityStatePersonality.Friendly
             QuestName.BullyCityState -> getCityStateTarget(challenger) != null
-            QuestName.ContestFaith -> civ.gameInfo.isReligionEnabled()
             else -> true
         }
     }
@@ -455,7 +443,6 @@ class QuestManager : IsPartOfGameInfoSerialization {
             QuestName.FindNaturalWonder -> assignee.naturalWonders.contains(assignedQuest.data1)
             QuestName.PledgeToProtect -> assignee in civ.cityStateFunctions.getProtectorCivs()
             QuestName.DenounceCiv -> assignee.getDiplomacyManager(assignedQuest.data1)!!.hasFlag(DiplomacyFlags.Denunciation)
-            QuestName.SpreadReligion -> civ.getCapital()!!.religion.getMajorityReligion() == civ.gameInfo.religions[assignedQuest.data2]
             else -> false
         }
     }
@@ -517,7 +504,6 @@ class QuestManager : IsPartOfGameInfoSerialization {
         return when (assignedQuest.questNameInstance) {
             //quest total = civ total - the value at the time the quest started (which was stored in assignedQuest.data1)
             QuestName.ContestCulture -> assignee.totalCultureForContests - assignedQuest.data1.toInt()
-            QuestName.ContestFaith -> assignee.totalFaithForContests - assignedQuest.data1.toInt()
             QuestName.ContestTech -> assignee.tech.getNumberOfTechsResearched() - assignedQuest.data1.toInt()
             else -> 0
         }
@@ -574,7 +560,6 @@ class QuestManager : IsPartOfGameInfoSerialization {
 
         val scoreDescriptor = when (inquiringAssignedQuest.questNameInstance) {
             QuestName.ContestCulture -> "Culture"
-            QuestName.ContestFaith -> "Faith"
             QuestName.ContestTech -> "Technologies"
             else -> return "" //This handles global quests which aren't a competition, like invest
         }

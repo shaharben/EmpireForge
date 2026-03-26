@@ -35,24 +35,6 @@ class UnitTurnManager(val unit: MapUnit) {
         if (unit.isPreparingParadrop() || unit.isPreparingAirSweep())
             unit.action = null
 
-        if (unit.hasUnique(UniqueType.ReligiousUnit)
-                && unit.getTile().getOwner() != null
-                && !unit.getTile().getOwner()!!.isCityState
-                && !unit.civ.diplomacyFunctions.canPassThroughTiles(unit.getTile().getOwner()!!)
-        ) {
-            val lostReligiousStrength =
-                    unit.getMatchingUniques(UniqueType.CanEnterForeignTilesButLosesReligiousStrength)
-                        .map { it.params[0].toInt() }
-                        .minOrNull()
-            if (lostReligiousStrength != null)
-                unit.religiousStrengthLost += lostReligiousStrength
-            if (unit.religiousStrengthLost >= unit.baseUnit.religiousStrength) {
-                unit.civ.addNotification("Your [${unit.name}] lost its faith after spending too long inside enemy territory!",
-                    unit.getTile().position, NotificationCategory.Units, unit.name)
-                unit.destroy()
-            }
-        }
-
         doCitadelDamage()
         doTerrainDamage()
 

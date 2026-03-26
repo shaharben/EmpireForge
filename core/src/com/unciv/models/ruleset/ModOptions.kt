@@ -15,8 +15,6 @@ class ModOptions : IHasUniques {
     var nationsToRemove = HashSet<String>()
     var policyBranchesToRemove = HashSet<String>()
     var policiesToRemove = HashSet<String>()
-    var beliefsToRemove = HashSet<String>()
-    var religionsToRemove = HashSet<String>()
     val constants = ModConstants()
     var unitset: String? = null
     var tileset: String? = null

@@ -129,11 +129,6 @@ object DiplomacyTurnManager {
         if (otherCiv.hasUnique(UniqueType.CityStateInfluenceRecoversTwiceNormalRate))
             modifierPercent += 100f
 
-        val religion = if (civInfo.cities.isEmpty() || civInfo.getCapital() == null) null
-        else civInfo.getCapital()!!.religion.getMajorityReligionName()
-        if (religion != null && religion == otherCiv.religionManager.religion?.name)
-            modifierPercent += 50f  // 50% quicker recovery when sharing a religion
-
         return max(0f, increment) * max(0f, modifierPercent).toPercent()
     }
 
@@ -326,8 +321,6 @@ object DiplomacyTurnManager {
         setFriendshipBasedModifier()
 
         setDefensivePactBasedModifier()
-
-        setReligionBasedModifier()
 
         if (!hasFlag(DiplomacyFlags.DeclarationOfFriendship))
             revertToZero(DiplomaticModifiers.DeclarationOfFriendship, 1 / 2f) //decreases slowly and will revert to full if it is declared later

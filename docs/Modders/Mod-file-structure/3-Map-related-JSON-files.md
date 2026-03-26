@@ -119,16 +119,16 @@ Some of the rewards ruins can give will have results that are not deterministic 
 | [] population in a random city                   | The name of the city to which the population is added will be filled in the notification                                                                        |
 | Gain []-[] []                                    | The exact amount of the stat gained will be filled in the notification                                                                                          |
 | [] free random reasearchable Tech(s) from the [] | The notification must have placeholders equal to the number of techs granted this way. Each of the names of these free techs will be filled in the notification |
-| Gain enough Faith for a Pantheon                 | The amount of faith gained is filled in the notification                                                                                                        |
-| Gain enough Faith for []% of a Great Prophet     | The amount of faith gained is filled in the notification                                                                                                        |
+| Gain enough Authority for a Principle             | The amount of authority gained is filled in the notification                                                                                                     |
+| Gain enough Authority for []% of a Great Strategist | The amount of authority gained is filled in the notification                                                                                                  |
 
 ### Specific uniques
 
 A few uniques can be added to ancient ruin effects to modify when they can be earned. These are:
 
 - "Only available after [amount] turns"
-- "Only available <when religion is enabled>"
-- "Hidden after a great prophet has been earned"
+- "Only available <when doctrine is enabled>"
+- "Hidden after a great strategist has been earned"
 
 ## [Tileset-specific json](../Creating-a-custom-tileset.md)
 
@@ -174,7 +174,7 @@ Terrains, features, resources and improvements may list yield statistics. The st
 - science
 - culture
 - happiness
-- faith
+- authority
 
 ### General stat
 

@@ -209,19 +209,19 @@ class BasicTests {
     }
 
     @Test
-    fun allBeliefRelatedUniquesHaveTheirUniqueTypes() {
-        val ruleset = RulesetCache[BaseRuleset.Civ_V_GnK.fullName]!!.clone() // vanilla doesn't have beliefs
-        val beliefs = ruleset.beliefs.values
+    fun allDoctrineRelatedUniquesHaveTheirUniqueTypes() {
+        val ruleset = RulesetCache[BaseRuleset.Civ_V_GnK.fullName]!!.clone() // vanilla doesn't have doctrines
+        val doctrines = ruleset.beliefs.values
         var allOK = true
-        for (belief in beliefs) {
-            for (unique in belief.uniques) {
+        for (doctrine in doctrines) {
+            for (unique in doctrine.uniques) {
                 if (!UniqueType.entries.any { it.placeholderText == unique.getPlaceholderText() }) {
-                    println("${belief.name}: $unique")
+                    println("${doctrine.name}: $unique")
                     allOK = false
                 }
             }
         }
-        Assert.assertTrue("This test succeeds only if all belief uniques are presented in UniqueType.entries", allOK)
+        Assert.assertTrue("This test succeeds only if all doctrine uniques are presented in UniqueType.entries", allOK)
     }
 
     @Test

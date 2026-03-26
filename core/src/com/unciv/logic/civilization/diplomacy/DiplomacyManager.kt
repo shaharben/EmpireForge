@@ -68,10 +68,6 @@ enum class DiplomacyFlags {
     AgreedToNotSettleNearUs,
     IgnoreThemSettlingNearUs,
 
-    SpreadReligionInOurCities,
-    AgreedToNotSpreadReligion,
-    IgnoreThemSpreadingReligion,
-
     DiscoveredSpiesInOurCities,
     AgreedToNotSendSpies,
     IgnoreThemSendingSpies,
@@ -107,10 +103,8 @@ enum class DiplomaticModifiers(val text: String) {
     Denunciation("You have publicly denounced us!"),
     DenouncedOurAllies("You have denounced our allies"),
     RefusedToNotSettleCitiesNearUs("You refused to stop settling cities near us"),
-    RefusedToNotSpreadReligionToUs("You refused to stop spreading religion to us"),
     RefusedToNotSendingSpiesToUs("You refused to stop spying on us"),
     BetrayedPromiseToNotSettleCitiesNearUs("You betrayed your promise to not settle cities near us"),
-    BetrayedPromiseToNotSpreadReligionToUs("You betrayed your promise to not spread your religion to us"),
     BetrayedPromiseToNotSendingSpiesToUs("You betrayed your promise to stop spying on us"),
     
     UnacceptableDemands("Your arrogant demands are in bad taste"),
@@ -138,12 +132,10 @@ enum class DiplomaticModifiers(val text: String) {
     DenouncedOurEnemies("You have denounced our enemies"),
     OpenBorders("Our open borders have brought us closer together."),
     FulfilledPromiseToNotSettleCitiesNearUs("You fulfilled your promise to stop settling cities near us!"),
-    FulfilledPromiseToNotSpreadReligion("You fulfilled your promise to stop spreading religion to us!"),
     FulfilledPromiseToNotSpy("You fulfilled your promise to stop spying on us!"),
     GaveUsUnits("You gave us units!"),
     GaveUsGifts("We appreciate your gifts"),
-    ReturnedCapturedUnits("You returned captured units to us"),
-    BelieveSameReligion("We believe in the same religion");
+    ReturnedCapturedUnits("You returned captured units to us");
 
     companion object{
         @Immutable private val valuesAsMap = entries.associateBy { it.name }
@@ -399,15 +391,6 @@ class DiplomacyManager() : IsPartOfGameInfoSerialization {
         }
     }
 
-    @Readonly
-    private fun believesSameReligion(): Boolean {
-        // what is the majorityReligion of civInfo? If it is null, we immediately return false
-        val civMajorityReligion = civInfo.religionManager.getMajorityReligion() ?: return false
-        // if not yet returned false from previous line, return the Boolean isMajorityReligionForCiv
-        // true if majorityReligion of civInfo is also majorityReligion of otherCiv, false otherwise
-        return otherCiv.religionManager.isMajorityReligionForCiv(civMajorityReligion)
-    }
-
     /** Returns the number of turns to degrade from Ally or from Friend */
     @Readonly
     fun getTurnsToRelationshipChange(): Int {
@@ -460,11 +443,6 @@ class DiplomacyManager() : IsPartOfGameInfoSerialization {
         for (unique in otherCiv.getMatchingUniques(UniqueType.CityStateRestingPoint))
             restingPoint += unique.params[0].toInt()
 
-        if (civInfo.cities.any() && civInfo.getCapital() != null)
-            for (unique in otherCiv.getMatchingUniques(UniqueType.RestingPointOfCityStatesFollowingReligionChange))
-                if (otherCiv.religionManager.religion?.name == civInfo.getCapital()!!.religion.getMajorityReligionName())
-                    restingPoint += unique.params[0].toInt()
-
         if (diplomaticStatus == DiplomaticStatus.Protector) restingPoint += 10
 
         if (hasFlag(DiplomacyFlags.WaryOf)) restingPoint -= 20
@@ -486,11 +464,6 @@ class DiplomacyManager() : IsPartOfGameInfoSerialization {
         var modifierPercent = 0f
         for (unique in otherCiv.getMatchingUniques(UniqueType.CityStateInfluenceDegradation))
             modifierPercent += unique.params[0].toFloat()
-
-        val religion = if (civInfo.cities.isEmpty() || civInfo.getCapital() == null) null
-            else civInfo.getCapital()!!.religion.getMajorityReligionName()
-        if (religion != null && religion == otherCiv.religionManager.religion?.name)
-            modifierPercent -= 25f  // 25% slower degrade when sharing a religion
 
         for (civ in civInfo.gameInfo.civilizations.filter { it.isMajorCiv() && it != otherCiv}) {
             for (unique in civ.getMatchingUniques(UniqueType.OtherCivsCityStateRelationsDegradeFaster)) {
@@ -759,15 +732,6 @@ class DiplomacyManager() : IsPartOfGameInfoSerialization {
             }
             addModifier(modifierType, modifierValue)
         }
-    }
-
-    internal fun setReligionBasedModifier() {
-        if (otherCivDiplomacy().believesSameReligion())
-            // they share same majority religion
-            setModifier(DiplomaticModifiers.BelieveSameReligion, 5f)
-        else
-            // their majority religions differ or one or both don't have a majority religion at all
-            removeModifier(DiplomaticModifiers.BelieveSameReligion)
     }
 
     fun denounce() {

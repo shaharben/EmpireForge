@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.unciv.Constants
 import com.unciv.logic.city.CityConstructions
 import com.unciv.logic.map.tile.Tile
-import com.unciv.models.Religion
 import com.unciv.models.ruleset.Building
 import com.unciv.models.ruleset.IConstruction
 import com.unciv.models.ruleset.INonPerpetualConstruction
@@ -122,24 +121,8 @@ class BuyButtonFactory(val cityScreen: CityScreen) {
         init {
             val city = cityScreen.city
             val balance = city.getStatReserve(stat)
-            val majorityReligion = city.religion.getMajorityReligion()
-            val yourReligion = city.civ.religionManager.religion
-            val isBuyingWithFaithForForeignReligion = construction.hasUnique(UniqueType.ReligiousUnit)
-                && !construction.hasUnique(UniqueType.TakeReligionOverBirthCity)
-                && majorityReligion != yourReligion
 
             addGoodSizedLabel("Currently you have [$balance] [${stat.name}].").padBottom(10f).row()
-            if (isBuyingWithFaithForForeignReligion) {
-                // Earlier tests should forbid this Popup unless both religions are non-null, but to be safe:
-                fun Religion?.getName() = this?.getReligionDisplayName() ?: Constants.unknownCityName
-                addGoodSizedLabel("You are buying a religious unit in a city that doesn't follow the religion you founded ([${yourReligion.getName()}]). " +
-                    "This means that the unit is tied to that foreign religion ([${majorityReligion.getName()}]) and will be less useful.").row()
-                addGoodSizedLabel("Are you really sure you want to purchase this unit?", Constants.headingFontSize).run {
-                    actor.color = Color.FIREBRICK
-                    padBottom(10f)
-                    row()
-                }
-            }
             addGoodSizedLabel("Would you like to purchase [${construction.name}] for [$constructionStatBuyCost] [${stat.character}]?").row()
 
             addCloseButton(Constants.cancel, KeyboardBinding.Cancel) { cityScreen.update() }

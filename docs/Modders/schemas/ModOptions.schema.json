@@ -246,29 +246,29 @@
           "default": 666,
           "description": "Maximum river length."
         },
-        "religionLimitBase": {
-          "title": "Religion Limit Base",
+        "doctrineLimitBase": {
+          "title": "Doctrine Limit Base",
           "type": "integer",
           "default": 1,
-          "description": "Base number of foundable religions."
+          "description": "Base number of foundable doctrines."
         },
-        "religionLimitMultiplier": {
-          "title": "Religion Limit Multiplier",
+        "doctrineLimitMultiplier": {
+          "title": "Doctrine Limit Multiplier",
           "type": "number",
           "default": 0.5,
-          "description": "Multiplier for number of foundable religions."
+          "description": "Multiplier for number of foundable doctrines."
         },
         "pantheonBase": {
-          "title": "Pantheon Base",
+          "title": "Principle Base",
           "type": "integer",
           "default": 10,
-          "description": "Base cost of pantheon."
+          "description": "Base cost of principle."
         },
         "pantheonGrowth": {
-          "title": "Pantheon Growth",
+          "title": "Principle Growth",
           "type": "integer",
           "default": 5,
-          "description": "Growth cost of pantheon per civ with religion."
+          "description": "Growth cost of principle per civ with doctrine."
         },
         "workboatAutomationSearchMaxTiles": {
           "title": "Workboat Automation Search Max Tiles",

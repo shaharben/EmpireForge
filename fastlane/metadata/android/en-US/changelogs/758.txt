@@ -1,4 +1,4 @@
-Fixed Temple of Artemis production bonuses
+Fixed Hunters' Lodge production bonuses
 
 Fixed tile yields due to caching conditional uniques
 

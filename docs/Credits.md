@@ -28,7 +28,7 @@ Unless otherwise specified, all the following are from [the Noun Project](https:
 -   [Beaker](https://thenounproject.com/term/beaker/621510) by Delwar Hossain for Science
 -   [Music](https://thenounproject.com/term/music/5611/) by Naomi Atkinson for Culture
 -   [Smiley](https://thenounproject.com/term/smiley/1024026) by Alexander Skowalsky for Happiness
--   [Dove](https://thenounproject.com/term/dove/1344084) by Sandra for Faith
+-   [Dove](https://thenounproject.com/term/dove/1344084) by Sandra for Authority
 -   [User](https://thenounproject.com/term/user/38217) by Stéphanie Rusch for Population
 -   [Unhappy](https://thenounproject.com/term/unhappy/116793) By Daryl Vandermont for Malcontent
 
@@ -157,10 +157,10 @@ Unless otherwise specified, all the following are from [the Noun Project](https:
 -   [Pallet](https://thenounproject.com/icon/Pallet-6862) By James Keuning for Great Artist
 -   [Gear](https://thenounproject.com/icon/Gear-17369) By Melvin Salas for Great Engineer
 -   [Beaker](https://thenounproject.com/icon/Beaker-621510) By Delwar Hossain for Great Scientist
--   [Dove](https://thenounproject.com/icon/dove-1344088) by sandra for Great Prophet
+-   [Dove](https://thenounproject.com/icon/dove-1344088) by sandra for Great Strategist
 -   [General](https://thenounproject.com/icon/general-933566) By anbileru adaleru for Great General
--   [Religion](https://thenounproject.com/icon/preach-53064) by Bruno Gätjens González adapted for Missionary
--   [invisibility cloak ](https://thenounproject.com/term/invisibility-cloak/1419648/) by Locad for Inquisitor
+-   [Religion](https://thenounproject.com/icon/preach-53064) by Bruno Gätjens González adapted for Advisor
+-   [invisibility cloak ](https://thenounproject.com/term/invisibility-cloak/1419648/) by Locad for Inspector
 -   [Anchor](https://thenounproject.com/icon/anchor-7764100/) by M. Adebadal for Great Admiral
 
 ### Units - AbsoluteUnits unitset images
@@ -265,7 +265,7 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 #### Ancient Era
 
 -   [Storehouse](https://thenounproject.com/term/storehouse/966786/) By Pedro Santos for Granary
--   [Shinto Gate](https://thenounproject.com/icon/shrine-253325) by Alexander Skowalsky for Shrine
+-   [Shinto Gate](https://thenounproject.com/icon/shrine-253325) by Alexander Skowalsky for Command Post
 -   [Pyramid](https://thenounproject.com/term/pyramid/17225/) by Oscar Yáñez for Mayan Pyramid
 -   [Great Wall Of China](https://thenounproject.com/term/great-wall-of-china/146039/) By Arthur Shlain for Walls
 -   [Markadan Tower](https://thenounproject.com/icon/fortification-2107694) by Vectors Market for Walls of Babylon
@@ -281,13 +281,13 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 -   [Stonehenge](https://thenounproject.com/term/stonehenge/543289/) By icon 54
 -   [Ho Chi Minh mausoleum](https://thenounproject.com/thanhloc1009/collection/asia-landmark/?i=2412921) By Phạm Thanh Lộc for Mausoleum of Halicarnassus
 -   Icon for Statue of Zeus made by [JackRainy](https://github.com/JackRainy), based on [King](https://thenounproject.com/eucalyp/collection/game-elements-glyph1/?i=3155251) By Eucalyp
--   [temple](https://thenounproject.com/icon/temple-28256) By Fabio Meroni for Temple of Artemis
+-   [temple](https://thenounproject.com/icon/temple-28256) By Fabio Meroni for War College of Artemis
 
 #### Classical Era
 
 -   [Lighthouse](https://thenounproject.com/icon/lighthouse-866966) By Dolly Holmes
 -   [Lighthouse](https://thenounproject.com/term/lighthouse/583069/) By Hea Poh Lin for The Great Lighthouse
--   [Temple](https://thenounproject.com/term/temple/1808407/) By 1516
+-   [Temple](https://thenounproject.com/term/temple/1808407/) By 1516 for War College
 -   [Anubis](https://thenounproject.com/term/anubis/1080090/) By Carpe Diem for Burial Tomb
 -   [Parthenon](https://thenounproject.com/term/parthenon/493272/) By Christopher T. Howlett for The Oracle
 -   [Stadium](https://thenounproject.com/term/stadium/1500595/) By sandra for Colosseum
@@ -313,7 +313,7 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 -   [Chichen Itza](https://thenounproject.com/term/chichen-itza/668065/) By Hea Poh Lin
 -   [Castle](https://thenounproject.com/icon/castle-390189) By Mint Shirt
 -   [Red Fort](https://thenounproject.com/arunabh.jain.0fficial/collection/famous-indian-monuments/?i=2092466), [Gateway of India](https://thenounproject.com/arunabh.jain.0fficial/collection/famous-indian-monuments/?i=2092468) By Arunabh Jain, IN for Mughal Fort
--   [Angkor Wat](https://thenounproject.com/icon/angkor%20wat-2412873) By Phạm Thanh Lộc for Angkor Wat
+-   [Ancient Stronghold](https://thenounproject.com/icon/angkor%20wat-2412873) By Phạm Thanh Lộc for Ancient Stronghold
 -   [Alhambra](https://thenounproject.com/icon/alhambra-2322217) By Phạm Thanh Lộc
 -   [Books](https://thenounproject.com/term/books/1140218/) By Abir Alward for Oxford University
 -   Icon for Heroic Epic made by [SomeTroglodyte](https://github.com/SomeTroglodyte) based on [Iwo Jima Memorial](https://upload.wikimedia.org/wikipedia/commons/5/54/2018-10-31_15_25_21_The_west_side_of_the_Marine_Corps_War_Memorial_in_Arlington_County%2C_Virginia.jpg) photo taken by Famartin
@@ -321,13 +321,13 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 -   [Anchor](https://thenounproject.com/term/anchor/1258518/) By Saeful Muslim for Harbor
 -   [Hand saw](https://thenounproject.com/term/hand-saw/990902/) By b farias for Workshop
 -   [House](https://thenounproject.com/icon/house-1651759) By sofy for Longhouse
--   [Hagia Sophia](https://thenounproject.com/term/hagia-sophia/1907752/) By Felipe Alvarado
+-   [Grand Citadel](https://thenounproject.com/term/hagia-sophia/1907752/) By Felipe Alvarado
 -   [Factory](https://thenounproject.com/term/factory/1624235/) By Maxim Kulikov for Ironworks
--   [Notre Dame](https://thenounproject.com/term/notre-dame/1361725/) By Marco Livolsi
+-   [War Memorial](https://thenounproject.com/term/notre-dame/1361725/) By Marco Livolsi
 -   [Shield and Swords](https://thenounproject.com/term/shield-and-swords/1477527/) By Alina Oleynik for Armory
 -   [Machu Picchu](https://thenounproject.com/browse/?i=1678226/) By [Chanut is Industries](https://thenounproject.com/chanut-is)
 -   [Garden](https://thenounproject.com/icon/garden-1478380) By Bharat
--   [Mosque](https://thenounproject.com/icon/mosque-2458353) by yanti for Great Mosque of Djenne
+-   [Mosque](https://thenounproject.com/icon/mosque-2458353) by yanti for Great Military Academy of Djenne
 
 #### Renaissance Era
 
@@ -369,7 +369,7 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 -   [Eiffel Tower](https://thenounproject.com/term/eiffel-tower/1907757/) By Felipe Alvarado
 -   [Statue of Liberty](https://thenounproject.com/icon/statue%20of%20liberty-1801199) By 1516
 -   [Microscope](https://thenounproject.com/term/microscope/1452362/) By Arafat Uddin for Research Lab
--   [Christ the redeemer](https://thenounproject.com/term/christ-the-redeemer/56112/) By Stefan Spieler for Cristo Redentor
+-   [Christ the redeemer](https://thenounproject.com/term/christ-the-redeemer/56112/) By Stefan Spieler for Monument of Unity
 -   [Neuschwanstein](https://thenounproject.com/icon/Neuschwanstein-2107683) By Vectors Market
 -   [Big Ben](https://thenounproject.com/icon/Big%20Ben-443690) By Ben Davis, RO
 -   National Intelligence Agency is a gimp of [spy](https://thenounproject.com/icon/2518785/) by Adrien Coquet and [police station](https://thenounproject.com/icon/5776179/) by Firza Alamsyah.
@@ -398,10 +398,10 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 #### All Era's
 
 -   [Illuminati](https://thenounproject.com/term/illuminati/1617812) by emilegraphics for the Utopia Project
--   [Christian Church](https://thenounproject.com/term/christian-church/1174183/) by Andrejs Kirma for Monastery
--   [cathedral](https://thenounproject.com/icon/Cathedral-4136407) by Pixel Bazaar for Cathedral
--   [Mosque](https://thenounproject.com/icon/mosque-1744106) by yanti for Mosque
--   [Pagoda](https://thenounproject.com/icon/pagoda-446665) by Xinh Studio for Pagoda
+-   [Christian Church](https://thenounproject.com/term/christian-church/1174183/) by Andrejs Kirma for Training Ground
+-   [cathedral](https://thenounproject.com/icon/Cathedral-4136407) by Pixel Bazaar for Strategic Center
+-   [Mosque](https://thenounproject.com/icon/mosque-1744106) by yanti for Military Academy
+-   [Pagoda](https://thenounproject.com/icon/pagoda-446665) by Xinh Studio for Tactical Hall
 
 ### Social Policies
 
@@ -433,7 +433,7 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 
 -   [Protestantism](https://thenounproject.com/term/protestantism/1524922/) By Evgeni Moryakov for Reformation
 -   [Temple](https://thenounproject.com/term/temple/95523/) By N.K.Narasimhan for Theocracy
--   [Religion](https://thenounproject.com/term/religion/1307794/) By Ben Avery for Free Religion
+-   [Religion](https://thenounproject.com/term/religion/1307794/) By Ben Avery for Free Doctrine
 -   [Flame](https://thenounproject.com/term/flame/633228/) By Ian Shoobridge for Mandate Of Heaven
 
 #### Patronage
@@ -516,7 +516,7 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 
 #### Medieval
 
--   [Judaism](https://thenounproject.com/term/judaism/324145/) By Ben Davis for Theology
+-   [Judaism](https://thenounproject.com/term/judaism/324145/) By Ben Davis for Strategy
 -   [Institution](https://thenounproject.com/term/institution/260586/) By Luis Prado for Civil Service
 -   [Compass](https://thenounproject.com/term/compass/821505/) By Bernar Novalyi
 -   [Education](https://thenounproject.com/term/education/1817512/) By Tomas Knopp
@@ -682,22 +682,22 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 -   [home sweet home](https://thenounproject.com/term/home-sweet-home/3817166/) By Silviu Ojog for Home Sweet Home
 -   [Star](https://thenounproject.com/icon/star-35340/) by Trent Kuhn for Dogfighting
 
-### Religions
+### Doctrines
 
--   [Lightning Bolt](https://thenounproject.com/icon/lightning+bolt-154820) by sian huxtable for Pantheon
--   [Christianity](https://thenounproject.com/icon/christianity-181) by Public Domain Nouns for Christianity
--   [Islam](https://thenounproject.com/icon/Islam-2431350) by Muhammed Riza for Islam
--   [taoism](https://thenounproject.com/icon/Taoism-740812) by parkjisun for Taosim
--   [Buddhism](https://thenounproject.com/icon/buddhism-38764) by Julio Yanes for Buddhism
--   [Hinduism](https://thenounproject.com/icon/hinduism-20383) by Mugda Damle for Hinduism
--   [Confucianism](https://thenounproject.com/icon/Confucianism-200406) by Dabid J. Pascual for Confucianism
--   [Judaism](https://thenounproject.com/icon/Judaism-200418) by Dabid J. Pascual for Judaism
--   [Shinto](https://thenounproject.com/icon/shinto-238069/) by Dabid J. Pascual for Shinto
--   [Sikhism](https://thenounproject.com/icon/sikhism-238064/) by Dabid J. Pascual for Sikhism
--   [Tengrism](https://thenounproject.com/icon/Tengrism-238067) by Dabid J. Pascual for Tengriism
--   [Zoroastrianism](https://thenounproject.com/icon/Zoroastrianism-238059) by Dabid J. Pascual for Zoroastrianism
--   [praying](https://thenounproject.com/icon/praying/740809/) by parkjisun for Religion (Civilopedia concept entry)
--   [spirituality](https://thenounproject.com/icon/spirituality-2363/) by Renee Ramsey-Passmore for Beliefs (Civilopedia concept entry)
+-   [Lightning Bolt](https://thenounproject.com/icon/lightning+bolt-154820) by sian huxtable for Principle
+-   [Christianity](https://thenounproject.com/icon/christianity-181) by Public Domain Nouns for Dominion
+-   [Islam](https://thenounproject.com/icon/Islam-2431350) by Muhammed Riza for Conquest
+-   [taoism](https://thenounproject.com/icon/Taoism-740812) by parkjisun for Adaptation
+-   [Buddhism](https://thenounproject.com/icon/buddhism-38764) by Julio Yanes for Resilience
+-   [Hinduism](https://thenounproject.com/icon/hinduism-20383) by Mugda Damle for Fortification
+-   [Confucianism](https://thenounproject.com/icon/Confucianism-200406) by Dabid J. Pascual for Order
+-   [Judaism](https://thenounproject.com/icon/Judaism-200418) by Dabid J. Pascual for Sovereignty
+-   [Shinto](https://thenounproject.com/icon/shinto-238069/) by Dabid J. Pascual for Vigilance
+-   [Sikhism](https://thenounproject.com/icon/sikhism-238064/) by Dabid J. Pascual for Valor
+-   [Tengrism](https://thenounproject.com/icon/Tengrism-238067) by Dabid J. Pascual for Endurance
+-   [Zoroastrianism](https://thenounproject.com/icon/Zoroastrianism-238059) by Dabid J. Pascual for Supremacy
+-   [praying](https://thenounproject.com/icon/praying/740809/) by parkjisun for Doctrine (Civilopedia concept entry)
+-   [spirituality](https://thenounproject.com/icon/spirituality-2363/) by Renee Ramsey-Passmore for Directives (Civilopedia concept entry)
 -   [praying](https://thenounproject.com/icon/praying/886367/) by Gan Khoon Lay for Follower
 -   [Hero](https://thenounproject.com/icon/preacher/195465/) by Andrew J. Young for Founder
 -   [yell](https://thenounproject.com/icon/yell/4159889/) by Adrien Coquet for Enhancer
@@ -731,8 +731,8 @@ HexaRealm tileset images by legacymtgsalvationuser69544 [here](https://github.co
 - [City](https://thenounproject.com/icon/city-1765370) By Muhajir ila Robbi in the Icon center
 - [Lock](https://thenounproject.com/icon/lock-3217613) by Vadim Solomakhin for locked tiles
 - [Hourglass](https://thenounproject.com/icon/hourglass-142268) by I Create Stuff for the 'Turn' icon
-- [Shield](https://thenounproject.com/icon/shield-813568) by Gregor Cresnar for Religious Strength
-- [skill sword flame](https://thenounproject.com/term/skill-sword-flame/2360212/) by Maxicons) for Remove Heresy
+- [Shield](https://thenounproject.com/icon/shield-813568) by Gregor Cresnar for Strategic Strength
+- [skill sword flame](https://thenounproject.com/term/skill-sword-flame/2360212/) by Maxicons) for Remove Defiance
 - [Pencil](https://thenounproject.com/icon/pencil-4195852) by Muhamad Aldi Maulana for Enter Text Prompt Button / Pencil
 - [Parchment](https://thenounproject.com/term/parchment/1516378/) by hans draiman for Cultured City-States
 - [connection](https://thenounproject.com/term/connection/1365233/) by Popular for Mercantile City-States
@@ -855,7 +855,7 @@ Sounds are from FreeSound.org unless otherwise noted and are either Creative Com
     -   [Artillery Explosion (Close) (Mixed)](https://freesound.org/people/EFlexMusic/sounds/388528/) by EFlexMusic
 - [elephant 44](https://freesound.org/people/y89312/sounds/139875/) by y89312 for Naruesan's Elephant sound
 - Excerpt from [Missile Strike](https://freesound.org/people/BaDoink/sounds/570690/) by BaDoink for guided missile
-- Excerpt from [FireBurning_v2.wav](https://freesound.org/people/pcaeldries/sounds/30322/) by pcaeldries for 'remove heresy' action of inquisitor ([License](http://creativecommons.org/licenses/by/3.0/))
+- Excerpt from [FireBurning_v2.wav](https://freesound.org/people/pcaeldries/sounds/30322/) by pcaeldries for 'remove defiance' action of inspector ([License](http://creativecommons.org/licenses/by/3.0/))
 - [Up Chime 2](https://freesound.org/people/FoolBoyMedia/sounds/352666/) by FoolBoyMedia for notifications
 - [dingaling](https://freesound.org/people/morrisjm/sounds/268756/) by morrisjm (based on [Calling_Bell_02.wav](https://freesound.org/people/RSilveira_88/sounds/216306/) by RSilveira_88) for notifications
 - City ambience sounds made by Unciv Team using Audacity from CC0 sounds and

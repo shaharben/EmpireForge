@@ -164,9 +164,6 @@ class CityTurnManager(val city: City) {
             }
         } else city.population.nextTurn(city.foodForNextTurn())
 
-        // This should go after the population change, as that might impact the amount of followers in this city
-        if (city.civ.gameInfo.isReligionEnabled()) city.religion.endTurn()
-
         if (city in city.civ.cities) { // city was not destroyed
             city.health = (city.health + 20).coerceAtMost(city.getMaxHealth())
             city.population.unassignExtraPopulation()

@@ -8,7 +8,6 @@ import com.unciv.UncivGame
 import com.unciv.json.fromJsonFile
 import com.unciv.json.json
 import com.unciv.logic.map.tile.RoadStatus
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.models.ruleset.Building
 import com.unciv.models.ruleset.IRulesetObject
 import com.unciv.models.ruleset.Ruleset
@@ -106,7 +105,6 @@ open class RulesetValidator protected constructor(
         addEraErrors(lines)
         addSpeedErrors(lines)
         addPersonalityErrors(lines)
-        addBeliefErrors(lines)
         addNationErrors(lines)
         addPolicyErrors(lines)
         addRuinsErrors(lines)
@@ -129,14 +127,6 @@ open class RulesetValidator protected constructor(
     }
 
     //region RulesetObject-specific handlers
-
-    protected open fun addBeliefErrors(lines: RulesetErrorList) {
-        for (belief in ruleset.beliefs.values) {
-            if (belief.type == BeliefType.Any || belief.type == BeliefType.None)
-                lines.add("${belief.name} type is ${belief.type}, which is not allowed!", sourceObject = belief)
-            uniqueValidator.checkUniques(belief, lines, reportRulesetSpecificErrors, tryFixUnknownUniques)
-        }
-    }
 
     protected open fun addBuildingErrors(lines: RulesetErrorList) {
         for (building in ruleset.buildings.values) {
@@ -395,14 +385,12 @@ open class RulesetValidator protected constructor(
 
     protected open fun addSpeedErrors(lines: RulesetErrorList) {
         for (speed in ruleset.speeds.values) {
-            if (speed.modifier < 0f || speed.barbarianModifier < 0f || speed.cultureCostModifier < 0f || speed.faithCostModifier < 0f ||
+            if (speed.modifier < 0f || speed.barbarianModifier < 0f || speed.cultureCostModifier < 0f ||
                 speed.goldCostModifier < 0f || speed.goldGiftModifier < 0f || speed.goldenAgeLengthModifier < 0f ||
                 speed.improvementBuildLengthModifier < 0f || speed.productionCostModifier < 0f || speed.scienceCostModifier < 0f)
                 lines.add("One or more negative speed modifier(s) for game speed ${speed.name}", sourceObject = speed)
             if (speed.dealDuration < 1 || speed.peaceDealDuration < 1)
                 lines.add("Deal durations must be positive", sourceObject = speed)
-            if (speed.religiousPressureAdjacentCity < 0)
-                lines.add("'religiousPressureAdjacentCity' must not be negative", sourceObject = speed)
             if (speed.yearsPerTurn.isEmpty())
                 lines.add("Empty turn increment list for game speed ${speed.name}", sourceObject = speed)
             var lastTurn = 0

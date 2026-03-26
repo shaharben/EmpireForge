@@ -8,7 +8,6 @@ import com.unciv.logic.civilization.*
 import com.unciv.logic.civilization.diplomacy.DiplomacyFlags
 import com.unciv.logic.civilization.diplomacy.DiplomaticModifiers
 import com.unciv.logic.civilization.managers.PolicyManager
-import com.unciv.logic.civilization.managers.ReligionState
 import com.unciv.logic.map.HexCoord
 import com.unciv.logic.map.mapgenerator.NaturalWonderGenerator
 import com.unciv.logic.map.mapgenerator.RiverGenerator
@@ -17,7 +16,6 @@ import com.unciv.logic.map.tile.Tile
 import com.unciv.logic.map.tile.TileNormalizer
 import com.unciv.models.UncivSound
 import com.unciv.models.UpgradeUnitAction
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.models.ruleset.Event
 import com.unciv.models.ruleset.tile.TerrainType
 import com.unciv.models.ruleset.tile.TileResource
@@ -407,27 +405,17 @@ object UniqueTriggerActivation {
                     true
                 }
             }
-            UniqueType.OneTimeAdoptPolicyOrBelief -> {
+            UniqueType.OneTimeAdoptPolicy -> {
                 val name = unique.params[0]
                 val policy = civInfo.gameInfo.ruleset.policies[name]
-                val belief = civInfo.gameInfo.ruleset.beliefs[name]
-                when {
-                    policy != null && !civInfo.policies.isAdopted(name) -> return {
-                        civInfo.policies.freePolicies++
-                        civInfo.policies.adopt(policy)
-                        getNotificationText(notification, triggerNotificationText, "You gain the [$name] Policy")?.let {
-                            civInfo.addNotification(it, PolicyAction(name), NotificationCategory.General, NotificationIcon.Culture)
-                        }
-                        true
+                if (policy == null || civInfo.policies.isAdopted(name)) return null
+                return {
+                    civInfo.policies.freePolicies++
+                    civInfo.policies.adopt(policy)
+                    getNotificationText(notification, triggerNotificationText, "You gain the [$name] Policy")?.let {
+                        civInfo.addNotification(it, PolicyAction(name), NotificationCategory.General, NotificationIcon.Culture)
                     }
-                    belief != null && civInfo.religionManager.religion?.hasBelief(name) == false -> return {
-                        civInfo.religionManager.religion?.addBelief(belief)
-                        getNotificationText(notification, triggerNotificationText, "You gain the [$name] Belief")?.let {
-                            civInfo.addNotification(it, NotificationCategory.Religion, NotificationIcon.Faith)
-                        }
-                        true
-                    }
-                    else -> return null
+                    true
                 }
             }
 
@@ -828,44 +816,6 @@ object UniqueTriggerActivation {
                     true
                 }
             }
-            UniqueType.OneTimeGainPantheon -> {
-                if (civInfo.religionManager.religionState != ReligionState.None) return null
-                val gainedFaith = civInfo.religionManager.faithForPantheon(2)
-                if (gainedFaith == 0) return null
-
-                return {
-                    civInfo.addStat(Stat.Faith, gainedFaith)
-
-                    if (notification != null) {
-                        val notificationText =
-                            if (notification.hasPlaceholderParameters())
-                                notification.fillPlaceholders(gainedFaith.tr())
-                            else notification
-                        civInfo.addNotification(notificationText, LocationAction(tile?.position), NotificationCategory.Religion, NotificationIcon.Faith)
-                    }
-                    true
-                }
-            }
-            UniqueType.OneTimeGainProphet -> {
-                if (civInfo.religionManager.getGreatProphetEquivalent() == null) return null
-                val gainedFaith =
-                    (civInfo.religionManager.faithForNextGreatProphet() * (unique.params[0].toFloat() / 100f)).toInt()
-                if (gainedFaith == 0) return null
-
-                return {
-                    civInfo.addStat(Stat.Faith, gainedFaith)
-
-                    if (notification != null) {
-                        val notificationText =
-                            if (notification.hasPlaceholderParameters())
-                                notification.fillPlaceholders(gainedFaith.tr())
-                            else notification
-                        civInfo.addNotification(notificationText, LocationAction(tile?.position), NotificationCategory.Religion, NotificationIcon.Faith)
-                    }
-                    true
-                }
-            }
-
             UniqueType.OneTimeGainTechPercent -> {
                 val tech = unique.params[1]
                 val amount = unique.params[0].toFloatOrNull()
@@ -890,37 +840,6 @@ object UniqueTriggerActivation {
 
                     civInfo.addNotification(notificationText!!, LocationAction(tile?.position), NotificationCategory.General, NotificationIcon.Science)
 
-                    true
-                }
-            }
-
-            UniqueType.OneTimeFreeBelief -> {
-                if (!civInfo.isMajorCiv()) return null
-                val beliefType = BeliefType.valueOf(unique.params[0])
-                val religionManager = civInfo.religionManager
-                if ((beliefType != BeliefType.Pantheon && beliefType != BeliefType.Any)
-                        && religionManager.religionState <= ReligionState.Pantheon)
-                    return null // situation where we're trying to add a formal religion belief to a civ that hasn't founded a religion
-                if (religionManager.numberOfBeliefsAvailable(beliefType) == 0)
-                    return null // no more available beliefs of this type
-
-                return {
-                    var religionIcon = beliefType.name
-                    if (beliefType == BeliefType.Any && religionManager.religionState <= ReligionState.Pantheon) {
-                        religionManager.freeBeliefs.add(BeliefType.Pantheon.name, 1) // add pantheon instead of any type
-                        religionIcon = BeliefType.Pantheon.name
-                    }
-                    else
-                        religionManager.freeBeliefs.add(beliefType.name, 1)
-
-                    if (notification != null) {
-                        civInfo.addNotification(
-                            notification,
-                            NotificationCategory.Religion,
-                            NotificationIcon.Faith,
-                            "ReligionIcons/${religionIcon}"
-                        )
-                    }
                     true
                 }
             }

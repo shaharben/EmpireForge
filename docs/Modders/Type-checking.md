@@ -39,8 +39,8 @@ If you'd rather not use the VSCode extension, it is possible enable the schemas 
 ```json
 "json.schemas": [
     {
-        "fileMatch": ["jsons/Beliefs.json"],
-        "url": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/Beliefs.schema.json"
+        "fileMatch": ["jsons/Directives.json"],
+        "url": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/Directives.schema.json"
     },
     {
         "fileMatch": ["jsons/Buildings.json"],
@@ -79,8 +79,8 @@ If you'd rather not use the VSCode extension, it is possible enable the schemas 
         "url": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/Quests.schema.json"
     },
     {
-        "fileMatch": ["jsons/Religions.json"],
-        "url": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/Religions.schema.json"
+        "fileMatch": ["jsons/Doctrines.json"],
+        "url": "https://raw.githubusercontent.com/yairm210/Unciv/master/docs/Modders/schemas/Doctrines.schema.json"
     },
     {
         "fileMatch": ["jsons/Ruins.json"],

@@ -44,7 +44,7 @@
           "Cultured",
           "Maritime",
           "Mercantile",
-          "Religious",
+          "Strategic",
           "Militaristic"
         ]
       },
@@ -152,12 +152,12 @@
         "title": "Spy Names",
         "description": "List of names for spies belonging to the nation."
       },
-      "favoredReligion": {
+      "favoredDoctrine": {
         "type": "string",
-        "title": "Favored Religion",
-        "description": "The religion most favored by this nation.",
+        "title": "Favored Doctrine",
+        "description": "The doctrine most favored by this nation.",
         "default": "",
-        "examples": ["Islam", "Buddhism", "Taoism"]
+        "examples": ["Conquest", "Resilience", "Adaptation"]
       },
       "uniqueName": {
         "type": "string",

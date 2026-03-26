@@ -32,10 +32,6 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
     private val happinessLabel = "0".toLabel()
     private val cultureLabel = "0".toLabel(colorFromRGB(179, 77, 230)) // Purple
 
-    private val faithLabel = "0".toLabel(colorFromRGB(255, 255, 153)) // Light Yellow
-    private val faithPerTurnLabel = "+0"
-        .toLabel(colorFromRGB(255, 255, 153), 14)
-
     private val happinessContainer = Group()
 
     // These are all to improve performance IE reduce update time (was 150 ms on my phone, which is a lot!)
@@ -111,9 +107,6 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
             else PolicyPickerScreen(worldScreen.selectedCiv, worldScreen.canChangeState)
         }
 
-        // EmpireForge: Religion system completely disabled - hide Faith from top bar
-
-
     }
 
 
@@ -140,9 +133,6 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
         }
 
         cultureLabel.setText(getCultureText(civInfo, nextTurnStats))
-
-        faithLabel.setText(civInfo.religionManager.storedFaith.tr())
-        faithPerTurnLabel.setText(rateLabel(nextTurnStats.faith))
 
         scaleTo(worldScreen.stage.width)
     }

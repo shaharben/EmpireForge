@@ -158,8 +158,6 @@ internal class BaseRulesetValidator(
             lines.add("${nation.name}'s preferredVictoryType is ${nation.preferredVictoryType} which does not exist!", sourceObject = nation)
         if (nation.cityStateType != null && nation.cityStateType !in ruleset.cityStateTypes)
             lines.add("${nation.name} is of city-state type ${nation.cityStateType} which does not exist!", sourceObject = nation)
-        if (nation.favoredReligion != null && nation.favoredReligion !in ruleset.religions)
-            lines.add("${nation.name} has ${nation.favoredReligion} as their favored religion, which does not exist!", sourceObject = nation)
     }
 
     override fun addPersonalityErrors(lines: RulesetErrorList) {

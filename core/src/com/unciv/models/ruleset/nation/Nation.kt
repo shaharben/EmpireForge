@@ -81,8 +81,6 @@ class Nation : RulesetObject() {
 
     var spyNames = ArrayList<String>()
 
-    var favoredReligion: String? = null
-
     var cities: ArrayList<String> = arrayListOf()
 
     override fun getUniqueTarget() = UniqueTarget.Nation

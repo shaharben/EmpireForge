@@ -117,11 +117,6 @@ enum class CityOverviewTabColumn : ISortableGridContentProvider<City, EmpireOver
         override fun getEntryValue(item: City) =
             item.cityStats.happinessList.values.sum().roundToInt()
     },
-    Faith {
-        override fun isVisible(gameInfo: GameInfo) =
-            gameInfo.isReligionEnabled()
-    },
-
     WLTK {
         override val headerTip = "We Love The King Day"
         override val defaultSort get() = SortableGrid.SortDirection.Ascending

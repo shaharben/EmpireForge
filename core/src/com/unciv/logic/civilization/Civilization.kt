@@ -147,7 +147,6 @@ class Civilization : IsPartOfGameInfoSerialization {
     var policies = PolicyManager()
     var civConstructions = CivConstructions()
     var questManager = QuestManager()
-    var religionManager = ReligionManager()
     var goldenAges = GoldenAgeManager()
     var greatPeople = GreatPersonManager()
     var espionageManager = EspionageManager()
@@ -209,7 +208,6 @@ class Civilization : IsPartOfGameInfoSerialization {
     internal var numMinorCivsAttacked = 0
 
     var totalCultureForContests = 0
-    var totalFaithForContests = 0
 
     /**
      * The title for the Civilization's leader.
@@ -287,7 +285,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         toReturn.tech = tech.clone()
         toReturn.policies = policies.clone()
         toReturn.civConstructions = civConstructions.clone().also { it.setTransients(toReturn) }
-        toReturn.religionManager = religionManager.clone()
         toReturn.questManager = questManager.clone()
         toReturn.goldenAges = goldenAges.clone()
         toReturn.greatPeople = greatPeople.clone()
@@ -319,7 +316,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         toReturn.passableImpassables.addAll(passableImpassables)
         toReturn.numMinorCivsAttacked = numMinorCivsAttacked
         toReturn.totalCultureForContests = totalCultureForContests
-        toReturn.totalFaithForContests = totalFaithForContests
         toReturn.attacksSinceTurnStart = attacksSinceTurnStart.copy()
         toReturn.hasMovedAutomatedUnits = hasMovedAutomatedUnits
         toReturn.statsHistory = statsHistory.clone()
@@ -580,9 +576,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         yieldAll(temporaryUniques.getMatchingTagUniques(uniqueType, gameContext))
         yieldAll(getEra().getMatchingUniques(uniqueType, gameContext))
         yieldAll(cityStateFunctions.getUniquesProvidedByCityStates(uniqueType, gameContext))
-        if (religionManager.religion != null)
-            yieldAll(religionManager.religion!!.founderBeliefUniqueMap.getMatchingUniques(uniqueType, gameContext))
-
         yieldAll(civResourcesUniqueMap.getMatchingUniques(uniqueType, gameContext))
         yieldAll(gameInfo.getGlobalUniques().getMatchingUniques(uniqueType, gameContext))
     }
@@ -598,8 +591,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         // Cannont use getTriggeredUniques from uniqueMaps since we don't want to check conditionals yet
         yieldAll(nation.uniqueMap.getAllUniques())
         yieldAll(cities.asSequence().flatMap { city -> city.cityConstructions.builtBuildingUniqueMap.getAllUniques() })
-        if (religionManager.religion != null)
-            yieldAll(religionManager.religion!!.founderBeliefUniqueMap.getAllUniques())
         yieldAll(policies.policyUniques.getAllUniques())
         yieldAll(tech.techUniques.getAllUniques())
         yieldAll(getEra().uniqueMap.getAllUniques())
@@ -622,8 +613,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         if(!ignoreCities) yieldAll(cities.asSequence()
             .flatMap { city -> city.cityConstructions.builtBuildingUniqueMap.getAllUniques() }
         )
-        if (religionManager.religion != null)
-            yieldAll(religionManager.religion!!.founderBeliefUniqueMap.getAllUniques())
         yieldAll(policies.policyUniques.getAllUniques())
         yieldAll(tech.techUniques.getAllUniques())
         yieldAll(getEra().uniqueMap.getAllUniques())
@@ -868,7 +857,6 @@ class Civilization : IsPartOfGameInfoSerialization {
         civConstructions.setTransients(civInfo = this)
         policies.setTransients(this)
         questManager.setTransients(this)
-        religionManager.setTransients(this) // needs to be before tech, since tech setTransients looks at all uniques
         tech.setTransients(this)
         ruinsManager.setTransients(this)
         espionageManager.setTransients(this)
@@ -942,7 +930,7 @@ class Civilization : IsPartOfGameInfoSerialization {
     @Readonly
     fun hasStatToBuy(stat: Stat, price: Int): Boolean {
         return when {
-            gameInfo.gameParameters.godMode -> true
+            gameInfo.gameParameters.devMode -> true
             price == 0 -> true
             else -> getStatReserve(stat) >= price
         }
@@ -958,8 +946,6 @@ class Civilization : IsPartOfGameInfoSerialization {
                               if(amount > 0) totalCultureForContests += amount }
             Stat.Science -> tech.addScience(amount)
             Stat.Gold -> addGold(amount)
-            Stat.Faith -> { religionManager.storedFaith += amount
-                            if(amount > 0) totalFaithForContests += amount }
             else -> {}
             // Food and Production wouldn't make sense to be added nationwide
             // Happiness cannot be added as it is recalculated again, use a unique instead
@@ -973,8 +959,6 @@ class Civilization : IsPartOfGameInfoSerialization {
                 if (amount > 0) totalCultureForContests += amount }
             Stat.Science -> tech.addScience(amount)
             Stat.Gold -> addGold(amount)
-            Stat.Faith -> { religionManager.storedFaith += amount
-                if (amount > 0) totalFaithForContests += amount }
             SubStat.GoldenAgePoints -> goldenAges.addHappiness(amount)
             else -> {}
             // Food and Production wouldn't make sense to be added nationwide
@@ -1006,7 +990,6 @@ class Civilization : IsPartOfGameInfoSerialization {
                 else tech.researchOfTech(tech.currentTechnology()!!.name)
             }
             Stat.Gold -> gold
-            Stat.Faith -> religionManager.storedFaith
             Stat.Happiness -> stats.happiness
             else -> 0
         }

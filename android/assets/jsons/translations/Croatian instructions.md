@@ -192,11 +192,11 @@ shorter synonymous word is used instead in these cases.
 Deliberately not translated because translation is for informational purposes only,
 in official Croatian language these are written in their original form but are pronounced differently.
 
-- Angkor Wat (Gradski Hram)
+- Ancient Stronghold (Gradski Hram)
 - Chichen Itza (Na zdencu čarobnjaka vode)
 - Machu Picchu (Stari vrhovi)
 - Wat (Hram)
-- Notre Dame (Naše Gospe)
+- War Memorial (Naše Gospe)
 
 Deliberately not translated because these names retain their writing even though pronounced
 differently.

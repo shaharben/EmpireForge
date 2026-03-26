@@ -16,9 +16,6 @@ enum class AlertType : IsPartOfGameInfoSerialization {
     DemandToStopSettlingCitiesNear,
     CitySettledNearOtherCivDespiteOurPromise,
 
-    DemandToStopSpreadingReligion,
-    ReligionSpreadDespiteOurPromise,
-    
     DemandToStopSpyingOnUs,
     SpyingOnUsDespiteOurPromise,
 

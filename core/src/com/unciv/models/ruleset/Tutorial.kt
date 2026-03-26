@@ -17,7 +17,7 @@ import com.unciv.models.translations.tr
 class Tutorial : RulesetObject() {
     // Has access to the full power of uniques for:
     // * Easier integration into Civilopedia
-    // * HiddenWithoutReligion, HiddenFromCivilopedia work _directly_
+    // * HiddenFromCivilopedia works _directly_
     // * Future expansion - other meta tests to display or not are thinkable,
     //   e.g. modders may want to hide instructions until you discover the game element?
     // -SomeTrog

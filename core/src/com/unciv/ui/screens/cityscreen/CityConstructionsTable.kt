@@ -678,7 +678,6 @@ class CityConstructionsTable(private val cityScreen: CityScreen) {
             PerpetualConstruction.gold -> UncivSound.Coin
             PerpetualConstruction.science -> UncivSound.Paper
             PerpetualConstruction.culture -> UncivSound.Policy
-            PerpetualConstruction.faith -> UncivSound.Choir
             else -> UncivSound.Click
         }
     }

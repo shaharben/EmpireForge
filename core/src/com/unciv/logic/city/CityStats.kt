@@ -19,7 +19,6 @@ import yairm210.purity.annotations.InternalState
 import yairm210.purity.annotations.LocalState
 import yairm210.purity.annotations.Pure
 import yairm210.purity.annotations.Readonly
-import kotlin.math.min
 
 @InternalState
 class StatTreeNode {
@@ -279,13 +278,6 @@ class CityStats(val city: City) {
         }
 
 
-        for (unique in city.getMatchingUniques(UniqueType.StatPercentFromReligionFollowers))
-            addUniqueStats(unique, Stat.valueOf(unique.params[1]),
-                min(
-                    unique.params[0].toFloat() * city.religion.getFollowersOfMajorityReligion(),
-                    unique.params[2].toFloat()
-                ))
-
         if (currentConstruction is Building
             && city.civ.getCapital()?.cityConstructions?.isBuilt(currentConstruction.name) == true
         ) {
@@ -532,7 +524,6 @@ class CityStats(val city: City) {
             entry.gold *= statPercentBonusesSum.gold.toPercent()
             entry.culture *= statPercentBonusesSum.culture.toPercent()
             entry.food *= statPercentBonusesSum.food.toPercent()
-            entry.faith *= statPercentBonusesSum.faith.toPercent()
         }
 
         // AFTER we've gotten all the gold stats figured out, only THEN do we plonk that gold into Science

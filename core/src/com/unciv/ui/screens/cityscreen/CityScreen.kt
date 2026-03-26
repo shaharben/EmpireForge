@@ -92,7 +92,7 @@ class CityScreen(
     /** Displays raze city button - sits on TOP CENTER */
     private var razeCityButtonHolder = Table()
 
-    /** Displays city stats, population management, religion, built buildings info - TOP RIGHT */
+    /** Displays city stats, population management, built buildings info - TOP RIGHT */
     private var cityStatsTable = CityStatsTable(this)
 
     /** Displays tile info, alternate with selectedConstructionTable - sits on BOTTOM RIGHT */

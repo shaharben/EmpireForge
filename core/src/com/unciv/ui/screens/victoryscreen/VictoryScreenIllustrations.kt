@@ -248,15 +248,6 @@ class VictoryScreenIllustrations(
                     total += if (selectedCiv.shouldHideCivCount()) game.gameParameters.maxNumberOfPlayers - 1 else relevantCivs.size
                     relevantCivs.count { milestone.getMoreCountableThanOtherCivPercent(civ, it) > 100f }
                 }
-                MilestoneType.WorldReligion -> {
-                    total += game.civilizations.count { it.isMajorCiv() && it.isAlive() }
-                    val religion = civ.religionManager.religion?.takeUnless { it.isPantheon() }
-                    game.civilizations.count {
-                        religion != null &&
-                            it.isMajorCiv() && it.isAlive() && civ.knows(it) &&
-                            it.religionManager.isMajorityReligionForCiv(religion)
-                    }
-                }
                 MilestoneType.ScoreAfterTimeOut -> {
                     total += game.gameParameters.maxTurns
                     game.turns.coerceAtMost(game.gameParameters.maxTurns)

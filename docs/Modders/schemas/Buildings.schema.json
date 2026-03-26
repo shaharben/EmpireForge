@@ -49,10 +49,10 @@
         "title": "Happiness",
         "description": "Happiness provided by this building."
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "title": "Faith",
-        "description": "Faith yield provided by this building per turn."
+        "title": "Authority",
+        "description": "Authority yield provided by this building per turn."
       },
       "uniques": {
         "$ref": "refs/Uniques.schema.json",
@@ -103,7 +103,7 @@
       "hurryCostModifier": {
         "type": "number",
         "title": "Hurry Cost Modifier",
-        "description": "When this building is bought using gold or faith, the price is increased by this much percent."
+        "description": "When this building is bought using gold or authority, the price is increased by this much percent."
       },
       "isWonder": {
         "type": "boolean",

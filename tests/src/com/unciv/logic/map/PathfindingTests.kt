@@ -425,7 +425,7 @@ class PathfindingTests(
     fun getShortestPath_DoesNotAvoidAllies() {
         val otherCiv = testGame.addCiv()
         civInfo.diplomacyFunctions.makeCivilizationsMeet(otherCiv)
-        civInfo.getDiplomacyManager(otherCiv)!!.addModifier(DiplomaticModifiers.BelieveSameReligion, 100f)
+        civInfo.getDiplomacyManager(otherCiv)!!.addModifier(DiplomaticModifiers.ShareSameDoctrine, 100f)
         civInfo.getDiplomacyManager(otherCiv)!!.hasOpenBorders = true
         val city = testGame.addCity(otherCiv, testGame.tileMap[-5,-5])
         val baseUnit = testGame.createBaseUnit()

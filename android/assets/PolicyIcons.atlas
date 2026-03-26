@@ -46,7 +46,7 @@ PolicyBranchIcons/Patronage
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyBranchIcons/Piety
+PolicyBranchIcons/Discipline
   rotate: false
   xy: 990, 4
   size: 50, 50
@@ -172,7 +172,7 @@ PolicyIcons/Fascism
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyIcons/Free Religion
+PolicyIcons/Free Doctrine
   rotate: false
   xy: 410, 62
   size: 50, 50
@@ -214,7 +214,7 @@ PolicyIcons/Legalism
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyIcons/Mandate Of Heaven
+PolicyIcons/Mandate Of the People
   rotate: false
   xy: 642, 62
   size: 50, 50
@@ -284,7 +284,7 @@ PolicyIcons/Oligarchy
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyIcons/Organized Religion
+PolicyIcons/Organized Doctrine
   rotate: false
   xy: 932, 62
   size: 50, 50
@@ -333,7 +333,7 @@ PolicyIcons/Protectionism
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyIcons/Reformation
+PolicyIcons/Revolution
   rotate: false
   xy: 1222, 62
   size: 50, 50
@@ -389,7 +389,7 @@ PolicyIcons/Sovereignty
   orig: 50, 50
   offset: 0, 0
   index: -1
-PolicyIcons/Theocracy
+PolicyIcons/Centralism
   rotate: false
   xy: 1454, 62
   size: 50, 50

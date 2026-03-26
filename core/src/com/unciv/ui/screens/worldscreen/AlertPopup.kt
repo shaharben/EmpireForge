@@ -106,8 +106,6 @@ class AlertPopup(
             // demands
             AlertType.DemandToStopSettlingCitiesNear -> shouldOpen = addDemand(Demand.DoNotSettleNearUs)
             AlertType.CitySettledNearOtherCivDespiteOurPromise -> shouldOpen = addDemandViolationNoticed(Demand.DoNotSettleNearUs)
-            AlertType.DemandToStopSpreadingReligion -> shouldOpen = addDemand(Demand.DoNotSpreadReligion)
-            AlertType.ReligionSpreadDespiteOurPromise -> shouldOpen = addDemandViolationNoticed(Demand.DoNotSpreadReligion)
             AlertType.DemandToStopSpyingOnUs -> shouldOpen = addDemand(Demand.DontSpyOnUs)
             AlertType.SpyingOnUsDespiteOurPromise -> shouldOpen = addDemand(Demand.DontSpyOnUs)
             
@@ -572,7 +570,7 @@ class AlertPopup(
             }
             addGoodSizedLabel("The population will gradually dwindle until the city is destroyed.").row()
         } else {
-            addGoodSizedLabel("Original capitals and holy cities cannot be razed.").row()
+            addGoodSizedLabel("Original capitals cannot be razed.").row()
         }
     }
 

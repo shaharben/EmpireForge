@@ -18,7 +18,7 @@ BuildingIcons/Amphitheater
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Angkor Wat
+BuildingIcons/Ancient Stronghold
   rotate: false
   xy: 1392, 1936
   size: 100, 100
@@ -193,7 +193,7 @@ BuildingIcons/Courthouse
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Cristo Redentor
+BuildingIcons/Monument of Unity
   rotate: false
   xy: 536, 1426
   size: 100, 100
@@ -284,7 +284,7 @@ BuildingIcons/Great Wall
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Hagia Sophia
+BuildingIcons/Grand Citadel
   rotate: false
   xy: 838, 744
   size: 100, 100
@@ -536,7 +536,7 @@ BuildingIcons/Neuschwanstein
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Notre Dame
+BuildingIcons/War Memorial
   rotate: false
   xy: 1054, 852
   size: 100, 100
@@ -669,7 +669,7 @@ BuildingIcons/Shrine
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Sistine Chapel
+BuildingIcons/Hall of Commanders
   rotate: false
   xy: 1702, 964
   size: 100, 100
@@ -767,7 +767,7 @@ BuildingIcons/Temple
   orig: 100, 100
   offset: 0, 0
   index: -1
-BuildingIcons/Temple of Artemis
+BuildingIcons/Hunters' Lodge
   rotate: false
   xy: 1702, 424
   size: 100, 100
@@ -1166,14 +1166,14 @@ UnitActionIcons/DisbandUnit
   orig: 100, 100
   offset: 0, 0
   index: -1
-UnitActionIcons/EnhanceReligion
+UnitActionIcons/EnhanceDoctrine
   rotate: false
   xy: 514, 1102
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-UnitActionIcons/FoundReligion
+UnitActionIcons/FoundDoctrine
   rotate: false
   xy: 514, 1102
   size: 100, 100

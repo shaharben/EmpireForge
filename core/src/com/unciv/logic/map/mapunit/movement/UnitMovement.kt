@@ -532,7 +532,7 @@ class UnitMovement(val unit: MapUnit) {
             }
 
             // This fixes a bug where tiles in the fog of war would always only cost 1 mp
-            if (!unit.civ.gameInfo.gameParameters.godMode)
+            if (!unit.civ.gameInfo.gameParameters.devMode)
                 passingMovementSpent += MovementCost.getMovementCostBetweenAdjacentTiles(unit, previousTile, tile)
 
             // In case something goes wrong, cache the last tile we were able to end on

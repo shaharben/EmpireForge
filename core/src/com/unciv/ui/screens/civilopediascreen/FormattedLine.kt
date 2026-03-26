@@ -214,7 +214,7 @@ class FormattedLine (
             
             // order these with the categories that should take precedence in case of name conflicts (e.g. Railroad) _last_
             val allObjectMapsSequence = sequence {
-                yield(CivilopediaCategories.Belief to ruleSet.beliefs)
+                // Directive category not available
                 yield(CivilopediaCategories.Difficulty to ruleSet.difficulties)
                 yield(CivilopediaCategories.Promotion to ruleSet.unitPromotions)
                 yield(CivilopediaCategories.Policy to ruleSet.policies)

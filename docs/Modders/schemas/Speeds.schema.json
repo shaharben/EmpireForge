@@ -44,11 +44,11 @@
         "title": "Culture Cost Modifier",
         "description": "Scales culture costs."
       },
-      "faithCostModifier": {
+      "authorityCostModifier": {
         "type": "number",
         "minimum": 0,
-        "title": "Faith Cost Modifier",
-        "description": "Scales faith costs."
+        "title": "Authority Cost Modifier",
+        "description": "Scales authority costs."
       },
       "improvementBuildLengthModifier": {
         "type": "number",
@@ -85,8 +85,8 @@
         "type": "integer",
         "minimum": 0,
         "default": 6,
-        "title": "Religious Pressure Adjacent City",
-        "description": "Religious pressure exerted on nearby cities."
+        "title": "Strategic Pressure Adjacent City",
+        "description": "Strategic pressure exerted on nearby cities."
       },
       "peaceDealDuration": {
         "type": "integer",

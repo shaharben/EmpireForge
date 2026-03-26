@@ -127,7 +127,6 @@ object Fonts {
     const val science = '⍾'             // U+237E 'bell symbol' (🧪 U+1F9EA 'test tube', 🔬 U+1F52C 'microscope')
     const val culture = '♪'             // U+266A 'eighth note' (🎵 U+1F3B5 'musical note')
     const val happiness = '⌣'           // U+2323 'smile' (😀 U+1F600 'grinning face')
-    const val faith = '☮'               // U+262E 'peace symbol' (🕊 U+1F54A 'dove of peace')
     @Suppress("MemberVisibilityCanBePrivate") // offer for mods
     const val greatArtist = '♬'         // U+266C 'sixteenth note'
     @Suppress("MemberVisibilityCanBePrivate") // offer for mods
@@ -169,7 +168,6 @@ object Fonts {
         science to "EmojiIcons/Science",
         culture to "EmojiIcons/Culture",
         happiness to "EmojiIcons/Happiness",
-        faith to "EmojiIcons/Faith",
         greatArtist to "EmojiIcons/Great Artist",
         greatEngineer to "EmojiIcons/Great Engineer",
         greatGeneral to "EmojiIcons/Great General",

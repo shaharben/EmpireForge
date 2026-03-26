@@ -132,7 +132,6 @@ class ConstructionAutomation(val cityConstructions: CityConstructions) {
                     PerpetualConstruction.science.isBuildable(cityConstructions) && !allTechsAreResearched -> PerpetualConstruction.science
                     PerpetualConstruction.gold.isBuildable(cityConstructions) -> PerpetualConstruction.gold
                     PerpetualConstruction.culture.isBuildable(cityConstructions) && !civInfo.policies.allPoliciesAdopted(true) -> PerpetualConstruction.culture
-                    PerpetualConstruction.faith.isBuildable(cityConstructions) -> PerpetualConstruction.faith
                     else -> PerpetualConstruction.idle
                 }
             } else { relativeCostEffectiveness.maxBy { (it.choiceModifier / it.remainingWork.coerceAtLeast(1)).coerceAtLeast(0f) }.choice }
@@ -295,7 +294,7 @@ class ConstructionAutomation(val cityConstructions: CityConstructions) {
                 building.hasUnique(UniqueType.OneTimeGainPopulation) || building.hasUnique(UniqueType.OneTimeGainPopulationRandomCity) -> civInfo.getPersonality().food
                 building.hasUnique(UniqueType.StatPercentFromTradeRoutes) -> civInfo.getPersonality().gold
                 building.hasUnique(UniqueType.Strength) -> civInfo.getPersonality().military
-                building.hasUnique(UniqueType.StatPercentBonusCities) -> civInfo.getPersonality().culture // Sistine Chapel in base game, but players seem to "expect" culture civs to build more wonders in general
+                building.hasUnique(UniqueType.StatPercentBonusCities) -> civInfo.getPersonality().culture // Hall of Commanders in base game, but players seem to "expect" culture civs to build more wonders in general
                 else -> 0f
             }
         } else value += when {

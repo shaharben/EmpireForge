@@ -358,7 +358,7 @@ class BaseUnit : RulesetObject(), INonPerpetualConstruction {
             ?: return null  // couldn't place the unit, so there's actually no unit =(
 
         //movement penalty
-        if (boughtWith != null && !civInfo.gameInfo.gameParameters.godMode && !unit.hasUnique(UniqueType.CanMoveImmediatelyOnceBought))
+        if (boughtWith != null && !civInfo.gameInfo.gameParameters.devMode && !unit.hasUnique(UniqueType.CanMoveImmediatelyOnceBought))
             unit.currentMovement = 0f
 
         addConstructionBonuses(unit, cityConstructions)
@@ -441,7 +441,6 @@ class BaseUnit : RulesetObject(), INonPerpetualConstruction {
 
             "Nuclear Weapon" -> isNuclearWeapon()
             "Great Person" -> isGreatPerson
-            "Religious" -> hasUnique(UniqueType.ReligiousUnit)
 
             else -> {
                 if (filter == unitType) return true

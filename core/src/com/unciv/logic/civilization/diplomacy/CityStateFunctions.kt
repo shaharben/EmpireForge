@@ -66,8 +66,6 @@ class CityStateFunctions(val civInfo: Civilization) {
                 civInfo.cityStateUniqueUnit = possibleUnits.random().name
         }
 
-        // TODO: Return false if attempting to put a religious city-state in a game without religion
-
         return true
     }
 
@@ -124,9 +122,8 @@ class CityStateFunctions(val civInfo: Civilization) {
     /** Gain a random great person from the city state */
     fun giveGreatPersonToPatron(receivingCiv: Civilization) {
 
-        // Great Prophets can't be gotten from CS
-        val giftableUnits = civInfo.gameInfo.ruleset.units.values.filter { it.isGreatPerson
-                && !it.hasUnique(UniqueType.MayFoundReligion) }
+        // Great Strategists can't be gotten from CS
+        val giftableUnits = civInfo.gameInfo.ruleset.units.values.filter { it.isGreatPerson }
         if (giftableUnits.isEmpty()) // For badly defined mods that don't have great people but do have the policy that makes city states grant them
             return
         val giftedUnit = giftableUnits.random()

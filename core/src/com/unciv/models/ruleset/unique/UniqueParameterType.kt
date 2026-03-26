@@ -3,7 +3,6 @@ package com.unciv.models.ruleset.unique
 import com.unciv.Constants
 import com.unciv.logic.MultiFilter
 import com.unciv.models.metadata.BaseRuleset
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.RulesetCache
 import com.unciv.models.ruleset.tile.ResourceType
@@ -136,7 +135,7 @@ enum class UniqueParameterType(
     BaseUnitFilter("baseUnitFilter", "Melee") {
         override val staticKnownValues = setOf(
             "Melee", "Ranged", "Civilian", "Military", "non-air",
-            "Nuclear Weapon", "Great Person", "Religious",
+            "Nuclear Weapon", "Great Person",
             "relevant", // used for UniqueType.UnitStartingPromotions
         ) + Constants.all
 
@@ -201,14 +200,14 @@ enum class UniqueParameterType(
     },
 
     /** Many UniqueTypes like [UniqueType.StatPercentBonus] */
-    StatName("stat", "Culture", "This is one of the 7 major stats in the game - `Gold`, `Science`, `Production`, `Food`, `Happiness`, `Culture` and `Faith`. Note that the stat names need to be capitalized!",
+    StatName("stat", "Culture", "This is one of the 6 major stats in the game - `Gold`, `Science`, `Production`, `Food`, `Happiness` and `Culture`. Note that the stat names need to be capitalized!",
         severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
     ) {
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = Stat.names()
     },
 
     /** [UniqueType.DamageUnitsPlunder] and others near that one */
-    CivWideStatName("civWideStat", "Gold", "All the following stats have civ-wide fields: `Gold`, `Science`, `Culture`, `Faith`",
+    CivWideStatName("civWideStat", "Gold", "All the following stats have civ-wide fields: `Gold`, `Science`, `Culture`",
         severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
     ) {
         override val staticKnownValues = Stat.statsWithCivWideField.map { it.name }.toSet()
@@ -257,8 +256,6 @@ enum class UniqueParameterType(
             "in all cities with a world wonder",
             "in all cities connected to capital",
             "in all cities with a garrison", "Garrisoned",
-            "in all cities in which the majority religion is a major religion",
-            "in all cities in which the majority religion is an enhanced religion",
             "in non-enemy foreign cities",
             "in enemy cities", "Enemy",
             "in foreign cities", "Foreign",
@@ -266,10 +263,7 @@ enum class UniqueParameterType(
             "in puppeted cities", "Puppeted",
             "in resisting cities", "Resisting",
             "in cities being razed", "Razing",
-            "in holy cities", "Holy",
             "in City-State cities",
-            "in cities following this religion",
-            "in cities following our religion",
         ) + Constants.all
 
         override fun getErrorSeverity(parameterText: String, ruleset: Ruleset) = getErrorSeverityForFilter(parameterText, ruleset)
@@ -305,10 +299,10 @@ enum class UniqueParameterType(
     },
 
     /** Implemented by [PopulationManager.getPopulationFilterAmount][com.unciv.logic.city.managers.CityPopulationManager.getPopulationFilterAmount] */
-    PopulationFilter("populationFilter", "Followers of this Religion", null, "Population Filters",
+    PopulationFilter("populationFilter", "Population", null, "Population Filters",
         severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
     ) {
-        override val staticKnownValues = setOf("Population", "Specialists", "Unemployed", "Followers of the Majority Religion", "Followers of this Religion")
+        override val staticKnownValues = setOf("Population", "Specialists", "Unemployed")
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset): Set<String> =
             staticKnownValues + ruleset.specialists.keys
     },
@@ -502,38 +496,6 @@ enum class UniqueParameterType(
             staticKnownValues + ruleset.tileResources.keys + ResourceType.entries.map { it.name } + Stat.names()
     },
 
-    /** Used by [UniqueType.FreeExtraBeliefs], see ReligionManager.getBeliefsToChooseAt* functions */
-    BeliefTypeName("beliefType", "Follower", "'Pantheon', 'Follower', 'Founder' or 'Enhancer'",
-        severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
-    ) {
-        override val staticKnownValues = BeliefType.entries.map { it.name }.toSet()
-    },
-
-    /** unused at the moment with vanilla rulesets */
-    Belief("belief", "God of War", "The name of any belief") {
-        override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = ruleset.beliefs.keys
-    },
-    
-    /**Used by [UniqueType.ConditionalCityReligion]*/
-    ReligionFilter("religionFilter", "major") {
-        override val staticKnownValues = setOf("any", "major", "enhanced", "your", "foreign", "enemy")
-        override fun isKnownValue(parameterText: String, ruleset: Ruleset): Boolean {
-            return when (parameterText) {
-                in staticKnownValues -> true
-                in ruleset.religions -> true
-                in ruleset.beliefs -> true
-                else -> ruleset.beliefs.values.any { it.hasTagUnique(parameterText) }
-            }
-        }
-    },
-
-    /** Used by [UniqueType.FreeExtraBeliefs] and its any variant, see ReligionManager.getBeliefsToChooseAt* functions */
-    FoundingOrEnhancing("foundingOrEnhancing", "founding", "`founding` or `enhancing`", "Prophet Action Filters",
-        severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
-    ) {
-        override val staticKnownValues = setOf("founding", "enhancing")
-    },
-
     /** [UniqueType.ConditionalTech] and others, no central implementation */
     Event("event", "Inspiration", "The name of any event") {
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = ruleset.events.keys
@@ -565,7 +527,7 @@ enum class UniqueParameterType(
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = ruleset.specialists.keys
     },
 
-    /** [UniqueType.ConditionalAfterPolicyOrBelief] and others, no central implementation */
+    /** [UniqueType.ConditionalAfterPolicyOrDoctrine] and others, no central implementation */
     Policy("policy", "Oligarchy", "The name of any policy") {
         override fun getKnownValuesForAutocomplete(ruleset: Ruleset) = ruleset.policies.keys
     },
@@ -611,7 +573,7 @@ enum class UniqueParameterType(
         }
     },
 
-    /** Used by [UniqueType.KillUnitPlunder] and [UniqueType.KillUnitPlunderNearCity], implementation in [Battle.tryEarnFromKilling][com.unciv.logic.battle.Battle.tryEarnFromKilling] */
+    /** Used by [UniqueType.KillUnitPlunder], implementation in [Battle.tryEarnFromKilling][com.unciv.logic.battle.Battle.tryEarnFromKilling] */
     CostOrStrength("costOrStrength", "Cost", "`Cost` or `Strength`",
         severityDefault = UniqueType.UniqueParameterErrorSeverity.RulesetInvariant
     ) {

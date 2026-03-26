@@ -18,7 +18,6 @@ class Speed : RulesetObject() {
     var productionCostModifier: Float = modifier
     var scienceCostModifier: Float = modifier
     var cultureCostModifier: Float = modifier
-    var faithCostModifier: Float = modifier
     var goldGiftModifier: Float = modifier
     var cityStateTributeScalingInterval: Float = 6.5f
     var barbarianModifier: Float = modifier
@@ -73,7 +72,6 @@ class Speed : RulesetObject() {
                 Stat.Production -> productionCostModifier
                 Stat.Gold -> goldCostModifier
                 Stat.Science -> scienceCostModifier
-                Stat.Faith -> faithCostModifier
                 Stat.Culture -> cultureCostModifier
                 else -> 1f
             }
@@ -99,14 +97,12 @@ class Speed : RulesetObject() {
         yield(FormattedLine("Gold cost modifier: [${goldCostModifier * 100}]%${Fonts.gold}"))
         yield(FormattedLine("Science cost modifier: [${scienceCostModifier * 100}]%${Fonts.science}"))
         yield(FormattedLine("Culture cost modifier: [${cultureCostModifier * 100}]%${Fonts.culture}"))
-        yield(FormattedLine("Faith cost modifier: [${faithCostModifier * 100}]%${Fonts.faith}"))
         yield(FormattedLine("Improvement build length modifier: [${improvementBuildLengthModifier * 100}]%${Fonts.turn}"))
         yield(FormattedLine("Diplomatic deal duration: [$dealDuration] turns${Fonts.turn}"))
         yield(FormattedLine("Gold gift influence gain modifier: [${goldGiftModifier * 100}]%${Fonts.gold}"))
         yield(FormattedLine("City-state tribute scaling interval: [${cityStateTributeScalingInterval}] turns${Fonts.turn}"))
         yield(FormattedLine("Barbarian spawn modifier: [${barbarianModifier * 100}]%${Fonts.strength}"))
         yield(FormattedLine("Golden age length modifier: [${goldenAgeLengthModifier * 100}]%${Fonts.happiness}"))
-        yield(FormattedLine("Adjacent city religious pressure: [$religiousPressureAdjacentCity]${Fonts.faith}"))
         yield(FormattedLine("Peace deal duration: [$peaceDealDuration] turns${Fonts.turn}"))
         yield(FormattedLine("Start year: [" + ("{[${abs(startYear).toInt()}] " + (if (startYear < 0) "BC" else "AD") + "}]").tr()))
         yieldAll(uniquesToCivilopediaTextLines())

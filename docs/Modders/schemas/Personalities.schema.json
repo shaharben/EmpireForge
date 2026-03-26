@@ -61,10 +61,10 @@
         "minimum": 0,
         "default": 5
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "description": "Amount of focus on the stat the computer player will have on faith. Typically ranges from 0 (no focus) to 10 (double focus)",
-        "title": "Faith",
+        "description": "Amount of focus on the stat the computer player will have on authority. Typically ranges from 0 (no focus) to 10 (double focus)",
+        "title": "Authority",
         "minimum": 0,
         "default": 5
       },

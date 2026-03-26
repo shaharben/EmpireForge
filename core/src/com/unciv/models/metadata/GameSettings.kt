@@ -352,7 +352,6 @@ class GameSettings {
         var autoPlayEconomy: Boolean = true
         var autoPlayTechnology: Boolean = true
         var autoPlayPolicies: Boolean = true
-        var autoPlayReligion: Boolean = true
         var autoPlayDiplomacy: Boolean = true
     }
 

@@ -20,7 +20,6 @@ enum class PersonalityValue {
     Science,
     Culture,
     Happiness,
-    Faith,
     // Behaviour focused personalities
     Military, // Building a military but not nessesarily using it
     Aggressive, // How they use units agressively or defensively in wars, our their priority on war related buildings
@@ -40,7 +39,6 @@ enum class PersonalityValue {
                 Stat.Science -> Science
                 Stat.Culture -> Culture
                 Stat.Happiness -> Happiness
-                Stat.Faith -> Faith
             }
         }
     }
@@ -53,7 +51,6 @@ class Personality: RulesetObject() {
     var science: Float = 5f
     var culture: Float = 5f
     var happiness: Float = 5f
-    var faith: Float = 5f
 
     var military: Float = 5f
     var aggressive: Float = 5f
@@ -76,7 +73,6 @@ class Personality: RulesetObject() {
             PersonalityValue.Science -> ::science
             PersonalityValue.Culture -> ::culture
             PersonalityValue.Happiness -> ::happiness
-            PersonalityValue.Faith -> ::faith
             PersonalityValue.Military -> ::military
             PersonalityValue.Aggressive -> ::aggressive
             PersonalityValue.DeclareWar -> ::declareWar

@@ -22,7 +22,6 @@ class VictoryProgressPanel(private val worldScreen: WorldScreen) : Table() {
     private val cultureColor = Color(0.82f, 0.37f, 0.82f, 1f)
     private val dominationColor = Color(0.91f, 0.3f, 0.24f, 1f)
     private val diplomaticColor = Color(0.4f, 0.7f, 0.9f, 1f)
-    private val faithColor = Color(0.95f, 0.85f, 0.3f, 1f)
     private val defaultColor = Color(0.85f, 0.65f, 0.13f, 1f)
     private val headerColor = Color(0.85f, 0.65f, 0.13f, 1f)
 
@@ -138,17 +137,6 @@ class VictoryProgressPanel(private val worldScreen: WorldScreen) : Table() {
                 val maxTurns = civInfo.gameInfo.gameParameters.maxTurns
                 Triple("  Turns", currentTurn, maxTurns)
             }
-            MilestoneType.WorldReligion -> {
-                val totalMajorAlive = civInfo.gameInfo.civilizations.count { it.isMajorCiv() && it.isAlive() }
-                val religion = civInfo.religionManager.religion
-                val converted = if (religion != null) {
-                    civInfo.gameInfo.civilizations.count {
-                        it.isMajorCiv() && it.isAlive() &&
-                            it.religionManager.isMajorityReligionForCiv(religion)
-                    }
-                } else 0
-                Triple("  Majority Religion", converted, totalMajorAlive)
-            }
             MilestoneType.BuiltBuilding, MilestoneType.BuildingBuiltGlobally -> {
                 val built = if (civInfo.cities.any { it.cityConstructions.isBuilt(milestone.params[0]) }) 1 else 0
                 Triple("  ${milestone.params[0]}", built, 1)
@@ -174,7 +162,6 @@ class VictoryProgressPanel(private val worldScreen: WorldScreen) : Table() {
             Victory.Focus.Culture -> cultureColor
             Victory.Focus.Military -> dominationColor
             Victory.Focus.CityStates -> diplomaticColor
-            Victory.Focus.Faith -> faithColor
             Victory.Focus.Production -> scienceColor
             Victory.Focus.Gold -> defaultColor
             Victory.Focus.Score -> defaultColor

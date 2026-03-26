@@ -18,7 +18,6 @@ import com.unciv.ui.components.tilegroups.TileGroup
 import com.unciv.ui.images.ImageGetter
 import com.unciv.ui.popups.Popup
 import com.unciv.ui.screens.basescreen.BaseScreen
-import com.unciv.ui.screens.cityscreen.CityReligionInfoTable
 import com.unciv.ui.screens.cityscreen.CityScreen
 import com.unciv.ui.screens.diplomacyscreen.DiplomacyScreen
 import com.unciv.utils.DebugUtils
@@ -76,7 +75,7 @@ class CityButton(val city: City, private val tileGroup: TileGroup) : Table(BaseS
         // Add City strength table
         add(DefenceTable(city, selectedPlayer)).row()
 
-        // Add City main table: pop, name, religion, construction, nation icon
+        // Add City main table: pop, name, construction, nation icon
         cityTable = CityTable(city, viewingPlayer)
         add(cityTable).row()
 
@@ -234,14 +233,11 @@ class CityButton(val city: City, private val tileGroup: TileGroup) : Table(BaseS
         val espionageVisible = city.civ.gameInfo.isEspionageEnabled()
                 && viewingPlayer.espionageManager.getSpyAssignedToCity(city)?.isSetUp() == true
 
-        // If there's nothing to display cuz no Religion - skip popup
-        if (!city.civ.gameInfo.isReligionEnabled() && !espionageVisible) return openDiplomacy()
+        if (!espionageVisible) return openDiplomacy()
 
         val popup = Popup(GUI.getWorldScreen()).apply {
             name = "ForeignCityInfoPopup"
             add(CityTable(city, viewingPlayer, true)).fillX().padBottom(5f).colspan(3).row()
-            if (city.civ.gameInfo.isReligionEnabled())
-                add(CityReligionInfoTable(city.religion, true)).colspan(3).row()
             addOKButton("Diplomacy") { openDiplomacy() }
             if (espionageVisible) addButton("View") { GUI.pushScreen(CityScreen(city)) }
             add().expandX()

@@ -36,19 +36,12 @@ open class UnitAction(
             UnitActionType.CreateImprovement -> {
                 ImageGetter.getImprovementPortrait(title.getPlaceholderParameters()[0], size)
             }
-            UnitActionType.SpreadReligion -> {
-                val religionName = title.getPlaceholderParameters()[0]
-                ImageGetter.getReligionPortrait(
-                    if (ImageGetter.religionIconExists(religionName)) religionName
-                    else "Pantheon", size
-                )
-            }
             UnitActionType.TriggerUnique -> {
                 when (associatedUnique?.type) {
                     UniqueType.OneTimeEnterGoldenAge, UniqueType.OneTimeEnterGoldenAgeTurns -> ImageGetter.getUnitActionPortrait("StartGoldenAge", size)
                     UniqueType.GainFreeBuildings, UniqueType.RemoveBuilding, UniqueType.OneTimeSellBuilding, UniqueType.OneTimeFreeUnit, UniqueType.FreeSpecificBuildings -> ImageGetter.getConstructionPortrait(associatedUnique.params[0], size)
                     UniqueType.OneTimeAmountFreeUnits -> ImageGetter.getConstructionPortrait(associatedUnique.params[1], size)
-                    UniqueType.OneTimeFreePolicy, UniqueType.OneTimeAmountFreePolicies, UniqueType.OneTimeAdoptPolicyOrBelief, UniqueType.OneTimeRemovePolicy, UniqueType.OneTimeRemovePolicyRefund -> ImageGetter.getUnitActionPortrait("HurryPolicy", size)
+                    UniqueType.OneTimeFreePolicy, UniqueType.OneTimeAmountFreePolicies, UniqueType.OneTimeRemovePolicy, UniqueType.OneTimeRemovePolicyRefund -> ImageGetter.getUnitActionPortrait("HurryPolicy", size)
                     UniqueType.OneTimeRevealEntireMap, UniqueType.OneTimeRevealSpecificMapTiles, UniqueType.OneTimeRevealCrudeMap -> ImageGetter.getUnitActionPortrait("Explore", size)
                     UniqueType.OneTimeConsumeResources, UniqueType.OneTimeProvideResources, UniqueType.OneTimeGainResource -> ImageGetter.getResourcePortrait(associatedUnique.params[1], size)
                     UniqueType.OneTimeChangeTerrain -> ImageGetter.getUnitActionPortrait("Transform", size)
@@ -60,7 +53,6 @@ open class UnitAction(
                     UniqueType.OneTimeUnitGainXP, UniqueType.OneTimeSpiesLevelUp -> ImageGetter.getUnitActionPortrait("Promote", size)
                     UniqueType.OneTimeUnitUpgrade, UniqueType.OneTimeUnitSpecialUpgrade -> ImageGetter.getUnitActionPortrait("Upgrade", size)
                     UniqueType.UnitsGainPromotion, UniqueType.OneTimeUnitGainPromotion, UniqueType.OneTimeUnitRemovePromotion, UniqueType.OneTimeUnitGainStatus, UniqueType.OneTimeUnitLoseStatus -> ImageGetter.getPromotionPortrait(associatedUnique.params[1], size)
-                    UniqueType.OneTimeFreeBelief, UniqueType.OneTimeGainPantheon, UniqueType.OneTimeGainProphet -> ImageGetter.getUnitActionPortrait("EnhanceReligion", size)
                     UniqueType.OneTimeUnitDamage -> ImageGetter.getUnitActionPortrait("Pillage", size)
                     UniqueType.FreeStatBuildings -> ImageGetter.getUnitActionPortrait("HurryConstruction", size)
                     UniqueType.TriggerEvent -> ImageGetter.getUniquePortrait(associatedUnique.params[0], size)
@@ -202,16 +194,8 @@ enum class UnitActionType(
         { ImageGetter.getUnitActionPortrait("HurryConstruction") }, UncivSound.Chimes),
     ConductTradeMission("{Conduct Trade Mission} (${Fonts.death})",
         { ImageGetter.getUnitActionPortrait("ConductTradeMission") }, UncivSound.Chimes),
-    FoundReligion("Found a Religion",
-        { ImageGetter.getUnitActionPortrait("FoundReligion") }, UncivSound.Choir),
     TriggerUnique("Trigger unique",
         null, false, UncivSound.Chimes),
-    SpreadReligion("Spread [religionName]",
-        null, UncivSound.Choir),
-    RemoveHeresy("Remove Heresy",
-        { ImageGetter.getUnitActionPortrait("RemoveHeresy") }, UncivSound.Fire),
-    EnhanceReligion("Enhance a Religion",
-        { ImageGetter.getUnitActionPortrait("EnhanceReligion") }, UncivSound.Choir),
     DisbandUnit("Disband unit",
         { ImageGetter.getUnitActionPortrait("DisbandUnit") }, false, defaultPage = 1),
     GiftUnit("Gift unit",

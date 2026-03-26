@@ -43,7 +43,7 @@
 				"name": "Mining",
 				"row": 9,
 				"prerequisites": ["Agriculture"],
-				"quote": "'The old mines collapsed in the quakes, but the ore is still down there. We just have to dig deeper and pray the tunnels hold.' - The Engineer"
+				"quote": "'The old mines collapsed in the quakes, but the ore is still down there. We just have to dig deeper and hope the tunnels hold.' - The Engineer"
 			}
 
 		]
@@ -156,7 +156,7 @@
 		"wonderCost": 300,
 		"techs": [
 			{
-				"name": "Theology",
+				"name": "Strategy",
 				"row": 2,
 				"prerequisites": ["Calendar", "Philosophy"],
 				"quote": "'People needed something to hold onto after the Fall. Not just survival - purpose. Hope is the one resource that never runs out.' - Old Marcus"
@@ -206,7 +206,7 @@
 			{
 				"name": "Education",
 				"row": 3,
-				"prerequisites": ["Theology","Civil Service"],
+				"prerequisites": ["Strategy","Civil Service"],
 				"uniques": ["Enables conversion of city production to [Science]"],
 				"quote": "'The children born after the Fall have never seen the old world. If we do not teach them what was lost, they will never know what can be rebuilt.' - Professor Hale"
 			},

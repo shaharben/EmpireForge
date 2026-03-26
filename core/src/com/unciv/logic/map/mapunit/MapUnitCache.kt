@@ -117,7 +117,6 @@ class MapUnitCache(private val mapUnit: MapUnit) {
         hasUniqueToCreateWaterImprovements = mapUnit.hasUnique(UniqueType.CreateWaterImprovements)
 
         canEnterForeignTerrain = mapUnit.hasUnique(UniqueType.CanEnterForeignTiles)
-                || mapUnit.hasUnique(UniqueType.CanEnterForeignTilesButLosesReligiousStrength)
 
         canEnterCityStates = mapUnit.hasUnique(UniqueType.CanTradeWithCityStateForGoldAndInfluence)
 
@@ -141,7 +140,6 @@ class MapUnitCache(private val mapUnit: MapUnit) {
             UniqueType.ReducedEmbarkCost,
             UniqueType.CanEnterIceTiles,
             UniqueType.CanEnterForeignTiles,
-            UniqueType.CanEnterForeignTilesButLosesReligiousStrength,
             // Special - applied in Nation and not here, wshould be moved to mapunitcache as well
             UniqueType.ForestsAndJunglesAreRoads,
             UniqueType.IgnoreHillMovementCost,

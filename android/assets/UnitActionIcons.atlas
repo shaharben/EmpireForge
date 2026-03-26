@@ -158,14 +158,14 @@ UnitActionIcons/HurryConstruction
   orig: 100, 100
   offset: 0, 0
   index: -1
-UnitActionIcons/FoundReligion
+UnitActionIcons/FoundDoctrine
   rotate: false
   xy: 300, 100
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-UnitActionIcons/EnhanceReligion
+UnitActionIcons/EnhanceDoctrine
   rotate: false
   xy: 400, 100
   size: 100, 100

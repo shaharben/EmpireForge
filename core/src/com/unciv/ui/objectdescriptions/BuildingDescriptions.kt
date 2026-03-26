@@ -1,7 +1,6 @@
 package com.unciv.ui.objectdescriptions
 
 import com.unciv.logic.city.City
-import com.unciv.models.ruleset.Belief
 import com.unciv.models.ruleset.Building
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.unique.Unique
@@ -261,7 +260,6 @@ object BuildingDescriptions {
                 || seeAlsoBuilding.uniqueObjects.any { unique -> unique.params.any { it == name } })
                 seeAlso += FormattedLine(seeAlsoBuilding.name, link = seeAlsoBuilding.makeLink(), indent=1)
         }
-        seeAlso += Belief.getCivilopediaTextMatching(name, ruleset, false)
         if (seeAlso.isNotEmpty()) {
             textList += FormattedLine()
             textList += FormattedLine("{See also}:")

@@ -4,7 +4,6 @@ import com.unciv.logic.civilization.Civilization
 import com.unciv.logic.civilization.diplomacy.DiplomacyTurnManager.nextTurn
 import com.unciv.logic.map.HexCoord
 import com.unciv.logic.map.tile.Tile
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.testing.GdxTestRunner
 import com.unciv.testing.TestGame
 import org.junit.Assert.assertEquals
@@ -290,32 +289,6 @@ class DiplomacyManagerTests {
     }
 
     @Test
-    fun `should degrade influence in city state when sharing religion on next turn`() {
-        // given
-        val cityState = addCiv(cityStateType = "Mercantile")
-        cityState.cityStatePersonality = CityStatePersonality.Neutral
-
-        meet(a, cityState)
-
-        // to spread religion, need cities
-        testGame.addCity(a, testGame.getTile(HexCoord.Zero))
-        val cityStateCapital = testGame.addCity(cityState, testGame.getTile(HexCoord(1,0)), initialPopulation = 2)
-
-        val religion = testGame.addReligion(a)
-        val belief = testGame.createBelief(BeliefType.Founder, "[+1 Food] from every [Shrine]")
-        religion.addBeliefs(listOf(belief))
-        cityStateCapital.religion.addPressure(religion.name, 1000)
-
-        cityState.getDiplomacyManager(a)!!.addInfluence(30f)
-
-        // when
-        cityState.getDiplomacyManager(a)!!.nextTurn()
-
-        // then
-        assertEquals(29.25f, cityState.getDiplomacyManager(a)!!.getInfluence())
-    }
-
-    @Test
     fun `should increase influence in city state when under resting points`() {
         // given
         val cityState = addCiv(cityStateType = "Mercantile")
@@ -329,31 +302,6 @@ class DiplomacyManagerTests {
 
         // then
         assertEquals(-29f, cityState.getDiplomacyManager(a)!!.getInfluence())
-    }
-
-    @Test
-    fun `should increase influence in city state when under resting points and sharing religion`() {
-        // given
-        val cityState = addCiv(cityStateType = "Mercantile")
-        cityState.cityStatePersonality = CityStatePersonality.Neutral
-        meet(a, cityState)
-
-        // to spread religion, need cities
-        testGame.addCity(a, testGame.getTile(HexCoord.Zero))
-        val cityStateCapital = testGame.addCity(cityState, testGame.getTile(HexCoord(1,0)), initialPopulation = 2)
-
-        val religion = testGame.addReligion(a)
-        val belief = testGame.createBelief(BeliefType.Founder, "[+1 Food] from every [Shrine]")
-        religion.addBeliefs(listOf(belief))
-        cityStateCapital.religion.addPressure(religion.name, 1000)
-
-        cityState.getDiplomacyManager(a)!!.addInfluence(-30f)
-
-        // when
-        cityState.getDiplomacyManager(a)!!.nextTurn()
-
-        // then
-        assertEquals(-28.5f, cityState.getDiplomacyManager(a)!!.getInfluence())
     }
 
     @Test

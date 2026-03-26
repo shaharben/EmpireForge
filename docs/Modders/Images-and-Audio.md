@@ -129,7 +129,7 @@ Note textures provided for such codepoints *do* respect aspect ratio, they do *n
 |   ⛏    |  U+26CF   | pick                               | EmojiIcons/Automate         |          |
 |   ♪    |  U+266A   | eighth note                        | EmojiIcons/Culture          |          |
 |   ☠    |  U+2620   | skull and crossbones               | EmojiIcons/Death            |          |
-|   ☮    |  U+262E   | peace symbol                       | EmojiIcons/Faith            |          |
+|   ☮    |  U+262E   | peace symbol                       | EmojiIcons/Authority       |          |
 |   ⁂    |  U+2042   | asterism                           | EmojiIcons/Food             |          |
 |   ¤    |  U+00A4   | currency sign                      | EmojiIcons/Gold             |          |
 |   ♬    |  U+266C   | sixteenth note                     | EmojiIcons/Great Artist     |          |
@@ -179,7 +179,7 @@ Note textures provided for such codepoints *do* respect aspect ratio, they do *n
 
 You can add wonder images to mods and they'll be displayed instead of the standard icon when a wonder is finished. The image needs to be a .png and 2:1 ratio so for example 200x100 px.
 
-Add the images to `/Images/WonderImages/`. They need to be named according to the name field in `Buildings.json`, so for example "Temple of Artemis.png" or "Stonehenge.png"
+Add the images to `/Images/WonderImages/`. They need to be named according to the name field in `Buildings.json`, so for example "War College of Artemis.png" or "Stonehenge.png"
 
 Remember, to be compatible with mobile devices, a fresh atlas needs to be generated including these.
 
@@ -193,7 +193,7 @@ For example, [here](https://github.com/yairm210/Unciv-leader-portrait-mod-exampl
 
 ### Adding Portraits
 
-The base game uses flat icons, surrounded with colored circles as backgrounds (e.g. for units to fit the civilization's flag colors), to denote entities such as: units, buildings, techs, resources, improvements, religions, promotions, uniques, unit actions and nations in the UI. A mod can supply "Portraits" - static images that will remain uncolored - by adding images to `/Images/<entityType>Portraits/` (e.g. `/Images/BuildingPortraits/`, `/Images/ResourcePortraits/`, etc), which will be used in all UI elements (except for unit icons in the world map). The file name must correspond exactly with the unit/building/tech/resource/etc name  defined in corresponding JSONs (e.g. Units.json, Buildings.json, TileResources.json, etc) or have the same name as the file they suppose to replace, or they will be ignored.
+The base game uses flat icons, surrounded with colored circles as backgrounds (e.g. for units to fit the civilization's flag colors), to denote entities such as: units, buildings, techs, resources, improvements, doctrines, promotions, uniques, unit actions and nations in the UI. A mod can supply "Portraits" - static images that will remain uncolored - by adding images to `/Images/<entityType>Portraits/` (e.g. `/Images/BuildingPortraits/`, `/Images/ResourcePortraits/`, etc), which will be used in all UI elements (except for unit icons in the world map). The file name must correspond exactly with the unit/building/tech/resource/etc name  defined in corresponding JSONs (e.g. Units.json, Buildings.json, TileResources.json, etc) or have the same name as the file they suppose to replace, or they will be ignored.
 
 If mod supplies '/Images/<entityType>Portraits/Background.png' images, they will be used as a background for corresponding portraits instead of default circle. Portraits and backgrounds work best if they are full RGB square, between 100x100 and 256x256 pixels, and include some transparent border within that area.
 
@@ -209,7 +209,7 @@ Available `<entityType>Portraits/` include:
 * UnitPromotionPortraits
 * UniquePortraits
 * NationPortraits
-* ReligionPortraits
+* DoctrinePortraits
 * UnitActionPortraits
 
 ### Adding icons for Unit Types
@@ -217,10 +217,10 @@ Available `<entityType>Portraits/` include:
 The Unit Types as defined in [UnitTypes.json](Mod-file-structure/4-Unit-related-JSON-files.md#unittypesjson) have no icons in the base game, but Civilopedia can decorate their entries if you supply images named 'Images/UnitTypeIcons/<UnitType>.png'.
 (while you're at it, you may override the default icon for the Unit Type _category header_ - it's 'UnitTypes.png' in the same folder, or the icons used for the movement domains - 'DomainLand', 'DomainWater', 'DomainAir')
 
-### Adding icons for Beliefs
+### Adding icons for Directives
 
-The individual Beliefs - as opposed to Belief types, as defined in [Beliefs.json](Mod-file-structure/2-Civilization-related-JSON-files.md#beliefsjson) have no icons in the base game, but Civilopedia can decorate their entries if you supply images named 'Images/ReligionIcons/<Belief>.png'.
-Civilopedia falls back to the icon for the Belief type - as you can see in the base game, but individual icons have precedence if they exist.
+The individual Directives - as opposed to Directive types, as defined in [Directives.json](Mod-file-structure/2-Civilization-related-JSON-files.md#directivesjson) have no icons in the base game, but Civilopedia can decorate their entries if you supply images named 'Images/DoctrineIcons/<Directive>.png'.
+Civilopedia falls back to the icon for the Directive type - as you can see in the base game, but individual icons have precedence if they exist.
 
 ### Adding Victory illustrations
 

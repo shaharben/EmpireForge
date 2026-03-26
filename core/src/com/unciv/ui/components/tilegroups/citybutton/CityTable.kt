@@ -32,7 +32,7 @@ import com.unciv.utils.DebugUtils
  *  - pop growth bar (vertical)*
  *  - capital indicator icon
  *  - name
- *  - religion icon (unless [forPopup] is `true`)
+ *
  *  - construction turns to completion* ('∞' for perpetual constructions, "-" for idle)
  *  - construction progress bar* (showing 0% for perpetual constructions)
  *  - construction icon* (perpetual ones show empty space instead)
@@ -148,15 +148,6 @@ internal class CityTable(
 
         val cityName = city.name.toLabel(fontColor = textColor, alignment = Align.center, hideIcons = true)
         table.add(cityName).growY().center().padTopDescent()
-
-        if (!forPopup) {
-            val cityReligion = city.religion.getMajorityReligion()
-            if (cityReligion != null) {
-                val religionImage = ImageGetter.getReligionIcon(cityReligion.getIconName()).apply {
-                    color = textColor }.toGroup(20f)
-                table.add(religionImage).size(20f).padLeft(5f)
-            }
-        }
 
         table.pack()
         add(table)

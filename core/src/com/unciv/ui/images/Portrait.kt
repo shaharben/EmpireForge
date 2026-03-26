@@ -41,7 +41,6 @@ open class Portrait(val type: Type, val imageName: String, val size: Float, val 
         Promotion("UnitPromotion"),
         Unique("Unique"),
         Nation("Nation"),
-        Religion("Religion"),
         UnitAction("UnitAction")
     }
 
@@ -197,10 +196,6 @@ class PortraitUnavailableWonderForTechTree(name: String, size: Float) : Portrait
 }
 
 class PortraitUnique(name: String, size: Float) : Portrait(Type.Unique, name, size) {
-    override fun getDefaultImageTint(): Color = ImageGetter.CHARCOAL
-}
-
-class PortraitReligion(name: String, size: Float) : Portrait(Type.Religion, name, size) {
     override fun getDefaultImageTint(): Color = ImageGetter.CHARCOAL
 }
 

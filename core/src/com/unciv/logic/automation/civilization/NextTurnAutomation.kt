@@ -52,10 +52,6 @@ object NextTurnAutomation {
                 DiplomacyAutomation.askForHelp(civInfo)
                 DiplomacyAutomation.offerDeclarationOfFriendship(civInfo)
             }
-            if (civInfo.gameInfo.isReligionEnabled()) {
-                ReligionAutomation.spendFaithOnReligion(civInfo)
-            }
-
             DiplomacyAutomation.denounce(civInfo)
             DiplomacyAutomation.offerToEstablishEmbassy(civInfo)
             DiplomacyAutomation.offerOpenBorders(civInfo)
@@ -81,10 +77,6 @@ object NextTurnAutomation {
         automateUnits(civInfo)  // this is the most expensive part
 
         if (tradeAndChangeState && civInfo.isMajorCiv()) {
-            if (civInfo.gameInfo.isReligionEnabled()) {
-                // Can only be done now, as the prophet first has to decide to found/enhance a religion
-                ReligionAutomation.chooseReligiousBeliefs(civInfo)
-            }
             if (civInfo.gameInfo.isEspionageEnabled()) {
                 // Do after cities are conquered
                 EspionageAutomation(civInfo).automateSpies()
@@ -156,9 +148,6 @@ object NextTurnAutomation {
         
         if (canProvideStat(Stat.Culture)) {
             value += civPersonality[PersonalityValue.Culture].toInt() - 5
-        }
-        if (canProvideStat(Stat.Faith)) {
-            value += civPersonality[PersonalityValue.Faith].toInt() - 5
         }
         if (canProvideStat(Stat.Production)) {
             value += civPersonality[PersonalityValue.Production].toInt() - 5
@@ -352,7 +341,7 @@ object NextTurnAutomation {
         var greatPerson = greatPeople.random()
         val scienceGP = greatPeople.firstOrNull { it.uniques.contains("Great Person - [Science]") }
         if (scienceGP != null)  greatPerson = scienceGP
-        // Humans would pick a prophet or engineer, but it'd require more sophistication on part of the AI - a scientist is the safest option for now
+        // Humans would pick an engineer, but it'd require more sophistication on part of the AI - a scientist is the safest option for now
 
         civInfo.units.addUnit(greatPerson, civInfo.cities.firstOrNull { it.isCapital() })
 

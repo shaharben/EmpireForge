@@ -2,7 +2,6 @@ package com.unciv.uniques
 
 import com.unciv.logic.civilization.PlayerType
 import com.unciv.logic.map.HexCoord
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.models.ruleset.unique.Unique
 import com.unciv.models.ruleset.unique.UniqueTriggerActivation
 import com.unciv.models.ruleset.unique.UniqueType
@@ -253,26 +252,6 @@ class ResourceTests {
         // then
         assertEquals(4, resourceAmountInCapital)
     }
-
-    @Test
-    fun `Civ-wide resources can come from follower beliefs, and affect all cities`() {
-        // given
-        val religion = game.addReligion(civInfo)
-        val belief = game.createBelief(BeliefType.Follower, "Provides [1] [Iron]")
-        religion.addBeliefs(listOf(belief))
-        city.population.setPopulation(1)
-        city.religion.addPressure(religion.name, 1000)
-        val otherCity = civInfo.addCity(HexCoord(2,2)) // NOT religionized
-
-        // when
-        val resourceAmountInCapital = city.getAvailableResourceAmount("Iron")
-        val resourceAmountInOtherCity = otherCity.getAvailableResourceAmount("Iron")
-
-        // then
-        assertEquals(1, resourceAmountInCapital)
-        assertEquals(1, resourceAmountInOtherCity)
-    }
-
 
     @Test
     fun cityResourcesWorkWithConditional() {

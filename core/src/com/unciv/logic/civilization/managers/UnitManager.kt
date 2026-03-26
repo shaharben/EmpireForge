@@ -75,13 +75,6 @@ class UnitManager(val civInfo: Civilization) {
             civInfo.questManager.handleIndividualQuests() // Maybe there's a "aquire great person" quest active
         }
 
-        if (placedUnit.hasUnique(UniqueType.ReligiousUnit) && civInfo.gameInfo.isReligionEnabled()) {
-            if (!placedUnit.hasUnique(UniqueType.TakeReligionOverBirthCity)
-                || civInfo.religionManager.religion?.isMajorReligion() == false) {
-                placedUnit.religion = cityToAddTo.religion.getMajorityReligionName()
-            }
-        }
-
         return placedUnit
     }
 
@@ -135,9 +128,6 @@ class UnitManager(val civInfo: Civilization) {
             }
         }
 
-        if (unit.hasUnique(UniqueType.ReligiousUnit) && civInfo.gameInfo.isReligionEnabled()) {
-            unit.religion = civInfo.religionManager.religion?.name
-        }
         return unit
     }
 

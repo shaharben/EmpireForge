@@ -49,11 +49,11 @@
         "default": 0,
         "title": "Happiness"
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "description": "Amount of Faith provided by this specialist per turn.",
+        "description": "Amount of Authority provided by this specialist per turn.",
         "default": 0,
-        "title": "Faith"
+        "title": "Authority"
       },
       "color": {
         "$ref": "refs/Color.schema.json",

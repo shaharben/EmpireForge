@@ -424,7 +424,7 @@ NotificationIcons/DollarSign
   orig: 100, 100
   offset: 0, 0
   index: -1
-NotificationIcons/EnhanceReligion
+NotificationIcons/EnhanceDoctrine
   rotate: false
   xy: 235, 692
   size: 100, 100
@@ -438,14 +438,14 @@ NotificationIcons/FoundPantheon
   orig: 100, 100
   offset: 0, 0
   index: -1
-NotificationIcons/FoundReligion
+NotificationIcons/FoundDoctrine
   rotate: false
   xy: 235, 692
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-NotificationIcons/ReformReligion
+NotificationIcons/ReformDoctrine
   rotate: false
   xy: 235, 692
   size: 100, 100

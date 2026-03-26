@@ -54,10 +54,10 @@
         "description": "Happiness per-turn yield provided by this terrain.",
         "default": 0
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "title": "Faith",
-        "description": "Faith per-turn yield provided by this terrain.",
+        "title": "Authority",
+        "description": "Authority per-turn yield provided by this terrain.",
         "default": 0
       },
       "movementCost": {

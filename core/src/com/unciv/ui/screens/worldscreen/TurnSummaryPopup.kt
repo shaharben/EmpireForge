@@ -68,10 +68,6 @@ class TurnSummaryPopup(worldScreen: WorldScreen) : Popup(worldScreen, Scrollabil
         val cultureNeeded = civ.policies.getCultureNeededForNextPolicy()
         addStatLine("${Fonts.culture} Culture: +$culturePerTurn/turn ($storedCulture/$cultureNeeded)")
 
-        // Faith
-        val faithPerTurn = stats.faith.roundToInt()
-        val storedFaith = civ.religionManager.storedFaith
-        addStatLine("${Fonts.faith} Faith: +$faithPerTurn/turn ($storedFaith accumulated)")
     }
 
     private fun addCityProductionSection(civ: Civilization) {

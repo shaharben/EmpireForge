@@ -1,0 +1,25 @@
+{
+  "$id": "https://raw.githubusercontent.com/yairm210/Unciv/refs/heads/master/docs/Modders/schemas/Doctrines.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Military Doctrines",
+  "description": "A list of Military Doctrine names that will be used.",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "title": "Doctrine",
+    "description": "A name of a Doctrine.",
+    "examples": [
+      "Harmony",
+      "Justice",
+      "Order",
+      "Balance",
+      "Unity",
+      "Tradition",
+      "Nature",
+      "Equality",
+      "Flow",
+      "Spirit",
+      "Duality"
+    ]
+  }
+}

@@ -102,11 +102,6 @@ class UnitPresenter(private val unitTable: UnitTable, private val worldScreen: W
                 descriptionTable.add(unit.promotions.XP.tr() + "/" + unit.promotions.xpForNextPromotion().tr())
             }
 
-            if (unit.baseUnit.religiousStrength > 0) {
-                descriptionTable.add(ImageGetter.getStatIcon("ReligiousStrength")).size(20f)
-                descriptionTable.add((unit.baseUnit.religiousStrength - unit.religiousStrengthLost).tr())
-            }
-
             if (unit.promotions.promotions.size != promotionsTable.children.size) // The unit has been promoted! Reload promotions!
                 shouldUpdate = true
         } else with(unitTable) { // multiple selected units

@@ -919,7 +919,7 @@ New countable for adopted policies supports policyFilter - By SomeTroglodyte
 Added UponLosingCity unique - By PLynx01
 
 By RobLoach:
-- Vanilla, Gods & Kings: Fix Hagia Sophia effects
+- Vanilla, Gods & Kings: Fix Grand Citadel effects
 - Add Great Person group names 
 
 AI: updated wonder evaluation - By EmperorPinguin
@@ -5186,7 +5186,7 @@ Unit era variants added to FantasyHex tileset  - By GeneralWadaling
 
 ## 4.2.14
 
-Fixed Temple of Artemis production bonuses
+Fixed Hunters' Lodge production bonuses
 
 Fixed tile yields due to caching conditional uniques
 
@@ -7196,7 +7196,7 @@ By xlenstra:
 
 Improve River for FantasyHex  - By AdityaMH
 
-Fix Hagia Sophia and CN Tower not giving civ 5 bonuses  - By logicminimal
+Fix Grand Citadel and CN Tower not giving civ 5 bonuses  - By logicminimal
 
 ## 3.15.17
 
@@ -7539,7 +7539,7 @@ Added the paratrooper unit - By xlenstra
 
 Add global alerts for certain constructions  - By avdstaaij
 
-Temple of Artemis bonuses reflect civ5 behavior  - By ravignir
+Hunters' Lodge bonuses reflect civ5 behavior  - By ravignir
 
 Resolved #3967 - City-states can no longer 'gift' you your unique units
 

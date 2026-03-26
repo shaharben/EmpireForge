@@ -77,10 +77,10 @@
         "title": "Happiness",
         "description": "Happiness provieded for the tile"
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "title": "Faith",
-        "description": "Per-turn bonus Faith yield for the tile"
+        "title": "Authority",
+        "description": "Per-turn bonus Authority yield for the tile"
       },
       "uniques": {
         "$ref": "refs/Uniques.schema.json"

@@ -90,7 +90,6 @@ class CityPopulationManager : IsPartOfGameInfoSerialization {
         return when (filter) {
             "Specialists" -> getNumberOfSpecialists()
             "Population" -> population
-            "Followers of the Majority Religion", "Followers of this Religion" -> city.religion.getFollowersOfMajorityReligion()
             "Unemployed" -> getFreePopulation()
             else -> specialistAllocations[filter]
         }
@@ -145,8 +144,6 @@ class CityPopulationManager : IsPartOfGameInfoSerialization {
             autoAssignPopulation()
         }
 
-        if (city.civ.gameInfo.isReligionEnabled())
-            city.religion.updatePressureOnPopulationChange(changedAmount)
     }
 
     fun setPopulation(count: Int) {

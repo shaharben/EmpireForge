@@ -37,7 +37,6 @@ enum class CityFocus(
     ScienceFocus("${Stat.Science.character}", true, Stat.Science),
     CultureFocus("${Stat.Culture.character}", true, Stat.Culture),
     HappinessFocus("${Stat.Happiness.character}", false, Stat.Happiness),
-    FaithFocus("${Stat.Faith.character}", true, Stat.Faith),
     GoldGrowthFocus("${Stat.Gold.character} ${Stat.Food.character}", true) {
         override fun getStatMultiplier(stat: Stat) = when (stat) {
             Stat.Gold -> 2f
@@ -77,7 +76,7 @@ enum class CityFocus(
 
         // set used in Automation. All non-Food Focuses, so targets 0 Surplus Food
         val zeroFoodFocuses = setOf(
-            CultureFocus, FaithFocus, GoldFocus,
+            CultureFocus, GoldFocus,
             HappinessFocus, ProductionFocus, ScienceFocus
         )
     }

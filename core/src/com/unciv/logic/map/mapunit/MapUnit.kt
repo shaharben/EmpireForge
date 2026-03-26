@@ -86,9 +86,6 @@ class MapUnit : IsPartOfGameInfoSerialization {
     // New - track only *how many have been used*, derive max from uniques, left = max - used
     var abilityToTimesUsed: HashMap<String, Int> = hashMapOf()
 
-    var religion: String? = null
-    var religiousStrengthLost = 0
-
     /** FIFO list of this unit's past positions. Should never exceed two items in length. New item added once at end of turn and once at start, to allow rare between-turn movements like melee withdrawal to be distinguished. Used in movement arrow overlay. */
     var movementMemories = ArrayList<UnitMovementMemory>()
 
@@ -190,7 +187,7 @@ class MapUnit : IsPartOfGameInfoSerialization {
      * Name which should be displayed in UI
      *
      * Note this is translated after being returned from this function, so let's pay
-     * attention to combined names (renamed units, religion).
+     * attention to combined names (renamed units).
      */
     @Readonly
     fun displayName(): String {
@@ -198,8 +195,7 @@ class MapUnit : IsPartOfGameInfoSerialization {
                 if (instanceName == null) "[$name]"
                 else "$instanceName ([$name])"
 
-        return if (religion == null) baseName
-        else "$baseName ([${getReligionDisplayName()}])"
+        return baseName
     }
 
     fun shortDisplayName(): String {
@@ -229,8 +225,6 @@ class MapUnit : IsPartOfGameInfoSerialization {
         toReturn.promotions = promotions.clone(toReturn)
         toReturn.isTransported = isTransported
         toReturn.abilityToTimesUsed = HashMap(abilityToTimesUsed)
-        toReturn.religion = religion
-        toReturn.religiousStrengthLost = religiousStrengthLost
         toReturn.movementMemories = movementMemories.copy()
         @LocalState val newStatusMap = HashMap<String, UnitStatus>((statusMap.size * 4 + 2) / 3)
         for ((name, status) in statusMap) {
@@ -673,12 +667,6 @@ class MapUnit : IsPartOfGameInfoSerialization {
                 improvement.matchesFilter(it, cache.state) || tile.matchesTerrainFilter(it, civ)
             })
         }
-    }
-
-    @Readonly
-    fun getReligionDisplayName(): String? {
-        if (religion == null) return null
-        return civ.gameInfo.religions[religion]!!.getReligionDisplayName()
     }
 
     @Readonly

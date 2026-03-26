@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Knowledge",
+        "friendBonusUniques": [
+            "[+3 Culture] <before the [Fortress Era]>",
+            "[+6 Culture] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+13 Culture] <starting from the [Reconstruction Era]>"
+        ],
+        "allyBonusUniques": [
+            "[+6 Culture] <before the [Fortress Era]>",
+            "[+12 Culture] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+26 Culture] <starting from the [Reconstruction Era]>"
+        ],
+        "color": [139, 96, 255]
+    },
+    {
+        "name": "Harbor",
+        "friendBonusUniques": ["[+2 Food] [in capital]"],
+        "allyBonusUniques": ["[+2 Food] [in capital]", "[+1 Food] [in all cities]"],
+        "color": [56, 255, 112]
+    },
+    {
+        "name": "Trade Post",
+        "friendBonusUniques": [
+            "[+2 Happiness] <before the [Fortress Era]>",
+            "[+3 Happiness] <starting from the [Fortress Era]>"
+        ],
+        "allyBonusUniques": [
+            "[+2 Happiness] <before the [Fortress Era]>",
+            "[+3 Happiness] <starting from the [Fortress Era]>",
+            "Provides a unique luxury"
+        ],
+        "color": [255, 216, 0]
+    },
+    {
+        "name": "Militia",
+        "friendBonusUniques": ["Provides military units every ≈[20] turns"],
+        "allyBonusUniques": ["Provides military units every ≈[17] turns"],
+        "color": [255, 0, 0]
+    },
+    {
+        "name": "Technical",
+        "friendBonusUniques":  [
+            "[+3 Authority] <before the [Fortress Era]>",
+            "[+6 Authority] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+13 Authority] <starting from the [Reconstruction Era]>"
+        ],
+        "allyBonusUniques":  [
+            "[+6 Authority] <before the [Fortress Era]>",
+            "[+12 Authority] <starting from the [Fortress Era]> <before the [Reconstruction Era]>",
+            "[+26 Authority] <starting from the [Reconstruction Era]>"
+        ],
+        "color": [255, 255, 255]
+    }
+]

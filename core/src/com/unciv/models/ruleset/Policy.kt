@@ -118,9 +118,9 @@ open class Policy : RulesetObject() {
 
         fun isEnabledByPolicy(rulesetObject: IRulesetObject) =
                 rulesetObject.getMatchingUniques(UniqueType.OnlyAvailable, GameContext.IgnoreConditionals).any {
-                    it.getModifiers(UniqueType.ConditionalAfterPolicyOrBelief).any { it.params[0] == name } }
+                    it.getModifiers(UniqueType.ConditionalAfterPolicyOrDoctrine).any { it.params[0] == name } }
                 || rulesetObject.getMatchingUniques(UniqueType.Unavailable).any {
-                    it.getModifiers(UniqueType.ConditionalBeforePolicyOrBelief).any { it.params[0] == name }
+                    it.getModifiers(UniqueType.ConditionalBeforePolicyOrDoctrine).any { it.params[0] == name }
                 }
 
         val enabledBuildings = ruleset.buildings.values.filter { isEnabledByPolicy(it) }
@@ -137,12 +137,12 @@ open class Policy : RulesetObject() {
 
         fun isDisabledByPolicy(rulesetObject: IRulesetObject): Boolean {
             if (rulesetObject.getMatchingUniques(UniqueType.OnlyAvailable, GameContext.IgnoreConditionals).any {
-                    it.getModifiers(UniqueType.ConditionalBeforePolicyOrBelief).any { it.params[0] == name }
+                    it.getModifiers(UniqueType.ConditionalBeforePolicyOrDoctrine).any { it.params[0] == name }
                 })
                 return true
 
             if (rulesetObject.getMatchingUniques(UniqueType.Unavailable, GameContext.IgnoreConditionals).any {
-                    it.getModifiers(UniqueType.ConditionalAfterPolicyOrBelief).any { it.params[0] == name } })
+                    it.getModifiers(UniqueType.ConditionalAfterPolicyOrDoctrine).any { it.params[0] == name } })
                 return true
             
             return false

@@ -374,7 +374,6 @@ enum class Countables(
                 Stat.Science -> speed.scienceCostModifier
                 Stat.Culture -> speed.cultureCostModifier
                 Stat.Happiness -> speed.modifier
-                Stat.Faith -> speed.faithCostModifier
             }
             return modifier.times(100).toInt()
         }

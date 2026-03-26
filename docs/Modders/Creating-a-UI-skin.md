@@ -95,7 +95,7 @@ These shapes are used all over Unciv and can be replaced to make a lot of UI ele
 | OverviewScreen/NotificationLog/ | HighlightColor1 | "#f0ead6" | |
 | OverviewScreen/NotificationLog/ | HighlightColor2 | "#f5c993" | |
 | OverviewScreen/NotificationOverviewTable/ | Notification | roundedEdgeRectangle | |
-| OverviewScreen/ReligionOverviewTab/ | BeliefDescription | null | |
+| OverviewScreen/DoctrineOverviewTab/ | DirectiveDescription | null | |
 | OverviewScreen/TradesOverviewTab/ | OffersTable | null | |
 | OverviewScreen/UnitOverviewTab/ | UnitSupplyTable | null | |
 | PlayerReadyScreen/ | Background | null | |

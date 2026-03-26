@@ -3,7 +3,6 @@ package com.unciv.ui.screens.civilopediascreen
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.unciv.UncivGame
 import com.unciv.logic.GameInfo
-import com.unciv.models.ruleset.Belief as BaseBelief
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.unique.UniqueType
 import com.unciv.models.ruleset.unit.UnitType as BaseUnitType
@@ -90,16 +89,6 @@ enum class CivilopediaCategories (
         KeyboardBinding.PediaPolicies,
         "PolicyIcons/Constitution",
         { ruleset, _ -> ruleset.policies.values }
-    ),
-    Belief("Religions and Beliefs",
-        CivilopediaImageGetters.belief,
-        KeyboardBinding.PediaBeliefs,
-        "ReligionIcons/Religion",
-        { ruleset, _ -> (
-            ruleset.beliefs.values.asSequence() +
-            BaseBelief.getCivilopediaBeliefsEntry(ruleset) +
-            BaseBelief.getCivilopediaReligionEntry(ruleset)
-        ).toList() }
     ),
     Tutorial ("Tutorials",
         getImage = null,

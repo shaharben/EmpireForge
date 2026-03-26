@@ -1,6 +1,5 @@
 package com.unciv.ui.objectdescriptions
 
-import com.unciv.models.ruleset.Belief
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.tile.TileImprovement
 import com.unciv.models.ruleset.tile.TileResource
@@ -132,8 +131,6 @@ object ImprovementDescriptions {
             if (alsoImprovement.replaces == improvement.name)
                 seeAlso += FormattedLine(alsoImprovement.name, link = alsoImprovement.makeLink(), indent = 1)
         }
-
-        seeAlso += Belief.getCivilopediaTextMatching(improvement.name, ruleset, false)
 
         if (seeAlso.isNotEmpty()) {
             textList += FormattedLine()

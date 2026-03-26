@@ -30,7 +30,6 @@ internal enum class ConsoleParameterType(
     terrainName( { ruleset.terrains.values.filter { it.type.isBaseTerrain || it.type == TerrainType.NaturalWonder }.map { it.name } } ),
     resourceName( { ruleset.tileResources.keys } ),
     stat( { Stat.names() } ),
-    religionName( { religions.keys } ),
     buildingName( { ruleset.buildings.keys } ),
     direction( { RiverGenerator.RiverDirections.names } ),
     policyName( { ruleset.policyBranches.keys + ruleset.policies.keys } ),

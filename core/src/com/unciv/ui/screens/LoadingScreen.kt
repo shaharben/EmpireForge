@@ -32,7 +32,7 @@ class LoadingScreen(
             "Allied outposts provide food to your capital. Diplomacy feeds your people.",
             "Exceptional scientists can instantly recover a lost technology.",
             "Weak factions attract raiders and hostile takeovers. Stay armed.",
-            "Cultural dominance requires completing 5 ideology trees and building the Utopia Project.",
+            "Cultural dominance requires completing 5 doctrine trees and building the Utopia Project.",
             "Hills provide extra salvage materials and a defensive combat bonus.",
             "Archers are strong early defenders. Build them before the raiders find you."
         )

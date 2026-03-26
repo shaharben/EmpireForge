@@ -18,31 +18,8 @@ object HolidayDates {
      *  @property name Used to look for art automatically presented via [EasterEggFloatingArt], can be used as-is in a `-DeasterEgg=name` command line parameter for testing.
      */
     enum class Holidays(val chance: Float = 1f) {
-        Easter {
-            override fun getByYear(year: Int): DateRange {
-                // https://en.wikipedia.org/wiki/Date_of_Easter
-                val a = year % 19
-                val b = year / 100
-                val c = year % 100
-                val d = b / 4
-                val e = b % 4
-                val g = (8 * b + 13) / 25
-                val h = (19 * a + b - d - g + 15) % 30
-                val i = c / 4
-                val k = c % 4
-                val l = (32 + 2 * e + 2 * i - h - k) % 7
-                val m = (a + 11 * h + 19 * l) / 433
-                val n = (h + l - 7 * m + 90) / 25
-                val p = (h + l - 7 * m + 33 * n + 19) % 32
-                val sunday = LocalDate.of(year, n, p)
-                return DateRange.of(sunday.minusDays(2), 4)
-            }
-        },
         Samhain {
             override fun getByYear(year: Int) = DateRange.of(year, 10, 31)
-        },
-        Xmas {
-            override fun getByYear(year: Int) = DateRange.of(year, 12, 24, 4)
         },
         DiaDeLosMuertos(0.5f) {
             // https://en.wikipedia.org/wiki/Day_of_the_Dead
@@ -62,15 +39,6 @@ object HolidayDates {
                 val springEquinoxInstant = Tables.equinoxes[year] ?: return DateRange.never
                 val springEquinox = springEquinoxInstant.atZone(ZoneId.systemDefault()).toLocalDate()  // This way, because LocalDate.ofInstant is missing from Android's Java
                 return DateRange.of(springEquinox.plusDays(15L))
-            }
-        },
-        Diwali(0.2f) {
-            // https://en.wikipedia.org/wiki/Diwali#Dates
-            // Darkest new moon night between mid-october and mid-november, then add +/- two days for a 5-day festival...
-            // For moon phase, could adapt http://www.stargazing.net/kepler/jsmoon.html - or use a table
-            override fun getByYear(year: Int): DateRange {
-                val knownValue = Tables.diwali[year] ?: return DateRange.never
-                return DateRange.of(knownValue.plusDays(-2L), 5)
             }
         },
         LunarNewYear {
@@ -108,16 +76,6 @@ object HolidayDates {
         StarWarsDay {
             // https://en.wikipedia.org/wiki/Star_Wars_Day
             override fun getByYear(year: Int) = DateRange.of(year, 5, 4)  // evil puns begone
-        },
-        Passover(0.2f) {
-            // Last not least: Passah
-            // חַג הַפֶּסַח
-            // https://en.wikipedia.org/wiki/Passover
-            // Should start at sundown the day before - we simplify that away
-            override fun getByYear(year: Int): DateRange {
-                val knownValue = Tables.passover[year] ?: return DateRange.never
-                return DateRange.of(knownValue.plusDays(-2L), 5)
-            }
         },
         ;
 
@@ -251,63 +209,6 @@ object HolidayDates {
                 2099 to "2099-03-20T07:17:00Z",
                 2100 to "2100-03-20T13:04:00Z",
             ).associateBy({ it.first }, { Instant.parse(it.second) })
-        }
-
-        // https://jaysage.org/Passover_Dates.pdf, some confirmed via https://duckduckgo.com/?q=passover+date+NNNN
-        val passover by lazy {
-            listOf(
-                2023 to 5,
-                2024 to 22,
-                2025 to 12,
-                2026 to 1,
-                2027 to 21,
-                2028 to 10,
-                2029 to -2,
-                2030 to 17,
-                2031 to 7,
-                2032 to -6,
-                2033 to 13,
-                2034 to 3,
-                2035 to 23,
-                2036 to 11,
-                2037 to -2,
-                2038 to 19,
-                2039 to 8,
-                2040 to -4,
-                2041 to 15,
-                2042 to 4,
-                2043 to 24,
-                2044 to 11,
-                2045 to 1,
-                2046 to 20,
-                2047 to 10,
-                2048 to -4,
-                2049 to 16,
-                2050 to 6,
-            ).associateBy({ it.first }, { LocalDate.of(it.first, 4, 1).plusDays(it.second.toLong()) })
-        }
-
-        // from e.g. https://www.theholidayspot.com/diwali/calendar.htm
-        val diwali by lazy {
-            listOf(
-                2024 to "2024-11-01",
-                2025 to "2025-10-21",
-                2026 to "2026-11-08",
-                2027 to "2027-10-29",
-                2028 to "2028-10-17",
-                2029 to "2029-11-05",
-                2030 to "2030-10-26",
-                2031 to "2031-11-14",
-                2032 to "2032-11-02",
-                2033 to "2033-10-22",
-                2034 to "2034-11-10",
-                2035 to "2035-10-20",
-                2036 to "2036-10-19",
-                2037 to "2037-11-07",
-                2038 to "2038-10-27",
-                2039 to "2039-10-17",
-                2040 to "2040-11-04",
-            ).associateBy({ it.first }, { LocalDate.parse(it.second) })
         }
 
         // from https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/utils/Holiday.java

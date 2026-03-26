@@ -3,7 +3,6 @@ package com.unciv.models.ruleset.tile
 import com.badlogic.gdx.graphics.Color
 import com.unciv.Constants
 import com.unciv.logic.MultiFilter
-import com.unciv.models.ruleset.Belief
 import com.unciv.models.ruleset.Ruleset
 import com.unciv.models.ruleset.RulesetStatsObject
 import com.unciv.models.ruleset.unique.GameContext
@@ -152,8 +151,7 @@ class Terrain : RulesetStatsObject() {
                 construction -> construction.uniqueObjects.any {
                     unique -> unique.params.any { it == name }
                 }
-            }.map { FormattedLine(it.name, it.makeLink(), indent=1) } +
-            Belief.getCivilopediaTextMatching(name, ruleset, false)
+            }.map { FormattedLine(it.name, it.makeLink(), indent=1) }
         if (seeAlso.any()) {
             textList += FormattedLine()
             textList += FormattedLine("{See also}:")

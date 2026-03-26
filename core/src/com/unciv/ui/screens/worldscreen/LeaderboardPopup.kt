@@ -108,7 +108,7 @@ class LeaderboardPopup(
             "King" -> 5
             "Emperor" -> 6
             "Immortal" -> 7
-            "Deity" -> 8
+            "Apocalypse" -> 8
             else -> 4 // default to Prince-level
         }
 

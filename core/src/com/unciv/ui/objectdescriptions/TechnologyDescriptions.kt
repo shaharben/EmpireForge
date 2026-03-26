@@ -270,7 +270,7 @@ object TechnologyDescriptions {
 
     /**
      * Returns a Sequence of [Building]s enabled by this Technology, filtered for [civInfo]'s uniques,
-     * nuclear weapons and religion settings, and without those expressly hidden from Civilopedia.
+     * nuclear weapons settings, and without those expressly hidden from Civilopedia.
      */
     // Used for Civilopedia, Alert and Picker, so if any of these decide to ignore the "Will not be displayed in Civilopedia" unique this needs refactoring
     private fun getEnabledBuildings(techName: String, ruleset: Ruleset, civInfo: Civilization?) =
@@ -278,7 +278,7 @@ object TechnologyDescriptions {
 
     /**
      * Returns a Sequence of [RulesetStatsObject]s obsoleted by this Technology, filtered for [civInfo]'s uniques,
-     * nuclear weapons and religion settings, and without those expressly hidden from Civilopedia.
+     * nuclear weapons settings, and without those expressly hidden from Civilopedia.
      */
     // Used for Civilopedia, Alert and Picker, so if any of these decide to ignore the "Will not be displayed in Civilopedia" unique this needs refactoring
     private fun getObsoletedObjects(techName: String, ruleset: Ruleset, civInfo: Civilization?): Sequence<RulesetStatsObject> =
@@ -322,7 +322,7 @@ object TechnologyDescriptions {
 
     /**
      * Returns a Sequence of [BaseUnit]s enabled by this Technology, filtered for [civInfo]'s uniques,
-     * nuclear weapons and religion settings, and without those expressly hidden from Civilopedia.
+     * nuclear weapons settings, and without those expressly hidden from Civilopedia.
      */
     // Used for Civilopedia, Alert and Picker, so if any of these decide to ignore the "Will not be displayed in Civilopedia"/HiddenFromCivilopedia unique this needs refactoring
     private fun getEnabledUnits(techName: String, ruleset: Ruleset, civInfo: Civilization?): Sequence<BaseUnit> {

@@ -4,7 +4,6 @@ package com.unciv.uniques
 import com.unciv.Constants
 import com.unciv.logic.map.HexCoord
 import com.unciv.logic.map.tile.RoadStatus
-import com.unciv.models.ruleset.BeliefType
 import com.unciv.models.stats.Stats
 import com.unciv.testing.GdxTestRunner
 import com.unciv.testing.TestGame
@@ -229,7 +228,7 @@ class GlobalUniquesTests {
     }
 
     @Test
-    fun uniqueTypeOneTimeAdoptPolicyOrBelief() {
+    fun uniqueTypeOneTimeAdoptPolicy() {
         val civ = game.addCiv()
         val tile = game.getTile(HexCoord.Zero)
         val city = game.addCity(civ, tile, true)
@@ -238,67 +237,6 @@ class GlobalUniquesTests {
         Assert.assertFalse(civ.policies.isAdopted("Legalism"))
         city.cityConstructions.addBuilding(game.createBuilding("Adopt [Legalism]"))
         Assert.assertTrue(civ.policies.isAdopted("Legalism"))
-
-        // Belief
-        Assert.assertFalse(civ.religionManager.religion?.hasBelief("Dance of the Aurora") ?: false)
-        city.cityConstructions.addBuilding(game.createBuilding("Adopt [Dance of the Aurora]")) // Expected to not work, since we require a Religion
-        Assert.assertFalse(civ.religionManager.religion?.hasBelief("Dance of the Aurora") ?: false)
-        game.addReligion(civ) // With the Religion, we should be able to adopt the belief
-        Assert.assertFalse(civ.religionManager.religion?.hasBelief("Dance of the Aurora") ?: false)
-        city.cityConstructions.addBuilding(game.createBuilding("Adopt [Dance of the Aurora]"))
-        Assert.assertTrue(civ.religionManager.religion?.hasBelief("Dance of the Aurora") ?: false)
-    }
-
-    @Test
-    fun statsFromGlobalCitiesFollowingReligion() {
-        val civ1 = game.addCiv()
-        val religion = game.addReligion(civ1)
-        val belief = game.createBelief(BeliefType.Founder, "[+30 Science] for each global city following this religion")
-        religion.addBeliefs(listOf(belief))
-        val civ2 = game.addCiv()
-        val tile = game.getTile(HexCoord.Zero)
-        val cityOfCiv2 = game.addCity(civ2, tile, initialPopulation = 1) // Need someone to be converted
-        cityOfCiv2.religion.addPressure(religion.name, 1000)
-
-        Assert.assertTrue(cityOfCiv2.religion.getMajorityReligionName() == religion.name)
-
-        civ1.updateStatsForNextTurn()
-
-        Assert.assertTrue(civ1.stats.statsForNextTurn.science == 30f)
-    }
-
-    @Test
-    fun happinessFromGlobalCitiesFollowingReligion() {
-        val civ1 = game.addCiv()
-        val religion = game.addReligion(civ1)
-        val belief = game.createBelief(BeliefType.Founder, "[+42 Happiness] for each global city following this religion")
-        religion.addBeliefs(listOf(belief))
-        val civ2 = game.addCiv()
-        val tile = game.getTile(HexCoord.Zero)
-        val cityOfCiv2 = game.addCity(civ2, tile, initialPopulation = 1) // Need someone to be converted
-        cityOfCiv2.religion.addPressure(religion.name, 1000)
-
-        civ1.updateStatsForNextTurn()
-
-        val baseHappiness = civ1.getDifficulty().baseHappiness
-        // Since civ1 has no cities, there are no other happiness sources
-        Assert.assertTrue(civ1.stats.happiness == baseHappiness + 42)
-    }
-
-    @Test
-    fun statsFromGlobalFollowers() {
-        val civ1 = game.addCiv()
-        val religion = game.addReligion(civ1)
-        val belief = game.createBelief(BeliefType.Founder, "[+30 Science] from every [3] global followers [in all cities]")
-        religion.addBeliefs(listOf(belief))
-        val civ2 = game.addCiv()
-        val tile = game.getTile(HexCoord.Zero)
-        val cityOfCiv2 = game.addCity(civ2, tile, initialPopulation = 9) // Need people to be converted
-        cityOfCiv2.religion.addPressure(religion.name, 1000000000) // To completely overwhelm the default atheism in a city
-
-        civ1.updateStatsForNextTurn()
-
-        Assert.assertTrue(civ1.stats.statsForNextTurn.science == 90f)
     }
 
     // endregion
@@ -375,27 +313,6 @@ class GlobalUniquesTests {
         city.cityStats.update()
 
         Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.faith == 9f)
-    }
-
-    @Test
-    fun statPercentFromReligionFollowers() {
-        game.makeHexagonalMap(1)
-        val civInfo = game.addCiv()
-        val city = game.addCity(civInfo, game.getTile(HexCoord.Zero), true, 1)
-        val religion = game.addReligion(civInfo)
-        val belief = game.createBelief(BeliefType.Follower, "[+10]% [Faith] from every follower, up to [42]%")
-        religion.addBeliefs(listOf(belief))
-
-        city.religion.addPressure(religion.name, 1000000000)
-
-        Assert.assertTrue(city.religion.getMajorityReligionName() == religion.name)
-
-        city.cityStats.update()
-        Assert.assertTrue(city.cityStats.statPercentBonusTree.totalStats.faith == 10f)
-
-        city.population.setPopulation(10)
-        city.cityStats.update()
-        Assert.assertTrue(city.cityStats.statPercentBonusTree.totalStats.faith == 42f)
     }
 
     @Test
@@ -680,19 +597,10 @@ class GlobalUniquesTests {
             freePolicies++
             adopt(getPolicyByName("Tradition"))
         }
-        // Belief
-        game.addReligion(civInfo)
-        civInfo.religionManager.religion?.run {
-            addBelief("Ancestor Worship")
-            addBelief("Not A Belief")
-        }
         val tests = listOf(
             "<if no Civilization has adopted [Oligarchy]>" to 1,
             "<if no Civilization has adopted [Tradition]>" to 0,
-            "<if no Civilization has adopted [God of Craftsman]>" to 1,
             "<if no Civilization has adopted [Not A Policy]>" to 1,
-            "<if no Civilization has adopted [Ancestor Worship]>" to 0,
-            "<if no Civilization has adopted [Not A Belief]>" to 1,
         )
         Assert.assertEquals(civInfo.gold, 0)
         for ((test, expected) in tests) {

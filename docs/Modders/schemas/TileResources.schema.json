@@ -97,10 +97,10 @@
         "description": "Per-turn Happiness yield provided by this resource.",
         "default": 0
       },
-      "faith": {
+      "authority": {
         "type": "number",
-        "title": "Faith",
-        "description": "Per-turn Faith yield provided by this resource.",
+        "title": "Authority",
+        "description": "Per-turn Authority yield provided by this resource.",
         "default": 0
       },
       "majorDepositAmount": {

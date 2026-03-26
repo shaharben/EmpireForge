@@ -44,10 +44,8 @@ enum class RulesetFile(
     @Readonly val getRulesetObjects: Ruleset.() -> Sequence<IRulesetObject> = { emptySequence() },
     @Readonly val getUniques: Ruleset.() -> Sequence<Unique> = { getRulesetObjects().flatMap { it.uniqueObjects } }
 ) {
-    Beliefs("Beliefs.json", { beliefs.values.asSequence() }),
     Buildings("Buildings.json", { buildings.values.asSequence() }),
     Eras("Eras.json", { eras.values.asSequence() }),
-    Religions("Religions.json"),
     Nations("Nations.json", { nations.values.asSequence() }),
     Policies("Policies.json", { policies.values.asSequence() }),
     Techs("Techs.json", { technologies.values.asSequence() }),
@@ -95,7 +93,6 @@ class Ruleset {
     val mods = LinkedHashSet<String>()
 
     //region Json fields
-    val beliefs = LinkedHashMap<String, Belief>()
     val buildings = LinkedHashMap<String, Building>()
     val difficulties = LinkedHashMap<String, Difficulty>()
     val eras = LinkedHashMap<String, Era>()
@@ -106,7 +103,6 @@ class Ruleset {
     val nations = LinkedHashMap<String, Nation>()
     val policies = LinkedHashMap<String, Policy>()
     val policyBranches = LinkedHashMap<String, PolicyBranch>()
-    val religions = ArrayList<String>()
     val ruinRewards = LinkedHashMap<String, RuinReward>()
     val quests = LinkedHashMap<String, Quest>()
     val specialists = LinkedHashMap<String, Specialist>()
@@ -187,14 +183,6 @@ class Ruleset {
     }
 
     fun add(ruleset: Ruleset) {
-        beliefs.putAll(ruleset.beliefs)
-        ruleset.modOptions.beliefsToRemove
-            .flatMap { beliefsToRemove ->
-                beliefs.filter { it.value.matchesFilter(beliefsToRemove) }.keys
-            }.toSet().forEach {
-                beliefs.remove(it)
-            }
-
         ruleset.modOptions.buildingsToRemove
             .flatMap { buildingToRemove ->
                 buildings.filter { it.value.matchesFilter(buildingToRemove) }.keys
@@ -254,12 +242,6 @@ class Ruleset {
 
         quests.putAll(ruleset.quests)
 
-        // Remove associated Religions, including when they're favored by Nations
-        religions.addAll(ruleset.religions)
-        religions.removeAll(ruleset.modOptions.religionsToRemove)
-        nations.filter { it.value.favoredReligion in ruleset.modOptions.religionsToRemove }
-            .forEach { it.value.favoredReligion = null }
-
         ruinRewards.putAll(ruleset.ruinRewards)
         specialists.putAll(ruleset.specialists)
         ruleset.modOptions.techsToRemove
@@ -296,7 +278,6 @@ class Ruleset {
     }
 
     fun clear() {
-        beliefs.clear()
         buildings.clear()
         difficulties.clear()
         eras.clear()
@@ -307,7 +288,6 @@ class Ruleset {
         policies.clear()
         policyBranches.clear()
         quests.clear()
-        religions.clear()
         ruinRewards.clear()
         specialists.clear()
         technologies.clear()
@@ -454,14 +434,6 @@ class Ruleset {
             }
         }
 
-        val beliefsFile = RulesetFile.Beliefs.file()
-        if (beliefsFile.exists())
-            beliefs += createHashmap(json().fromJsonFile(Array<Belief>::class.java, beliefsFile))
-
-        val religionsFile = RulesetFile.Religions.file()
-        if (religionsFile.exists())
-            religions += json().fromJsonFile(Array<String>::class.java, religionsFile).toList()
-
         val ruinRewardsFile = RulesetFile.Ruins.file()
         if (ruinRewardsFile.exists())
             ruinRewards += createHashmap(json().fromJsonFile(Array<RuinReward>::class.java, ruinRewardsFile))
@@ -605,8 +577,6 @@ class Ruleset {
         if (buildings.isNotEmpty()) stringList += "[${buildings.size}] Buildings"
         if (tileResources.isNotEmpty()) stringList += "[${tileResources.size}] Resources"
         if (tileImprovements.isNotEmpty()) stringList += "[${tileImprovements.size}] Improvements"
-        if (religions.isNotEmpty()) stringList += "[${religions.size}] Religions"
-        if (beliefs.isNotEmpty()) stringList += "[${beliefs.size}] Beliefs"
         return stringList.joinToString { it.tr() }
     }
 

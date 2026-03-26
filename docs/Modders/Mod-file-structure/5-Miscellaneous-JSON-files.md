@@ -91,13 +91,13 @@ Each speed can have the following attributes:
 | goldCostModifier                | Float (≥0)      | `modifier` value | Scales gold costs                                                                                           |
 | scienceCostModifier             | Float (≥0)      | `modifier` value | Scales science costs                                                                                        |
 | cultureCostModifier             | Float (≥0)      | `modifier` value | Scales culture costs                                                                                        |
-| faithCostModifier               | Float (≥0)      | `modifier` value | Scales faith costs                                                                                          |
+| authorityCostModifier           | Float (≥0)      | `modifier` value | Scales authority costs                                                                                          |
 | improvementBuildLengthModifier  | Float (≥0)      | `modifier` value | Scales the time it takes for a worker to build tile improvements                                            |
 | barbarianModifier               | Float (≥0)      | `modifier` value | Scales the time between barbarian spawns                                                                    |
 | goldGiftModifier                | Float (≥0)      | `modifier` value | Scales the influence gained from gifting gold to city-states                                                |
 | cityStateTributeScalingInterval | Float (≥0)      | 6.5              | The number of turns it takes for the amount of gold a player demands from city-states to increase by 5 gold |
 | goldenAgeLengthModifier         | Float (≥0)      | `modifier` value | Scales the length of golden ages                                                                            |
-| religiousPressureAdjacentCity   | Integer (≥0)    | 6                | Defines how much religious pressure a city exerts on nearby cities                                          |
+| religiousPressureAdjacentCity   | Integer (≥0)    | 6                | Defines how much strategic pressure a city exerts on nearby cities                                          |
 | peaceDealDuration               | Integer (≥0)    | 10               | The number of turns a peace deal lasts                                                                      |
 | dealDuration                    | Integer (≥0)    | 30               | The number of turns a non-peace deal (research agreement, open borders, etc.) lasts                         |
 | startYear                       | Float           | -4000            | The start year of the game (negative is BC/BCE)                                                             |
@@ -177,8 +177,8 @@ The file can have the following attributes, not including the values Unciv sets 
 | nationsToRemove        | List    | empty   | List of [Nations](2-Civilization-related-JSON-files.md#nationsjson) or [nationFilter](../Unique-parameters.md#nationfilter) to remove (isBaseRuleset=false only)                 |
 | policyBranchesToRemove | List    | empty   | List of [Policy Branches](2-Civilization-related-JSON-files.md#policiesjson) to remove (isBaseRuleset=false only)                                                                |
 | policiesToRemove       | List    | empty   | List of [Policies](2-Civilization-related-JSON-files.md#policiesjson) to remove (isBaseRuleset=false only)                                                                       |
-| beliefsToRemove        | List    | empty   | List of [Beliefs](2-Civilization-related-JSON-files.md#beliefsjson) to remove (isBaseRuleset=false only)                                                                         |
-| religionsToRemove      | List    | empty   | List of [Religions](2-Civilization-related-JSON-files.md#religionsjson) to remove (isBaseRuleset=false only)                                                                     |
+| directivesToRemove     | List    | empty   | List of [Directives](2-Civilization-related-JSON-files.md#directivesjson) to remove (isBaseRuleset=false only)                                                                   |
+| doctrinesToRemove      | List    | empty   | List of [Doctrines](2-Civilization-related-JSON-files.md#doctrinesjson) to remove (isBaseRuleset=false only)                                                                     |
 | constants              | Object  | empty   | See [ModConstants](#modconstants)                                                                                                                                                |
 | tileset                | String  | empty   | Only applicable for base rulesets                                                                                                                                                |
 | unitset                | String  | empty   | Only applicable for base rulesets                                                                                                                                                |
@@ -228,10 +228,11 @@ and city distance in another. In case of conflicts, there is no guarantee which 
 | riverCountMultiplier                     | Float  | 0.01                          | [^I]  |
 | minRiverLength                           | Int    | 5                             | [^I]  |
 | maxRiverLength                           | Int    | 666                           | [^I]  |
-| religionLimitBase                        | Int    | 1                             | [^K]  |
-| religionLimitMultiplier                  | Float  | 0.5                           | [^K]  |
+| doctrineLimitBase                        | Int    | 1                             | [^K]  |
+| doctrineLimitMultiplier                  | Float  | 0.5                           | [^K]  |
 | pantheonBase                             | Int    | 10                            | [^L]  |
 | pantheonGrowth                           | Int    | 5                             | [^L]  |
+
 | workboatAutomationSearchMaxTiles         | Int    | 20                            | [^M]  |
 | maxSpyRank                               | Int    | 3                             | [^N]  |
 | spyRankSkillPercentBonus                 | Float  | 30                            | [^O]  |
@@ -272,8 +273,8 @@ Legend:
 - [^H]: MapGenerator.spawnLakesAndCoasts: Water bodies up to this tile count become Lakes
 - [^I]: RiverGenerator: river frequency and length bounds
 - [^J]: A [UnitUpgradeCost](#unitupgradecost) sub-structure.
-- [^K]: Maximum foundable Religions = religionLimitBase + floor(MajorCivCount * religionLimitMultiplier)
-- [^L]: Cost of pantheon = pantheonBase + CivsWithReligion * pantheonGrowth
+- [^K]: Maximum foundable Doctrines = doctrineLimitBase + floor(MajorCivCount * doctrineLimitMultiplier)
+- [^L]: Cost of principle = pantheonBase + CivsWithDoctrine * pantheonGrowth
 - [^M]: When the AI decides whether to build a work boat, how many tiles to search from the city center for an improvable tile
 - [^N]: The maximum rank any spy can reach
 - [^O]: How much skill bonus each rank gives
@@ -380,7 +381,7 @@ Currently the following milestones are supported:
 | Capture all capitals               | Capture all the original capitals of major civilizations in the game                                         |
 | Complete [amount] Policy branches  | Fully complete at least [amount] policy branches                                                             |
 | Win diplomatic vote                | At any point in the game win a diplomatic vote (UN). You may lose afterwards and still retain this milestone |
-| Become the world religion          | Have your religion be the majority religion in a majority of cities of all major civs                        |
+| Become the world doctrine        | Have your doctrine be the majority doctrine in a majority of cities of all major civs                    |
 | Have highest score after max turns | Basically time victory. Enables the 'max turn' slider and calculates score when that amount is reached       |
 | Have more [countable] than each player's [countable] | Have your given `countable` be more than every other Civilization's `countable` to achieve this victory. This is useful to simulate a victory similar to the Cultural Victory in Brave New World. |
 
