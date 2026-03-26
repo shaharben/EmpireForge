@@ -732,42 +732,42 @@ TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Denmark
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Connection Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Modern era
   rotate: false
   xy: 774, 716
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Connection Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Modern era
   rotate: false
   xy: 774, 716
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Connection Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Modern era-1
   rotate: false
   xy: 774, 652
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Connection Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Modern era-1
   rotate: false
   xy: 774, 652
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Connection Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Modern era-2
   rotate: false
   xy: 774, 588
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Connection Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Modern era-2
   rotate: false
   xy: 774, 588
   size: 64, 56
@@ -781,28 +781,28 @@ TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Polynesia
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Rediscovery Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Renaissance era
   rotate: false
   xy: 774, 460
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Rediscovery Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Renaissance era-1
   rotate: false
   xy: 774, 396
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Rediscovery Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Renaissance era-2
   rotate: false
   xy: 774, 332
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Rediscovery Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Civilian-Spain-Renaissance era
   rotate: false
   xy: 774, 268
   size: 64, 56
@@ -837,42 +837,42 @@ TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Denmark
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Connection Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Modern era
   rotate: false
   xy: 1075, 869
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Connection Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Modern era
   rotate: false
   xy: 1075, 869
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Connection Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Modern era-1
   rotate: false
   xy: 859, 813
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Connection Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Modern era-1
   rotate: false
   xy: 859, 813
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Connection Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Modern era-2
   rotate: false
   xy: 931, 813
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Connection Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Modern era-2
   rotate: false
   xy: 931, 813
   size: 64, 56
@@ -886,28 +886,28 @@ TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Polynesia
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Rediscovery Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Renaissance era
   rotate: false
   xy: 1075, 805
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Rediscovery Era-1
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Renaissance era-1
   rotate: false
   xy: 846, 749
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Rediscovery Era-2
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Renaissance era-2
   rotate: false
   xy: 846, 685
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Rediscovery Era
+TileSets/AbsoluteUnits/Units/EmbarkedUnit-Military-Spain-Renaissance era
   rotate: false
   xy: 918, 749
   size: 64, 56
@@ -1082,21 +1082,21 @@ TileSets/AbsoluteUnits/Units/Great Artist-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Artist-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great Artist-Industrial era
   rotate: false
   xy: 314, 1517
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Artist-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great Artist-Industrial era-1
   rotate: false
   xy: 417, 1606
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Artist-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great Artist-Industrial era-2
   rotate: false
   xy: 520, 1695
   size: 95, 81
@@ -1124,21 +1124,21 @@ TileSets/AbsoluteUnits/Units/Great Engineer-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Engineer-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great Engineer-Industrial era
   rotate: false
   xy: 107, 540
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Engineer-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great Engineer-Industrial era-1
   rotate: false
   xy: 192, 613
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Engineer-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great Engineer-Industrial era-2
   rotate: false
   xy: 277, 686
   size: 77, 65
@@ -1166,21 +1166,21 @@ TileSets/AbsoluteUnits/Units/Great General-2
   orig: 77, 100
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great General-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great General-Industrial era
   rotate: false
   xy: 838, 1962
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great General-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great General-Industrial era-1
   rotate: false
   xy: 108, 1250
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great General-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great General-Industrial era-2
   rotate: false
   xy: 211, 1339
   size: 95, 81
@@ -1208,21 +1208,21 @@ TileSets/AbsoluteUnits/Units/Great Merchant-2
   orig: 77, 70
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Merchant-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great Merchant-Industrial era
   rotate: false
   xy: 192, 432
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Merchant-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great Merchant-Industrial era-1
   rotate: false
   xy: 277, 535
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Merchant-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great Merchant-Industrial era-2
   rotate: false
   xy: 362, 578
   size: 77, 65
@@ -1250,21 +1250,21 @@ TileSets/AbsoluteUnits/Units/Great Prophet-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Prophet-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great Prophet-Industrial era
   rotate: false
   xy: 623, 1695
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Prophet-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great Prophet-Industrial era-1
   rotate: false
   xy: 726, 1784
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Prophet-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great Prophet-Industrial era-2
   rotate: false
   xy: 4, 522
   size: 95, 81
@@ -1292,21 +1292,21 @@ TileSets/AbsoluteUnits/Units/Great Scientist-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Scientist-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Great Scientist-Industrial era
   rotate: false
   xy: 107, 281
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Scientist-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Great Scientist-Industrial era-1
   rotate: false
   xy: 192, 359
   size: 77, 65
   orig: 77, 65
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Great Scientist-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Great Scientist-Industrial era-2
   rotate: false
   xy: 277, 462
   size: 77, 65
@@ -1593,21 +1593,21 @@ TileSets/AbsoluteUnits/Units/Inquisitor-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Inquisitor-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Inquisitor-Industrial era
   rotate: false
   xy: 726, 1606
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Inquisitor-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Inquisitor-Industrial era-1
   rotate: false
   xy: 829, 1695
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Inquisitor-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Inquisitor-Industrial era-2
   rotate: false
   xy: 932, 1784
   size: 95, 81
@@ -2139,21 +2139,21 @@ TileSets/AbsoluteUnits/Units/Missionary-2
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Missionary-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Missionary-Industrial era
   rotate: false
   xy: 1451, 1873
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Missionary-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Missionary-Industrial era-1
   rotate: false
   xy: 1559, 1962
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Missionary-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Missionary-Industrial era-2
   rotate: false
   xy: 932, 1311
   size: 95, 81
@@ -2755,7 +2755,7 @@ TileSets/AbsoluteUnits/Units/Settler
   orig: 96, 96
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Ruins Era
+TileSets/AbsoluteUnits/Units/Settler-Ancient era
   rotate: false
   xy: 4, 1457
   size: 96, 96
@@ -2769,7 +2769,7 @@ TileSets/AbsoluteUnits/Units/Settler-1
   orig: 96, 96
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Ruins Era-1
+TileSets/AbsoluteUnits/Units/Settler-Ancient era-1
   rotate: false
   xy: 4, 1353
   size: 96, 96
@@ -2783,49 +2783,49 @@ TileSets/AbsoluteUnits/Units/Settler-2
   orig: 96, 96
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Ruins Era-2
+TileSets/AbsoluteUnits/Units/Settler-Ancient era-2
   rotate: false
   xy: 4, 1249
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Settler-Industrial era
   rotate: false
   xy: 4, 1962
   size: 100, 81
   orig: 100, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Settler-Industrial era-1
   rotate: false
   xy: 4, 1873
   size: 100, 81
   orig: 100, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Settler-Industrial era-2
   rotate: false
   xy: 112, 1962
   size: 100, 81
   orig: 100, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Fortress Era
+TileSets/AbsoluteUnits/Units/Settler-Medieval era
   rotate: false
   xy: 1859, 1681
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Fortress Era-1
+TileSets/AbsoluteUnits/Units/Settler-Medieval era-1
   rotate: false
   xy: 1550, 1339
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Settler-Fortress Era-2
+TileSets/AbsoluteUnits/Units/Settler-Medieval era-2
   rotate: false
   xy: 1653, 1414
   size: 95, 81
@@ -3203,21 +3203,21 @@ TileSets/AbsoluteUnits/Units/Work Boats-2
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Work Boats-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Work Boats-Industrial era
   rotate: false
   xy: 1291, 773
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Work Boats-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Work Boats-Industrial era-1
   rotate: false
   xy: 1147, 747
   size: 64, 56
   orig: 64, 56
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Work Boats-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Work Boats-Industrial era-2
   rotate: false
   xy: 1134, 683
   size: 64, 56
@@ -3252,21 +3252,21 @@ TileSets/AbsoluteUnits/Units/Worker-Barbarians
   orig: 96, 96
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Worker-Reconstruction Era
+TileSets/AbsoluteUnits/Units/Worker-Industrial era
   rotate: false
   xy: 1138, 1147
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Worker-Reconstruction Era-1
+TileSets/AbsoluteUnits/Units/Worker-Industrial era-1
   rotate: false
   xy: 1241, 1161
   size: 95, 81
   orig: 95, 81
   offset: 0, 0
   index: -1
-TileSets/AbsoluteUnits/Units/Worker-Reconstruction Era-2
+TileSets/AbsoluteUnits/Units/Worker-Industrial era-2
   rotate: false
   xy: 1344, 1161
   size: 95, 81
