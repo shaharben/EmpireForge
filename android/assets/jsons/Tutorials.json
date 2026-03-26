@@ -656,8 +656,6 @@
             {},
             {"text":"Roads and Forts\nIn Civilization V, you can't use roads and forts in enemy territory. In EmpireForge, you can use them, so instead of mindlessly constructing them everywhere when at war, you need to decide if and when they'll benefit you more than your opponents."},
             {},
-            {"text":"Survivor Conversion\nIn Civilization V, a citizen is born religious if the parent city is already converted. This is not the case in EmpireForge, which can lead to temporary deconversion of a settlement when it grows."},
-            {},
             {"text":"Unassigned Survivors\nIn Civilization V, unassigned citizens are considered specialists, and subject to the same type of bonuses (e.g. Korea's ability). It can be worthwhile to leave citizens unassigned, instead of being assigned to a tile. Not applicable to EmpireForge."},
             {},
             {"text":"Settler Construction\nIn Civilization V, cities can't starve when constructing settlers, so you can assign all citizens to production tiles and none to food tiles. In EmpireForge, survivors keep consuming two food per turn."},

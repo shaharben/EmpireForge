@@ -209,22 +209,6 @@ class BasicTests {
     }
 
     @Test
-    fun allDoctrineRelatedUniquesHaveTheirUniqueTypes() {
-        val ruleset = RulesetCache[BaseRuleset.Civ_V_GnK.fullName]!!.clone() // vanilla doesn't have doctrines
-        val doctrines = ruleset.beliefs.values
-        var allOK = true
-        for (doctrine in doctrines) {
-            for (unique in doctrine.uniques) {
-                if (!UniqueType.entries.any { it.placeholderText == unique.getPlaceholderText() }) {
-                    println("${doctrine.name}: $unique")
-                    allOK = false
-                }
-            }
-        }
-        Assert.assertTrue("This test succeeds only if all doctrine uniques are presented in UniqueType.entries", allOK)
-    }
-
-    @Test
     fun allEraRelatedUniquesHaveTheirUniqueTypes() {
         val eras = ruleset.eras.values
         var allOK = true
@@ -317,8 +301,7 @@ class BasicTests {
             gold = -4987.297f,
             science = 14880.18f,
             culture = -49435.21f,
-            happiness = -13046.4375f,
-            faith = 7291.375f
+            happiness = -13046.4375f
         )
         // This is dependent on iterator order, so when that changes the expected values must change too
         val stats = statMathRunner(iterations)

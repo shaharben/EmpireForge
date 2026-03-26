@@ -258,14 +258,14 @@ class ResourceTests {
         // given
         val resource = game.createResource(UniqueType.CityResource.text)
         val resourceAndConditionalBuilding = game.createBuilding("Provides [2] [${resource.name}]",
-            "[+1 Faith] <when above [1] [${resource.name}]>")
+            "[+1 Happiness] <when above [1] [${resource.name}]>")
 
         // when
         city.cityConstructions.addBuilding(resourceAndConditionalBuilding)
-        val faith = city.cityStats.currentCityStats.faith
+        val happiness = city.cityStats.currentCityStats.happiness
 
         // then
-        assertEquals(1f, faith)
+        assertEquals(1f, happiness)
     }
 
     @Test

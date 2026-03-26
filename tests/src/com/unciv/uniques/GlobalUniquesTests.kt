@@ -168,30 +168,30 @@ class GlobalUniquesTests {
         val civInfo = game.addCiv()
         val city = game.addCity(civInfo, game.getTile(HexCoord.Zero), true, initialPopulation = 2)
         val specialist = game.createSpecialist()
-        val building = game.createBuilding("[+3 Faith] from every [${specialist}]")
+        val building = game.createBuilding("[+3 Science] from every [${specialist}]")
 
         city.cityConstructions.addBuilding(building)
         city.population.specialistAllocations[specialist] = 2
 
         city.cityStats.update()
-        Assert.assertTrue(city.cityStats.finalStatList["Specialists"]!!.faith == 6f)
+        Assert.assertTrue(city.cityStats.finalStatList["Specialists"]!!.science == 6f)
 
         city.cityConstructions.removeBuilding(building)
-        val building2 = game.createBuilding("[+3 Faith] from every [${Constants.grassland}]")
+        val building2 = game.createBuilding("[+3 Science] from every [${Constants.grassland}]")
         city.cityConstructions.addBuilding(building2)
 
         val tile2 = game.setTileTerrain(HexCoord(0,1), Constants.grassland)
-        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).faith == 3f)
+        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).science == 3f)
 
         city.cityConstructions.removeBuilding(building2)
 
         val emptyBuilding = game.createBuilding()
 
-        val building3 = game.createBuilding("[+3 Faith] from every [${emptyBuilding.name}]")
+        val building3 = game.createBuilding("[+3 Science] from every [${emptyBuilding.name}]")
         city.cityConstructions.addBuilding(emptyBuilding)
         city.cityConstructions.addBuilding(building3)
         city.cityStats.update()
-        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.faith == 3f)
+        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.science == 3f)
     }
 
     @Test
@@ -272,23 +272,23 @@ class GlobalUniquesTests {
         game.makeHexagonalMap(1)
         val emptyBuilding = game.createBuilding()
         val civInfo = game.addCiv(
-                "[+3 Faith] from every [Farm]",
-                "[+200]% [Faith] from every [${emptyBuilding.name}]",
-                "[+200]% [Faith] from every [Farm]",
+                "[+3 Science] from every [Farm]",
+                "[+200]% [Science] from every [${emptyBuilding.name}]",
+                "[+200]% [Science] from every [Farm]",
             )
         val city = game.addCity(civInfo, game.getTile(HexCoord.Zero), true)
-        val faithBuilding = game.createBuilding()
-        faithBuilding.faith = 3f
-        city.cityConstructions.addBuilding(faithBuilding)
+        val scienceBuilding = game.createBuilding()
+        scienceBuilding.science = 3f
+        city.cityConstructions.addBuilding(scienceBuilding)
 
         val tile2 = game.setTileTerrain(HexCoord(0,1), Constants.grassland)
         tile2.setImprovement("Farm")
-        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).faith == 9f)
+        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).science == 9f)
 
         city.cityConstructions.addBuilding(emptyBuilding)
         city.cityStats.update()
 
-        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.faith == 9f)
+        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.science == 9f)
     }
 
     @Test
@@ -296,23 +296,23 @@ class GlobalUniquesTests {
         game.makeHexagonalMap(1)
         val emptyBuilding = game.createBuilding()
         val civInfo = game.addCiv(
-                "[+3 Faith] from every [Farm]",
+                "[+3 Science] from every [Farm]",
                 "[+200]% Yield from every [${emptyBuilding.name}]",
                 "[+200]% Yield from every [Farm]",
             )
         val city = game.addCity(civInfo, game.getTile(HexCoord.Zero), true)
-        val faithBuilding = game.createBuilding()
-        faithBuilding.faith = 3f
-        city.cityConstructions.addBuilding(faithBuilding)
+        val scienceBuilding = game.createBuilding()
+        scienceBuilding.science = 3f
+        city.cityConstructions.addBuilding(scienceBuilding)
 
         val tile2 = game.setTileTerrain(HexCoord(0,1), Constants.grassland)
         tile2.setImprovement("Farm")
-        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).faith == 9f)
+        Assert.assertTrue(tile2.stats.getTileStats(city, civInfo).science == 9f)
 
         city.cityConstructions.addBuilding(emptyBuilding)
         city.cityStats.update()
 
-        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.faith == 9f)
+        Assert.assertTrue(city.cityStats.finalStatList["Buildings"]!!.science == 9f)
     }
 
     @Test
@@ -371,11 +371,11 @@ class GlobalUniquesTests {
         val tile = game.getTile(HexCoord.Zero)
         val city = game.addCity(civInfo, tile, true, 1)
 
-        val building = game.createBuilding("Nullifies [Faith] [in this city]", "[+10 Gold, +10 Faith] [in this city]")
+        val building = game.createBuilding("Nullifies [Science] [in this city]", "[+10 Gold, +10 Science] [in this city]")
         city.cityConstructions.addBuilding(building)
         city.cityStats.update()
         Assert.assertTrue(city.cityStats.finalStatList.map { it.value.gold }.sum() >= 10f)
-        Assert.assertTrue(city.cityStats.finalStatList.map { it.value.faith }.sum() == 0f)
+        Assert.assertTrue(city.cityStats.finalStatList.map { it.value.science }.sum() == 0f)
     }
 
     @Test

@@ -165,8 +165,8 @@ class CountableTests {
     fun testRulesetValidation() {
         /** These are `Pair<String, Int>` with the second being the expected number of parameters to fail UniqueParameterType validation */
         val testData = listOf(
-            "[+42 Faith] <when number of [turns] is less than [42]>" to 0,
-            "[-1 Faith] <for every [turns]> <when number of [turns] is between [0] and [41]>" to 0,
+            "[+42 Gold] <when number of [turns] is less than [42]>" to 0,
+            "[-1 Gold] <for every [turns]> <when number of [turns] is between [0] and [41]>" to 0,
             "[+1 Happiness] <for every [City-States]>" to 0, // +1 deprecation
             "[+1 Happiness] <for every [Remaining [City-State] Civilizations]>" to 0,
             "[+1 Happiness] <for every [[42] Monkeys]>" to 1, // +1 monkeys
@@ -236,7 +236,7 @@ class CountableTests {
     @Test
     fun testForEveryWithInvalidCountable() {
         setupModdedGame(
-            "[+42 Faith] <when number of [turns] is less than [42]>",
+            "[+42 Gold] <when number of [turns] is less than [42]>",
             "[+1 Happiness] <for every [City-States]>",
             "[+1 Happiness] <for every [[42] Monkeys]>",
         )
@@ -261,9 +261,10 @@ class CountableTests {
         city.cityConstructions.addBuilding(providesCoal)
         // one globally
         UniqueTriggerActivation.triggerUnique(Unique("Provides [1] [Coal] <for [2] turns>"), civ)
-        val providesFaithPerCoal = game.createBuilding("[+1 Faith] [in this city] <for every [Coal]>")
-        city.cityConstructions.addBuilding(providesFaithPerCoal)
-        assertEquals(2f, city.cityStats.currentCityStats.faith)
+        val providesCulturePerCoal = game.createBuilding("[+1 Culture] [in this city] <for every [Coal]>")
+        city.cityConstructions.addBuilding(providesCulturePerCoal)
+        // Palace provides 1 culture, plus 1 culture per each of 2 coal = 3
+        assertEquals(3f, city.cityStats.currentCityStats.culture)
     }
 
     @Test
@@ -301,13 +302,13 @@ class CountableTests {
         }
 
         val providesStats =
-            game.createBuilding("[+1 Gold, +2 Food, +3 Production, +4 Happiness, +3 Science, +2 Culture, +1 Faith] [in this city] <when number of [Cities] is equal to [1]>")
+            game.createBuilding("[+1 Gold, +2 Food, +3 Production, +4 Happiness, +3 Science, +2 Culture] [in this city] <when number of [Cities] is equal to [1]>")
         city.cityConstructions.addBuilding(providesStats)
         verifyStats(GameContext(civ, city))
 
         val city2 = game.addCity(civ, game.tileMap[-2,0])
         val providesStats2 =
-            game.createBuilding("[+3 Gold, +2 Food, +1 Production, -4 Happiness, +1 Science, +2 Culture, +3 Faith] [in this city] <when number of [Cities] is more than [1]>")
+            game.createBuilding("[+3 Gold, +2 Food, +1 Production, -4 Happiness, +1 Science, +2 Culture] [in this city] <when number of [Cities] is more than [1]>")
         city2.cityConstructions.addBuilding(providesStats2)
         verifyStats(GameContext(civ, city2))
     }
@@ -492,7 +493,7 @@ class CountableTests {
         },
             "Quick" to "Production", 67,
             "Standard" to "Gold", 100,
-            "Marathon" to "Faith", 300,
+            "Marathon" to "Culture", 300,
         )
     }
 
